@@ -1,0 +1,91 @@
+taskKey="com.codegym.games.minesweeper.part07"\n\nMinesweeper (Part 7/16)
+
+At this stage, we'll deal with the logic to reveal cells. Let's create a corresponding method
+and a variable that will store the cell state (revealed or hidden). When revealing a cell, the method will:
+- draw a mine in the cell if it contains a mine;
+- display the number of mined neighbors if the cell does not contain a mine;
+- mark the cell as revealed in the model;
+- change the cell color.
+For convenience, we suggest adding the mine symbol to a separate constant. When the a cell be revealed? Correct!
+When you click on it with the left mouse button. To handle this click event, the engine has a special method: onMouseLeftClick(int, int).
+Let's override it in our class. It will call the method that reveals a cell.
+And, of course, run the program and enjoy the results of your work.
+
+
+Requirements:
+1.	The MinesweeperGame class must have a private static final String MINE field that is initialized when it is declared. For example, you can use the UTF-16 symbol for a bomb: &quot;\uD83D\uDCA3&quot;.
+2.	The MinesweeperGame class must have a private void openTile(int x, int y) method.
+3.	The openTile(int, int) method must draw MINE if the gameObject at the passed coordinates is a mine. Use the setCellValue(int, int, String) method.
+4.	The openTile(int, int) method must draw the number of adjacent mines if the gameObject at the passed coordinates is not a mine. Use the setCellNumber(int, int, int) method.
+5.	The GameObject class must have a public boolean isOpen field.
+6.	The openTile(int, int) method should set the isOpen field on the gameField element equal to true and use the setCellColor(int, int, Color) method to draw the cell background. For example, using Color.GREEN.
+7.	The MinesweeperGame class must override the Game parent class&#39;s onMouseLeftClick(int, int) method.
+8.	The onMouseLeftClick(int, int) method must call the openTile(int, int) method.
+
+
+Minesweeper (Part 6/16)
+
+Now let's count the mines in adjacent cells. To do this, we'll add a field to each cell of the matrix,
+which will be responsible for the number of mined neighbors. First, we find all the neighbors,
+and then we count how many of them are mined.
+To get the list of neighbors, you now have the getNeighbors() method, which has one GameObject (cell) parameter.
+Your task is to, in a separate method, count the number of mined neighbors for each cell in gameField
+and assign this value to the appropriate field of the cell.
+Although your work is not visible (you started program to see what happens, right?), it is very important to future steps.
+
+
+
+Minesweeper (Part 5/16)
+
+Minesweeper is aptly named. The player has to deal with mines, though maybe it would be best for the player to stay far away from them :)
+Let's add these mines to the game. To do this, we'll adapt the GameObject class to account
+for the fact that a cell can be a mine (by adding the isMine flag).
+Don't create a new constructor: editing the existing constructor will suffice.
+Additionally, when creating the cells, add code that generates mines with a probability of 10%. The easiest way is
+to use the Game class's getRandomNumber(int n) method, which returns a random number from
+0 to n-1 inclusive. Therefore, the probability of generating a certain number is 1/n.
+And don't forget to count the number of generated mines in the MinesweeperGame class.
+Once you've done all that, run the program and check that nothing is broken :)
+
+
+
+Minesweeper (Part 4/16)
+
+We need to store the state of the playing field's cells somewhere.
+To do this, create a matrix (two-dimensional array) with the dimensions of the playing field.
+Populate the matrix with GameObject objects using this formula:
+gameField[y][x] = new GameObject(x, y);
+
+Now let's display all the cells on the screen.
+The Game class's setCellColor(int, int, Color) method, whose parameters are the cell coordinates and color, will help us accomplish this.
+Call it for each cell and pass the cell coordinates and any color (for example, Color.ORANGE) as arguments.
+We suggest putting the logic to draw the matrix into a separate createGame() method,
+which we then call from the initialize method(). Run the program and see what happens.
+
+Hint: use loops to call the setCellColor(int, int, Color) method for each cell of the matrix.
+
+
+
+Minesweeper (Part 3/16)
+
+Because our game will use game objects (cells), we'll create a separate GameObject class
+to describe them. Let's think about what the game object needs. Naturally, we need
+its x and y coordinates on the playing field. And how can we get by without a constructor? After you do everything,
+don't forget to run the program and look at the result.
+
+
+
+Minesweeper (Part 2/16)
+
+Our playing field is kind of small, don't you think? It should be 9x9 cells:
+1) There is a setScreenSize(int, int) method to set the size of the field
+2) This method takes width and height arguments (the number of cells wide and high)
+3) the dimensions of the field will be used frequently, so it's convenient to put them in a constant named SIDE
+4) the result should be a call like this: setScreenSize(SIDE, SIDE);
+5) this call should occur in the initialize method()
+6) this means that the initialize() method must be declared in the MinesweeperGame class
+
+Check the results of your work — run the program.
+
+
+
