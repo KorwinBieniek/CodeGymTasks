@@ -40,7 +40,7 @@ public class Solution {
 
         @Override
         public void run() {
-            System.out.println("DecoratorMyRunnableImpl body ");
+            System.out.print("DecoratorMyRunnableImpl body ");
             component.run();
         }
     }
