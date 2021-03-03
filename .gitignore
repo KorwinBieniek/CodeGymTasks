@@ -10,6 +10,7 @@ target/
 *.info
 *.properties
 
+/8.Games/src/MinesweeperGame.java
 /out/
 /CodeGymPlugin.properties
 /Instruction.png
