@@ -41,7 +41,7 @@ public class Hippodrome {
     }
 
     public void printWinner() {
-        System.out.println("The winner is " + getWinner().getName() + "!");
+        System.out.println("Winner is " + getWinner().getName() + "!");
     }
 
     public Hippodrome(List<Horse> horses) {
@@ -59,5 +59,6 @@ public class Hippodrome {
         game.getHorses().add(new Horse("Homer", 3, 0));
 
         game.run();
+        game.printWinner();
     }
 }

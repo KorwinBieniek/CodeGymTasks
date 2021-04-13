@@ -1,4 +1,17 @@
-taskKey="com.codegym.task.task21.task2113.big15"\n\nHippodrome (part 15)
+taskKey="com.codegym.task.task21.task2113.big16"\n\nHippodrome (part 16)
+
+
+Now we're done for sure.
+Add a call to the printWinner method to the end of the main method.
+Launch and enjoy your first computer game. :)
+
+
+
+Requirements:
+1.	The printWinner method must be called in the main method after the run method.
+
+
+Hippodrome (part 15)
 
 
 Add code to announce the winner.
@@ -11,12 +24,6 @@ The winner is <name>!
 Example:
 The winner is Lucky!
 
-
-Requirements:
-1.	A getWinner method with no parameters must be created in the Hippodrome class.
-2.	A printWinner method with no parameters must be created in the Hippodrome class.
-3.	The getWinner method must return the horse that has run the farthest.
-4.	The printWinner method should display the winner&#39;s name on the screen in the format specified in the task conditions.
 
 
 Hippodrome (part 14)
@@ -78,15 +85,6 @@ But where do you get the object?
 
 Hint 2:
 game.run();
-
-
-
-Hippodrome (part 10)
-
-
-We still need to write the Hippodrome class's print method.
-Everything is simple here, too: In a loop, we call the print method on each horse.
-Oh, and display 10 empty lines after the loop (using System.out.println()) to make it more beautiful.
 
 
 
