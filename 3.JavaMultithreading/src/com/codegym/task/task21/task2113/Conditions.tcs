@@ -1,4 +1,20 @@
-taskKey="com.codegym.task.task21.task2113.big06"\n\nHippodrome (part 6)
+taskKey="com.codegym.task.task21.task2113.big07"\n\nHippodrome (part 7)
+
+
+But that's not all. We need to make the horses run.
+Add run, move, and print methods to the Hippodrome class. Without parameters.
+The move method will control the movement of all horses.
+The print method will draw them on the screen.
+And the run method manages it all.
+
+
+Requirements:
+1.	A run method with no parameters must be created in the Hippodrome class.
+2.	A move method with no parameters must be created in the Hippodrome class.
+3.	A print method with no parameters must be created in the Hippodrome class.
+
+
+Hippodrome (part 6)
 
 
 Now let's move on to the Hippodrome class and the main method.
@@ -12,14 +28,6 @@ a) Create a Hippodrome object and save it in the game field.
 b) Create three Horse objects. Make up their names yourself. Each horse's initial speed is 3, and its distance is 0.
 c) Add the created horses to the hippodrome's list of horses (horses). You can use the getHorses method to get the list of horses.
 
-
-Requirements:
-1.	A Hippodrome game field must be created in the Hippodrome class.
-2.	The game field must be static.
-3.	The game field must NOT be private.
-4.	The game field must be initialized in the main method.
-5.	Three horses must be added to the horse list in the main method.
-6.	The speed of all horses must be 3, and their distance must be 0.
 
 
 Hippodrome (part 5)
@@ -61,20 +69,6 @@ So our hippodrome should store a list of its horses.
 Add a List<Horse> horses field to the Hippodrome class.
 And to ensure that the horses won't be stolen, make this field private.
 Add a getter for this field.
-
-
-
-Hippodrome (part 1)
-
-
-Today we'll write a small game called 'Hippodrome'.
-And when I say we, I mean you. I will be your mentor.
-
-To start, we'll need Hippodrome and Horse classes.
-Create the Hippodrome and Horse classes.
-
-And don't forget that every program starts with a main method.
-Add one to the Hippodrome class.
 
 
 

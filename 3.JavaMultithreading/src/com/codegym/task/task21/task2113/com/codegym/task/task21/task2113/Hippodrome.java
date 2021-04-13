@@ -7,6 +7,15 @@ public class Hippodrome {
     static com.codegym.task.task21.task2113.Hippodrome game;
     private List<Horse> horses;
 
+    void run() {
+    }
+
+    void move() {
+    }
+
+    void print() {
+    }
+
     public Hippodrome(List<Horse> horses) {
         this.horses = horses;
     }
