@@ -7,15 +7,21 @@ public class Hippodrome {
     static com.codegym.task.task21.task2113.Hippodrome game;
     private List<Horse> horses;
 
-    void run() {
+    void run() throws InterruptedException {
+        for (int i = 0; i < 100; i++) {
+            move();
+            print();
+            Thread.sleep(200);
+        }
     }
 
     void move() {
+
     }
 
     void print() {
-    }
 
+    }
     public Hippodrome(List<Horse> horses) {
         this.horses = horses;
     }

@@ -1,4 +1,19 @@
-taskKey="com.codegym.task.task21.task2113.big07"\n\nHippodrome (part 7)
+taskKey="com.codegym.task.task21.task2113.big08"\n\nHippodrome (part 8)
+
+
+Make a loop from 1 to 100 in the run method. This will be our race.
+In the body of the loop, we'll call move first, then print.
+To prevent the whole loop from finishing in a split second, add Thread.sleep(200); as well.
+
+
+Requirements:
+1.	In the Hippodrome class&#39;s run method, the move method must be called 100 times.
+2.	In the Hippodrome class&#39;s run method, the print method must be called 100 times.
+3.	In the Hippodrome class&#39;s run method, the Thread.sleep(200) method must be called 100 times.
+4.	The print method must be called after the move method.
+
+
+Hippodrome (part 7)
 
 
 But that's not all. We need to make the horses run.
@@ -7,11 +22,6 @@ The move method will control the movement of all horses.
 The print method will draw them on the screen.
 And the run method manages it all.
 
-
-Requirements:
-1.	A run method with no parameters must be created in the Hippodrome class.
-2.	A move method with no parameters must be created in the Hippodrome class.
-3.	A print method with no parameters must be created in the Hippodrome class.
 
 
 Hippodrome (part 6)
@@ -58,17 +68,6 @@ Hippodrome (part 3)
 Even though we've declared the horses variable, we haven't yet created the list itself (unless of course you've managed to get ahead of us).
 Create a Hippodrome class constructor with one List parameter.
 Save the passed list in the horses field (initialize the horses field).
-
-
-
-Hippodrome (part 2)
-
-
-Hey, we've got a hippodrome, and it should have some horses.
-So our hippodrome should store a list of its horses.
-Add a List<Horse> horses field to the Hippodrome class.
-And to ensure that the horses won't be stolen, make this field private.
-Add a getter for this field.
 
 
 
