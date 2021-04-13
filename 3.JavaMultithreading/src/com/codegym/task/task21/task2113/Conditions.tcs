@@ -1,14 +1,28 @@
-taskKey="com.codegym.task.task21.task2113.big10"\n\nHippodrome (part 10)
+taskKey="com.codegym.task.task21.task2113.big11"\n\nHippodrome (part 11)
+
+
+We're almost done with the Hippodrome class.
+Add a call to run() at the end of the main method.
+
+Hint:
+The run() method is not static, so you can only call it on an object.
+But where do you get the object?
+
+Hint 2:
+game.run();
+
+
+Requirements:
+1.	The main method must call the run method on a Hippodrome object.
+
+
+Hippodrome (part 10)
 
 
 We still need to write the Hippodrome class's print method.
 Everything is simple here, too: In a loop, we call the print method on each horse.
 Oh, and display 10 empty lines after the loop (using System.out.println()) to make it more beautiful.
 
-
-Requirements:
-1.	In the Hippodrome class&#39;s print method, the print method must be called once on each horse (each element of the horses list).
-2.	The print method should display 10 blank lines on the screen.
 
 
 Hippodrome (part 9)
@@ -59,16 +73,6 @@ The main method requires the following:
 a) Create a Hippodrome object and save it in the game field.
 b) Create three Horse objects. Make up their names yourself. Each horse's initial speed is 3, and its distance is 0.
 c) Add the created horses to the hippodrome's list of horses (horses). You can use the getHorses method to get the list of horses.
-
-
-
-Hippodrome (part 5)
-
-
-Finish writing the Horse class.
-Add a constructor with name, speed, and distance parameters.
-Add getters and setters for all the fields in the Horse class.
-Make all of the methods public unless indicated otherwise.
 
 
 

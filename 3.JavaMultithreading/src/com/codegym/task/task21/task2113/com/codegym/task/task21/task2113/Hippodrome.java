@@ -38,10 +38,12 @@ public class Hippodrome {
         return horses;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         game = new com.codegym.task.task21.task2113.Hippodrome(new ArrayList<>());
         game.getHorses().add(new Horse("Lucky", 3, 0));
         game.getHorses().add(new Horse("Slevin", 3, 0));
         game.getHorses().add(new Horse("Homer", 3, 0));
+
+        game.run();
     }
 }
