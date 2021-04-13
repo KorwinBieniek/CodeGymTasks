@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task21.task2113.big13"\n\nHippodrome (part 13)
+taskKey="com.codegym.task.task21.task2113.big14"\n\nHippodrome (part 14)
+
+
+Time to enjoy our creation.
+A new snapshot of the racetrack is displayed every half second.
+Use the mouse to decrease the size of the console so that only one "snapshot" is visible at a time and remains in the same place.
+Then you can watch the race live and even commentate:
+- They're off!
+- Homer suddenly flies past Lucky.
+- Slevin rushes forward.
+- Lucky takes the lead!
+- 10 bucks on Slevin.
+- Looks like Lucky has thrown off his jockey and is cooling off.
+- Homer bursts head.
+- An entirely unexpected win for Homer! What a trick!
+
+
+Requirements:
+1.	Relax and enjoy.
+
+
+Hippodrome (part 13)
 
 
 Now we'll return to the Horse class's print method.
@@ -10,9 +31,6 @@ Because we're working with the console, then all the racing horses will look som
 In other words, the print method should display a string consisting of dots and the horse's name.
 The number of dots is equal to distance, rounded down to an integer.
 
-
-Requirements:
-1.	The print method should display a string consisting of dots and the horse&#39;s name. The number of dots is equal to the integer part of the distance.
 
 
 Hippodrome (part 12)
@@ -66,15 +84,6 @@ Oh, and the print method, too.
 If I don't say anything about a method's parameters, then the method doesn't have any parameters.
 Make all of the methods public unless indicated otherwise.
 
-
-
-
-Hippodrome (part 8)
-
-
-Make a loop from 1 to 100 in the run method. This will be our race.
-In the body of the loop, we'll call move first, then print.
-To prevent the whole loop from finishing in a split second, add Thread.sleep(200); as well.
 
 
 
