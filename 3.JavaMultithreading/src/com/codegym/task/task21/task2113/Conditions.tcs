@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task21.task2113.big05"\n\nHippodrome (part 5)
+taskKey="com.codegym.task.task21.task2113.big06"\n\nHippodrome (part 6)
+
+
+Now let's move on to the Hippodrome class and the main method.
+We need to create a Hippodrome object and add some horses to it.
+
+To start, in the Hippodrome class:
+Create a static Hippodrome game field.
+
+The main method requires the following:
+a) Create a Hippodrome object and save it in the game field.
+b) Create three Horse objects. Make up their names yourself. Each horse's initial speed is 3, and its distance is 0.
+c) Add the created horses to the hippodrome's list of horses (horses). You can use the getHorses method to get the list of horses.
+
+
+Requirements:
+1.	A Hippodrome game field must be created in the Hippodrome class.
+2.	The game field must be static.
+3.	The game field must NOT be private.
+4.	The game field must be initialized in the main method.
+5.	Three horses must be added to the horse list in the main method.
+6.	The speed of all horses must be 3, and their distance must be 0.
+
+
+Hippodrome (part 5)
 
 
 Finish writing the Horse class.
@@ -6,14 +30,6 @@ Add a constructor with name, speed, and distance parameters.
 Add getters and setters for all the fields in the Horse class.
 Make all of the methods public unless indicated otherwise.
 
-
-Requirements:
-1.	In the Horse class, a constructor must be created with String name, double speed, and double distance parameters.
-2.	The Horse class constructor must correctly initialize the fields using the passed arguments.
-3.	In the Horse class, getters must be created for all of the fields in the class.
-4.	In the Horse class, setters must be created for all of the fields in the class.
-5.	The getters in the Horse class must return the values of the corresponding fields.
-6.	The setters in the Horse class must set the the values of the corresponding fields.
 
 
 Hippodrome (part 4)
