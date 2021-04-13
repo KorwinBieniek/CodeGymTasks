@@ -1,4 +1,21 @@
-taskKey="com.codegym.task.task21.task2113.big12"\n\nHippodrome (part 12)
+taskKey="com.codegym.task.task21.task2113.big13"\n\nHippodrome (part 13)
+
+
+Now we'll return to the Horse class's print method.
+Because we're working with the console, then all the racing horses will look something like this:
+........Slevin
+....Lucky
+..........Homer
+
+In other words, the print method should display a string consisting of dots and the horse's name.
+The number of dots is equal to distance, rounded down to an integer.
+
+
+Requirements:
+1.	The print method should display a string consisting of dots and the horse&#39;s name. The number of dots is equal to the integer part of the distance.
+
+
+Hippodrome (part 12)
 
 
 There's just a little left to do: finish writing the Horse class.
@@ -11,9 +28,6 @@ But to make it more interesting, let's make the speed change a little bit all th
 To achieve this, multiply the speed by a random number.
 A random number can be obtained using the Math.random() method.
 
-
-Requirements:
-1.	In the Horse class&#39;s move method, the value of the distance field must increase by the distance traveled in one &quot;step&quot; (value of the speed field) multiplied by a random number between zero and one obtained using the Math.random() method.
 
 
 Hippodrome (part 11)
@@ -61,17 +75,6 @@ Hippodrome (part 8)
 Make a loop from 1 to 100 in the run method. This will be our race.
 In the body of the loop, we'll call move first, then print.
 To prevent the whole loop from finishing in a split second, add Thread.sleep(200); as well.
-
-
-
-Hippodrome (part 7)
-
-
-But that's not all. We need to make the horses run.
-Add run, move, and print methods to the Hippodrome class. Without parameters.
-The move method will control the movement of all horses.
-The print method will draw them on the screen.
-And the run method manages it all.
 
 
 
