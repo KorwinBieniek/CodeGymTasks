@@ -34,4 +34,12 @@ public class Horse {
         this.speed = speed;
         this.distance = distance;
     }
+
+    void move() {
+
+    }
+
+    void print() {
+
+    }
 }

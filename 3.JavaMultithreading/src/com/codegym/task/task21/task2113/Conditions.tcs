@@ -1,16 +1,30 @@
-taskKey="com.codegym.task.task21.task2113.big08"\n\nHippodrome (part 8)
+taskKey="com.codegym.task.task21.task2113.big09"\n\nHippodrome (part 9)
+
+
+Now let's return to the move and print methods. Let's start with move.
+In the Hippodrome class's move method, we call the move method on each horse in the loop.
+
+Yes, you're right: the Horse class doesn't have it yet.
+This means you need to add your own move method to the Horse class. :)
+Oh, and the print method, too.
+If I don't say anything about a method's parameters, then the method doesn't have any parameters.
+Make all of the methods public unless indicated otherwise.
+
+
+
+Requirements:
+1.	The move method must be created in the Horse class.
+2.	The print method must be created in the Horse class.
+3.	In the Hippodrome class&#39;s move method, the move method must be called once on each horse (each element of the horses list).
+
+
+Hippodrome (part 8)
 
 
 Make a loop from 1 to 100 in the run method. This will be our race.
 In the body of the loop, we'll call move first, then print.
 To prevent the whole loop from finishing in a split second, add Thread.sleep(200); as well.
 
-
-Requirements:
-1.	In the Hippodrome class&#39;s run method, the move method must be called 100 times.
-2.	In the Hippodrome class&#39;s run method, the print method must be called 100 times.
-3.	In the Hippodrome class&#39;s run method, the Thread.sleep(200) method must be called 100 times.
-4.	The print method must be called after the move method.
 
 
 Hippodrome (part 7)
@@ -59,15 +73,6 @@ The horse that runs the farthest is the winner.
 Accordingly, we'll also need to store the distance the horse has already run.
 
 Add String name, double speed, and double distance variables to the Horse class.
-
-
-
-Hippodrome (part 3)
-
-
-Even though we've declared the horses variable, we haven't yet created the list itself (unless of course you've managed to get ahead of us).
-Create a Hippodrome class constructor with one List parameter.
-Save the passed list in the horses field (initialize the horses field).
 
 
 
