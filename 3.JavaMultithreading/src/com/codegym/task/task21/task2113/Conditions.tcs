@@ -1,4 +1,17 @@
-taskKey="com.codegym.task.task21.task2113.big09"\n\nHippodrome (part 9)
+taskKey="com.codegym.task.task21.task2113.big10"\n\nHippodrome (part 10)
+
+
+We still need to write the Hippodrome class's print method.
+Everything is simple here, too: In a loop, we call the print method on each horse.
+Oh, and display 10 empty lines after the loop (using System.out.println()) to make it more beautiful.
+
+
+Requirements:
+1.	In the Hippodrome class&#39;s print method, the print method must be called once on each horse (each element of the horses list).
+2.	The print method should display 10 blank lines on the screen.
+
+
+Hippodrome (part 9)
 
 
 Now let's return to the move and print methods. Let's start with move.
@@ -11,11 +24,6 @@ If I don't say anything about a method's parameters, then the method doesn't hav
 Make all of the methods public unless indicated otherwise.
 
 
-
-Requirements:
-1.	The move method must be created in the Horse class.
-2.	The print method must be created in the Horse class.
-3.	In the Hippodrome class&#39;s move method, the move method must be called once on each horse (each element of the horses list).
 
 
 Hippodrome (part 8)
@@ -61,18 +69,6 @@ Finish writing the Horse class.
 Add a constructor with name, speed, and distance parameters.
 Add getters and setters for all the fields in the Horse class.
 Make all of the methods public unless indicated otherwise.
-
-
-
-Hippodrome (part 4)
-
-
-Now back to the horses. Every horse in a horse race must have a name and speed.
-Our horses will simply run a certain amount of time (100 seconds or "steps").
-The horse that runs the farthest is the winner.
-Accordingly, we'll also need to store the distance the horse has already run.
-
-Add String name, double speed, and double distance variables to the Horse class.
 
 
 
