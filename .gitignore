@@ -7,10 +7,13 @@ target/
 .repository/
 *.iml
 *.iws
+*.tcs
 *.info
 *.properties
 
-/8.Games/src/MinesweeperGame.java
+/1.JavaSyntax/
+/2.JavaCore/
+
 /out/
 /CodeGymPlugin.properties
 /Instruction.png
