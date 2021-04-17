@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task23.task2312.big11"\n\nSnake (part 11)
+taskKey="com.codegym.task.task23.task2312.big12"\n\nSnake (part 12)
+
+
+We have a snake, so let's have a mouse.
+
+Add the following to the main method:
+a) a call the createMouse() method.
+b) a call the run() method.
+Nothing will happen without it. It has all the main logic.
+Not bad, but I'll still make a couple of changes.
+For example, how about writing a sleep method?
+From the previous tasks, you've already realized that the run method needs a pause.
+But as I recall, the snake's speed should grow with its length.
+This means that the longer the snake, the faster its speed and the shorter the pause.
+
+
+Requirements:
+1.	In the Room class&#39;s main method, the createMouse method must be called on a Room object.
+2.	In the Room class&#39;s main method, the run method must be called on a Room object.
+3.	A sleep method with no parameters must be created in the Room class.
+
+
+Snake (part 11)
 
 
 Now the logic for controlling the mouse.
@@ -15,12 +37,6 @@ int x = (int) (Math.random() * width);
 We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
 For now, this method won't have complex logic. We'll just call the createMouse method.
 
-
-Requirements:
-1.	The createMouse method must be created in the Room class.
-2.	In the createMouse method, a new mouse must be created according to the task conditions and stored in the mouse field.
-3.	The eatMouse method must be created in the Room class.
-4.	The eatMouse method should include a call to the createMouse method.
 
 
 Snake (part 10)
@@ -105,20 +121,6 @@ For boolean fields, the getter is usually named isValue(), not getValue(), to im
 But don't call it isIsAlive(). One "is" will be enough.
 Note 2:
 All fields created in this task should be private, while all of the methods should be public.
-
-
-
-Snake (part 6)
-
-
-Now let's tackle the SnakeSection class.
-It will describe one piece of the snake.
-
-And what does each piece have?
-Right! Coordinates.
-
-Add two fields to the SnakeSection class: int x and int y.
-Add getters for these fields and a constructor with two int parameters.
 
 
 

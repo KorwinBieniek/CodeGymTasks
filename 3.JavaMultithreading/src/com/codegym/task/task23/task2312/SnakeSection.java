@@ -10,7 +10,6 @@ public class SnakeSection {
     }
 
     public int getX() {
-
         return x;
     }
 

@@ -14,13 +14,11 @@ public class Snake {
         isAlive = true;
     }
 
-    public int getX()
-    {
+    public int getX() {
         return sections.get(0).getX();
     }
 
-    public int getY()
-    {
+    public int getY() {
         return sections.get(0).getY();
     }
 
@@ -29,12 +27,10 @@ public class Snake {
     }
 
     public List<SnakeSection> getSections() {
-
         return sections;
     }
 
     public void move() {
-
     }
 
     public boolean isAlive() {

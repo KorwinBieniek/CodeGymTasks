@@ -40,7 +40,6 @@ public class KeyboardObserver extends Thread {
             }
         });
 
-
         frame.addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {
@@ -56,7 +55,6 @@ public class KeyboardObserver extends Thread {
             }
         });
     }
-
 
     public boolean hasKeyEvents() {
         return !keyEvents.isEmpty();
