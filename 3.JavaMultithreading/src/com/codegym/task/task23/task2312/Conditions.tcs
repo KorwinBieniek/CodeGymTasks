@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task23.task2312.big01"\n\nSnake (part 1)
+
+
+Now let's write the "Snake" game.
+To do this, we need:
+a) the snake itself (Snake class)
+b) the room where it slithers around (Room class)
+c) the mouse that the snake will eat (Mouse class)
+
+Create the Snake, Room, and Mouse classes
+
+Don't forget to create the public static void main(String[] args) method in the Room class.
+
+
+Requirements:
+1.	The Snake class must be in a separate file.
+2.	The Room class must be in a separate file.
+3.	The Mouse class must be in a separate file.
+4.	The Room class must contain a properly declared main method.
+
+
