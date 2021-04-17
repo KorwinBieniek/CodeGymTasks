@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task23.task2312.big08"\n\nSnake (part 8)
+taskKey="com.codegym.task.task23.task2312.big09"\n\nSnake (part 9)
+
+
+The most important class remains: Room.
+What do we need to describe it?
+One, the dimensions of the room (width and height).
+Two, a Snake
+Three, a Mouse.
+
+Here's what we need:
+a) create int width and height variables in the Room class.
+b) create a Snake snake variables in the Room class.
+c) create a Snake mouse variable in the Room class. Just kidding. I mean a Mouse, of course :).
+d) create getters and setters for all of them.
+e) create a constructor. The constructor must have three parameters: width, height, and... snake!
+
+
+Requirements:
+1.	A private int width variable must be created in the Room class.
+2.	A private int height variable must be created in the Room class.
+3.	A private Snake snake variable must be created in the Room class.
+4.	A private Mouse mouse variable must be created in the Room class.
+5.	A proper public getter for the width field must be created in the Room class.
+6.	A proper public getter for the height field must be created in the Room class.
+7.	A proper public getter for the snake field must be created in the Room class.
+8.	A proper public getter for the mouse field must be created in the Room class.
+9.	A proper public setter for the width field must be created in the Room class.
+10.	A proper public setter for the height field must be created in the Room class.
+11.	A proper public setter for the snake field must be created in the Room class.
+12.	A proper public setter for the mouse field must be created in the Room class.
+13.	A proper public constructor with (int width, int height, Snake snake) parameters must be created in the Room class.
+
+
+Snake (part 8)
 
 
 It's the Snake class constructor's turn.
@@ -18,12 +51,6 @@ e) create and implement the int getY() method. The method should return the y-co
 g) also add a move() method to the class—it will come in handy later.
 h) the constructor must be public.
 
-
-Requirements:
-1.	A correctly functioning (according to the task conditions) public constructor with two int parameters must be created in the Snake class.
-2.	A no-parameter getX() method that returns the x-coordinate of the zeroth element of the sections list must be created in the Snake class.
-3.	A no-parameter getY() method that returns the y-coordinate of the zeroth element of the sections list must be created in the Snake class.
-4.	The move method must be created in the Snake class.
 
 
 Snake (part 7)
@@ -89,18 +116,6 @@ Snake (part 4)
 
 You've already declared coordinates x and y in the Mouse class, but how do you access them?
 Create proper getters for these fields and a constructor with two int parameters (x and y).
-
-
-
-Snake (part 3)
-
-
-Great. I also added the KeyboardObserver class, which we'll use later.
-Study it carefully. It will come in handy.
-
-Let's start with the simplest thing: the Mouse class.
-The mouse won't move. It will have only coordinates and nothing else.
-Add two private fields to the Mouse class: int x and int y.
 
 
 
