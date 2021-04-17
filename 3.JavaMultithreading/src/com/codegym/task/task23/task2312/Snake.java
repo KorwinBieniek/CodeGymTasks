@@ -65,7 +65,30 @@ public class Snake {
      * This method moves the snake to the adjacent cell.
      * The cell coordinates (dx, dy) are given relative to the snake's current head position.
      */
-    private void move(int dx, int dy) {
+    void move(int dx, int dy) {
+        // Create a new head (a new "snake section").
+        SnakeSection head = sections.get(0);
+        head = new SnakeSection(head.getX() + dx, head.getY() + dy);
+
+        // Check whether the snake has slithered beyond the room
+        checkBorders(head);
+        if (!isAlive) return;
+
+        // Check whether the snake is intersecting itself
+        checkBody(head);
+        if (!isAlive) return;
+
+        // Check whether the snake ate the mouse.
+        Mouse mouse = Room.game.getMouse();
+        if (head.getX() == mouse.getX() && head.getY() == mouse.getY()) // Ate it
+        {
+            sections.add(0, head);                  // Add a new head
+            Room.game.eatMouse();                   // We aren't deleting the tail, but we'll create a new mouse.
+        } else // Just moving
+        {
+            sections.add(0, head);                  // Add a new head
+            sections.remove(sections.size() - 1);   // Delete the last element with a tail
+        }
     }
 
     /**

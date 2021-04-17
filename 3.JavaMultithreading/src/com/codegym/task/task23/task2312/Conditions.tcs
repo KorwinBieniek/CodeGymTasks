@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task23.task2312.big16"\n\nSnake (part 16)
+taskKey="com.codegym.task.task23.task2312.big17"\n\nSnake (part 17)
+
+
+Now we'll finish the Snake class.
+
+The snake consists of pieces. Each turn, let's just add one piece at the head,
+and delete the last one. This will make the snake appear to slither.
+You need to add the piece next to the current head (index 0).
+The side you add it to depends on the direction (UP, DOWN, LEFT, RIGHT).
+Hint:
+a) How do you add a piece of the snake to the top of the sections list?
+sections.add(0, new_section);
+b) And how do you delete the last one?
+sections.remove(sections.size()-1);
+
+We need to implement the move(int dx, int dy) method:
+a) check whether the snake slithered out of the room (if so, it dies)
+b) check whether the new section coincides with any of the existing pieces of snake (if so, the snake dies)
+c) add a new section to the snake (to the head) and remove the last piece from its tail.
+d) if the mouse's coordinates match the coordinates of the snake's head, call the eatMouse method on the Room class's static game object.
+e) if the snake catches the mouse (the coordinates of the snake's head match the coordinates of the mouse), then you don't need to remove a piece from the tail.
+
+
+Requirements:
+1.	The checkBorders method must be called in the move(int dx, int dy) method.
+2.	The checkBody method must be called in the move(int dx, int dy) method.
+3.	If the snake is still alive, then we need to add a head and remove the last element from the snake&#39;s tail.
+4.	If the snake catches a mouse, we need to add a head, but we won&#39;t delete the last element.
+5.	If the mouse&#39;s coordinates match the coordinates of the snake&#39;s head, you must call the eatMouse method on the Room class&#39;s static game object.
+
+
+Snake (part 16)
 
 
 Nothing is forever... That's why the snake must die if it hits a wall or itself.
@@ -19,12 +50,6 @@ b) implement the checkBorders(SnakeSection head) method: if the snake's head is 
 c) implement the checkBody(SnakeSection head) method: if the snake's head intersects its body, the snake dies (isAlive = false)
 
 
-
-Requirements:
-1.	The SnakeSection class must have an equals method.
-2.	The SnakeSection class must have a hashCode method.
-3.	The checkBorders method in the Snake class must be implemented according to the task conditions.
-4.	The checkBody method in the Snake class must be implemented according to the task conditions.
 
 
 Snake (part 15)
@@ -90,25 +115,6 @@ For example, how about writing a sleep method?
 From the previous tasks, you've already realized that the run method needs a pause.
 But as I recall, the snake's speed should grow with its length.
 This means that the longer the snake, the faster its speed and the shorter the pause.
-
-
-
-Snake (part 11)
-
-
-Now the logic for controlling the mouse.
-Two things happen with the mouse.
-First, the snake eats the mouse.
-Second, a new mouse appears at a random place in the room.
-
-You must write and implement the createMouse() method in the Room class.
-This method should just create a new mouse with random coordinates in the room.
-How do you get random coordinates?
-You should already know. But just in case, I'll give you a clue:
-int x = (int) (Math.random() * width);
-
-We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
-For now, this method won't have complex logic. We'll just call the createMouse method.
 
 
 
