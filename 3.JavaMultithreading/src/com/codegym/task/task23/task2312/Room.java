@@ -1,6 +1,8 @@
 package com.codegym.task.task23.task2312;
 
+
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 /**
  * The program's main class.
@@ -94,9 +96,31 @@ public class Room {
      */
     public void print() {
         // Create an array where we will "draw" the current game state
+        int[][] matrix = new int[height][width];
+
         // Draw all the parts of the snake
+        ArrayList<SnakeSection> sections = new ArrayList<SnakeSection>(snake.getSections());
+        for (SnakeSection snakeSection : sections) {
+            matrix[snakeSection.getY()][snakeSection.getX()] = 1;
+        }
+
+        // Draw the head of the snake (4 - if the snake is dead)
+        matrix[snake.getY()][snake.getX()] = snake.isAlive() ? 2 : 4;
+
         // Draw the mouse
+        matrix[mouse.getY()][mouse.getX()] = 3;
+
         // Display it all on the screen
+        String[] symbols = {".", "x", "X", "^", "*"};
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                System.out.print(symbols[matrix[y][x]]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
     /**
@@ -138,7 +162,7 @@ public class Room {
             int level = snake.getSections().size();
             int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
             Thread.sleep(delay);
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
         }
     }
 }
