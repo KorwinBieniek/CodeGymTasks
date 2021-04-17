@@ -54,6 +54,39 @@ public class Room {
      * This is where all the important actions happen.
      */
     public void run() {
+        // Create a KeyboardObserver object and start it.
+        KeyboardObserver keyboardObserver = new KeyboardObserver();
+        keyboardObserver.start();
+
+        // As long as the snake is alive
+        while (snake.isAlive()) {
+            // Does the observer have any key events?
+            if (keyboardObserver.hasKeyEvents()) {
+                KeyEvent event = keyboardObserver.getEventFromTop();
+                // If 'q', then exit the game.
+                if (event.getKeyChar() == 'q') return;
+
+                // If "left arrow", then move the figure to the left
+                if (event.getKeyCode() == KeyEvent.VK_LEFT)
+                    snake.setDirection(SnakeDirection.LEFT);
+                    // If "right arrow", then move the figure to the right
+                else if (event.getKeyCode() == KeyEvent.VK_RIGHT)
+                    snake.setDirection(SnakeDirection.RIGHT);
+                    // If "up arrow", then move the figure up
+                else if (event.getKeyCode() == KeyEvent.VK_UP)
+                    snake.setDirection(SnakeDirection.UP);
+                    // If "down arrow", then move the figure down
+                else if (event.getKeyCode() == KeyEvent.VK_DOWN)
+                    snake.setDirection(SnakeDirection.DOWN);
+            }
+
+            snake.move();   // Move the snake
+            print();        // Display the current game state
+            sleep();        // Pause between moves
+        }
+
+        // Display "Game Over"
+        System.out.println("Game Over!");
     }
 
     /**
@@ -83,6 +116,7 @@ public class Room {
         mouse = new Mouse(x, y);
     }
 
+
     public static Room game;
 
     public static void main(String[] args) {
@@ -92,9 +126,19 @@ public class Room {
         game.run();
     }
 
+
+    private int initialDelay = 520;
+    private int delayStep = 20;
+
     /**
      * The programmer pauses. The length of the pause depends on the length of the snake.
      */
     public void sleep() {
+        try {
+            int level = snake.getSections().size();
+            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
+            Thread.sleep(delay);
+        } catch (InterruptedException ignored) {
+        }
     }
 }

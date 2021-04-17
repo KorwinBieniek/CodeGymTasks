@@ -1,4 +1,19 @@
-taskKey="com.codegym.task.task23.task2312.big12"\n\nSnake (part 12)
+taskKey="com.codegym.task.task23.task2312.big13"\n\nSnake (part 13)
+
+
+This time I'll invite you to write a special sleep() method that will pause
+depending on the length of the snake (the number of elements in sections).
+Think of some slick algorithm. Make the delay 500 milliseconds on the first level,
+and gradually drop it to 300 by Level 11. And to 200 by Level 15. And then have it stay constant.
+
+
+Requirements:
+1.	The sleep method should call Thread.sleep(500) at the beginning of the game.
+2.	The sleep method should call Thread.sleep(300) on Level 11.
+3.	The sleep method should call Thread.sleep(200) on levels greater than 15.
+
+
+Snake (part 12)
 
 
 We have a snake, so let's have a mouse.
@@ -13,11 +28,6 @@ From the previous tasks, you've already realized that the run method needs a pau
 But as I recall, the snake's speed should grow with its length.
 This means that the longer the snake, the faster its speed and the shorter the pause.
 
-
-Requirements:
-1.	In the Room class&#39;s main method, the createMouse method must be called on a Room object.
-2.	In the Room class&#39;s main method, the run method must be called on a Room object.
-3.	A sleep method with no parameters must be created in the Room class.
 
 
 Snake (part 11)
@@ -95,32 +105,6 @@ e) create and implement the int getX() method. The method should return the x-co
 e) create and implement the int getY() method. The method should return the y-coordinate of the snake's head.
 g) also add a move() method to the class—it will come in handy later.
 h) the constructor must be public.
-
-
-
-Snake (part 7)
-
-
-We've described the "pieces of the snake". Now we'll deal with the snake itself.
-
-The snake must have a list of SnakeSections and a head.
-Let the head just be the very first piece (index 0).
-
-The snake also has a direction in which it moves by default.
-And there is also a condition: whether the snake is alive or dead.
-The game ends when the snake is dead.
-
-Here's what we need:
-a) Add a List<SnakeSection> sections field to the Snake class.
-b) Add a boolean isAlive field.
-c) Add a SnakeDirection direction field.
-d) Add getters for all the fields, and a setter for direction.
-
-Note:
-For boolean fields, the getter is usually named isValue(), not getValue(), to improve the readability of the code.
-But don't call it isIsAlive(). One "is" will be enough.
-Note 2:
-All fields created in this task should be private, while all of the methods should be public.
 
 
 
