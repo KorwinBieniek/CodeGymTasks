@@ -1,4 +1,17 @@
-taskKey="com.codegym.task.task23.task2312.big03"\n\nSnake (part 3)
+taskKey="com.codegym.task.task23.task2312.big04"\n\nSnake (part 4)
+
+
+You've already declared coordinates x and y in the Mouse class, but how do you access them?
+Create proper getters for these fields and a constructor with two int parameters (x and y).
+
+
+Requirements:
+1.	A proper getter for the x field must be created in the Mouse class.
+2.	A proper getter for the y field must be created in the Mouse class.
+3.	A correctly functioning public constructor with two int parameters must be created in the Mouse class.
+
+
+Snake (part 3)
 
 
 Great. I also added the KeyboardObserver class, which we'll use later.
@@ -8,11 +21,6 @@ Let's start with the simplest thing: the Mouse class.
 The mouse won't move. It will have only coordinates and nothing else.
 Add two private fields to the Mouse class: int x and int y.
 
-
-Requirements:
-1.	Carefully study the KeyboardObserver class.
-2.	The Mouse class should have an int x field that can be accessed only within this class.
-3.	The Mouse class should have an int y field that can be accessed only within this class.
 
 
 Snake (part 2)
