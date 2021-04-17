@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task23.task2312.big14"\n\nSnake (part 14)
+taskKey="com.codegym.task.task23.task2312.big15"\n\nSnake (part 15)
+
+
+Now we need to finish the snake.
+
+Here's my suggestion regarding the snake's motion:
+The snake consists of pieces. Each turn, let's just add one piece at the head,
+and delete the last one. This will make the snake appear to slither.
+
+Let's add two move methods: one without parameters, and the other with two int parameters.
+
+In the move method without parameters, you must:
+a) stop moving if the snake died (isAlive == false)
+b) call move(0, -1) if the direction of movement is SnakeDirection.UP
+c) call move(1, 0) if the direction of movement is SnakeDirection.RIGHT
+d) call move(0, 1) if the direction of movement is SnakeDirection.DOWN
+e) call move(-1, 0) if the direction of movement is SnakeDirection.LEFT
+
+We'll leave the move method with (int, int) parameters empty for now.
+
+
+Requirements:
+1.	The move method without parameters must call move(0, -1) if the direction of movement is SnakeDirection.UP.
+2.	The move method without parameters must call move(1, 0) if the direction of movement is SnakeDirection.RIGHT.
+3.	The move method without parameters must call move(0, 1) if the direction of movement is SnakeDirection.DOWN.
+4.	The move method without parameters must call move(-1, 0) if the direction of movement is SnakeDirection.LEFT.
+5.	The move method with (int, int) parameters must not be called if the snake died (isAlive == false).
+6.	A move method with no parameters must be created in the Snake class.
+7.	A move method with (int, int) parameters must be created in the Snake class.
+
+
+Snake (part 14)
 
 
 Now let's work on the print() method.
@@ -13,14 +44,6 @@ a) it will be helpful to start by creating an int[][] matrix whose dimensions ar
 b) then walk through all the objects and "draw them" onto the matrix.
 For example, you could use 1 for the body of the snake, 2 for the head of the snake, and 3 for the mouse.
 
-
-Requirements:
-1.	The print method should display the data on the screen.
-2.	The print method should display height rows.
-3.	The number of characters in each row should be equal to width.
-4.	The snake&#39;s head must be represented by an &#39;X&#39;.
-5.	The body of the snake must be represented by an &#39;x&#39;.
-6.	The mouse must be represented by a &#39;^&#39;.
 
 
 Snake (part 13)
@@ -85,24 +108,6 @@ What else is missing? Namely, the method that will contain all the game logic.
 And we also need a method that will draw all this on the screen:
 a) create a void run() method
 b) create a void print() method
-
-
-
-Snake (part 9)
-
-
-The most important class remains: Room.
-What do we need to describe it?
-One, the dimensions of the room (width and height).
-Two, a Snake
-Three, a Mouse.
-
-Here's what we need:
-a) create int width and height variables in the Room class.
-b) create a Snake snake variables in the Room class.
-c) create a Snake mouse variable in the Room class. Just kidding. I mean a Mouse, of course :).
-d) create getters and setters for all of them.
-e) create a constructor. The constructor must have three parameters: width, height, and... snake!
 
 
 

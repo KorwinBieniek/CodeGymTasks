@@ -1,6 +1,5 @@
 package com.codegym.task.task23.task2312;
 
-
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -111,7 +110,7 @@ public class Room {
         matrix[mouse.getY()][mouse.getX()] = 3;
 
         // Display it all on the screen
-        String[] symbols = {".", "x", "X", "^", "*"};
+        String[] symbols = {" . ", " x ", " X ", "^_^", "RIP"};
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 System.out.print(symbols[matrix[y][x]]);
@@ -162,7 +161,7 @@ public class Room {
             int level = snake.getSections().size();
             int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
             Thread.sleep(delay);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
     }
 }
