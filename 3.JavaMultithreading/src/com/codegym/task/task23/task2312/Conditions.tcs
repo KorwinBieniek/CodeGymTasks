@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task23.task2312.big10"\n\nSnake (part 10)
+taskKey="com.codegym.task.task23.task2312.big11"\n\nSnake (part 11)
+
+
+Now the logic for controlling the mouse.
+Two things happen with the mouse.
+First, the snake eats the mouse.
+Second, a new mouse appears at a random place in the room.
+
+You must write and implement the createMouse() method in the Room class.
+This method should just create a new mouse with random coordinates in the room.
+How do you get random coordinates?
+You should already know. But just in case, I'll give you a clue:
+int x = (int) (Math.random() * width);
+
+We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
+For now, this method won't have complex logic. We'll just call the createMouse method.
+
+
+Requirements:
+1.	The createMouse method must be created in the Room class.
+2.	In the createMouse method, a new mouse must be created according to the task conditions and stored in the mouse field.
+3.	The eatMouse method must be created in the Room class.
+4.	The eatMouse method should include a call to the createMouse method.
+
+
+Snake (part 10)
 
 
 Let's tackle the main method.
@@ -15,14 +40,6 @@ And we also need a method that will draw all this on the screen:
 a) create a void run() method
 b) create a void print() method
 
-
-Requirements:
-1.	A new snake (a Snake object) must be created in the Room class&#39;s main method.
-2.	The game field must be initialized in the Room class&#39;s main method.
-3.	The direction of snake movement must be set to SnakeDirection.DOWN in the Room class&#39;s main method.
-4.	A void run() method must be created in the Room class.
-5.	A void print() method must be created in the Room class.
-6.	A non-private static Room game field must be created in the Room class.
 
 
 Snake (part 9)
@@ -102,24 +119,6 @@ Right! Coordinates.
 
 Add two fields to the SnakeSection class: int x and int y.
 Add getters for these fields and a constructor with two int parameters.
-
-
-
-Snake (part 5)
-
-
-Now finish the SnakeDirection enum so that it contains the possible directions of the snake's movement.
-
-Add 4 values: UP, DOWN, LEFT, RIGHT.
-
-It should look something like this:
-public enum SnakeDirection
-{
-UP,
-RIGHT,
-DOWN,
-LEFT
-}
 
 
 
