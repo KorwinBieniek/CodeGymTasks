@@ -1,4 +1,21 @@
-taskKey="com.codegym.task.task23.task2312.big02"\n\nSnake (part 2)
+taskKey="com.codegym.task.task23.task2312.big03"\n\nSnake (part 3)
+
+
+Great. I also added the KeyboardObserver class, which we'll use later.
+Study it carefully. It will come in handy.
+
+Let's start with the simplest thing: the Mouse class.
+The mouse won't move. It will have only coordinates and nothing else.
+Add two private fields to the Mouse class: int x and int y.
+
+
+Requirements:
+1.	Carefully study the KeyboardObserver class.
+2.	The Mouse class should have an int x field that can be accessed only within this class.
+3.	The Mouse class should have an int y field that can be accessed only within this class.
+
+
+Snake (part 2)
 
 
 Now the most interesting thing is how the snake will be constructed.
@@ -12,10 +29,6 @@ SnakeDirection, which is an enum describing the snake's direction of movement.
 
 Create the SnakeSection and SnakeDirection classes.
 
-
-Requirements:
-1.	The SnakeSection class must be in a separate file.
-2.	The SnakeDirection enum must be created in a separate file.
 
 
 Snake (part 1)
