@@ -1,14 +1,33 @@
-taskKey="com.codegym.task.task23.task2312.big04"\n\nSnake (part 4)
+taskKey="com.codegym.task.task23.task2312.big05"\n\nSnake (part 5)
+
+
+Now finish the SnakeDirection enum so that it contains the possible directions of the snake's movement.
+
+Add 4 values: UP, DOWN, LEFT, RIGHT.
+
+It should look something like this:
+public enum SnakeDirection
+{
+UP,
+RIGHT,
+DOWN,
+LEFT
+}
+
+
+Requirements:
+1.	SnakeDirection must have an UP field.
+2.	SnakeDirection must have a DOWN field.
+3.	SnakeDirection must have a RIGHT field.
+4.	SnakeDirection must have a LEFT field.
+
+
+Snake (part 4)
 
 
 You've already declared coordinates x and y in the Mouse class, but how do you access them?
 Create proper getters for these fields and a constructor with two int parameters (x and y).
 
-
-Requirements:
-1.	A proper getter for the x field must be created in the Mouse class.
-2.	A proper getter for the y field must be created in the Mouse class.
-3.	A correctly functioning public constructor with two int parameters must be created in the Mouse class.
 
 
 Snake (part 3)
