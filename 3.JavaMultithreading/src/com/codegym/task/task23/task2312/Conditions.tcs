@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task23.task2312.big06"\n\nSnake (part 6)
+taskKey="com.codegym.task.task23.task2312.big07"\n\nSnake (part 7)
+
+
+We've described the "pieces of the snake". Now we'll deal with the snake itself.
+
+The snake must have a list of SnakeSections and a head.
+Let the head just be the very first piece (index 0).
+
+The snake also has a direction in which it moves by default.
+And there is also a condition: whether the snake is alive or dead.
+The game ends when the snake is dead.
+
+Here's what we need:
+a) Add a List<SnakeSection> sections field to the Snake class.
+b) Add a boolean isAlive field.
+c) Add a SnakeDirection direction field.
+d) Add getters for all the fields, and a setter for direction.
+
+Note:
+For boolean fields, the getter is usually named isValue(), not getValue(), to improve the readability of the code.
+But don't call it isIsAlive(). One "is" will be enough.
+Note 2:
+All fields created in this task should be private, while all of the methods should be public.
+
+
+Requirements:
+1.	A List&lt;SnakeSection&gt; sections field should be declared in the Snake class.
+2.	The Snake class must define a boolean isAlive field.
+3.	The Snake class must define a SnakeDirection direction field.
+4.	A proper getter for the sections field must be created in the Snake class.
+5.	A proper getter for the isAlive field must be created in the Snake class.
+6.	A proper getter for the direction field must be created in the Snake class.
+7.	A proper setter for the direction field must be created in the Snake class.
+8.	All fields in the Snake class must be declared with a private access modifier.
+9.	All methods in the Snake class must be declared with a public access modifier.
+
+
+Snake (part 6)
 
 
 Now let's tackle the SnakeSection class.
@@ -10,13 +47,6 @@ Right! Coordinates.
 Add two fields to the SnakeSection class: int x and int y.
 Add getters for these fields and a constructor with two int parameters.
 
-
-Requirements:
-1.	The SnakeSection class should have an int x field that can be accessed only within this class.
-2.	The SnakeSection class should have an int y field that can be accessed only within this class.
-3.	A proper getter for the x field must be created in the SnakeSection class.
-4.	A proper getter for the y field must be created in the SnakeSection class.
-5.	A correctly functioning public constructor with two int parameters must be created in the SnakeSection class.
 
 
 Snake (part 5)
@@ -70,21 +100,6 @@ SnakeSection, which represents a piece of the snake.
 SnakeDirection, which is an enum describing the snake's direction of movement.
 
 Create the SnakeSection and SnakeDirection classes.
-
-
-
-Snake (part 1)
-
-
-Now let's write the "Snake" game.
-To do this, we need:
-a) the snake itself (Snake class)
-b) the room where it slithers around (Room class)
-c) the mouse that the snake will eat (Mouse class)
-
-Create the Snake, Room, and Mouse classes
-
-Don't forget to create the public static void main(String[] args) method in the Room class.
 
 
 
