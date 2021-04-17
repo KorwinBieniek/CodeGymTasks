@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task23.task2312.big15"\n\nSnake (part 15)
+taskKey="com.codegym.task.task23.task2312.big16"\n\nSnake (part 16)
+
+
+Nothing is forever... That's why the snake must die if it hits a wall or itself.
+
+There's a very simple check to determine whether a snake intersects itself:
+does the sections list contain a "new snake's head"?
+This is what the code will look like:
+if (sections.contains(head))
+The head must not be added to the sections list, otherwise this condition will always be true.
+But for this code to work, you need to implement object comparison methods (equals and hashCode) in the SnakeSection class.
+
+Hint:
+Use Alt+Insert in IntelliJ IDEA to automatically generate equals and hashCode methods.
+
+Task:
+a) implement equals and hashCode methods in the SnakeSection class.
+b) implement the checkBorders(SnakeSection head) method: if the snake's head is outside the room, the snake dies (isAlive = false)
+c) implement the checkBody(SnakeSection head) method: if the snake's head intersects its body, the snake dies (isAlive = false)
+
+
+
+Requirements:
+1.	The SnakeSection class must have an equals method.
+2.	The SnakeSection class must have a hashCode method.
+3.	The checkBorders method in the Snake class must be implemented according to the task conditions.
+4.	The checkBody method in the Snake class must be implemented according to the task conditions.
+
+
+Snake (part 15)
 
 
 Now we need to finish the snake.
@@ -18,15 +47,6 @@ e) call move(-1, 0) if the direction of movement is SnakeDirection.LEFT
 
 We'll leave the move method with (int, int) parameters empty for now.
 
-
-Requirements:
-1.	The move method without parameters must call move(0, -1) if the direction of movement is SnakeDirection.UP.
-2.	The move method without parameters must call move(1, 0) if the direction of movement is SnakeDirection.RIGHT.
-3.	The move method without parameters must call move(0, 1) if the direction of movement is SnakeDirection.DOWN.
-4.	The move method without parameters must call move(-1, 0) if the direction of movement is SnakeDirection.LEFT.
-5.	The move method with (int, int) parameters must not be called if the snake died (isAlive == false).
-6.	A move method with no parameters must be created in the Snake class.
-7.	A move method with (int, int) parameters must be created in the Snake class.
 
 
 Snake (part 14)
@@ -89,25 +109,6 @@ int x = (int) (Math.random() * width);
 
 We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
 For now, this method won't have complex logic. We'll just call the createMouse method.
-
-
-
-Snake (part 10)
-
-
-Let's tackle the main method.
-
-First, you need to create a static Room game field in the Room class. The variable should be accessible from all classes.
-
-Now in the main method:
-a) Create the snake, a Snake object.
-b) Create the room, a Room object, and pass the width, height, and snake to it.
-c) Set the snake direction equal to SnakeDirection.DOWN
-
-What else is missing? Namely, the method that will contain all the game logic.
-And we also need a method that will draw all this on the screen:
-a) create a void run() method
-b) create a void print() method
 
 
 
