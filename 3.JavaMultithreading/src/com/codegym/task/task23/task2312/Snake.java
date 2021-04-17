@@ -1,7 +1,6 @@
 package com.codegym.task.task23.task2312;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Snake class
@@ -12,10 +11,10 @@ public class Snake {
     // Whether the snake is alive.
     private boolean isAlive;
     // List of snake parts.
-    private List<SnakeSection> sections;
+    private ArrayList<SnakeSection> sections;
 
     public Snake(int x, int y) {
-        sections = new ArrayList<>();
+        sections = new ArrayList<SnakeSection>();
         sections.add(new SnakeSection(x, y));
         isAlive = true;
     }
@@ -40,7 +39,7 @@ public class Snake {
         this.direction = direction;
     }
 
-    public List<SnakeSection> getSections() {
+    public ArrayList<SnakeSection> getSections() {
         return sections;
     }
 
@@ -65,7 +64,7 @@ public class Snake {
      * This method moves the snake to the adjacent cell.
      * The cell coordinates (dx, dy) are given relative to the snake's current head position.
      */
-    void move(int dx, int dy) {
+    private void move(int dx, int dy) {
         // Create a new head (a new "snake section").
         SnakeSection head = sections.get(0);
         head = new SnakeSection(head.getX() + dx, head.getY() + dy);
@@ -94,7 +93,7 @@ public class Snake {
     /**
      * This method checks whether the new head is inside the room
      */
-    void checkBorders(SnakeSection head) {
+    private void checkBorders(SnakeSection head) {
         if ((head.getX() < 0 || head.getX() >= Room.game.getWidth()) || head.getY() < 0 || head.getY() >= Room.game.getHeight()) {
             isAlive = false;
         }
@@ -103,7 +102,7 @@ public class Snake {
     /**
      * This method checks whether the head coincides with some part of the snake's body.
      */
-    void checkBody(SnakeSection head) {
+    private void checkBody(SnakeSection head) {
         if (sections.contains(head)) {
             isAlive = false;
         }

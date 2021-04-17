@@ -1,5 +1,6 @@
 package com.codegym.task.task23.task2312;
 
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Room {
         this.width = width;
         this.height = height;
         this.snake = snake;
+        game = this;
     }
 
     public Snake getSnake() {
@@ -52,7 +54,7 @@ public class Room {
 
     /**
      * The program's main loop.
-     * This is where all the important actions happen.
+     * This is where all the important actions happen
      */
     public void run() {
         // Create a KeyboardObserver object and start it.
@@ -139,6 +141,7 @@ public class Room {
         mouse = new Mouse(x, y);
     }
 
+
     public static Room game;
 
     public static void main(String[] args) {
@@ -159,7 +162,7 @@ public class Room {
             int level = snake.getSections().size();
             int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
             Thread.sleep(delay);
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
         }
     }
 }

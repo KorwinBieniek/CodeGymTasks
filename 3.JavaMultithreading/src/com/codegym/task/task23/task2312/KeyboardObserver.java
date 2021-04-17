@@ -31,7 +31,7 @@ public class KeyboardObserver extends Thread {
         frame.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                //do nothing
+                // Do nothing
             }
 
             @Override
@@ -40,14 +40,15 @@ public class KeyboardObserver extends Thread {
             }
         });
 
+
         frame.addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {
-                //do nothing
+                // Do nothing
             }
 
             public void keyReleased(KeyEvent e) {
-                //do nothing
+                // Do nothing
             }
 
             public void keyPressed(KeyEvent e) {
@@ -55,6 +56,7 @@ public class KeyboardObserver extends Thread {
             }
         });
     }
+
 
     public boolean hasKeyEvents() {
         return !keyEvents.isEmpty();
