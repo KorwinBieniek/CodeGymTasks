@@ -1,4 +1,44 @@
-taskKey="com.codegym.task.task24.task2413.big06"\n\nArkanoid (part 6)
+taskKey="com.codegym.task.task24.task2413.big07"\n\nArkanoid (part 7)
+
+
+Now let's move on to the BaseObject class.
+I want to make some suggestions.
+
+Firstly, for simplicity, we'll treat all objects as circles.
+We'll draw them as shapes, just as before.
+But when calculating object collisions, we'll assume they are round.
+Doing it this way is much simpler.
+
+Second. Let the objects' coordinates and radius be real numbers.
+This will ensure smooth motion and accurate calculations.
+And we'll round them when drawing.
+
+Let's begin:
+a) Add private double x, double y, and double radius fields to the BaseObject class.
+b) Add getters and setters.
+c) Add a BaseObject(double x, double y, double radius) constructor.
+d) Go through all the subclasses and fix their constructors.
+
+If you use IntelliJ IDEA, Alt+Insert will help you.
+
+
+Requirements:
+1.	A private double x field must be created in the BaseObject class.
+2.	A private double y field must be created in the BaseObject class.
+3.	A private double radius field must be created in the BaseObject class.
+4.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the BaseObject class.
+5.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Ball class.
+6.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Brick class.
+7.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Paddle class.
+8.	A public getter for the x field must be created in the BaseObject class.
+9.	A public getter for the y field must be created in the BaseObject class.
+10.	A public getter for the radius field must be created in the BaseObject class.
+11.	A public setter for the x field must be created in the BaseObject class.
+12.	A public setter for the y field must be created in the BaseObject class.
+13.	A public setter for the radius field must be created in the BaseObject class.
+
+
+Arkanoid (part 6)
 
 
 We will have bricks, a ball, and a paddle, and they'll have a lot in common.
@@ -19,13 +59,6 @@ Or more precisely, they'll draw themselves on it, but I'll give you those detail
 
 Create this class as well.
 
-
-Requirements:
-1.	The BaseObject class must be in a separate file.
-2.	The Canvas class must be in a separate file.
-3.	The Ball class must be a child of the BaseObject class.
-4.	The Brick class must be a child of the BaseObject class.
-5.	The Paddle class must be a child of the BaseObject class.
 
 
 Arkanoid (part 5)
@@ -71,25 +104,6 @@ The main class (Arkanoid) will need to store information about the size of the g
 Therefore,
 a) add two private int width and height fields to the Arkanoid class
 b) create public getters and setters for them
-
-
-
-Arkanoid (part 1)
-
-
-Today let's write the game Arkanoid.
-
-The original game looks something like this: http://www.youtube.com/watch?v=Th-Z6QQ5AOQ
-To start, we'll write a simplified version of the game.
-We will have bricks, a ball, and a flying paddle that prevents the ball from falling out the bottom.
-
-So we need the following classes:
-a) Arkanoid is the class where the important actions happens. It will also include our entry point to the program: the main method.
-b) The Ball class is the ball.
-c) The Brick class represents the "bricks" that we'll hit with the ball.
-d) The Paddle class is our flying paddle.
-
-Create them, and don't forget about the public static void main(String[] args) method in the Arkanoid class.
 
 
 
