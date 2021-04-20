@@ -1,4 +1,16 @@
-taskKey="com.codegym.task.task24.task2413.big02"\n\nArkanoid (part 2)
+taskKey="com.codegym.task.task24.task2413.big03"\n\nArkanoid (part 3)
+
+
+Perhaps it's time to add a constructor to the Arkanoid class.
+The constructor must accept two int parameters (width and height) and correctly set the values ​​of the corresponding fields in the class.
+
+
+Requirements:
+1.	A public constructor with two int parameters must be created in the Arkanoid class.
+2.	The Arkanoid class constructor must correctly set the values ​​of the corresponding fields.
+
+
+Arkanoid (part 2)
 
 
 The main class (Arkanoid) will need to store information about the size of the game field.
@@ -7,14 +19,6 @@ Therefore,
 a) add two private int width and height fields to the Arkanoid class
 b) create public getters and setters for them
 
-
-Requirements:
-1.	A private int width field must be created in the Arkanoid class.
-2.	A private int height field must be created in the Arkanoid class.
-3.	A proper getter for the height field must be created in the Arkanoid class.
-4.	A proper getter for the width field must be created in the Arkanoid class.
-5.	A proper setter for the height field must be created in the Arkanoid class.
-6.	A proper setter for the width field must be created in the Arkanoid class.
 
 
 Arkanoid (part 1)
