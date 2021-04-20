@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task24.task2413.big09"\n\nArkanoid (part 9)
+taskKey="com.codegym.task.task24.task2413.big10"\n\nArkanoid (part 10)
+
+
+What are we going to do with Canvas?
+We'll draw on it (on its matrix).
+Therefore, we need two methods:
+void setPoint(double x, double y, char c)
+void drawMatrix(double x, double y, int[][] matrix, char c)
+
+The first method (setPoint) will "set a point with coordinates (x, y) to color c".
+In this method, you need to:
+a) round x and y to integers
+b) set matrix[y][x] to c
+c) do nothing if x < 0 or y < 0 or y > matrix.length or x > matrix[0].length
+
+The second method (drawMatrix) copies the passed image (matrix) to the Canvas matrix.
+And it doesn't simply copy image, but rather it starts from coordinates (x, y)
+In this method, you need to:
+a) use two nested loops to go through all the "pixels" of the passed image
+b) if the value of element [i][j] of the passed matrix is ​​not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
+setPoint(x + j, y + i, c)
+
+
+
+Requirements:
+1.	A void setPoint(double x, double y, char c) method must be created in the Canvas class.
+2.	A void drawMatrix(double x, double y, int[][] matrix, char c) method must be created in the Canvas class.
+3.	The setPoint method&#39;s behavior must match the task conditions.
+4.	The drawMatrix method&#39;s behavior must match the task conditions.
+
+
+Arkanoid (part 9)
 
 
 Now let's tackle the Canvas class.
@@ -13,18 +44,6 @@ c) Add a constructor with two int parameters (width and height). The matrix fiel
 d) Add getters and setters for all of the class's private fields.
 
 
-
-Requirements:
-1.	A private int width field must be created in the Canvas class.
-2.	A private int height field must be created in the Canvas class.
-3.	A private char[][] matrix field must be created in the Canvas class.
-4.	A public getter for the width field must be created in the Canvas class.
-5.	A public getter for the height field must be created in the Canvas class.
-6.	A public getter for the matrix field must be created in the Canvas class.
-7.	A public setter for the width field must be created in the Canvas class.
-8.	A public setter for the height field must be created in the Canvas class.
-9.	A public setter for the matrix field must be created in the Canvas class.
-10.	A proper public constructor with two int parameters (width, height) must be created in the Canvas class.
 
 
 Arkanoid (part 8)
@@ -109,18 +128,6 @@ We also need a NON-private static Arkanoid game variable, which will store a ref
 to the created Arkanoid object.
 It should look something like this:
 static Arkanoid game;
-
-
-
-Arkanoid (part 4)
-
-
-The Arkanoid class will also need to store a reference to the ball (Ball), paddle (Paddle), and list of bricks.
-
-Here's what we need:
-a) create two private fields in the Arkanoid class: Ball ball and Paddle paddle
-b) add a private List<Brick> bricks field
-c) create public getters and setters for them
 
 
 
