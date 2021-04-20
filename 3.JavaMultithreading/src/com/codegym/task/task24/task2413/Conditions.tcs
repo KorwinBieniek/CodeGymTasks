@@ -1,4 +1,30 @@
-taskKey="com.codegym.task.task24.task2413.big15"\n\nArkanoid (part 15)
+taskKey="com.codegym.task.task24.task2413.big16"\n\nArkanoid (part 16)
+
+
+And finally, the paddle!
+It will need the following private fields:
+a) double speed (the paddle's speed);
+b) direction (direction of movement along the x axis: 1 - to the right, -1 - to the left, 0 (initial value) - hold still).
+
+Also, create getters for them.
+
+And you'll need to make a constructor, something like this:
+public Paddle(double x, double y) {
+super(x, y, 3);
+speed = 1;
+direction = 0;
+}
+
+
+Requirements:
+1.	A private double speed field must be created in the Paddle class.
+2.	A private double direction field must be created in the Paddle class.
+3.	The Paddle class must implement a public getter for the speed field.
+4.	The Paddle class must implement a public getter for the direction field.
+5.	The Paddle class must implement a constructor with two double parameters in accordance with the task conditions.
+
+
+Arkanoid (part 15)
 
 
 You won't believe it, but we're still not done.
@@ -19,10 +45,6 @@ For this, we need one more method:
 void checkRebound(int minx, int maxx, int miny, int maxy)
 Declare it, and I'll handle the code myself.
 
-
-Requirements:
-1.	A setDirection() method with one double parameter must be created in the Ball class (see the implementation in the task conditions).
-2.	A checkRebound method with four int parameters must be created in the Ball class.
 
 
 Arkanoid (part 14)
@@ -98,31 +120,6 @@ You can just re-initialize the matrix with an empty array of the correct dimensi
 b) the print() method
 This method draws the matrix on the screen.
 You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
-
-
-
-Arkanoid (part 10)
-
-
-What are we going to do with Canvas?
-We'll draw on it (on its matrix).
-Therefore, we need two methods:
-void setPoint(double x, double y, char c)
-void drawMatrix(double x, double y, int[][] matrix, char c)
-
-The first method (setPoint) will "set a point with coordinates (x, y) to color c".
-In this method, you need to:
-a) round x and y to integers
-b) set matrix[y][x] to c
-c) do nothing if x < 0 or y < 0 or y > matrix.length or x > matrix[0].length
-
-The second method (drawMatrix) copies the passed image (matrix) to the Canvas matrix.
-And it doesn't simply copy image, but rather it starts from coordinates (x, y)
-In this method, you need to:
-a) use two nested loops to go through all the "pixels" of the passed image
-b) if the value of element [i][j] of the passed matrix is ​​not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
-setPoint(x + j, y + i, c)
-
 
 
 
