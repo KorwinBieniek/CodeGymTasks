@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task24.task2413.big10"\n\nArkanoid (part 10)
+taskKey="com.codegym.task.task24.task2413.big11"\n\nArkanoid (part 11)
+
+
+Canvas needs another two methods. Write them.
+a) the clear() method
+This method will clear the matrix so it can be drawn on again.
+You can just re-initialize the matrix with an empty array of the correct dimensions.
+
+b) the print() method
+This method draws the matrix on the screen.
+You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
+
+
+Requirements:
+1.	A clear() method with no parameters must be created in the Canvas class.
+2.	A print() method with no parameters must be created in the Canvas class.
+3.	The clear method must clear the matrix array.
+4.	The print method should display the contents of the matrix array.
+
+
+Arkanoid (part 10)
 
 
 What are we going to do with Canvas?
@@ -21,12 +41,6 @@ b) if the value of element [i][j] of the passed matrix is ​​not 0, then pain
 setPoint(x + j, y + i, c)
 
 
-
-Requirements:
-1.	A void setPoint(double x, double y, char c) method must be created in the Canvas class.
-2.	A void drawMatrix(double x, double y, int[][] matrix, char c) method must be created in the Canvas class.
-3.	The setPoint method&#39;s behavior must match the task conditions.
-4.	The drawMatrix method&#39;s behavior must match the task conditions.
 
 
 Arkanoid (part 9)
@@ -113,21 +127,6 @@ Objects will draw themselves using it.
 Or more precisely, they'll draw themselves on it, but I'll give you those details later.
 
 Create this class as well.
-
-
-
-Arkanoid (part 5)
-
-
-What else is the Arkanoid class missing?
-First, it needs a run() method, where we'll define the main logic of the program.
-It also needs a move() method, which will move by one step all objects that need to be moved.
-Create the run() and move() methods.
-
-We also need a NON-private static Arkanoid game variable, which will store a reference
-to the created Arkanoid object.
-It should look something like this:
-static Arkanoid game;
 
 
 

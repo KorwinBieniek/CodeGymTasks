@@ -62,4 +62,24 @@ public class Canvas {
 
         matrix[y0][x0] = c;
     }
+
+    void print() {
+        for (int i = 0; i < height + 2; i++) {
+            for (int j = 0; j < width + 2; j++) {
+                System.out.print(" ");
+                System.out.print(matrix[i][j]);
+                System.out.print(" ");
+            }
+
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+    }
+
+    public void clear() {
+        this.matrix = new char[height + 2][width + 2];
+    }
 }
