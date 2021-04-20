@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task24.task2413.big13"\n\nArkanoid (part 13)
+taskKey="com.codegym.task.task24.task2413.big14"\n\nArkanoid (part 14)
+
+
+The Ball class is missing something:
+
+First, you need to implement the move() method inherited from BaseObject:
+a) x should increase by dx each turn
+b) y must increase by dy each turn
+If the ball is frozen, then x and y should not change
+
+Second, you need to implement the draw(Canvas canvas) method:
+You need to call the canvas object's setPoint method with arguments (x, y, 'O')
+
+Third, you need to implement the start() method
+This call "thaws" the ball.
+You decide for yourself what you need to do to accomplish this.
+
+P.S. Oh, I almost forgot! The x, y, and radius fields are declared with the private access modifier in the BaseObject class,
+which isn't very convenient. Change the modifier to protected so that all of the BaseObject class's descendants can control their own
+coordinates and dimensions without the need to use "foreign" getters and setters.
+
+
+Requirements:
+1.	The Ball class&#39;s move() method should increment the value of x by dx if the isFrozen field is false.
+2.	The Ball class&#39;s move() method should increment the value of y by dy if the isFrozen field is false.
+3.	The Ball class&#39;s move method should not change the values of the x and y fields if the isFrozen field is true.
+4.	The Ball class must implement the draw(Canvas canvas) method according to the task conditions.
+5.	The Ball class must implement a start() method that sets the isFrozen field to false.
+6.	The access modifier of the x field in the BaseObject class must be changed to protected.
+7.	The access modifier of the y field in the BaseObject class must be changed to protected.
+8.	The access modifier of the radius field in the BaseObject class must be changed to protected.
+
+
+Arkanoid (part 13)
 
 
 The Ball class is more complicated, since the ball moves.
@@ -17,18 +50,6 @@ a) parameters—x, y, speed, direction;
 b) radius (for calling the parent class) is always 1;
 c) don't forget to set isFrozen to true—the ball isn't flying anywhere at the beginning of the game.
 
-
-Requirements:
-1.	A private double speed field must be created in the Ball class.
-2.	A private double direction field must be created in the Ball class.
-3.	A private double dx field must be created in the Ball class.
-4.	A private double dy field must be created in the Ball class.
-5.	A private boolean isFrozen field must be created in the Ball class.
-6.	A public constructor must be created in the Ball class (the behavior and parameters are described in the task conditions).
-7.	There must be a proper public getter for the speed field in the Ball class.
-8.	There must be a proper public getter for the direction field in the Ball class.
-9.	There must be a proper public getter for the dx field in the Ball class.
-10.	There must be a proper public getter for the dy field in the Ball class.
 
 
 Arkanoid (part 12)
@@ -102,28 +123,6 @@ b) Add a private char[][] matrix field to the class.
 c) Add a constructor with two int parameters (width and height). The matrix field must be initialized with an empty [height+2][width+2] array.
 d) Add getters and setters for all of the class's private fields.
 
-
-
-
-Arkanoid (part 8)
-
-
-But there's more.
-The BaseObject class needs more methods.
-For now, these will be empty draw(Canvas canvas) and move() methods.
-Subclasses will have to override them and implement the necessary functionality (you can leave them empty for now—we just need the code to compile).
-Declare these methods, but make them abstract.
-Also, make the BaseObject class itself abstract.
-
-And we'll need to determine whether the ball hit a brick or the paddle.
-This is how we'll do that:
-In this same class, we'll create a special method: boolean intersects(BaseObject o)
-It will determine whether objects intersect. If they intersect, return true; if not, false.
-
-Because we're treating objects as circles for convenience, I propose the following collision-detection algorithm:
-If the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
-Or to put it more simply:
-distance_between_objects <= max(radius_of_the_first_object, radius_of_the_second_object)
 
 
 
