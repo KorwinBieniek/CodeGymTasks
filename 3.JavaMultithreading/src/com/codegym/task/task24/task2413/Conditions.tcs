@@ -1,0 +1,26 @@
+taskKey="com.codegym.task.task24.task2413.big01"\n\nArkanoid (part 1)
+
+
+Today let's write the game Arkanoid.
+
+The original game looks something like this: http://www.youtube.com/watch?v=Th-Z6QQ5AOQ
+To start, we'll write a simplified version of the game.
+We will have bricks, a ball, and a flying paddle that prevents the ball from falling out the bottom.
+
+So we need the following classes:
+a) Arkanoid is the class where the important actions happens. It will also include our entry point to the program: the main method.
+b) The Ball class is the ball.
+c) The Brick class represents the "bricks" that we'll hit with the ball.
+d) The Paddle class is our flying paddle.
+
+Create them, and don't forget about the public static void main(String[] args) method in the Arkanoid class.
+
+
+Requirements:
+1.	The Arkanoid class must be in a separate file.
+2.	The Ball class must be in a separate file.
+3.	The Brick class must be in a separate file.
+4.	The Paddle class must be in a separate file.
+5.	A public static void main(String[] args) method must be created in the Arkanoid class.
+
+
