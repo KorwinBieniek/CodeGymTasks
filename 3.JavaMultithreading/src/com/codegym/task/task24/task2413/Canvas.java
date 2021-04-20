@@ -1,8 +1,12 @@
 package com.codegym.task.task24.task2413;
 
+/**
+ * Canvas class for drawing.
+ */
 public class Canvas {
     private int width;
     private int height;
+    // The matrix where we draw. Each char represents a color.
     private char[][] matrix;
 
     public Canvas(int width, int height) {
@@ -11,35 +15,18 @@ public class Canvas {
         this.matrix = new char[height + 2][width + 2];
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public char[][] getMatrix() {
-        return matrix;
-    }
-
-    public void setMatrix(char[][] matrix) {
-        this.matrix = matrix;
+    /**
+     * Clear the canvas
+     */
+    void clear() {
+        this.matrix = new char[height + 2][width + 2];
     }
 
     /**
      * Draw the passed figure at the specified coordinates using color c.
      * If the passed array contains one, then they correspond to char c on the canvas.
      */
-     void drawMatrix(double x, double y, int[][] matrix, char c) {
+    void drawMatrix(double x, double y, int[][] matrix, char c) {
         int height = matrix.length;
         int width = matrix[0].length;
 
@@ -54,7 +41,7 @@ public class Canvas {
     /**
      * Set one point with coordinates (x,y) to color c on the canvas.
      */
-     void setPoint(double x, double y, char c) {
+    void setPoint(double x, double y, char c) {
         int x0 = (int) Math.round(x);
         int y0 = (int) Math.round(y);
         if (y0 < 0 || y0 >= matrix.length) return;
@@ -63,13 +50,14 @@ public class Canvas {
         matrix[y0][x0] = c;
     }
 
-    void print()
-    {
+    /**
+     * Display the contents of the canvas on the screen.
+     */
+    void print() {
+        System.out.println();
 
-        for (int i = 0; i < height + 2; i++)
-        {
-            for (int j = 0; j < width + 2; j++)
-            {
+        for (int i = 0; i < height + 2; i++) {
+            for (int j = 0; j < width + 2; j++) {
                 System.out.print(" ");
                 System.out.print(matrix[i][j]);
                 System.out.print(" ");
@@ -83,8 +71,15 @@ public class Canvas {
         System.out.println();
     }
 
-    public void clear()
-    {
-        this.matrix = new char[height + 2][width + 2];
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public char[][] getMatrix() {
+        return matrix;
     }
 }

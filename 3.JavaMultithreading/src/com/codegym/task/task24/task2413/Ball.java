@@ -1,8 +1,9 @@
 package com.codegym.task.task24.task2413;
 
+/**
+ * The class for the game ball
+ */
 public class Ball extends BaseObject {
-
-    // Speed
     private double speed;
     // Direction (0 to 360 degrees)
     private double direction;
@@ -27,6 +28,10 @@ public class Ball extends BaseObject {
         return speed;
     }
 
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     public double getDirection() {
         return direction;
     }
@@ -39,32 +44,72 @@ public class Ball extends BaseObject {
         return dy;
     }
 
+    /**
+     * Set a new direction.
+     * We also calculate the new vector here.
+     * This method is convenient for rebounding off walls.
+     */
+    void setDirection(double direction) {
+        this.direction = direction;
+
+        double angel = Math.toRadians(direction);
+        dx = Math.cos(angel) * speed;
+        dy = -Math.sin(angel) * speed;
+    }
+
+    /**
+     * Draw the object on the canvas.
+     */
     @Override
     void draw(Canvas canvas) {
         canvas.setPoint(x, y, 'O');
     }
 
-    @Override
-    void move() {
-        if (!isFrozen) {
-            x += dx;
-            y += dy;
+    /**
+     * Move by one step.
+     */
+    public void move() {
+        if (isFrozen) return;
+
+        x += dx;
+        y += dy;
+
+        checkRebound(1, Arkanoid.game.getWidth(), 1, Arkanoid.game.getHeight() + 5);
+    }
+
+    /**
+     * Check whether the ball has flown beyond the wall.
+     * If it has, then bounce it.
+     */
+    void checkRebound(int minx, int maxx, int miny, int maxy) {
+        if (x < minx) {
+            x = minx + (minx - x);
+            dx = -dx;
+        }
+
+        if (x > maxx) {
+            x = maxx - (x - maxx);
+            dx = -dx;
+        }
+
+        if (y < miny) {
+            y = miny + (miny - y);
+            dy = -dy;
+        }
+
+        if (y > maxy) {
+            y = maxy - (y - maxy);
+            dy = -dy;
         }
     }
 
-    public void start() {
+    /**
+     * Launch the ball.
+     * isFrozen = false.
+     * Recalculate the direction vector (dx,dy).
+     */
+    void start() {
+        this.setDirection(direction);
         this.isFrozen = false;
-    }
-
-    public void setDirection(double direction) {
-        this.direction = direction;
-
-        double angle = Math.toRadians(direction);
-        dx = Math.cos(angle) * speed;
-        dy = -Math.sin(angle) * speed;
-    }
-
-    public void checkRebound(int minx, int maxx, int miny, int maxy) {
-
     }
 }
