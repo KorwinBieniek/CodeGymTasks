@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task24.task2413.big07"\n\nArkanoid (part 7)
+taskKey="com.codegym.task.task24.task2413.big08"\n\nArkanoid (part 8)
+
+
+But there's more.
+The BaseObject class needs more methods.
+For now, these will be empty draw(Canvas canvas) and move() methods.
+Subclasses will have to override them and implement the necessary functionality (you can leave them empty for now—we just need the code to compile).
+Declare these methods, but make them abstract.
+Also, make the BaseObject class itself abstract.
+
+And we'll need to determine whether the ball hit a brick or the paddle.
+This is how we'll do that:
+In this same class, we'll create a special method: boolean intersects(BaseObject o)
+It will determine whether objects intersect. If they intersect, return true; if not, false.
+
+Because we're treating objects as circles for convenience, I propose the following collision-detection algorithm:
+If the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
+Or to put it more simply:
+distance_between_objects <= max(radius_of_the_first_object, radius_of_the_second_object)
+
+
+Requirements:
+1.	The BaseObject class must be abstract.
+2.	The BaseObject class must declare an abstract draw() method with one Canvas parameter.
+3.	An abstract move() method without parameters must be declared in the BaseObject class.
+4.	The BaseObject class must implement an intersects() method with one BaseObject parameter. It must return true if the current object intersects the argument.
+
+
+Arkanoid (part 7)
 
 
 Now let's move on to the BaseObject class.
@@ -21,21 +49,6 @@ d) Go through all the subclasses and fix their constructors.
 
 If you use IntelliJ IDEA, Alt+Insert will help you.
 
-
-Requirements:
-1.	A private double x field must be created in the BaseObject class.
-2.	A private double y field must be created in the BaseObject class.
-3.	A private double radius field must be created in the BaseObject class.
-4.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the BaseObject class.
-5.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Ball class.
-6.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Brick class.
-7.	A correctly functioning constructor with three double parameters (x, y, radius) must be created in the Paddle class.
-8.	A public getter for the x field must be created in the BaseObject class.
-9.	A public getter for the y field must be created in the BaseObject class.
-10.	A public getter for the radius field must be created in the BaseObject class.
-11.	A public setter for the x field must be created in the BaseObject class.
-12.	A public setter for the y field must be created in the BaseObject class.
-13.	A public setter for the radius field must be created in the BaseObject class.
 
 
 Arkanoid (part 6)
@@ -93,17 +106,6 @@ Arkanoid (part 3)
 
 Perhaps it's time to add a constructor to the Arkanoid class.
 The constructor must accept two int parameters (width and height) and correctly set the values ​​of the corresponding fields in the class.
-
-
-
-Arkanoid (part 2)
-
-
-The main class (Arkanoid) will need to store information about the size of the game field.
-
-Therefore,
-a) add two private int width and height fields to the Arkanoid class
-b) create public getters and setters for them
 
 
 
