@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task24.task2413.big14"\n\nArkanoid (part 14)
+taskKey="com.codegym.task.task24.task2413.big15"\n\nArkanoid (part 15)
+
+
+You won't believe it, but we're still not done.
+
+First, you need a setDirection method,
+which not only sets the value of the direction variable,
+but also computes the new values ​​of the dx and dy variables.
+
+The code should look something like this:
+this.direction = direction;
+double angle = Math.toRadians(direction);
+dx = Math.cos(angle) * speed;
+dy = -Math.sin(angle) * speed.
+
+Second, the ball can hit a wall.
+If it does, then it should bounce off.
+For this, we need one more method:
+void checkRebound(int minx, int maxx, int miny, int maxy)
+Declare it, and I'll handle the code myself.
+
+
+Requirements:
+1.	A setDirection() method with one double parameter must be created in the Ball class (see the implementation in the task conditions).
+2.	A checkRebound method with four int parameters must be created in the Ball class.
+
+
+Arkanoid (part 14)
 
 
 The Ball class is missing something:
@@ -19,16 +46,6 @@ P.S. Oh, I almost forgot! The x, y, and radius fields are declared with the priv
 which isn't very convenient. Change the modifier to protected so that all of the BaseObject class's descendants can control their own
 coordinates and dimensions without the need to use "foreign" getters and setters.
 
-
-Requirements:
-1.	The Ball class&#39;s move() method should increment the value of x by dx if the isFrozen field is false.
-2.	The Ball class&#39;s move() method should increment the value of y by dy if the isFrozen field is false.
-3.	The Ball class&#39;s move method should not change the values of the x and y fields if the isFrozen field is true.
-4.	The Ball class must implement the draw(Canvas canvas) method according to the task conditions.
-5.	The Ball class must implement a start() method that sets the isFrozen field to false.
-6.	The access modifier of the x field in the BaseObject class must be changed to protected.
-7.	The access modifier of the y field in the BaseObject class must be changed to protected.
-8.	The access modifier of the radius field in the BaseObject class must be changed to protected.
 
 
 Arkanoid (part 13)
@@ -105,23 +122,6 @@ In this method, you need to:
 a) use two nested loops to go through all the "pixels" of the passed image
 b) if the value of element [i][j] of the passed matrix is ​​not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
 setPoint(x + j, y + i, c)
-
-
-
-
-Arkanoid (part 9)
-
-
-Now let's tackle the Canvas class.
-It will contain a matrix (two-dimensional array) that we will "draw" on.
-The matrix has a width and height.
-And we'll use it to store characters (chars) rather than numbers (ints).
-
-Here's what we need:
-a) Add two private width and height fields to the class.
-b) Add a private char[][] matrix field to the class.
-c) Add a constructor with two int parameters (width and height). The matrix field must be initialized with an empty [height+2][width+2] array.
-d) Add getters and setters for all of the class's private fields.
 
 
 
