@@ -1,4 +1,23 @@
-taskKey="com.codegym.task.task24.task2413.big01"\n\nArkanoid (part 1)
+taskKey="com.codegym.task.task24.task2413.big02"\n\nArkanoid (part 2)
+
+
+The main class (Arkanoid) will need to store information about the size of the game field.
+
+Therefore,
+a) add two private int width and height fields to the Arkanoid class
+b) create public getters and setters for them
+
+
+Requirements:
+1.	A private int width field must be created in the Arkanoid class.
+2.	A private int height field must be created in the Arkanoid class.
+3.	A proper getter for the height field must be created in the Arkanoid class.
+4.	A proper getter for the width field must be created in the Arkanoid class.
+5.	A proper setter for the height field must be created in the Arkanoid class.
+6.	A proper setter for the width field must be created in the Arkanoid class.
+
+
+Arkanoid (part 1)
 
 
 Today let's write the game Arkanoid.
@@ -15,12 +34,5 @@ d) The Paddle class is our flying paddle.
 
 Create them, and don't forget about the public static void main(String[] args) method in the Arkanoid class.
 
-
-Requirements:
-1.	The Arkanoid class must be in a separate file.
-2.	The Ball class must be in a separate file.
-3.	The Brick class must be in a separate file.
-4.	The Paddle class must be in a separate file.
-5.	A public static void main(String[] args) method must be created in the Arkanoid class.
 
 
