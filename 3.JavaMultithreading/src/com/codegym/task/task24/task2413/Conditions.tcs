@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task24.task2413.big12"\n\nArkanoid (part 12)
+taskKey="com.codegym.task.task24.task2413.big13"\n\nArkanoid (part 13)
+
+
+The Ball class is more complicated, since the ball moves.
+
+We're going to need private fields:
+a) double speed (the ball's speed);
+b) double direction (the direction of motion in degrees: from 0 to 360);
+c) double dx (the distance along the x axis that the ball travels in one step, calculated using speed and direction);
+d) double dy (the distance along the y axis that the ball travels in one step, calculated using speed and direction);
+e) boolean isFrozen (true if the ball is "frozen", i.e. not moving).
+
+Don't forget to add getters for all the fields of this class, except isFrozen (we'll only be using it inside the Ball class).
+
+And we'll also make a constructor:
+a) parameters—x, y, speed, direction;
+b) radius (for calling the parent class) is always 1;
+c) don't forget to set isFrozen to true—the ball isn't flying anywhere at the beginning of the game.
+
+
+Requirements:
+1.	A private double speed field must be created in the Ball class.
+2.	A private double direction field must be created in the Ball class.
+3.	A private double dx field must be created in the Ball class.
+4.	A private double dy field must be created in the Ball class.
+5.	A private boolean isFrozen field must be created in the Ball class.
+6.	A public constructor must be created in the Ball class (the behavior and parameters are described in the task conditions).
+7.	There must be a proper public getter for the speed field in the Ball class.
+8.	There must be a proper public getter for the direction field in the Ball class.
+9.	There must be a proper public getter for the dx field in the Ball class.
+10.	There must be a proper public getter for the dy field in the Ball class.
+
+
+Arkanoid (part 12)
 
 
 Now let's tackle the Brick class.
@@ -14,11 +47,6 @@ The move() method does nothing (it contains no code), because a brick doesn't mo
 
 I'll handle the draw(Canvas canvas) method's code myself.
 
-
-Requirements:
-1.	The Brick constructor must have two double parameters and call the parent class&#39;s constructor with a constant third argument (radius) equal to 3.
-2.	The Brick class should have a move method without parameters.
-3.	There must be a draw method with one Canvas parameter in the Brick class.
 
 
 Arkanoid (part 11)
@@ -96,31 +124,6 @@ Because we're treating objects as circles for convenience, I propose the followi
 If the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
 Or to put it more simply:
 distance_between_objects <= max(radius_of_the_first_object, radius_of_the_second_object)
-
-
-
-Arkanoid (part 7)
-
-
-Now let's move on to the BaseObject class.
-I want to make some suggestions.
-
-Firstly, for simplicity, we'll treat all objects as circles.
-We'll draw them as shapes, just as before.
-But when calculating object collisions, we'll assume they are round.
-Doing it this way is much simpler.
-
-Second. Let the objects' coordinates and radius be real numbers.
-This will ensure smooth motion and accurate calculations.
-And we'll round them when drawing.
-
-Let's begin:
-a) Add private double x, double y, and double radius fields to the BaseObject class.
-b) Add getters and setters.
-c) Add a BaseObject(double x, double y, double radius) constructor.
-d) Go through all the subclasses and fix their constructors.
-
-If you use IntelliJ IDEA, Alt+Insert will help you.
 
 
 

@@ -39,7 +39,7 @@ public class Canvas {
      * Draw the passed figure at the specified coordinates using color c.
      * If the passed array contains one, then they correspond to char c on the canvas.
      */
-    void drawMatrix(double x, double y, int[][] matrix, char c) {
+     void drawMatrix(double x, double y, int[][] matrix, char c) {
         int height = matrix.length;
         int width = matrix[0].length;
 
@@ -54,7 +54,7 @@ public class Canvas {
     /**
      * Set one point with coordinates (x,y) to color c on the canvas.
      */
-    void setPoint(double x, double y, char c) {
+     void setPoint(double x, double y, char c) {
         int x0 = (int) Math.round(x);
         int y0 = (int) Math.round(y);
         if (y0 < 0 || y0 >= matrix.length) return;
@@ -63,10 +63,13 @@ public class Canvas {
         matrix[y0][x0] = c;
     }
 
-    void print() {
+    void print()
+    {
 
-        for (int i = 0; i < height + 2; i++) {
-            for (int j = 0; j < width + 2; j++) {
+        for (int i = 0; i < height + 2; i++)
+        {
+            for (int j = 0; j < width + 2; j++)
+            {
                 System.out.print(" ");
                 System.out.print(matrix[i][j]);
                 System.out.print(" ");
@@ -80,7 +83,8 @@ public class Canvas {
         System.out.println();
     }
 
-    public void clear() {
+    public void clear()
+    {
         this.matrix = new char[height + 2][width + 2];
     }
 }
