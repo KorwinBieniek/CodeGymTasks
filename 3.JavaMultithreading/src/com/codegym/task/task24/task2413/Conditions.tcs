@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task24.task2413.big04"\n\nArkanoid (part 4)
+taskKey="com.codegym.task.task24.task2413.big05"\n\nArkanoid (part 5)
+
+
+What else is the Arkanoid class missing?
+First, it needs a run() method, where we'll define the main logic of the program.
+It also needs a move() method, which will move by one step all objects that need to be moved.
+Create the run() and move() methods.
+
+We also need a NON-private static Arkanoid game variable, which will store a reference
+to the created Arkanoid object.
+It should look something like this:
+static Arkanoid game;
+
+
+Requirements:
+1.	A run() method with no parameters must be created in the Arkanoid class.
+2.	A move() method with no parameters must be created in the Arkanoid class.
+3.	The run method must be available from outside the Arkanoid class.
+4.	The move method must be available from outside the Arkanoid class.
+5.	A non-private static Arkanoid game field must be created in the Arkanoid class.
+
+
+Arkanoid (part 4)
 
 
 The Arkanoid class will also need to store a reference to the ball (Ball), paddle (Paddle), and list of bricks.
@@ -8,17 +30,6 @@ a) create two private fields in the Arkanoid class: Ball ball and Paddle paddle
 b) add a private List<Brick> bricks field
 c) create public getters and setters for them
 
-
-Requirements:
-1.	A private Ball ball field must be created in the Arkanoid class.
-2.	A private Paddle paddle field must be created in the Arkanoid class.
-3.	A private List&lt;Brick&gt; bricks field must be created in the Arkanoid class.
-4.	A proper getter for the ball field must be created in the Arkanoid class.
-5.	A proper getter for the paddle field must be created in the Arkanoid class.
-6.	A proper getter for the bricks field must be created in the Arkanoid class.
-7.	A proper setter for the ball field must be created in the Arkanoid class.
-8.	A proper setter for the paddle field must be created in the Arkanoid class.
-9.	A proper setter for the bricks field must be created in the Arkanoid class.
 
 
 Arkanoid (part 3)
