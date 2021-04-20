@@ -1,11 +1,13 @@
 package com.codegym.task.task24.task2413;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arkanoid {
     private int width;
     private int height;
     public static Arkanoid game;
+    private boolean isGameOver;
 
     private Ball ball;
     private Paddle paddle;
@@ -76,6 +78,29 @@ public class Arkanoid {
 
         //draw paddle
         paddle.draw(canvas);
+    }
+
+    public void checkPaddleCollision() {
+        if (ball.intersects(paddle)) {
+            double angle = 90 + 20 * (Math.random() - 0.5);
+            ball.setDirection(angle);
+        }
+    }
+
+    public void checkGameOver() {
+        if (ball.getY() > height)
+            isGameOver = true;
+    }
+
+    public void checkBrickCollision() {
+        for (Brick brick : new ArrayList<>(bricks)) {
+            if (ball.intersects(brick)) {
+                double angle = Math.random() * 360;
+                ball.setDirection(angle);
+
+                bricks.remove(brick);
+            }
+        }
     }
 
     public static void main(String[] args) {

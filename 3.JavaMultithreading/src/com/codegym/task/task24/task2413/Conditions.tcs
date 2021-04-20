@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task24.task2413.big18"\n\nArkanoid (part 18)
+taskKey="com.codegym.task.task24.task2413.big19"\n\nArkanoid (part 19)
+
+
+There's just a little bit left.
+
+Create a private boolean isGameOver field in the Arkanoid class.
+
+Implement the checkBrickCollision method.
+In this method, you need to check whether the ball has collided with any of the bricks.
+Use the intersects method to test for a collision.
+If the ball does hit a brick, then:
+a) the ball flies off in a random direction:
+double angle = Math.random() * 360;
+ball.setDirection(angle);
+b) the brick "dies" and must be removed from the list of bricks.
+
+Implement the checkPaddleCollision method.
+In this method, you need to check whether the ball has hit the paddle.
+Use the intersects method to test for a collision.
+If the ball does hit the paddle, then:
+the ball flies up in a random direction:
+double angle = 90 + 20 * (Math.random() - 0.5);
+ball.setDirection(angle);
+
+Implement the checkGameOver method.
+If the ball's y coordinate is greater than the height of the game field (height), then the ball has flown off the bottom of the screen.
+If this happens, set the isGameOver variable to true.
+
+
+Requirements:
+1.	The Arkanoid class must implement a checkBrickCollision() method in accordance with the task conditions.
+2.	The Arkanoid class must implement a checkPaddleCollision() method in accordance with the task conditions.
+3.	A private boolean isGameOver field must be created in the Arkanoid class.
+4.	The Arkanoid class must implement a checkGameOver() method in accordance with the task conditions.
+
+
+Arkanoid (part 18)
 
 
 Now we'll return to the Arkanoid class.
@@ -9,10 +45,6 @@ In this method, you need to move all movable objects (the paddle and ball).
 b) draw(Canvas canvas)
 In this method, you must call the draw method on all objects that have such a method.
 
-
-Requirements:
-1.	The Arkanoid class must implement a move() method without parameters. This method calls the move() method on the ball and paddle.
-2.	The Arkanoid class must implement a draw(Canvas canvas) method that calls the draw method on the ball, paddle, and all bricks.
 
 
 Arkanoid (part 17)
@@ -93,27 +125,6 @@ You decide for yourself what you need to do to accomplish this.
 P.S. Oh, I almost forgot! The x, y, and radius fields are declared with the private access modifier in the BaseObject class,
 which isn't very convenient. Change the modifier to protected so that all of the BaseObject class's descendants can control their own
 coordinates and dimensions without the need to use "foreign" getters and setters.
-
-
-
-Arkanoid (part 13)
-
-
-The Ball class is more complicated, since the ball moves.
-
-We're going to need private fields:
-a) double speed (the ball's speed);
-b) double direction (the direction of motion in degrees: from 0 to 360);
-c) double dx (the distance along the x axis that the ball travels in one step, calculated using speed and direction);
-d) double dy (the distance along the y axis that the ball travels in one step, calculated using speed and direction);
-e) boolean isFrozen (true if the ball is "frozen", i.e. not moving).
-
-Don't forget to add getters for all the fields of this class, except isFrozen (we'll only be using it inside the Ball class).
-
-And we'll also make a constructor:
-a) parameters—x, y, speed, direction;
-b) radius (for calling the parent class) is always 1;
-c) don't forget to set isFrozen to true—the ball isn't flying anywhere at the beginning of the game.
 
 
 
