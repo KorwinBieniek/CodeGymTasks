@@ -1,4 +1,21 @@
-taskKey="com.codegym.task.task24.task2413.big17"\n\nArkanoid (part 17)
+taskKey="com.codegym.task.task24.task2413.big18"\n\nArkanoid (part 18)
+
+
+Now we'll return to the Arkanoid class.
+
+Implement the following methods:
+a) move()
+In this method, you need to move all movable objects (the paddle and ball).
+b) draw(Canvas canvas)
+In this method, you must call the draw method on all objects that have such a method.
+
+
+Requirements:
+1.	The Arkanoid class must implement a move() method without parameters. This method calls the move() method on the ball and paddle.
+2.	The Arkanoid class must implement a draw(Canvas canvas) method that calls the draw method on the ball, paddle, and all bricks.
+
+
+Arkanoid (part 17)
 
 
 The paddle also needs methods:
@@ -12,11 +29,6 @@ Just assign the correct value to the direction variable.
 d) moveRight () - sets the paddle's direction to right
 Just assign the correct value to the direction variable.
 
-
-Requirements:
-1.	The Paddle class should implement a move method that increments the x coordinate by the product of the speed and direction fields.
-2.	The Paddle class should implement a moveLeft method that sets the direction field equal to -1.
-3.	The Paddle class should implement a moveRight method that sets the direction field equal to 1.
 
 
 Arkanoid (part 16)
@@ -102,24 +114,6 @@ And we'll also make a constructor:
 a) parameters—x, y, speed, direction;
 b) radius (for calling the parent class) is always 1;
 c) don't forget to set isFrozen to true—the ball isn't flying anywhere at the beginning of the game.
-
-
-
-Arkanoid (part 12)
-
-
-Now let's tackle the Brick class.
-
-First, in the constructor we will set the exact "radius" of all the bricks.
-Let's do it like this:
-public Brick(double x, double y) {
-super(x, y, 3);
-}
-
-Also be sure that the Brick class has two overridden methods: move() and draw(Canvas canvas).
-The move() method does nothing (it contains no code), because a brick doesn't move anywhere.
-
-I'll handle the draw(Canvas canvas) method's code myself.
 
 
 
