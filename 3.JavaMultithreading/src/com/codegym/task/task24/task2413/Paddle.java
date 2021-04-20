@@ -27,6 +27,21 @@ public class Paddle extends BaseObject {
 
     @Override
     void move() {
+        double dx = speed * direction;
+        x = x + dx;
+    }
 
+    /**
+     * Set direction to -1
+     */
+    public void moveLeft() {
+        direction = -1;
+    }
+
+    /**
+     * Set direction to +1
+     */
+    public void moveRight() {
+        direction = 1;
     }
 }

@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task24.task2413.big16"\n\nArkanoid (part 16)
+taskKey="com.codegym.task.task24.task2413.big17"\n\nArkanoid (part 17)
+
+
+The paddle also needs methods:
+a) move - see move in BaseObject
+The paddle moves horizontally, so we'll only change the x coordinate.
+Think about how the x coordinate depends on direction and speed. Implement that dependence.
+b) draw - see draw in BaseObject
+I'll handle the code myself.
+c) moveLeft() - sets the paddle's direction to left
+Just assign the correct value to the direction variable.
+d) moveRight () - sets the paddle's direction to right
+Just assign the correct value to the direction variable.
+
+
+Requirements:
+1.	The Paddle class should implement a move method that increments the x coordinate by the product of the speed and direction fields.
+2.	The Paddle class should implement a moveLeft method that sets the direction field equal to -1.
+3.	The Paddle class should implement a moveRight method that sets the direction field equal to 1.
+
+
+Arkanoid (part 16)
 
 
 And finally, the paddle!
@@ -15,13 +36,6 @@ speed = 1;
 direction = 0;
 }
 
-
-Requirements:
-1.	A private double speed field must be created in the Paddle class.
-2.	A private double direction field must be created in the Paddle class.
-3.	The Paddle class must implement a public getter for the speed field.
-4.	The Paddle class must implement a public getter for the direction field.
-5.	The Paddle class must implement a constructor with two double parameters in accordance with the task conditions.
 
 
 Arkanoid (part 15)
@@ -106,20 +120,6 @@ Also be sure that the Brick class has two overridden methods: move() and draw(Ca
 The move() method does nothing (it contains no code), because a brick doesn't move anywhere.
 
 I'll handle the draw(Canvas canvas) method's code myself.
-
-
-
-Arkanoid (part 11)
-
-
-Canvas needs another two methods. Write them.
-a) the clear() method
-This method will clear the matrix so it can be drawn on again.
-You can just re-initialize the matrix with an empty array of the correct dimensions.
-
-b) the print() method
-This method draws the matrix on the screen.
-You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
 
 
 
