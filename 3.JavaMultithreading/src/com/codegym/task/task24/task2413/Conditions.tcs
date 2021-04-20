@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task24.task2413.big08"\n\nArkanoid (part 8)
+taskKey="com.codegym.task.task24.task2413.big09"\n\nArkanoid (part 9)
+
+
+Now let's tackle the Canvas class.
+It will contain a matrix (two-dimensional array) that we will "draw" on.
+The matrix has a width and height.
+And we'll use it to store characters (chars) rather than numbers (ints).
+
+Here's what we need:
+a) Add two private width and height fields to the class.
+b) Add a private char[][] matrix field to the class.
+c) Add a constructor with two int parameters (width and height). The matrix field must be initialized with an empty [height+2][width+2] array.
+d) Add getters and setters for all of the class's private fields.
+
+
+
+Requirements:
+1.	A private int width field must be created in the Canvas class.
+2.	A private int height field must be created in the Canvas class.
+3.	A private char[][] matrix field must be created in the Canvas class.
+4.	A public getter for the width field must be created in the Canvas class.
+5.	A public getter for the height field must be created in the Canvas class.
+6.	A public getter for the matrix field must be created in the Canvas class.
+7.	A public setter for the width field must be created in the Canvas class.
+8.	A public setter for the height field must be created in the Canvas class.
+9.	A public setter for the matrix field must be created in the Canvas class.
+10.	A proper public constructor with two int parameters (width, height) must be created in the Canvas class.
+
+
+Arkanoid (part 8)
 
 
 But there's more.
@@ -18,12 +47,6 @@ If the center of the circle of one object lies within the circle of another, the
 Or to put it more simply:
 distance_between_objects <= max(radius_of_the_first_object, radius_of_the_second_object)
 
-
-Requirements:
-1.	The BaseObject class must be abstract.
-2.	The BaseObject class must declare an abstract draw() method with one Canvas parameter.
-3.	An abstract move() method without parameters must be declared in the BaseObject class.
-4.	The BaseObject class must implement an intersects() method with one BaseObject parameter. It must return true if the current object intersects the argument.
 
 
 Arkanoid (part 7)
@@ -98,14 +121,6 @@ Here's what we need:
 a) create two private fields in the Arkanoid class: Ball ball and Paddle paddle
 b) add a private List<Brick> bricks field
 c) create public getters and setters for them
-
-
-
-Arkanoid (part 3)
-
-
-Perhaps it's time to add a constructor to the Arkanoid class.
-The constructor must accept two int parameters (width and height) and correctly set the values ​​of the corresponding fields in the class.
 
 
 
