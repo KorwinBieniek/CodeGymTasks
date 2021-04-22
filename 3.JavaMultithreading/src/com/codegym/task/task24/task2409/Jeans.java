@@ -1,0 +1,7 @@
+package com.codegym.task.task24.task2409;
+
+interface Jeans extends Item {
+    int getLength();
+
+    int getSize();
+}
