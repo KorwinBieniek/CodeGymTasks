@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task36.task3608.big04"\n\nMVC (part 4)
+taskKey="com.codegym.task.task36.task3608.big05"\n\nMVC (part 5)
+
+
+The service has a method that returns all deleted users. Let's display them.
+
+1. Assign each of these methods to the correct MVC classes:
+
+public void fireShowDeletedUsersEvent() {
+...onShowAllDeletedUsers();
+}
+
+public void onShowAllDeletedUsers() {
+...loadDeletedUsers();
+}
+
+public void loadDeletedUsers() {
+List<User> users = userService.getAllDeletedUsers();
+}
+
+Don't forget that the data received from the server must be stored in the DataModel. And then, update the view.
+Add this to the correct methods on your own.
+
+2. In Solution.main, call the new method that you put in the view.
+
+3. Add the method that you put in the Model to the Model interface, and implement it in FakeModel: throw an UnsupportedOperationException.
+
+
+Requirements:
+1.	You need to determine the correct location for the fireShowDeletedUsersEvent() method, and implement it.
+2.	You need to determine the correct location for the onShowAllDeletedUsers() method, and implement it.
+3.	You must determine the correct location for the loadDeletedUsers() method, and implement it.
+4.	In the Solution class&#39;s main method, you need to call the method that you previously implemented in the UsersView class.
+5.	The Model interface must declare the method that you previously implemented in the MainModel class.
+6.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
+
+
+MVC (part 4)
 
 
 It's time to replace our fake Model with a real one that receives data from the DataSource.
@@ -16,14 +52,6 @@ You'll also find a Util utility class in the root of this task.
 4. Update Solution.main: replace FakeModel with MainModel.
 An advantage of MVC is that it's easy to replace any part of the pattern at any time.
 
-
-Requirements:
-1.	A MainModel class that implements the Model interface must be created inside the model package.
-2.	A private DataModel dataModel field must be created and initialized in the MainModel class.
-3.	A private UserService userService field must be created and initialized in the MainModel class.
-4.	You must implement the getDataModel method in the MainModel class.
-5.	The MainModel class&#39;s loadUsers method must be implemented according to the task conditions.
-6.	You must create a MainModel object instead of a FakeModel object in the Solution class&#39;s main method.
 
 
 MVC (part 3)
