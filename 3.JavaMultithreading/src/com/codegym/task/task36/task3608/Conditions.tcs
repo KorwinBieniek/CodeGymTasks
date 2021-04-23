@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task36.task3608.big07"\n\nMVC (part 7)
+taskKey="com.codegym.task.task36.task3608.big08"\n\nMVC (part 8)
+
+
+1. Following the MVC pattern, do the following by analogy with how the previous methods were implemented:
+write the logic for deleting a user. After a deletion operation, the list of users must be displayed.
+Assign the following methods to MVC classes:
+public void fireUserDeletedEvent(long id)
+public void onDeleteUser(long id)
+public void deleteUserById(long id)
+Note: the method that you are going to add to the View needs to be added to EditUserView.
+
+2. Call fireUserDeletedEvent(124L) in main before calling the fireShowDeletedUsersEvent() method.
+
+3. Refactor the MainModel class. Currently, some of the methods stop working properly when there are deleted users.
+Almost all the methods that require a list of users must work only with active users.
+Extract into a separate private List<User> getAllUsers() method the logic to get the list of all active users.
+You already have the ability to filter active users in the List<User> filterOnlyActiveUsers(List<User> allUsers) method.
+Refactor all the methods that use a list of users. They should use the list of active users.
+
+4. Add to the Model interface the method that you put in the Model, and implement it in FakeModel: throw an UnsupportedOperationException.
+
+
+Requirements:
+1.	You need to determine the correct location for the fireUserDeletedEvent(long) method, and implement it.
+2.	You need to determine the correct location for the onDeleteUser(long) method, and implement it.
+3.	You need to determine the correct location for the deleteUserById(long) method, and implement it.
+4.	You need to call the fireUserDeletedEvent(124L) method on the EditUserView object in the Solution class&#39;s main method before calling the fireShowDeletedUsersEvent() method.
+5.	In the main method, the method calls should occur in the following order: fireShowAllUsersEvent(), fireOpenUserEditFormEvent(126L), fireUserDeletedEvent(124L), fireShowDeletedUsersEvent().
+6.	You need to implement the private List&lt;User&gt; getAllUsers() method in the MainModel class.
+7.	You need to do some refactoring: all of the MainModel class&#39;s methods should use the list of active users.
+8.	The Model interface must declare the method that you previously implemented in the MainModel class.
+9.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
+
+
+MVC (part 7)
 
 
 1. Assign each of these methods to the correct MVC classes:
@@ -25,14 +59,6 @@ Keep this in mind when implementing this task.
 
 3. Add to the Model interface the method that you put in the Model, and implement it in FakeModel: throw an UnsupportedOperationException.
 
-
-Requirements:
-1.	You must determine the correct location for the onOpenUserEditForm(long) method, and implement it.
-2.	You must determine the correct location for the fireOpenUserEditFormEvent(long) method, and implement it.
-3.	You must determine the correct location for the loadUserById(long) method, and implement it.
-4.	You must call the UsersView object&#39;s method for opening an edit form for the user with id 126, before calling the fireShowDeletedUsersEvent() method.
-5.	The Model interface must declare the method that you previously implemented in the MainModel class.
-6.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
 
 
 MVC (part 6)
@@ -147,22 +173,6 @@ User{name='A', id=1, level=1}
 User{name='B', id=2, level=1}
 ===================================================
 Hooray! Let's keep going.
-
-
-
-MVC (part 2)
-
-
-1. Create a controller package, and create a Controller class inside it.
-This class will receive requests from the client and notify the Model. The Model, in turn, will update the DataModel.
-
-2. Add a Model model field, along with a setter, to the controller.
-
-3. In the controller, create a public void onShowAllUsers() method that accesses the model and triggers the loading the users.
-
-4. Create a view package. Create a View interface inside it.
-
-5. Add two methods to the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
 
 
 
