@@ -1,4 +1,27 @@
-taskKey="com.codegym.task.task36.task3608.big01"\n\nMVC (part 1)
+taskKey="com.codegym.task.task36.task3608.big02"\n\nMVC (part 2)
+
+
+1. Create a controller package, and create a Controller class inside it.
+This class will receive requests from the client and notify the Model. The Model, in turn, will update the DataModel.
+
+2. Add a Model model field, along with a setter, to the controller.
+
+3. In the controller, create a public void onShowAllUsers() method that accesses the model and triggers the loading the users.
+
+4. Create a view package. Create a View interface inside it.
+
+5. Add two methods to the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
+
+
+Requirements:
+1.	The Controller class must be created in the controller package.
+2.	A private Model model field and corresponding setter must be created in the Controller class.
+3.	The Controller class must have a public void onShowAllUsers() method that must call the loadUsers() method on the model.
+4.	The View interface must be created in the view package.
+5.	Two methods must be declared in the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
+
+
+MVC (part 1)
 
 
 Hi! This task will cover the Model-View-Controller (MVC) pattern.
@@ -44,14 +67,5 @@ I think you'll remember that all interface methods are public, so there's no nee
 Programmers often use fake data in early development. They implement code to get real data in the final stages.
 The hardcoded fake data replaces real objects.
 
-
-Requirements:
-1.	A DataModel class must be created in the model package.
-2.	A private List&lt;User&gt; users field, along with a corresponding getter and setter, must be created in the DataModel class.
-3.	A Model interface must be created inside the model package. A DataModel getDataModel() method must be declared in the Model interface.
-4.	A FakeModel class that implements the Model interface must be created inside the model package.
-5.	A private DataModel dataModel field must be created and initialized in the FakeModel class.
-6.	A void loadUsers() method must be declared in the Model interface.
-7.	The void loadUsers() method in the FakeModel class must use some data to initialize the list of users in the dataModel object.
 
 
