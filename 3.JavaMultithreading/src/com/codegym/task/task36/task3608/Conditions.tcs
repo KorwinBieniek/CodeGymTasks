@@ -1,4 +1,51 @@
-taskKey="com.codegym.task.task36.task3608.big02"\n\nMVC (part 2)
+taskKey="com.codegym.task.task36.task3608.big03"\n\nMVC (part 3)
+
+
+To understand whether you're heading in the right direction, you need to see the data. Therefore,
+1. In the view package, create a UsersView class that implements View. It will display the list of users.
+
+2. Create a controller field, and a corresponding setter, in UsersView.
+
+3. Implement the refresh method:
+3.1. Display the phrase "All users:".
+3.2. Display all of the users in dataModel.
+Indent each user with a tab.
+3.3. Display the following visual separator at the end
+===================================================
+
+4. I'm already interested in seeing what we've got.
+Add to UsersView a public void fireShowAllUsersEvent() method that emulates a client event.
+Access the controller and call the appropriate method to display all users.
+
+5. The Solution class will emulate a user. Open the Solution class, go to the red method,
+and use IDEA's hot keys to create a usersView property (field).
+All you need is a setter. If you created a getter, delete it.
+
+6. Run main. Oops, nothing is displayed :(
+This is because the server sent the data, and it was updated in the DataModel, but the View doesn't know anything about it.
+The View can't update itself. The Controller does that.
+Go to the controller and update the View's data.
+Remember, the data is stored in the Model.
+
+7. Run main. I now have this output:
+All users:
+User{name='A', id=1, level=1}
+User{name='B', id=2, level=1}
+===================================================
+Hooray! Let's keep going.
+
+
+Requirements:
+1.	A UsersView class that implements the View interface must be created in the view package.
+2.	A private Controller controller field and corresponding setter must be created in the UsersView class.
+3.	The UsersView class&#39;s refresh method must be implemented according to the task conditions.
+4.	The UsersView class must have a public void fireShowAllUsersEvent() method that must call the onShowAllUsers() method on the controller.
+5.	A private UsersView usersView field and corresponding setter must be created in the Controller class. A getter must not be created for this field.
+6.	The userView object&#39;s refresh method must be called in the Controller class&#39;s onShowAllUsers() method with model.getDataModel() as the argument, after a call to the loadUsers() method.
+7.	Calling the main method must display information about each of the users that you added in the FakeModel class&#39;s loadUsers() method.
+
+
+MVC (part 2)
 
 
 1. Create a controller package, and create a Controller class inside it.
@@ -12,13 +59,6 @@ This class will receive requests from the client and notify the Model. The Model
 
 5. Add two methods to the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
 
-
-Requirements:
-1.	The Controller class must be created in the controller package.
-2.	A private Model model field and corresponding setter must be created in the Controller class.
-3.	The Controller class must have a public void onShowAllUsers() method that must call the loadUsers() method on the model.
-4.	The View interface must be created in the view package.
-5.	Two methods must be declared in the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
 
 
 MVC (part 1)
