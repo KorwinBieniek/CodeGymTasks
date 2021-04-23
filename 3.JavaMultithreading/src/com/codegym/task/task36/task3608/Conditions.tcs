@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task36.task3608.big08"\n\nMVC (part 8)
+taskKey="com.codegym.task.task36.task3608.big09"\n\nMVC (part 9)
+
+
+This is the last task on MVC.
+
+1. Following the MVC pattern, do the following by analogy with how the previous methods were implemented:
+write the logic for updating a user. After the update operation, the list of users must be displayed.
+Assign the following methods to MVC classes:
+public void fireUserDataChangedEvent(String name, long id, int level)
+public void onChangeUserData(String name, long id, int level)
+public void changeUserData(String name, long id, int level)
+where name and level are the new values for the user with the selected id.
+Note: the method that you are going to add to the View needs to be added to EditUserView.
+
+2. Call fireUserDataChangedEvent in main before calling the fireShowDeletedUsersEvent() method.
+
+3. Add to the Model interface the method that you put in the Model, and implement it in FakeModel: throw an UnsupportedOperationException.
+
+
+Requirements:
+1.	You need to determine the correct location for the fireUserDataChangedEvent(String name, long id, int level) method,  and implement it.
+2.	You need to determine the correct location for the onChangeUserData(String name, long id, int level) method, and implement it.
+3.	You need to determine the correct location for the void changeUserData(String name, long id, int level) method, and implement it.
+4.	In the main method, you need to call the fireUserDataChangedEvent(String, long, int) method before calling the fireShowDeletedUsersEvent() method.
+5.	The Model interface must declare the method that you previously implemented in the MainModel class.
+6.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
+
+
+MVC (part 8)
 
 
 1. Following the MVC pattern, do the following by analogy with how the previous methods were implemented:
@@ -19,17 +47,6 @@ Refactor all the methods that use a list of users. They should use the list of a
 
 4. Add to the Model interface the method that you put in the Model, and implement it in FakeModel: throw an UnsupportedOperationException.
 
-
-Requirements:
-1.	You need to determine the correct location for the fireUserDeletedEvent(long) method, and implement it.
-2.	You need to determine the correct location for the onDeleteUser(long) method, and implement it.
-3.	You need to determine the correct location for the deleteUserById(long) method, and implement it.
-4.	You need to call the fireUserDeletedEvent(124L) method on the EditUserView object in the Solution class&#39;s main method before calling the fireShowDeletedUsersEvent() method.
-5.	In the main method, the method calls should occur in the following order: fireShowAllUsersEvent(), fireOpenUserEditFormEvent(126L), fireUserDeletedEvent(124L), fireShowDeletedUsersEvent().
-6.	You need to implement the private List&lt;User&gt; getAllUsers() method in the MainModel class.
-7.	You need to do some refactoring: all of the MainModel class&#39;s methods should use the list of active users.
-8.	The Model interface must declare the method that you previously implemented in the MainModel class.
-9.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
 
 
 MVC (part 7)
@@ -135,44 +152,6 @@ You'll also find a Util utility class in the root of this task.
 
 4. Update Solution.main: replace FakeModel with MainModel.
 An advantage of MVC is that it's easy to replace any part of the pattern at any time.
-
-
-
-MVC (part 3)
-
-
-To understand whether you're heading in the right direction, you need to see the data. Therefore,
-1. In the view package, create a UsersView class that implements View. It will display the list of users.
-
-2. Create a controller field, and a corresponding setter, in UsersView.
-
-3. Implement the refresh method:
-3.1. Display the phrase "All users:".
-3.2. Display all of the users in dataModel.
-Indent each user with a tab.
-3.3. Display the following visual separator at the end
-===================================================
-
-4. I'm already interested in seeing what we've got.
-Add to UsersView a public void fireShowAllUsersEvent() method that emulates a client event.
-Access the controller and call the appropriate method to display all users.
-
-5. The Solution class will emulate a user. Open the Solution class, go to the red method,
-and use IDEA's hot keys to create a usersView property (field).
-All you need is a setter. If you created a getter, delete it.
-
-6. Run main. Oops, nothing is displayed :(
-This is because the server sent the data, and it was updated in the DataModel, but the View doesn't know anything about it.
-The View can't update itself. The Controller does that.
-Go to the controller and update the View's data.
-Remember, the data is stored in the Model.
-
-7. Run main. I now have this output:
-All users:
-User{name='A', id=1, level=1}
-User{name='B', id=2, level=1}
-===================================================
-Hooray! Let's keep going.
 
 
 

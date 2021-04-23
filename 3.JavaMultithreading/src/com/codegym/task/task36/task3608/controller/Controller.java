@@ -42,4 +42,9 @@ public class Controller {
         model.deleteUserById(id);
         usersView.refresh(model.getDataModel());
     }
+
+    public void onChangeUserData(String name, long id, int level) {
+        model.changeUserData(name, id, level);
+        usersView.refresh(model.getDataModel());
+    }
 }
