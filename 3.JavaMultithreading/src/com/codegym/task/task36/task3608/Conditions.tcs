@@ -1,4 +1,42 @@
-taskKey="com.codegym.task.task36.task3608.big05"\n\nMVC (part 5)
+taskKey="com.codegym.task.task36.task3608.big06"\n\nMVC (part 6)
+
+
+The functionality for displaying deleted users exists, but we don't have any deleted users. Let's fix that.
+Let's make a new view that will be responsible for editing a specific user.
+UsersView displays a list of users.
+EditUserView will display data about editing a specific user.
+For this, we first need the selected user.
+As with any data, we'll put it in DataModel.
+
+1. In DataModel, create a User activeUser field, along with a corresponding getter and setter (Alt+Insert -> Getter and Setter).
+
+2. Create EditUserView by analogy with UsersView.
+Here's the logic for the refresh method:
+2.1. Display "User to be edited:".
+2.2. On a new line, display a tab and then the active user.
+2.3. On a new line, display the following separator: "===================================================".
+
+3. Create a EditUserView editUserView field and corresponding setter in the controller.
+
+When our data is displayed, it's not entirely clear whether we are displaying the list of users or the list of deleted users.
+Let's make the View display this information. All of the data to be displayed is stored in the Model. Therefore,
+4. In DataModel, create a boolean displayDeletedUserList field, along with a corresponding getter and setter.
+
+5. Change the UsersView class's refresh method so that it displays "All users:" or "All deleted users:"
+depending on the type of users in the list. Add the displayDeletedUserList change to the required methods of the model.
+
+
+Requirements:
+1.	A private User activeUser field, and a corresponding getter and setter, must be created in the DataModel class.
+2.	The EditUserView class must be created by analogy with the UsersView class: it must support the View interface and have a private Controller controller field and corresponding setter.
+3.	The EditUserView class&#39;s refresh method must be implemented according to the task conditions.
+4.	A private EditUserView editUserView field and corresponding setter must be created in the Controller class.
+5.	A private boolean displayDeletedUserList field and corresponding getter and setter must be created in the DataModel class.
+6.	The UsersView class&#39;s refresh method must be modified according to the task conditions.
+7.	You need to add a call to the setDisplayDeletedUserList(boolean) method using the correct flag in some of the MainModel class&#39;s methods.
+
+
+MVC (part 5)
 
 
 The service has a method that returns all deleted users. Let's display them.
@@ -24,14 +62,6 @@ Add this to the correct methods on your own.
 
 3. Add the method that you put in the Model to the Model interface, and implement it in FakeModel: throw an UnsupportedOperationException.
 
-
-Requirements:
-1.	You need to determine the correct location for the fireShowDeletedUsersEvent() method, and implement it.
-2.	You need to determine the correct location for the onShowAllDeletedUsers() method, and implement it.
-3.	You must determine the correct location for the loadDeletedUsers() method, and implement it.
-4.	In the Solution class&#39;s main method, you need to call the method that you previously implemented in the UsersView class.
-5.	The Model interface must declare the method that you previously implemented in the MainModel class.
-6.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
 
 
 MVC (part 4)

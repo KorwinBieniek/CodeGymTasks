@@ -10,11 +10,11 @@ public class UsersView implements View {
 
     @Override
     public void refresh(DataModel dataModel) {
-        System.out.println("All users:");
-        for (User user : dataModel.getUsers()) {
+        System.out.println("All " + (dataModel.isDisplayDeletedUserList() ? "deleted " : "") + "users:");
+        for(User user : dataModel.getUsers()) {
             System.out.println("\t" + user);
         }
-        System.out.println("==================================================");
+        System.out.println("===================================================");
     }
 
     @Override
