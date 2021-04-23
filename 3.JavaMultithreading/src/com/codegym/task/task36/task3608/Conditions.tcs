@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task36.task3608.big06"\n\nMVC (part 6)
+taskKey="com.codegym.task.task36.task3608.big07"\n\nMVC (part 7)
+
+
+1. Assign each of these methods to the correct MVC classes:
+
+public void onOpenUserEditForm(long userId) {
+...loadUserById(userId);
+...refresh(...getDataModel());
+}
+
+public void fireOpenUserEditFormEvent(long id) {
+...onOpenUserEditForm(id);
+}
+
+public void loadUserById(long userId) {
+User user = userService.getUsersById(userId);
+...setActiveUser(user);
+}
+
+!!!! The user sees the View with the list of users, clicks on one of them, and a request is sent to the server.
+We fetch new data and display a different View that is specific to the one selected user.
+Keep this in mind when implementing this task.
+
+2. In the main method, add the ability to open an edit form for the user with id 126 before the fireShowDeletedUsersEvent() method is called.
+
+3. Add to the Model interface the method that you put in the Model, and implement it in FakeModel: throw an UnsupportedOperationException.
+
+
+Requirements:
+1.	You must determine the correct location for the onOpenUserEditForm(long) method, and implement it.
+2.	You must determine the correct location for the fireOpenUserEditFormEvent(long) method, and implement it.
+3.	You must determine the correct location for the loadUserById(long) method, and implement it.
+4.	You must call the UsersView object&#39;s method for opening an edit form for the user with id 126, before calling the fireShowDeletedUsersEvent() method.
+5.	The Model interface must declare the method that you previously implemented in the MainModel class.
+6.	In the FakeModel class, you need to throw an UnsupportedOperationException in the body of the method that was added to the Model interface.
+
+
+MVC (part 6)
 
 
 The functionality for displaying deleted users exists, but we don't have any deleted users. Let's fix that.
@@ -25,15 +62,6 @@ Let's make the View display this information. All of the data to be displayed is
 5. Change the UsersView class's refresh method so that it displays "All users:" or "All deleted users:"
 depending on the type of users in the list. Add the displayDeletedUserList change to the required methods of the model.
 
-
-Requirements:
-1.	A private User activeUser field, and a corresponding getter and setter, must be created in the DataModel class.
-2.	The EditUserView class must be created by analogy with the UsersView class: it must support the View interface and have a private Controller controller field and corresponding setter.
-3.	The EditUserView class&#39;s refresh method must be implemented according to the task conditions.
-4.	A private EditUserView editUserView field and corresponding setter must be created in the Controller class.
-5.	A private boolean displayDeletedUserList field and corresponding getter and setter must be created in the DataModel class.
-6.	The UsersView class&#39;s refresh method must be modified according to the task conditions.
-7.	You need to add a call to the setDisplayDeletedUserList(boolean) method using the correct flag in some of the MainModel class&#39;s methods.
 
 
 MVC (part 5)
@@ -135,54 +163,6 @@ This class will receive requests from the client and notify the Model. The Model
 4. Create a view package. Create a View interface inside it.
 
 5. Add two methods to the View interface: void refresh(DataModel dataModel) and void setController(Controller controller).
-
-
-
-MVC (part 1)
-
-
-Hi! This task will cover the Model-View-Controller (MVC) pattern.
-Together we are going to build an MVC architecture. Dive in deep to understand why you need to implement it the way that I show you.
-Read the additional literature - https://codegym.cc/groups/posts/303-part-7-introducing-the-mvc-model-view-controller-pattern
-You'll probably be asked about this pattern in an interview or will be given a task that will require you to implement it.
-
-Let's begin...
-You have two packages: bean, which has only one class called User, and dao,
-which contains database emulation code in the mock and UserDao packages. UserDao is a DAO layer (i.e. Database Access Object layer).
-It contains various methods for storing and retrieving objects from a database.
-A real application wouldn't have the line "private DataSource dataSource = DataSource.getInstance()".
-I've implemented DataSource as a singleton. In reality, you'd have something more like this:
-@Autowired
-private DataSource dataSource;
-This framework you'll use in real applications will create the database object itself and initialize the dataSource field.
-
-Remember, services work with the DAO layer. No other classes touch the DAO. The business logic is described in services.
-Services retrieve data from the database using the DAO, process it, and hand it out to whoever requested the data.
-However, not all data is stored in a database. For example, a signed-in user will be stored in a special Model object.
-An object that contains data required to display information to the client is called the Model.
-Additionally, this Model object contains references to all of the required services.
-If there is a lot of data to display, then it is broken out into separate objects.
-
-Let's write an application that will display a list of users and do something with them, for example, update their data and delete them.
-
-1. Create a model package, and create a DataModel class inside it.
-DataModel is the entity that will store the data we need to display to the client.
-Create a List users field, and a corresponding getter and setter. This will be the list of users to display.
-
-2. We should be able to use any model to get all of the data we need to display. So,
-in the model package, create a Model interface that has a DataModel getDataModel() method.
-
-3. Create a FakeModel class that implements Model in the model package. We're going to need this in the initial stage.
-Give it a DataModel dataModel field, and initialize it with the object.
-
-4. Create a void loadUsers() method in the Model interface.
-Implement it in FakeModel: use arbitrary data to initialize the list of users for dataModel. The data won't affect testing.
-I have the following data:
-User{name='A', id=1, level=1}
-User{name='B', id=2, level=1}
-I think you'll remember that all interface methods are public, so there's no need to indicate a modifier.
-Programmers often use fake data in early development. They implement code to get real data in the final stages.
-The hardcoded fake data replaces real objects.
 
 
 

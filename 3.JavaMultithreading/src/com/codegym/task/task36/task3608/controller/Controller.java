@@ -32,4 +32,9 @@ public class Controller {
         model.loadDeletedUsers();
         usersView.refresh(model.getDataModel());
     }
+
+    public void onOpenUserEditForm(long userId) {
+        model.loadUserById(userId);
+        editUserView.refresh(model.getDataModel());
+    }
 }

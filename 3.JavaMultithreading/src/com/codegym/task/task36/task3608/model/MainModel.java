@@ -34,4 +34,10 @@ public class MainModel implements Model {
         dataModel.setUsers(users);
         dataModel.setDisplayDeletedUserList(true);
     }
+
+    @Override
+    public void loadUserById(long userId) {
+        User user = userService.getUsersById(userId);
+        dataModel.setActiveUser(user);
+    }
 }
