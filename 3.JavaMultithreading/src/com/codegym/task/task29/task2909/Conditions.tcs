@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task29.task2909.big02"\n\nRefactoring (part 2)
+taskKey="com.codegym.task.task29.task2909.big03"\n\nRefactoring (part 3)
+
+
+3.1.	Push down a field. Push down the course field to the appropriate class. Make it private.
+3.2.	Push down a method. Push down the getter for the course field to the appropriate class.
+3.3.	Extract an interface.
+3.3.1.	Create an Alive interface in the human package.
+3.3.2.	The interface must contain a live() method.
+3.3.3.	Add an interface to the correct class.
+3.4.	Collapse a hierarchy. Get rid of the Professor class.
+
+
+Requirements:
+1.	You need to push down the course field to the correct class and make it private.
+2.	You need to push down the getter for the course field to the correct class.
+3.	The Alive interface must be in the human package.
+4.	The Alive interface must declare a live() method.
+5.	The Human class should support the Alive interface.
+6.	The Professor class must be removed.
+
+
+Refactoring (part 2)
 
 
 2.1.	Extract a subclass.
@@ -10,13 +31,6 @@ taskKey="com.codegym.task.task29.task2909.big02"\n\nRefactoring (part 2)
 2.2.1.	Move initialization of the name and age fields to the appropriate place. Add the necessary parameters to the Human constructor.
 2.2.2.	Add a constructor to the Soldier class.
 
-
-Requirements:
-1.	The Soldier class must be in the human package in a separate file. The Soldier class must inherit the Human class.
-2.	The Human class should not have an isSoldier field.
-3.	You need to move the necessary methods from the Human class to the Soldier class.
-4.	The Human class constructor should have two parameters (String name and int age) and initialize the corresponding fields.
-5.	The Soldier class must have a constructor that has two parameters (String name and int age) and calls the appropriate constructor of the superclass.
 
 
 Refactoring (part 1)
