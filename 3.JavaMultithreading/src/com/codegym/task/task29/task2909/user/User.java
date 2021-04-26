@@ -5,11 +5,11 @@ public class User {
     private String lastName;
     private int age;
 
-    private String country;
-    private String city;
-    private House house;
+    private Address address;
 
     private Job job;
+
+    private boolean male;
 
     public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
@@ -42,23 +42,23 @@ public class User {
     }
 
     public String getCountry() {
-        return country;
+        return address.getCountry();
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        address.setCountry(country);
     }
 
     public String getCity() {
-        return city;
+        return address.getCity();
     }
 
     public void setCity(String city) {
-        this.city = city;
+        address.setCity(city);
     }
 
     public String getAddress() {
-        return country + " " + city + " " + house.house;
+        return address.getCountry() + " " + address.getCity() + " " + address.getHouse();
     }
 
     public Job getJob() {
@@ -79,5 +79,17 @@ public class User {
             System.out.println("User is younger than 16");
         else
             System.out.println("User is at least 16");
+    }
+
+    public boolean isMale() {
+        return male;
+    }
+
+    public void setMale(boolean male) {
+        this.male = male;
+    }
+
+    public String getBoss() {
+        return job.getBoss();
     }
 }
