@@ -5,6 +5,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class Human implements Alive {
+
+    public class Size {
+        public int height;
+        public int weight;
+    }
+
     private static int nextId = 0;
     private int id;
     protected int age;
@@ -12,19 +18,15 @@ public class Human implements Alive {
 
     private List<Human> children = new ArrayList<>();
 
-    protected int[] size;
+    protected Size size;
 
-    public static final int FIRST = 1;
-    public static final int SECOND = 2;
-    public static final int THIRD = 3;
-    public static final int FOURTH = 4;
-    private int bloodType;
+    private BloodType bloodType;
 
-    public void setBloodType(int code) {
+    public void setBloodType(BloodType code) {
         bloodType = code;
     }
 
-    public int getBloodType() {
+    public BloodType getBloodType() {
         return bloodType;
     }
 
@@ -71,7 +73,7 @@ public class Human implements Alive {
     }
 
     public void printSize() {
-        System.out.println("Height: " + size[0] + " Weight: " + size[1]);
+        System.out.println("Height: " + size.height + " Weight: " + size.weight);
     }
 
     public String getPosition() {
