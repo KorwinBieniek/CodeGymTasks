@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task29.task2909.big05"\n\nRefactoring (part 5)
+taskKey="com.codegym.task.task29.task2909.big06"\n\nRefactoring (part 6)
+
+
+6.1.	Replace a parameter with a set of specialized methods. Replace the Student class's setValue() method
+with specialized setCourse() and setAverageGrade() methods.
+6.2.	Add a parameter. Add a double parameter to the
+getStudentWithAverageGrade() method so the average grade of the required student is clear.
+Implement the getStudentWithAverageGrade() method.
+6.3.	Remove a parameter. Remove the parameter from the getStudentWithHighestAverageGrade() method.
+Implement this method. It should return the student with the highest average grade.
+6.4.	Separate a query from a modification. Split the
+getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLowestAverageGrade() and
+void expel(Student student). The first method should return the student with
+the lowest average score, and the second method should expel the passed student (remove it from
+the students list).
+
+
+Requirements:
+1.	Replace the Student class&#39;s setValue() method with specialized setCourse() and setAverageGrade() methods.
+2.	You need to add a double parameter to the University class&#39;s getStudentWithAverageGrade() method and implement the method.
+3.	You need to remove the parameter from the University class&#39;s getStudentWithHighestAverageGrade(double) method and implement the method.
+4.	You need to split the getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLowestAverageGrade() and void expel(Student student), and implement these two methods.
+
+
+Refactoring (part 5)
 
 
 5.1.	Create a template method.
@@ -8,15 +32,6 @@ taskKey="com.codegym.task.task29.task2909.big05"\n\nRefactoring (part 5)
 5.2.	Replace delegation with inheritance. The Worker class must inherit Human, not contain it.
 5.3.	Rename a method. Rename the setSlr() method to make it more clear what it is a setter for.
 
-
-Requirements:
-1.	The Human class must have a String getPosition() method that returns the string &quot;Person&quot;.
-2.	In the Student class, override the String getPosition() method so it returns the string &quot;Student&quot;.
-3.	In the Teacher class, override the String getPosition() method so it returns the string &quot;Teacher&quot;.
-4.	You must replace the printData() method in the Student class with a printData() method in the Human class. Use getPosition().
-5.	You must replace the printData() method in the Teacher class with a printData() method in the Human class. Use getPosition().
-6.	The Worker class must inherit the Human class, not contain it.
-7.	In the Worker class, you must rename the setSlr(double) method to setSalary(double).
 
 
 Refactoring (part 4)
