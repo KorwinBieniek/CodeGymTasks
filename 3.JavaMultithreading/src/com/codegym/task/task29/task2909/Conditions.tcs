@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task29.task2909.big07"\n\nRefactoring (part 7)
+taskKey="com.codegym.task.task29.task2909.big08"\n\nRefactoring (part 8)
+
+
+8.1.	Remove a setter. Remove the setId() method. The id field should be set only when
+the object is created.
+8.2.	Hide a method (field). Change the visibility of the nextId field to match
+the area where it is used.
+8.3.	Replace an exception with a check. Rewrite the removeStudent(int index) method so
+that it removes the student from the students list only if the list contains the student. The method should not throw
+an exception.
+8.4.	Remove a flag. Rewrite the findJohnOrAlex() method without changing its
+behavior. The method should not use flags like "found". Use a break
+statement.
+
+
+Requirements:
+1.	You need to remove the Human class&#39;s setId(int) method.
+2.	You need to change the visibility of the Human class&#39;s nextId field from public to private.
+3.	You need to change the StudentDatabase class&#39;s removeStudent(int index) method so that it does not throw an exception.
+4.	You need to change the StudentDatabase class&#39;s findJohnOrAlex() method without changing its behavior. You need to remove the boolean found flag from the method and use a break statement.
+
+
+Refactoring (part 7)
 
 
 7.1.	Parameterize a method. Replace the incAverageGradeBy01() and incAverageGradeBy02() methods
@@ -11,13 +33,6 @@ method on a passed object.
 7.4.	Replace parameters with an object. Rewrite the setBeginningOfSession() and setEndOfSession() methods
 so that they take one date object instead of several arguments.
 
-
-Requirements:
-1.	You need to replace the Student class&#39;s incAverageGradeBy01() and incAverageGradeBy02() methods with one incAverageGrade(double delta) method.
-2.	You need to change the StudentDatabase class&#39;s addStudentInfo(String, int, double) method so that it takes a Student object as an argument.
-3.	You need to change the StudentDatabase class&#39;s printStudentInfo(String, Student) method so that it does not take a student name as an argument.
-4.	You need to change the Student class&#39;s setBeginningOfSession(int, int, int) method so that it has one Date parameter.
-5.	You need to change the Student class&#39;s setEndOfSession(int, int, int) method so that it has one Date parameter.
 
 
 Refactoring (part 6)
@@ -77,20 +92,6 @@ Refactoring (part 3)
 3.3.2.	The interface must contain a live() method.
 3.3.3.	Add an interface to the correct class.
 3.4.	Collapse a hierarchy. Get rid of the Professor class.
-
-
-
-Refactoring (part 2)
-
-
-2.1.	Extract a subclass.
-2.1.1.	Add the Soldier class to the human package.
-2.1.2.	Get rid of the isSoldier field.
-2.1.3.	Move the necessary methods from Human to Soldier.
-2.1.4.	Update the Human constructor's signature.
-2.2.	Pull up the body of the constructor.
-2.2.1.	Move initialization of the name and age fields to the appropriate place. Add the necessary parameters to the Human constructor.
-2.2.2.	Add a constructor to the Soldier class.
 
 
 
