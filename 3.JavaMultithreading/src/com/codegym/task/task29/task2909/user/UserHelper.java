@@ -10,42 +10,23 @@ public class UserHelper {
     private boolean isRomanMale = true;
 
     public void printUsers() {
-        System.out.println("First name: " + userAnna.getFirstName());
-        System.out.println("Last name: " + userAnna.getLastName());
-        printAdditionalInfo(userAnna);
+        userAnna.printInfo();
+        userAnna.printAdditionalInfo();
 
-        System.out.println("First name: " + userRoman.getFirstName());
-        System.out.println("Last name: " + userRoman.getLastName());
-        printAdditionalInfo(userRoman);
-    }
-
-    public void printAdditionalInfo(User user) {
-        if (ageLessThan16(user))
-            System.out.println("User is younger than 16");
-        else
-            System.out.println("User is at least 16");
-    }
-
-    private boolean ageLessThan16(User user) {
-        if (user.getAge() < 16) {
-            return true;
-        }
-        return false;
+        userRoman.printInfo();
+        userRoman.printAdditionalInfo();
     }
 
     public int calculateAverageAge() {
-        int age = 28;
-        User userGeorge = new User("George", "Carp", age);
-
-        age = (userAnna.getAge() + userRoman.getAge() + userGeorge.getAge()) / 3;
-
-        return age;
+        User userGeorge = new User("George", "Carp", 28);
+        return (userAnna.getAge() + userRoman.getAge() + userGeorge.getAge()) / 3;
     }
 
-    public void calculateRate(AtomicInteger base, int age, boolean hasJob, boolean hasHouse) {
-        base.set(base.get() + age / 100);
-        base.set((int) (base.get() * (hasJob ? 1.1 : 0.9)));
-        base.set((int) (base.get() * (hasHouse ? 1.1 : 0.9)));
+    public int calculateRate(AtomicInteger base, int age, boolean hasJob, boolean hasHouse) {
+        int result  = base.get() + age / 100;
+        result *= hasJob ? 1.1 : 0.9;
+        result *= hasHouse ? 1.1 : 0.9;
+        return result;
     }
 
     public String getBossName(User user) {

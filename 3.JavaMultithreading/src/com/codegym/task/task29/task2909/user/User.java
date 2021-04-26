@@ -68,4 +68,16 @@ public class User {
     public void setJob(Job job) {
         this.job = job;
     }
+
+    public void printInfo() {
+        System.out.println("First name: " + getFirstName());
+        System.out.println("Last name: " + getLastName());
+    }
+
+    public void printAdditionalInfo() {
+        if (getAge() < 16)
+            System.out.println("User is younger than 16");
+        else
+            System.out.println("User is at least 16");
+    }
 }

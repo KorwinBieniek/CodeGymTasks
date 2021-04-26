@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task29.task2909.big12"\n\nRefactoring (part 12)
+taskKey="com.codegym.task.task29.task2909.big13"\n\nRefactoring (part 13)
+
+
+Understand the code in the user package.
+13.1.	Extract a method. Add a printInfo() method that displays the first and last name
+on the console, formatted as follows
+
+First name: Jason
+Last name: Slater
+
+Replace the duplicate code in printUsers() with a method call.
+13.2.	Inline a method. Get rid of the ageLessThan16() method.
+13.3.	Move a method. Move the printInfo() and printAdditionalInfo() methods to the User class.
+13.4.	Split a variable. The age variable in the calculateAverageAge() method
+is used for different intermediate values. Rewrite the method so that it doesn't use this variable.
+13.5.	Eliminate assignments to arguments. Rewrite the calculateRate() method so that it does not
+try to change the method arguments, but instead simply returns a calculated value.
+
+
+Requirements:
+1.	You need to create a printInfo() method in the User class. It should display the first and last name in the same way that this is done in the printUsers() method in the UserHelper class.
+2.	In the UserHelper class&#39;s printUsers() method, you need to replace the duplicate code with calls to the printInfo() method.
+3.	You need to get rid of the UserHelper class&#39;s ageLessThan16() method.
+4.	You need to move the printAdditionalInfo() method to the User class. Note that the printAdditionalInfo() method should no longer have a User parameter.
+5.	You need to rewrite the UserHelper class&#39;s calculateAverageAge() method so that it does not use the age variable. Remove the age variable.
+6.	Rewrite the UserHelper class&#39;s calculateRate() method so that it does not change the method arguments, but instead simply returns a calculated value (the method must return an int).
+
+
+Refactoring (part 12)
 
 
 12.1.	Combine conditional expressions.
@@ -16,15 +44,6 @@ MAX_SEDAN_SPEED, and MAX_CABRIOLET_SPEED.
 12.4.1.	Override the getMaxSpeed​​() method in subclasses, and get rid of the conditional expression.
 12.4.2.	The Car class's getMaxSpeed() method is abstract.
 
-
-Requirements:
-1.	You need to create and implement a private boolean canPassengersBeCarried() method in the Car class.
-2.	You need to change the getNumberOfPassengersThatCanBeCarried() method by combining conditional statements (use the canPassengersBeCarried() method).
-3.	You need to change the startMoving() method so that it does not have duplicate calls to the fastenDriverBelt() method.
-4.	You need to override the getMaxSpeed() method in the Truck class. The method should use the MAX_TRUCK_SPEED constant, whose value is 80.
-5.	You need to override the getMaxSpeed() method in the Sedan class. The method should use the MAX_SEDAN_SPEED constant, whose value is 120.
-6.	You need to override the getMaxSpeed() method in the Cabriolet class. The method should use the MAX_CABRIOLET_SPEED constant, whose value is 90.
-7.	You need to make the Car class&#39;s getMaxSpeed() method abstract.
 
 
 Refactoring (part 11)
@@ -86,21 +105,6 @@ an exception.
 8.4.	Remove a flag. Rewrite the findJohnOrAlex() method without changing its
 behavior. The method should not use flags like "found". Use a break
 statement.
-
-
-
-Refactoring (part 7)
-
-
-7.1.	Parameterize a method. Replace the incAverageGradeBy01() and incAverageGradeBy02() methods
-with an incAverageGrade(double delta) method.
-7.2.	Pass an entire object. Rewrite the addStudentInfo() method so that it
-takes a Student object as an argument.
-7.3.	Replace a parameter with a method call. Rewrite the printStudentInfo() method so that it does not
-take a student name as an argument, but rather gets it by calling the appropriate
-method on a passed object.
-7.4.	Replace parameters with an object. Rewrite the setBeginningOfSession() and setEndOfSession() methods
-so that they take one date object instead of several arguments.
 
 
 
