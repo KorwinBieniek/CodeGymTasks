@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task29.task2909.big03"\n\nRefactoring (part 3)
+taskKey="com.codegym.task.task29.task2909.big04"\n\nRefactoring (part 4)
+
+
+4.1.	Replace inheritance with delegation.
+4.1.1.	The University class must not inherit Student.
+4.1.2.	The University class must have a students list. Don't forget to initialize it.
+4.1.3.	Add a setter and getter for students.
+4.1.4.	A university has a name and an age. Add the required fields, along with setters and getters for them.
+4.2.	Extract a superclass.
+4.2.1.	Create a UniversityPerson class in the human package.
+4.2.2.	Move the university field to it.
+4.2.3.	Move the setter and getter for the university field.
+4.2.4.	Make the required classes inherit UniversityPerson.
+4.3.	Replace a simple field with an object. Change the university field's type to University.
+
+
+Requirements:
+1.	The University class must not inherit Student.
+2.	In the University class, you need to create a name field, along with a corresponding setter and getter.
+3.	In the University class, you need to create an age field, along with a corresponding setter and getter.
+4.	In the University class, you must create a private List&lt;Student&gt; students field.
+5.	In the University class, you must create a setter and getter for the students field.
+6.	You need to create a public UniversityPerson class in the human package and make it inherit the Human class.
+7.	You need to move the university field from the Teacher and Student classes to the UniversityPerson class.
+8.	You need to move the university field&#39;s setter and getter from the Teacher and Student classes to the UniversityPerson class.
+9.	You must make the Teacher and Student classes inherit the UniversityPerson class.
+10.	You need to change the university field&#39;s type to University.
+
+
+Refactoring (part 3)
 
 
 3.1.	Push down a field. Push down the course field to the appropriate class. Make it private.
@@ -9,14 +38,6 @@ taskKey="com.codegym.task.task29.task2909.big03"\n\nRefactoring (part 3)
 3.3.3.	Add an interface to the correct class.
 3.4.	Collapse a hierarchy. Get rid of the Professor class.
 
-
-Requirements:
-1.	You need to push down the course field to the correct class and make it private.
-2.	You need to push down the getter for the course field to the correct class.
-3.	The Alive interface must be in the human package.
-4.	The Alive interface must declare a live() method.
-5.	The Human class should support the Alive interface.
-6.	The Professor class must be removed.
 
 
 Refactoring (part 2)
