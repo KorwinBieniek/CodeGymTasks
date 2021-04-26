@@ -1,4 +1,27 @@
-taskKey="com.codegym.task.task29.task2909.big10"\n\nRefactoring (part 10)
+taskKey="com.codegym.task.task29.task2909.big11"\n\nRefactoring (part 11)
+
+
+11.1.	Replace an error code with an exception. Rewrite the fill(double numberOfGallons)
+method to throw an Exception if there is an error.
+11.2.	Decompose a conditional expression.
+11.2.1.	Add and implement a method in the Car class that determines whether the passed date belongs to
+summer: boolean isSummer(Date date , Date summerStart, Date summerEnd).
+11.2.2.	Add and implement a method that calculates fuel consumption in winter: double
+getWinterConsumption(int length).
+11.2.3.	Add and implement a method that calculates fuel consumption in summer: double
+getSummerConsumption(int length).
+11.2.4.	Rewrite the getTripConsumption() method using the new methods.
+
+
+Requirements:
+1.	You need to change the Car class&#39;s fill(double numberOfGallons) method so that it throws an Exception if there is an error.
+2.	In the Car class, you need to add and implement a public boolean isSummer(Date date, Date summerStart, Date summerEnd) method.
+3.	In the Car class, you need to add and implement a public double getWinterConsumption(int length) method.
+4.	In the Car class, you need to add and implement a public double getSummerConsumption(int length) method.
+5.	You need to change the getTripConsumption() method using the following methods: isSummer(), getWinterConsumption(), and getSummerConsumption().
+
+
+Refactoring (part 10)
 
 
 Understand the code in the car package.
@@ -8,12 +31,6 @@ Understand the code in the car package.
 10.1.3.	Add a static Car create(int type, int numberOfPassengers) factory method to the Car class and implement it.
 10.1.4.	Change the visibility of the Car class constructor.
 
-
-Requirements:
-1.	You need to create Truck, Sedan, and Cabriolet classes that inherit Car.
-2.	You need to add constructors with int numberOfPassengers parameters to the created classes.
-3.	You need to add a static Car create(int type, int numberOfPassengers) factory method to the Car class and implement it.
-4.	You need to change the visibility of the Car class constructor from public to protected.
 
 
 Refactoring (part 9)
@@ -80,18 +97,6 @@ getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLow
 void expel(Student student). The first method should return the student with
 the lowest average score, and the second method should expel the passed student (remove it from
 the students list).
-
-
-
-Refactoring (part 5)
-
-
-5.1.	Create a template method.
-5.1.1.	Add a String getPosition() method to the Human class. It should return the string "Person".
-5.1.2.	Override this method in the Student and Teacher classes. The method should return "Student" and "Teacher", respectively.
-5.1.3.	Replace the printData() method in the subclasses with a template method that uses getPosition() in the base class.
-5.2.	Replace delegation with inheritance. The Worker class must inherit Human, not contain it.
-5.3.	Rename a method. Rename the setSlr() method to make it more clear what it is a setter for.
 
 
 
