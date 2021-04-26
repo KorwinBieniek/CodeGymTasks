@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task29.task2909.big04"\n\nRefactoring (part 4)
+taskKey="com.codegym.task.task29.task2909.big05"\n\nRefactoring (part 5)
+
+
+5.1.	Create a template method.
+5.1.1.	Add a String getPosition() method to the Human class. It should return the string "Person".
+5.1.2.	Override this method in the Student and Teacher classes. The method should return "Student" and "Teacher", respectively.
+5.1.3.	Replace the printData() method in the subclasses with a template method that uses getPosition() in the base class.
+5.2.	Replace delegation with inheritance. The Worker class must inherit Human, not contain it.
+5.3.	Rename a method. Rename the setSlr() method to make it more clear what it is a setter for.
+
+
+Requirements:
+1.	The Human class must have a String getPosition() method that returns the string &quot;Person&quot;.
+2.	In the Student class, override the String getPosition() method so it returns the string &quot;Student&quot;.
+3.	In the Teacher class, override the String getPosition() method so it returns the string &quot;Teacher&quot;.
+4.	You must replace the printData() method in the Student class with a printData() method in the Human class. Use getPosition().
+5.	You must replace the printData() method in the Teacher class with a printData() method in the Human class. Use getPosition().
+6.	The Worker class must inherit the Human class, not contain it.
+7.	In the Worker class, you must rename the setSlr(double) method to setSalary(double).
+
+
+Refactoring (part 4)
 
 
 4.1.	Replace inheritance with delegation.
@@ -13,18 +34,6 @@ taskKey="com.codegym.task.task29.task2909.big04"\n\nRefactoring (part 4)
 4.2.4.	Make the required classes inherit UniversityPerson.
 4.3.	Replace a simple field with an object. Change the university field's type to University.
 
-
-Requirements:
-1.	The University class must not inherit Student.
-2.	In the University class, you need to create a name field, along with a corresponding setter and getter.
-3.	In the University class, you need to create an age field, along with a corresponding setter and getter.
-4.	In the University class, you must create a private List&lt;Student&gt; students field.
-5.	In the University class, you must create a setter and getter for the students field.
-6.	You need to create a public UniversityPerson class in the human package and make it inherit the Human class.
-7.	You need to move the university field from the Teacher and Student classes to the UniversityPerson class.
-8.	You need to move the university field&#39;s setter and getter from the Teacher and Student classes to the UniversityPerson class.
-9.	You must make the Teacher and Student classes inherit the UniversityPerson class.
-10.	You need to change the university field&#39;s type to University.
 
 
 Refactoring (part 3)

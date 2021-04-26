@@ -1,6 +1,6 @@
 package com.codegym.task.task29.task2909.human;
 
-public class Teacher extends UniversityPerson{
+public class Teacher extends UniversityPerson {
 
     private int numberOfStudents;
 
@@ -16,7 +16,7 @@ public class Teacher extends UniversityPerson{
     public void teach() {
     }
 
-    public void printData() {
-        System.out.println("Teacher: " + name);
+    public String getPosition() {
+        return "Teacher";
     }
 }

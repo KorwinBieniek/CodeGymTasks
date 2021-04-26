@@ -20,8 +20,8 @@ public class Student extends UniversityPerson {
     public void learn() {
     }
 
-    public void printData() {
-        System.out.println("Student: " + name);
+    public String getPosition() {
+        return "Student";
     }
 
     public void incAverageGradeBy01() {
