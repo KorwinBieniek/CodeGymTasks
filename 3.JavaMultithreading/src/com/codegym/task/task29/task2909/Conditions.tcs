@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task29.task2909.big11"\n\nRefactoring (part 11)
+taskKey="com.codegym.task.task29.task2909.big12"\n\nRefactoring (part 12)
+
+
+12.1.	Combine conditional expressions.
+12.1.1.	In the Car class, add a private method that indicates whether passengers can be carried:
+boolean canPassengersBeCarried(). The method should return true if
+the driver is available (isDriverAvailable) and there is fuel.
+12.1.2.	Rewrite the getNumberOfPassengersThatCanBeCarried() method by combining the conditional
+expressions (use the canPassengersBeCarried() method).
+12.2.	Combine duplicate conditional fragments. Rewrite the
+startMoving() method so that it does not have duplicate function calls.
+12.3.	Replace a magic number with a symbolic constant. Replace the magic numbers in the
+getMaxSpeed() method with constants: MAX_TRUCK_SPEED,
+MAX_SEDAN_SPEED, and MAX_CABRIOLET_SPEED.
+12.4.	Replace a conditional expression with polymorphism.
+12.4.1.	Override the getMaxSpeed​​() method in subclasses, and get rid of the conditional expression.
+12.4.2.	The Car class's getMaxSpeed() method is abstract.
+
+
+Requirements:
+1.	You need to create and implement a private boolean canPassengersBeCarried() method in the Car class.
+2.	You need to change the getNumberOfPassengersThatCanBeCarried() method by combining conditional statements (use the canPassengersBeCarried() method).
+3.	You need to change the startMoving() method so that it does not have duplicate calls to the fastenDriverBelt() method.
+4.	You need to override the getMaxSpeed() method in the Truck class. The method should use the MAX_TRUCK_SPEED constant, whose value is 80.
+5.	You need to override the getMaxSpeed() method in the Sedan class. The method should use the MAX_SEDAN_SPEED constant, whose value is 120.
+6.	You need to override the getMaxSpeed() method in the Cabriolet class. The method should use the MAX_CABRIOLET_SPEED constant, whose value is 90.
+7.	You need to make the Car class&#39;s getMaxSpeed() method abstract.
+
+
+Refactoring (part 11)
 
 
 11.1.	Replace an error code with an exception. Rewrite the fill(double numberOfGallons)
@@ -12,13 +41,6 @@ getWinterConsumption(int length).
 getSummerConsumption(int length).
 11.2.4.	Rewrite the getTripConsumption() method using the new methods.
 
-
-Requirements:
-1.	You need to change the Car class&#39;s fill(double numberOfGallons) method so that it throws an Exception if there is an error.
-2.	In the Car class, you need to add and implement a public boolean isSummer(Date date, Date summerStart, Date summerEnd) method.
-3.	In the Car class, you need to add and implement a public double getWinterConsumption(int length) method.
-4.	In the Car class, you need to add and implement a public double getSummerConsumption(int length) method.
-5.	You need to change the getTripConsumption() method using the following methods: isSummer(), getWinterConsumption(), and getSummerConsumption().
 
 
 Refactoring (part 10)
@@ -79,24 +101,6 @@ take a student name as an argument, but rather gets it by calling the appropriat
 method on a passed object.
 7.4.	Replace parameters with an object. Rewrite the setBeginningOfSession() and setEndOfSession() methods
 so that they take one date object instead of several arguments.
-
-
-
-Refactoring (part 6)
-
-
-6.1.	Replace a parameter with a set of specialized methods. Replace the Student class's setValue() method
-with specialized setCourse() and setAverageGrade() methods.
-6.2.	Add a parameter. Add a double parameter to the
-getStudentWithAverageGrade() method so the average grade of the required student is clear.
-Implement the getStudentWithAverageGrade() method.
-6.3.	Remove a parameter. Remove the parameter from the getStudentWithHighestAverageGrade() method.
-Implement this method. It should return the student with the highest average grade.
-6.4.	Separate a query from a modification. Split the
-getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLowestAverageGrade() and
-void expel(Student student). The first method should return the student with
-the lowest average score, and the second method should expel the passed student (remove it from
-the students list).
 
 
 
