@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task29.task2909.big01"\n\nRefactoring (part 1)
+taskKey="com.codegym.task.task29.task2909.big02"\n\nRefactoring (part 2)
+
+
+2.1.	Extract a subclass.
+2.1.1.	Add the Soldier class to the human package.
+2.1.2.	Get rid of the isSoldier field.
+2.1.3.	Move the necessary methods from Human to Soldier.
+2.1.4.	Update the Human constructor's signature.
+2.2.	Pull up the body of the constructor.
+2.2.1.	Move initialization of the name and age fields to the appropriate place. Add the necessary parameters to the Human constructor.
+2.2.2.	Add a constructor to the Soldier class.
+
+
+Requirements:
+1.	The Soldier class must be in the human package in a separate file. The Soldier class must inherit the Human class.
+2.	The Human class should not have an isSoldier field.
+3.	You need to move the necessary methods from the Human class to the Soldier class.
+4.	The Human class constructor should have two parameters (String name and int age) and initialize the corresponding fields.
+5.	The Soldier class must have a constructor that has two parameters (String name and int age) and calls the appropriate constructor of the superclass.
+
+
+Refactoring (part 1)
 
 
 It's time for a little refactoring. Wikipedia says, "Refactoring
@@ -24,12 +45,5 @@ Tasks:
 1.3.2.	Remove the setter for children.
 1.3.3.	Add addChild(Human) and removeChild(Human) methods. Implement their logic.
 
-
-Requirements:
-1.	The children field must be located in the Human class. It must not be located in the Teacher or Student classes.
-2.	The setter and getter for the children field must be located in the Human class, and must not be located in the Teacher or Student classes.
-3.	The getChildren() method in the Human class should return Collections.unmodifiableList(children).
-4.	You must remove the setChildren() method from the Human class.
-5.	You must add addChild(Human) and removeChild(Human) methods to the Human class, and implement them.
 
 
