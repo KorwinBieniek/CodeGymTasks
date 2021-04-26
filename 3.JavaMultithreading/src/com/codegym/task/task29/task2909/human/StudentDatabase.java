@@ -6,15 +6,14 @@ import java.util.List;
 public class StudentDatabase {
     public static List<Student> students = new ArrayList<>();
 
-    public static void addStudentInfo(String name, int age, double averageGrade) {
-        Student student = new Student(name, age, averageGrade);
+    public static void addStudentInfo(Student student) {
         students.add(student);
-        printStudentInfo(student.getName(), student);
+        printStudentInfo(student);
 
     }
 
-    public static void printStudentInfo(String name, Student student) {
-        System.out.println("Name: " + name + " Age: " + student.getAge());
+    public static void printStudentInfo(Student student) {
+        System.out.println("Name: " + student.getName() + " Age: " + student.getAge());
     }
 
     public static void removeStudent(int index) throws IndexOutOfBoundsException {

@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task29.task2909.big06"\n\nRefactoring (part 6)
+taskKey="com.codegym.task.task29.task2909.big07"\n\nRefactoring (part 7)
+
+
+7.1.	Parameterize a method. Replace the incAverageGradeBy01() and incAverageGradeBy02() methods
+with an incAverageGrade(double delta) method.
+7.2.	Pass an entire object. Rewrite the addStudentInfo() method so that it
+takes a Student object as an argument.
+7.3.	Replace a parameter with a method call. Rewrite the printStudentInfo() method so that it does not
+take a student name as an argument, but rather gets it by calling the appropriate
+method on a passed object.
+7.4.	Replace parameters with an object. Rewrite the setBeginningOfSession() and setEndOfSession() methods
+so that they take one date object instead of several arguments.
+
+
+Requirements:
+1.	You need to replace the Student class&#39;s incAverageGradeBy01() and incAverageGradeBy02() methods with one incAverageGrade(double delta) method.
+2.	You need to change the StudentDatabase class&#39;s addStudentInfo(String, int, double) method so that it takes a Student object as an argument.
+3.	You need to change the StudentDatabase class&#39;s printStudentInfo(String, Student) method so that it does not take a student name as an argument.
+4.	You need to change the Student class&#39;s setBeginningOfSession(int, int, int) method so that it has one Date parameter.
+5.	You need to change the Student class&#39;s setEndOfSession(int, int, int) method so that it has one Date parameter.
+
+
+Refactoring (part 6)
 
 
 6.1.	Replace a parameter with a set of specialized methods. Replace the Student class's setValue() method
@@ -14,12 +36,6 @@ void expel(Student student). The first method should return the student with
 the lowest average score, and the second method should expel the passed student (remove it from
 the students list).
 
-
-Requirements:
-1.	Replace the Student class&#39;s setValue() method with specialized setCourse() and setAverageGrade() methods.
-2.	You need to add a double parameter to the University class&#39;s getStudentWithAverageGrade() method and implement the method.
-3.	You need to remove the parameter from the University class&#39;s getStudentWithHighestAverageGrade(double) method and implement the method.
-4.	You need to split the getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLowestAverageGrade() and void expel(Student student), and implement these two methods.
 
 
 Refactoring (part 5)
@@ -75,34 +91,6 @@ Refactoring (part 2)
 2.2.	Pull up the body of the constructor.
 2.2.1.	Move initialization of the name and age fields to the appropriate place. Add the necessary parameters to the Human constructor.
 2.2.2.	Add a constructor to the Soldier class.
-
-
-
-Refactoring (part 1)
-
-
-It's time for a little refactoring. Wikipedia says, "Refactoring
-or reorganizing code is the process of changing the internal structure of a program, without
-affecting its external behavior and with an aim to making it easier to understand.
-Refactoring is a sequence of small equivalent (i.e.
-behavior preserving) transformations. Because each transformation is small,
-the programmer can more easily track its correctness. At the same time, the whole
-sequence can lead to a significant restructuring of the program and improve its
-consistency and clarity." And we're going to do some of these small transformations.
-After each change, check that the code still works.
-A host of refactoring techniques have been repeatedly tried and proven by the community
-of programmers. They been given their own names. Each task will be accompanied by the name
-of a refactoring technique. You can also read more about it in Martin Fowler's book
-"Refactoring: Improving the Design of Existing Code".
-Let's begin. Carefully review the code in the human package.
-
-Tasks:
-1.1.	Pull up a field. Pull the children field up to the base class.
-1.2.	Pull up a method. Pull the setter and getter for children up to the base class.
-1.3.	Encapsulate a collection.
-1.3.1.	The getChildren method should return an immutable representation of the children list.
-1.3.2.	Remove the setter for children.
-1.3.3.	Add addChild(Human) and removeChild(Human) methods. Implement their logic.
 
 
 
