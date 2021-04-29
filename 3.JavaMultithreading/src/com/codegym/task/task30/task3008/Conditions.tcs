@@ -1,0 +1,27 @@
+taskKey="com.codegym.task.task30.task3008.big01"\n\nChat (part 1)
+
+
+Today we're going to write a chat system: A set of programs that you can use
+to exchange text messages. The system will consist of one server and
+multiple clients, one for each chat participant.
+
+Let's start with the server. We'll need the following classes:
+1) Server - The server's main class.
+2) MessageType - An enum responsible for the types of messages sent between
+a client and the server.
+3) Message - The class responsible for the sent messages.
+4) Connection - A class representing the connection between a client and the server.
+5) ConsoleHelper - A helper class for reading or writing to the console.
+
+Create these classes and add the main method to the Server class.
+
+
+Requirements:
+1.	The Server class must be public and be in a separate file.
+2.	The MessageType enum must be public and be in a separate file.
+3.	The Message class must be public and be in a separate file.
+4.	The Connection class must be public and be in a separate file.
+5.	The ConsoleHelper class must be public and be in a separate file.
+6.	A public static void main(String[] args) method must be created in the Server class.
+
+
