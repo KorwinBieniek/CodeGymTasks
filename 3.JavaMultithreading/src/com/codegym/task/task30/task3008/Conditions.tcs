@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task30.task3008.big06"\n\nChat (part 6)
+taskKey="com.codegym.task.task30.task3008.big07"\n\nChat (part 7)
+
+
+Because the server can work with multiple clients simultaneously, we're going to need
+a method to send a message to everyone all at once.
+
+Add the following to the Server class:
+1) A static Map<String, Connection> connectionMap field, where the key is the client name,
+and the value is the connection with the client.
+2) Initialization of the field from step 7.1 using the appropriate Map from the java.util.concurrent library,
+since this field will be accessed from different threads and we need to ensure thread safety.
+3) A static void sendBroadcastMessage(Message message) method, which should send the message argument
+to all connections in connectionMap. If an IOException occurs while the message is being sent,
+you need to catch it and inform the user that the message couldn't be sent.
+
+
+Requirements:
+1.	The Server class must have a static Map connectionMap field.
+2.	The connectionMap field must be initialized using a thread-safe implementation of the Map interface from the java.util.concurrent package.
+3.	The Server class must correctly implement the static sendBroadcastMessage(Message message) method, which sends a message to all connections in connectionMap.
+
+
+Chat (part 6)
 
 
 Let's move on to the most important part: writing the Server class.
@@ -23,13 +45,6 @@ e) Once the Handler thread is created, proceed to the next iteration of the loop
 g) Be sure that the server socket is closed if there is an exception.
 h) If an Exception occurs, catch it and display an error message.
 
-
-Requirements:
-1.	A private static Handler class that inherits Thread should be created in the Server class.
-2.	The Handler class must have a Socket socket field.
-3.	The Handler class constructor must have one Socket parameter and initialize the socket field.
-4.	The main() method should read the server port from the keyboard using the ConsoleHelper class&#39;s readInt() method.
-5.	The main() method should correctly implement the infinite loop described in the task conditions.
 
 
 Chat (part 5)
@@ -137,25 +152,6 @@ while trying to enter a number. Try again." And read in another number.
 
 In this and later tasks, unless specified otherwise, all of a class's fields must
 be private and its methods must be public.
-
-
-
-Chat (part 1)
-
-
-Today we're going to write a chat system: A set of programs that you can use
-to exchange text messages. The system will consist of one server and
-multiple clients, one for each chat participant.
-
-Let's start with the server. We'll need the following classes:
-1) Server - The server's main class.
-2) MessageType - An enum responsible for the types of messages sent between
-a client and the server.
-3) Message - The class responsible for the sent messages.
-4) Connection - A class representing the connection between a client and the server.
-5) ConsoleHelper - A helper class for reading or writing to the console.
-
-Create these classes and add the main method to the Server class.
 
 
 

@@ -1,9 +1,14 @@
 package com.codegym.task.task30.task3008;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Server {
+    private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
+
     public static void main(String[] args) {
         ConsoleHelper.writeMessage("Enter server port:");
         int port = ConsoleHelper.readInt();
@@ -30,6 +35,17 @@ public class Server {
         @Override
         public void run() {
 
+        }
+    }
+
+    public static void sendBroadcastMessage(Message message) {
+        // Send the message over all connections
+        for (Connection connection : connectionMap.values()) {
+            try {
+                connection.send(message);
+            } catch (IOException e) {
+                ConsoleHelper.writeMessage("Unable to send message to " + connection.getRemoteSocketAddress());
+            }
         }
     }
 }
