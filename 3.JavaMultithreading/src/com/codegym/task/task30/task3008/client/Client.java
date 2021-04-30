@@ -45,4 +45,40 @@ public class Client {
     protected boolean shouldSendTextFromConsole() {
         return true;
     }
+
+    public void run() {
+        SocketThread socketThread = getSocketThread();
+        // Mark the thread as a daemon
+        socketThread.setDaemon(true);
+        socketThread.start();
+
+        try {
+            synchronized (this) {
+                wait();
+            }
+        } catch (InterruptedException e) {
+            ConsoleHelper.writeMessage("An error occurred while running the client.");
+            return;
+        }
+
+        if (clientConnected)
+            ConsoleHelper.writeMessage("A connection has been established. To exit, enter 'exit'.");
+        else
+            ConsoleHelper.writeMessage("An error occurred while running the client.");
+
+        // Until the exit command is entered, read messages from the console and send them to the server
+        while (clientConnected) {
+            String text = ConsoleHelper.readString();
+            if (text.equalsIgnoreCase("exit"))
+                break;
+
+            if (shouldSendTextFromConsole())
+                sendTextMessage(text);
+        }
+    }
+
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.run();
+    }
 }
