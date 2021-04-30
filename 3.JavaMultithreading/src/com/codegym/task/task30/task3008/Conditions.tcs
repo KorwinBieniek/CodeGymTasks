@@ -1,4 +1,34 @@
-taskKey="com.codegym.task.task30.task3008.big07"\n\nChat (part 7)
+taskKey="com.codegym.task.task30.task3008.big08"\n\nChat (part 8)
+
+
+The Handler class must implement the client communication protocol.
+Let's identify independent stages of the protocol and implement them in separate methods:
+The first stage is the handshake (in which the server meets the client).
+We'll implement it in the private String method serverHandshake(Connection connection) throws IOException,
+ClassNotFoundException method. The method takes a connection as an argument, and returns the name of the new client.
+
+The implementation should:
+1) Generate and send a username request
+2) Get the client's response
+3) Verify that the response has a username
+4) Extract the name from the response, and verify that it is not empty and is not already being used (use connectionMap)
+5) Add the new user and connection to connectionMap
+6) Send an informational message to the client, informing it that the name was accepted
+7) If any verification step fails, request the client's name again
+8) Return the accepted name as the return value
+
+
+Requirements:
+1.	The Handler class must have a private String serverHandshake(Connection connection) method.
+2.	The serverHandshake() method should send a name request using the Connection class&#39;s send() method.
+3.	The name request should repeated until the message type of the response is equal to MessageType.USER_NAME.
+4.	If an empty name is received in response, the name request must be repeated.
+5.	If the name already exists in connectionMap, the name request must be repeated.
+6.	Once all the checks have been passed, the serverHandshake() method should add a new (name, connection) pair to connectionMap and send a message indicating that the name was accepted.
+7.	The serverHandshake() method should return the name of the client with which the new connection was established.
+
+
+Chat (part 7)
 
 
 Because the server can work with multiple clients simultaneously, we're going to need
@@ -13,11 +43,6 @@ since this field will be accessed from different threads and we need to ensure t
 to all connections in connectionMap. If an IOException occurs while the message is being sent,
 you need to catch it and inform the user that the message couldn't be sent.
 
-
-Requirements:
-1.	The Server class must have a static Map connectionMap field.
-2.	The connectionMap field must be initialized using a thread-safe implementation of the Map interface from the java.util.concurrent package.
-3.	The Server class must correctly implement the static sendBroadcastMessage(Message message) method, which sends a message to all connections in connectionMap.
 
 
 Chat (part 6)
@@ -127,31 +152,6 @@ For each item in the protocol described above, add corresponding values to the M
 4) TEXT – A text message.
 5) USER_ADDED – The user was added.
 6) USER_REMOVED – The user was deleted.
-
-
-
-Chat (part 2)
-
-
-First of all, for convenience in working with the console, we'll implement the ConsoleHelper class. In
-the future, any work with the console should happen through this class.
-
-Add the following to it:
-1) A static BufferedReader field initialized using System.in.
-2) A static writeMessage(String message) method that should display
-the message string on the console.
-3) A static String readString() method that should read a string from
-the console. If an exception occurs while reading, display the following message
-to the user: "An error occurred while trying to enter text. Try again." And
-read the input again. The method should not throw an IOException upward.
-Other exceptions should not be handled.
-4) A static int readInt() method. It should return the entered number and
-use the readString() method. Handle any NumberFormatExceptions inside
-the method. If one occurs, then display the following message to the user "An error
-while trying to enter a number. Try again." And read in another number.
-
-In this and later tasks, unless specified otherwise, all of a class's fields must
-be private and its methods must be public.
 
 
 
