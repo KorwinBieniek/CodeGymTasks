@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task30.task3008.big08"\n\nChat (part 8)
+taskKey="com.codegym.task.task30.task3008.big09"\n\nChat (part 9)
+
+
+The second stage, which is no less important, is sending information to the client (new participant) about the other clients (chat participants).
+
+To do this, add a private void notifyUsers(Connection connection, String userName) throws IOException method,
+where connection is the connection with the participant we are sending information to, and userName is that participant's name.
+The method should:
+1) Iterate over connectionMap.
+2) For each element in step 1, get the client name, generate a USER_ADDED message that includes the passed name.
+3) Use the connection field to send the generated message.
+4) Don't send a USER_ADDED message to the user whose name is equal to userName. The user already knows about himself or herself.
+
+
+Requirements:
+1.	The Handler class should have a private void notifyUsers(Connection connection, String userName) method.
+2.	For each pair in connectionMap, the notifyUsers() method should use the connection field to send a message indicating that a user called name has been added.
+3.	The notifyUsers() method should NOT send a USER_ADDED message if the user&#39;s name matches the second parameter (userName).
+
+
+Chat (part 8)
 
 
 The Handler class must implement the client communication protocol.
@@ -17,15 +37,6 @@ The implementation should:
 7) If any verification step fails, request the client's name again
 8) Return the accepted name as the return value
 
-
-Requirements:
-1.	The Handler class must have a private String serverHandshake(Connection connection) method.
-2.	The serverHandshake() method should send a name request using the Connection class&#39;s send() method.
-3.	The name request should repeated until the message type of the response is equal to MessageType.USER_NAME.
-4.	If an empty name is received in response, the name request must be repeated.
-5.	If the name already exists in connectionMap, the name request must be repeated.
-6.	Once all the checks have been passed, the serverHandshake() method should add a new (name, connection) pair to connectionMap and send a message indicating that the name was accepted.
-7.	The serverHandshake() method should return the name of the client with which the new connection was established.
 
 
 Chat (part 7)
@@ -129,29 +140,6 @@ Add the following to the Message class:
 5) a constructor that accepts only a MessageType. It should initialize
 the type field using the passed parameter, and leave the data field as null.
 6) a constructor that has MessageType type and String data parameters. It should also initialize all of the object's fields.
-
-
-
-Chat (part 3)
-
-
-Before moving on, we need to work out the protocol for communication between the client and server.
-
-Let's outline the main aspects of the protocol:
-- When a new client wants to connect to the server, the server should request the client name.
-- When a client receives a name request from the server, it should send its name to the server.
-- When the server receives a client name, it should accept the name or request a new one.
-- When a new client is added to the chat, the server should inform the other participants about the new client.
-- When a client leaves the chat, the server should inform the other participants.
-- When the server receives a text message from a client, it should forward it to all the other chat participants.
-
-For each item in the protocol described above, add corresponding values to the MessageType enum:
-1) NAME_REQUEST – A name request.
-2) USER_NAME – A username.
-3) NAME_ACCEPTED – The name is accepted.
-4) TEXT – A text message.
-5) USER_ADDED – The user was added.
-6) USER_REMOVED – The user was deleted.
 
 
 
