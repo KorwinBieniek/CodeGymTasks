@@ -27,6 +27,44 @@ public class Client {
     }
 
     public class SocketThread extends Thread {
+        protected void clientHandshake() throws IOException, ClassNotFoundException {
+            while (true) {
+                Message message = connection.receive();
+
+                if (message.getType() == MessageType.NAME_REQUEST) { // The server asked for the user's name
+                    // Ask for the name to be entered from the console
+                    String name = getUserName();
+                    // Send the name to the server
+                    connection.send(new Message(MessageType.USER_NAME, name));
+
+                } else if (message.getType() == MessageType.NAME_ACCEPTED) { // The server accepted the user's name
+                    // Inform the main thread that it can continue
+                    notifyConnectionStatusChanged(true);
+                    return;
+
+                } else {
+                    throw new IOException("Unexpected MessageType");
+                }
+            }
+        }
+
+        protected void clientMainLoop() throws IOException, ClassNotFoundException {
+            // Loop for processing server messages
+            while (true) {
+                Message message = connection.receive();
+
+                if (message.getType() == MessageType.TEXT) { // The server sent a message with text
+                    processIncomingMessage(message.getData());
+                } else if (MessageType.USER_ADDED == message.getType()) {
+                    informAboutAddingNewUser(message.getData());
+                } else if (MessageType.USER_REMOVED == message.getType()) {
+                    informAboutDeletingNewUser(message.getData());
+                } else {
+                    throw new IOException("Unexpected MessageType");
+                }
+            }
+        }
+
         protected void processIncomingMessage(String message) {
             // Display the text of the message on the console
             ConsoleHelper.writeMessage(message);

@@ -1,4 +1,44 @@
-taskKey="com.codegym.task.task30.task3008.big15"\n\nChat (part 15)
+taskKey="com.codegym.task.task30.task3008.big16"\n\nChat (part 16)
+
+
+Now everything is ready for us to add the necessary methods to the SocketThread class.
+
+1) Add a protected clientHandshake() throws IOException, ClassNotFoundException method.
+This method will represent the client to the server. It must:
+a) In a loop, use the connection field to receive messages.
+b) If a received message is a NAME_REQUEST (the server has requested a name),
+use the getUserName method to ask the user to enter a username, create a new message
+that is a MessageType.USER_NAME and contains the entered name, and send the message to the server.
+c) If a received message is a MessageType.NAME_ACCEPTED (the server has accepted the name), it means
+the server has accepted the client name, and you need to inform the main thread, which is eagerly waiting for this news.
+Do this by passing true to the notifyConnectionStatusChanged() method. Then exit the method.
+d) If there is a message of any other type, throw an IOException("Unexpected MessageType").
+
+2) Add a protected void clientMainLoop() throws IOException, ClassNotFoundException method.
+This method will implement the server's main message-processing loop.
+Inside the method:
+a) Use the connection field to receive a message from the server.
+b) If it is a text message (MessageType.TEXT), process it using the processIncomingMessage() method.
+c) If the message is a MessageType.USER_ADDED, process it using the informAboutAddingNewUser() method.
+d) If the message is a MessageType.USER_REMOVED, process it using the informAboutDeletingNewUser() method.
+e) If the client receives a message of some other type, throw an IOException("Unexpected MessageType").
+f) Put the code from the previous steps in an infinite loop. The loop will terminate automatically
+if an error (exception) occurs or the thread on which the loop is running is interrupted.
+
+
+Requirements:
+1.	The clientHandshake() method should use the connection field to send a new message (MessageType.USER_NAME, getUserName()) if the received message is a MessageType.NAME_REQUEST.
+2.	The clientHandshake() method should call notifyConnectionStatusChanged(true) and terminate if the received message is a MessageType.NAME_ACCEPTED.
+3.	The clientHandshake() method should throw an IOException if the received message is not a MessageType.NAME_ACCEPTED or a MessageType.NAME_REQUEST.
+4.	The clientHandshake() method should receive messages from the server as long as the message type is MessageType.NAME_REQUEST.
+5.	The clientMainLoop() method should receive messages from the server as long as the message type is MessageType.TEXT, MessageType.USER_REMOVED, or MessageType.USER_ADDED.
+6.	The clientMainLoop() method must process the received message using the processIncomingMessage() method if the received message is a MessageType.TEXT.
+7.	The clientMainLoop() method must process the received messages using the informAboutAddingNewUser() method if the received message is a MessageType.USER_ADDED.
+8.	The clientMainLoop() method must process the received messages using the informAboutDeletingNewUser() method if the received message is a MessageType.USER_REMOVED.
+9.	The clientMainLoop() method should throw an IOException if the received message is not a MessageType.TEXT, MessageType.USER_REMOVED, or MessageType.USER_ADDED.
+
+
+Chat (part 15)
 
 
 Let's write the implementation of the SocketThread class. We'll start with simple helper methods.
@@ -17,13 +57,6 @@ b) Notify (wake) the Client class's waiting main stream. Hint:
 use synchronization at the level of the current instance of the outer class and use the notify() method.
 The SocketThread class's outer class is the Client class.
 
-
-Requirements:
-1.	The processIncomingMessage() method should display the message received as an argument.
-2.	The informAboutAddingNewUser() method should display a message indicating that a user has connected to the chat.
-3.	The informAboutDeletingNewUser() method should display a message indicating that a user has left the chat.
-4.	The notifyConnectionStatusChanged() method should set the value of the clientConnected field of the outer Client object equal to the passed argument.
-5.	The notifyConnectionStatusChanged() method should call the notify() method on the outer Client object.
 
 
 Chat (part 14)
@@ -138,24 +171,6 @@ from connectionMap the entry for that name and send a USER_REMOVED message conta
 indicating that the connection with the remote address is closed.
 
 Our server is completely ready. Try running it.
-
-
-
-Chat (part 10)
-
-
-The third stage is the server's main message-processing loop.
-Add a private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException
-method, where the meaning of the parameters is the same as in the notifyUsers() method.
-
-It must:
-1) Receive client messages
-2) If a received message is text (TEXT), then generate a new text message by concatenating the client name,
-a colon, a space, and the text message. For example, if we received a message with the text
-"Hi, everyone" from the user "Bob", then you would need to generate this message: "Bob: Hi, everyone".
-3) Send the generated message to all clients using the sendBroadcastMessage() method.
-4) If the received message is not text, display an error message
-5) Create an infinite loop and move the functionality of steps 10.1-10.4 into the loop.
 
 
 
