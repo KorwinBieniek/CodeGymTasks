@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task30.task3008.big21"\n\nChat (part 21)
+taskKey="com.codegym.task.task30.task3008.big22"\n\nChat (part 22)
+
+
+So let's recap:
+•	You wrote a text messaging server.
+•	You wrote a console-based client that can connect to the server and exchange messages with other chat participants.
+•	You wrote a bot client that can receive requests and send information about the current date and time.
+•	You wrote a chat client with a graphical interface.
+
+Here are some things you might add or improve:
+•	You could add support for private messages (when a message is sent to a specific participant instead of everyone).
+•	You could extend the bot's capabilities. Try to teach it to respond to super simple questions or to make jokes from time to time.
+•	Add the ability to transfer files between users.
+•	Add a context menu to the GUI-based client, for example, to send a private message to someone from a list of participants.
+•	Color the messages in the GUI-based client, depending on the sender.
+•	Add the ability for the server to block participants, for example, for offensive language in messages.
+•	Add another million features and abilities!
+
+You learned how to:
+•	Work with sockets.
+•	Use serialization and deserialization.
+•	Create and synchronize multi-threaded applications, use the volatile modifier, and use classes from the java.util.concurrent library.
+•	Apply the MVC pattern.
+•	Use inner and nested classes.
+•	Work with the Swing library.
+•	Use the Calendar and SimpleDateFormat classes.
+
+Keep it up!
+
+
+Requirements:
+1.	Congratulations, the chat system is ready!
+
+
+Chat (part 21)
 
 
 I have great news for you. The view component is already done. I've added a ClientGuiView class.
@@ -30,20 +64,6 @@ c) getServerAddress(), getServerPort(), getUserName(). They should call the iden
 
 Start a GUI-based client and several console-based clients, and make sure that everything works correctly.
 
-
-Requirements:
-1.	The client package should correctly declare the ClientGuiController class and a nested GuiSocketThread class.
-2.	The ClientGuiController class must correctly declare and initialize the fields listed in the task conditions.
-3.	The processIncomingMessage() method must be implemented in the GuiSocketThread class in accordance with the task conditions.
-4.	The informAboutAddingNewUser() method must be implemented in the GuiSocketThread class in accordance with the task conditions.
-5.	The informAboutDeletingNewUser() method must be implemented in the GuiSocketThread class in accordance with the task conditions.
-6.	The notifyConnectionStatusChanged() method must be implemented in the GuiSocketThread class in accordance with the task conditions.
-7.	The ClientGuiController class&#39;s getSocketThread() method should return a new GuiSocketThread object.
-8.	The ClientGuiController class&#39;s run() method should get a SocketThread object via the getSocketThread() method and call its run() method.
-9.	The ClientGuiController class&#39;s getServerAddress(), getServerPort(), and getUserName() methods should call the appropriate methods on the view object.
-10.	The ClientGuiController class&#39;s getModel() method should return the model field.
-11.	The ClientGuiController class&#39;s main() method should create a new ClientGuiController object and call its run() method.
-12.	The ClientGuiController class must be a descendant of the Client class.
 
 
 Chat (part 20)
@@ -136,35 +156,6 @@ Let's do it:
 using notifyConnectionStatusChanged() and false as the argument.
 
 The client is ready. You can start the server and several clients, and check how everything works.
-
-
-
-Chat (part 16)
-
-
-Now everything is ready for us to add the necessary methods to the SocketThread class.
-
-1) Add a protected clientHandshake() throws IOException, ClassNotFoundException method.
-This method will represent the client to the server. It must:
-a) In a loop, use the connection field to receive messages.
-b) If a received message is a NAME_REQUEST (the server has requested a name),
-use the getUserName method to ask the user to enter a username, create a new message
-that is a MessageType.USER_NAME and contains the entered name, and send the message to the server.
-c) If a received message is a MessageType.NAME_ACCEPTED (the server has accepted the name), it means
-the server has accepted the client name, and you need to inform the main thread, which is eagerly waiting for this news.
-Do this by passing true to the notifyConnectionStatusChanged() method. Then exit the method.
-d) If there is a message of any other type, throw an IOException("Unexpected MessageType").
-
-2) Add a protected void clientMainLoop() throws IOException, ClassNotFoundException method.
-This method will implement the server's main message-processing loop.
-Inside the method:
-a) Use the connection field to receive a message from the server.
-b) If it is a text message (MessageType.TEXT), process it using the processIncomingMessage() method.
-c) If the message is a MessageType.USER_ADDED, process it using the informAboutAddingNewUser() method.
-d) If the message is a MessageType.USER_REMOVED, process it using the informAboutDeletingNewUser() method.
-e) If the client receives a message of some other type, throw an IOException("Unexpected MessageType").
-f) Put the code from the previous steps in an infinite loop. The loop will terminate automatically
-if an error (exception) occurs or the thread on which the loop is running is interrupted.
 
 
 
