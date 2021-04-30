@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task30.task3008.big17"\n\nChat (part 17)
+taskKey="com.codegym.task.task30.task3008.big18"\n\nChat (part 18)
+
+
+Sometimes you can't find someone worth talking to. Don't start talking to yourself :).
+Let's write a bot that will be a client that automatically respond to certain commands.
+The easiest version would be a bot that sends the current time or date when someone asks for it.
+
+Let's start with that:
+1) Create a new BotClient class in the client package. It must inherit Client.
+2) In the BotClient class, create a BotSocketThread inner class that inherits SocketThread. The BotSocketThread class must be public.
+3) Override the following methods:
+a) getSocketThread(). It should create and return a BotSocketThread object.
+b) shouldSendTextFromConsole(). It should always return false. We don't want the bot to send text entered from the console.
+c) getUserName(). This method should generate a new bot name, for example, date_bot_X, where X is any number from 0 to 99.
+Use the Math.random() method to generate X.
+4) Add the main() method. It should create a new BotClient object and call its run() method.
+
+
+Requirements:
+1.	The client package must have a BotClient class that is a descendant of the Client class.
+2.	The BotClient class must have an public BotSocketThread inner class that is a descendant of the SocketThread class.
+3.	The BotClient class must override the getSocketThread() method. The method should return a new BotSocketThread object.
+4.	The BotClient class must override the shouldSendTextFromConsole() method so that it always returns false.
+5.	The BotClient class must override the getUserName() method. The method should return a bot name that follows the format specified in the task conditions.
+6.	The BotClient class&#39;s main() method must create a new BotClient object and call its run() method.
+
+
+Chat (part 17)
 
 
 The last, but most important, method of the SocketThread class is the void run() method. Add it.
@@ -15,13 +42,6 @@ using notifyConnectionStatusChanged() and false as the argument.
 
 The client is ready. You can start the server and several clients, and check how everything works.
 
-
-Requirements:
-1.	The run() method should establish the server connection and save it in the connection field (use the getServerAddress() and getServerPort() methods to get the server address and server port).
-2.	The run() method must call the clientHandshake() method.
-3.	The run() method must call the clientMainLoop() method.
-4.	If an IOException or ClassNotFoundException occurs in the run() method, the notifyConnectionStatusChanged() method must be called with false as the argument.
-5.	The run() method&#39;s signature must match the task conditions.
 
 
 Chat (part 16)
@@ -133,32 +153,6 @@ SocketThread object.
 using the connection field to send the passed text to the server.
 If an IOException occurs while the text is sent, you need to display
 information about this user and assign false to the clientConnected field.
-
-
-
-Chat (part 12)
-
-
-Let's start writing the client. When the client starts running, it should request the server address and server port,
-connect to the specified address, receive a name request from the server, ask the user for his or her name,
-send the username to the server, and wait for the server to accept the name.
-After that, the client can exchange text messages with the server.
-Messages will be exchanged on two threads running in parallel.
-One will read from the console and send what is read to the server, and the second thread will receive data
-from the server and display it on the console.
-
-Let's start the client implementation:
-1) Create a client package. From now on, create all classes responsible for the client implementation in this package.
-2) Create a Client class.
-3) In the Client class, create a nested SocketThread class that inherits the Thread
-class. It will be responsible for the thread that establishes the socket connection and
-reads server messages. The class must have a public access modifier.
-4) Create a Connection connection field in the Client class. Use an access modifier that will allow access
-to this field from subclasses, but will prevent calls from classes outside the package.
-5) Add a private boolean clientConnected field to the Client class. Initialize it to false.
-It will subsequently be set to true if the client connected to the server, or false otherwise.
-When declaring this field, use a keyword that will ensure that every thread using the clientConnected field
-will be working with the current value, not a cached value.
 
 
 
