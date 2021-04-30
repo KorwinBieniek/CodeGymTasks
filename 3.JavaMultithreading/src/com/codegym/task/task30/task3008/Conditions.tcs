@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task30.task3008.big10"\n\nChat (part 10)
+taskKey="com.codegym.task.task30.task3008.big11"\n\nChat (part 11)
+
+
+It's time to write the main method of the Handler class, which will call all
+the helper methods we wrote earlier. Implement the void run() method in the Handler class.
+
+It must:
+1) Display a message indicating that a new connection was established with a remote
+address that can be obtained using the getRemoteSocketAddress() method.
+2) Create a Connection object using the socket field.
+3) Call the method that implements the handshake with the client, and store the name of the new client.
+4) Send the name of the new participant (USER_ADDED message) to all chat participants.
+Think about which method is most suitable for this.
+5) Inform the new participant about the existing participants.
+6) Start the server's main message-processing loop.
+7) Be sure that the connection is closed if an exception occurs.
+8) If any IOExceptions or ClassNotFoundExceptions occur, catch them and display a message indicating
+that an error occurred while communicating with the remote address.
+9) After handling any exceptions, if step 11.3 has finished and returned a name, we need to remove
+from connectionMap the entry for that name and send a USER_REMOVED message containing the name to all other participants.
+10) The last thing we need to do in the run() method is display a message
+indicating that the connection with the remote address is closed.
+
+Our server is completely ready. Try running it.
+
+
+Requirements:
+1.	The run() method should display a message indicating that a connection has been established with the remote address (use the getRemoteSocketAddress() method).
+2.	The run() method should create a new connection using the socket field as an argument.
+3.	The run() method should call the serverHandshake() method using the newly created connection as an argument; the return value will be the username (userName).
+4.	The run() method should call the sendBroadcastMessage() method using a new message as an argument (MessageType.USER_ADDED, userName).
+5.	The run() method should call the notifyUsers() method using connection and userName as arguments.
+6.	The run() method should call the serverMainLoop() method using connection and userName as arguments.
+7.	Before completing, the run() method must remove from connectionMap the entry that corresponds to userName, and send a message to all chat participants that the current user has been removed.
+8.	The run() method should correctly handle IOExceptions and ClassNotFoundExceptions.
+
+
+Chat (part 10)
 
 
 The third stage is the server's main message-processing loop.
@@ -14,12 +51,6 @@ a colon, a space, and the text message. For example, if we received a message wi
 4) If the received message is not text, display an error message
 5) Create an infinite loop and move the functionality of steps 10.1-10.4 into the loop.
 
-
-Requirements:
-1.	The Handler class should have a private void serverMainLoop(Connection connection, String userName) method.
-2.	The serverMainLoop method should receive messages from the client in an infinite loop (use the Connection class&#39;s receive method).
-3.	If the message received by the serverMainLoop method is a MessageType.TEXT, then a new message should be sent to all chat participants using the sendBroadcastMessage method (the formatting of the message is described in the task conditions).
-4.	If the message received by the serverMainLoop method is some type other than MessageType.TEXT, the sendBroadcastMessage method should not be called and an error message should be displayed.
 
 
 Chat (part 9)
@@ -99,46 +130,6 @@ e) Create and start a new Handler thread, passing the socket from the previous s
 e) Once the Handler thread is created, proceed to the next iteration of the loop.
 g) Be sure that the server socket is closed if there is an exception.
 h) If an Exception occurs, catch it and display an error message.
-
-
-
-Chat (part 5)
-
-
-The client and server will communicate through a socket connection.
-One side will write data to the socket, while the other will read. They interact by exchanging Messages.
-The Connection class will wrap the java.net.Socket class,
-which needs to be able to serialize and deserialize Message objects to/from the socket.
-The methods of this class should be callable from different threads.
-
-Add the following to the Connection class:
-
-1) Final fields:
-a) Socket socket
-b) ObjectOutputStream out
-c) ObjectInputStream in
-
-2) A constructor that has a Socket parameter and initializes the object's fields.
-To initialize the in and out fields, use the socket's corresponding threads.
-The constructor may throw an IOException. You need to create an ObjectOutputStream object before creating an ObjectInputStream object.
-Otherwise, threads trying to establish a connection through the Connection class may block each other.
-You can read more about this in the documentation for the ObjectInputStream class.
-
-3) A void send(Message message) throws IOException method.
-It should write (serialize) the message to the ObjectOutputStream.
-This method will be called from multiple threads.
-Be sure that only one thread can write to the ObjectOutputStream object at a time.
-Other threads must wait their turn. However, other methods of the Connection class should not be blocked.
-
-4) A Message receive() throws IOException, ClassNotFoundException method. It should read (deserialize) data from the ObjectInputStream.
-Make it so a read operation can't be performed simultaneously by multiple threads,
-but be sure not to block calls to other methods of the Connection class.
-
-5) A SocketAddress getRemoteSocketAddress() method, which returns the remote address of the socket connection.
-
-6) A void close() throws IOException method, which should close all the resources used by the object.
-
-The Connection class should support the Closeable interface.
 
 
 

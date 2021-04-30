@@ -34,7 +34,32 @@ public class Server {
 
         @Override
         public void run() {
+            ConsoleHelper.writeMessage("A new connection with " + socket.getRemoteSocketAddress() + " has been established");
 
+            String userName = null;
+
+            try (Connection connection = new Connection(socket)) {
+                userName = serverHandshake(connection);
+
+                // Inform all chat participants that a new participant has joined the chat
+                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
+
+                // Inform the new participant about the existing participants
+                notifyUsers(connection, userName);
+
+                // Process participants' messages
+                serverMainLoop(connection, userName);
+
+            } catch (IOException | ClassNotFoundException e) {
+                ConsoleHelper.writeMessage("Error while communicating with " + socket.getRemoteSocketAddress());
+            }
+
+            if (userName != null) {
+                connectionMap.remove(userName);
+                sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
+            }
+
+            ConsoleHelper.writeMessage("The connection with " + socket.getRemoteSocketAddress() + " is closed.");
         }
 
         private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
