@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task30.task3008.big09"\n\nChat (part 9)
+taskKey="com.codegym.task.task30.task3008.big10"\n\nChat (part 10)
+
+
+The third stage is the server's main message-processing loop.
+Add a private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException
+method, where the meaning of the parameters is the same as in the notifyUsers() method.
+
+It must:
+1) Receive client messages
+2) If a received message is text (TEXT), then generate a new text message by concatenating the client name,
+a colon, a space, and the text message. For example, if we received a message with the text
+"Hi, everyone" from the user "Bob", then you would need to generate this message: "Bob: Hi, everyone".
+3) Send the generated message to all clients using the sendBroadcastMessage() method.
+4) If the received message is not text, display an error message
+5) Create an infinite loop and move the functionality of steps 10.1-10.4 into the loop.
+
+
+Requirements:
+1.	The Handler class should have a private void serverMainLoop(Connection connection, String userName) method.
+2.	The serverMainLoop method should receive messages from the client in an infinite loop (use the Connection class&#39;s receive method).
+3.	If the message received by the serverMainLoop method is a MessageType.TEXT, then a new message should be sent to all chat participants using the sendBroadcastMessage method (the formatting of the message is described in the task conditions).
+4.	If the message received by the serverMainLoop method is some type other than MessageType.TEXT, the sendBroadcastMessage method should not be called and an error message should be displayed.
+
+
+Chat (part 9)
 
 
 The second stage, which is no less important, is sending information to the client (new participant) about the other clients (chat participants).
@@ -11,11 +35,6 @@ The method should:
 3) Use the connection field to send the generated message.
 4) Don't send a USER_ADDED message to the user whose name is equal to userName. The user already knows about himself or herself.
 
-
-Requirements:
-1.	The Handler class should have a private void notifyUsers(Connection connection, String userName) method.
-2.	For each pair in connectionMap, the notifyUsers() method should use the connection field to send a message indicating that a user called name has been added.
-3.	The notifyUsers() method should NOT send a USER_ADDED message if the user&#39;s name matches the second parameter (userName).
 
 
 Chat (part 8)
@@ -120,26 +139,6 @@ but be sure not to block calls to other methods of the Connection class.
 6) A void close() throws IOException method, which should close all the resources used by the object.
 
 The Connection class should support the Closeable interface.
-
-
-
-Chat (part 4)
-
-
-A Message is data that one party sends and the other receives.
-Each message must have a MessageType and some additional data,
-for example, a text message must contain text.
-Since the messages will be created in one program and read in another,
-it will be convenient to use serialization to convert objects to sequences of bits and back again.
-
-Add the following to the Message class:
-1) support for the Serializable interface.
-2) a final MessageType field that will contain the message type.
-3) a final String field that will contain the message data.
-4) getters for these fields.
-5) a constructor that accepts only a MessageType. It should initialize
-the type field using the passed parameter, and leave the data field as null.
-6) a constructor that has MessageType type and String data parameters. It should also initialize all of the object's fields.
 
 
 
