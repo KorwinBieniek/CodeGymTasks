@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task30.task3008.big02"\n\nChat (part 2)
+taskKey="com.codegym.task.task30.task3008.big03"\n\nChat (part 3)
+
+
+Before moving on, we need to work out the protocol for communication between the client and server.
+
+Let's outline the main aspects of the protocol:
+- When a new client wants to connect to the server, the server should request the client name.
+- When a client receives a name request from the server, it should send its name to the server.
+- When the server receives a client name, it should accept the name or request a new one.
+- When a new client is added to the chat, the server should inform the other participants about the new client.
+- When a client leaves the chat, the server should inform the other participants.
+- When the server receives a text message from a client, it should forward it to all the other chat participants.
+
+For each item in the protocol described above, add corresponding values to the MessageType enum:
+1) NAME_REQUEST – A name request.
+2) USER_NAME – A username.
+3) NAME_ACCEPTED – The name is accepted.
+4) TEXT – A text message.
+5) USER_ADDED – The user was added.
+6) USER_REMOVED – The user was deleted.
+
+
+Requirements:
+1.	There must be a NAME_REQUEST field in the MessageType enum.
+2.	There must be a USER_NAME field in the MessageType enum.
+3.	There must be a NAME_ACCEPTED field in the MessageType enum.
+4.	There must be a TEXT field in the MessageType enum.
+5.	There must be a USER_ADDED field in the MessageType enum.
+6.	There must be a USER_REMOVED field in the MessageType enum.
+
+
+Chat (part 2)
 
 
 First of all, for convenience in working with the console, we'll implement the ConsoleHelper class. In
@@ -21,15 +52,6 @@ while trying to enter a number. Try again." And read in another number.
 In this and later tasks, unless specified otherwise, all of a class's fields must
 be private and its methods must be public.
 
-
-Requirements:
-1.	The ConsoleHelper class should create and initialize a private, non-final, static BufferedReader field.
-2.	The ConsoleHelper class should implement a static writeMessage(String message) method that displays a message on the console.
-3.	The ConsoleHelper class should implement a static readString method that returns a string read from the console.
-4.	The ConsoleHelper class should implement a static readInt method that returns a number read from the console.
-5.	The readInt method should use the readString method to read from the console.
-6.	The readString method should catch an IOException, display an error message about incorrect input, and read input from the console again.
-7.	The readInt method should catch a NumberFormatException, display an error message about incorrect input, and read input from the console again.
 
 
 Chat (part 1)
