@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task30.task3008.big05"\n\nChat (part 5)
+taskKey="com.codegym.task.task30.task3008.big06"\n\nChat (part 6)
+
+
+Let's move on to the most important part: writing the Server class.
+The server must support multiple simultaneous connections with different clients.
+This can be done using the following algorithm:
+- The server creates a server socket connection.
+- In a loop, the server waits for some client to connect to the socket.
+- It creates a new Handler thread on which messages will be exchanged with the client.
+- It waits for another connection.
+
+Add the following:
+1) To the Server class, a nested private static Handler class that inherits Thread.
+2) To the Handler class, a Socket socket field.
+3) To the Handler class, a constructor that has a Socket parameter and uses it to initialize the appropriate field.
+4) The Server's main method should:
+a) Request a server port using ConsoleHelper.
+b) Create a java.net.ServerSocket object using the port from the previous step.
+c) Display a message indicating that the server is running.
+d) In an infinite loop, listen for and accept incoming socket connections with the newly created server socket.
+e) Create and start a new Handler thread, passing the socket from the previous step to the constructor.
+e) Once the Handler thread is created, proceed to the next iteration of the loop.
+g) Be sure that the server socket is closed if there is an exception.
+h) If an Exception occurs, catch it and display an error message.
+
+
+Requirements:
+1.	A private static Handler class that inherits Thread should be created in the Server class.
+2.	The Handler class must have a Socket socket field.
+3.	The Handler class constructor must have one Socket parameter and initialize the socket field.
+4.	The main() method should read the server port from the keyboard using the ConsoleHelper class&#39;s readInt() method.
+5.	The main() method should correctly implement the infinite loop described in the task conditions.
+
+
+Chat (part 5)
 
 
 The client and server will communicate through a socket connection.
@@ -36,17 +70,6 @@ but be sure not to block calls to other methods of the Connection class.
 
 The Connection class should support the Closeable interface.
 
-
-Requirements:
-1.	The Connection class should support the Closeable interface.
-2.	The Connection class must have a private final Socket socket field.
-3.	The Connection class must have a private final ObjectOutputStream out field.
-4.	The Connection class must have a private final ObjectInputStream in field.
-5.	The Connection class must have a constructor with a single Socket parameter that initializes the object&#39;s fields according to the task conditions.
-6.	The Connection class must correctly implement the send() method with one Message parameter.
-7.	The Connection class must correctly implement the receive() method without parameters.
-8.	The Connection class&#39;s getRemoteSocketAddress() method must return the remote address of the socket connection.
-9.	The Connection class&#39;s close() method should close the input stream, output stream, and socket connection.
 
 
 Chat (part 4)
