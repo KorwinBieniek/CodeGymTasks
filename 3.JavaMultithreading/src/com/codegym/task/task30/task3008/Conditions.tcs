@@ -1,4 +1,44 @@
-taskKey="com.codegym.task.task30.task3008.big18"\n\nChat (part 18)
+taskKey="com.codegym.task.task30.task3008.big19"\n\nChat (part 19)
+
+
+Now we'll implement the BotSocketThread class, or rather we'll override some
+methods. All of its main functionality is inherited from SocketThread.
+
+1) Override the clientMainLoop() method:
+a) Use the sendTextMessage() method to send this message:
+"Hello, there. I'm a bot. I understand the following commands: date, day, month, year, time, hour, minutes, seconds."
+b) Call the parent class's clientMainLoop() method.
+2) Override the processIncomingMessage(String message) method. It should process incoming messages as follows:
+a) Display the text of the received message on the console.
+b) Get the sender's name and the message text from the message. They are separated by ": ".
+c) Send a reply based on the text of the received message. If the text of the message is:
+"date" - send a message containing the current date in the format "d.MM.YYYY";
+"day" - in the format "d";
+"month" - "MMMM";
+"year" - "YYYY";
+"time" - "H:mm:ss";
+"hour" - "H";
+"minutes" - "m";
+"seconds" - "s".
+Use the format above to create a SimpleDateFormat object.
+To get the current date, you must use the Calendar class and getTime() method.
+The response must include the name of the client who sent the request and is waiting for a response,
+e.g. if Bob sent the "time" request, we should send the following response:
+"Information for Bob: 12:30:47".
+
+Our bot is ready. Start the server, start the bot and a regular client, and be sure that everything works correctly.
+Remember that there are different types of messages and they don't always contain ":"
+
+
+Requirements:
+1.	The BotSocketThread class&#39;s clientMainLoop() method should call the sendTextMessage() method on the outer BotClient object with the welcome message specified in the task conditions.
+2.	The BotSocketThread class&#39;s clientMainLoop() method should call the clientMainLoop() method on the parent (super) object.
+3.	The processIncomingMessage() method should display the received message.
+4.	The processIncomingMessage() method should send a response using the sendTextMessage() method (formatting according to the task conditions).
+5.	The processIncomingMessage() method should not call the sendTextMessage() method for invalid requests.
+
+
+Chat (part 18)
 
 
 Sometimes you can't find someone worth talking to. Don't start talking to yourself :).
@@ -15,14 +55,6 @@ c) getUserName(). This method should generate a new bot name, for example, date_
 Use the Math.random() method to generate X.
 4) Add the main() method. It should create a new BotClient object and call its run() method.
 
-
-Requirements:
-1.	The client package must have a BotClient class that is a descendant of the Client class.
-2.	The BotClient class must have an public BotSocketThread inner class that is a descendant of the SocketThread class.
-3.	The BotClient class must override the getSocketThread() method. The method should return a new BotSocketThread object.
-4.	The BotClient class must override the shouldSendTextFromConsole() method so that it always returns false.
-5.	The BotClient class must override the getUserName() method. The method should return a bot name that follows the format specified in the task conditions.
-6.	The BotClient class&#39;s main() method must create a new BotClient object and call its run() method.
 
 
 Chat (part 17)
@@ -126,33 +158,6 @@ returns true, send the text using the sendTextMessage() method.
 
 2) Add the public static void main(String[] args) method. It must create a new Client object and
 call its run() method.
-
-
-
-Chat (part 13)
-
-
-Let's continue to implement helper methods in the Client class.
-
-Add the followings methods, which will be available to subclasses,
-but not to other classes outside the package:
-1) String getServerAddress() - It should ask the user to enter the server address,
-and return the entered value. The address can be a string containing
-an IP address if the client and server are running on different machines or 'localhost' if the client and
-server are running on the same machine.
-2) int getServerPort() - It should ask the user to enter the server port, and then return it.
-3) String getUserName() - It should ask for and return the username.
-4) boolean shouldSendTextFromConsole() - In this implementation of the client, it
-should always return true (we always send the text entered from the console). This
-method can be overridden if we write another
-client that inherits ours and shouldn't send the text entered
-from the console.
-5) SocketThread getSocketThread() - It should create and return a new
-SocketThread object.
-6) void sendTextMessage(String text) - It creates a new text message,
-using the connection field to send the passed text to the server.
-If an IOException occurs while the text is sent, you need to display
-information about this user and assign false to the clientConnected field.
 
 
 
