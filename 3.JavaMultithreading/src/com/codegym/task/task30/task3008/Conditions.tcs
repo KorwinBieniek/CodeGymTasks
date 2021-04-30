@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task30.task3008.big14"\n\nChat (part 14)
+taskKey="com.codegym.task.task30.task3008.big15"\n\nChat (part 15)
+
+
+Let's write the implementation of the SocketThread class. We'll start with simple helper methods.
+
+Add methods that will be available to subclasses but not accessible to other
+classes outside the package:
+1) void processIncomingMessage(String message) - It should display the message on the console.
+2) void informAboutAddingNewUser(String userName) - It should display a message
+indicating that a participant named userName has joined the chat.
+3) void informAboutDeletingNewUser(String userName) - It should display a message
+indicating that the participant named userName has left the chat.
+4) void notifyConnectionStatusChanged(boolean clientConnected) - This method
+must:
+a) Set the external Client object's clientConnected field equal to the passed argument.
+b) Notify (wake) the Client class's waiting main stream. Hint:
+use synchronization at the level of the current instance of the outer class and use the notify() method.
+The SocketThread class's outer class is the Client class.
+
+
+Requirements:
+1.	The processIncomingMessage() method should display the message received as an argument.
+2.	The informAboutAddingNewUser() method should display a message indicating that a user has connected to the chat.
+3.	The informAboutDeletingNewUser() method should display a message indicating that a user has left the chat.
+4.	The notifyConnectionStatusChanged() method should set the value of the clientConnected field of the outer Client object equal to the passed argument.
+5.	The notifyConnectionStatusChanged() method should call the notify() method on the outer Client object.
+
+
+Chat (part 14)
 
 
 Let's start writing the main functionality of the Client class.
@@ -31,15 +59,6 @@ returns true, send the text using the sendTextMessage() method.
 2) Add the public static void main(String[] args) method. It must create a new Client object and
 call its run() method.
 
-
-Requirements:
-1.	The main() method should create a new Client object and call its run() method.
-2.	The run() method should create and start a new thread that is obtained using the getSocketThread() method.
-3.	The thread created using the getSocketThread() method should be marked as a daemon (setDaemon(true)).
-4.	After starting the new socketThread, the run() method should wait until it is awakened.
-5.	As long as the clientConnected flag is true, messages should be read from the console using the ConsoleHelper.readString() method.
-6.	If the &quot;exit&quot; command is entered, you should interrupt the message-reading loop.
-7.	If the shouldSentTextFromConsole() method returns true, the sendTextMessage() method should be called with the input text used as an argument.
 
 
 Chat (part 13)
@@ -137,21 +156,6 @@ a colon, a space, and the text message. For example, if we received a message wi
 3) Send the generated message to all clients using the sendBroadcastMessage() method.
 4) If the received message is not text, display an error message
 5) Create an infinite loop and move the functionality of steps 10.1-10.4 into the loop.
-
-
-
-Chat (part 9)
-
-
-The second stage, which is no less important, is sending information to the client (new participant) about the other clients (chat participants).
-
-To do this, add a private void notifyUsers(Connection connection, String userName) throws IOException method,
-where connection is the connection with the participant we are sending information to, and userName is that participant's name.
-The method should:
-1) Iterate over connectionMap.
-2) For each element in step 1, get the client name, generate a USER_ADDED message that includes the passed name.
-3) Use the connection field to send the generated message.
-4) Don't send a USER_ADDED message to the user whose name is equal to userName. The user already knows about himself or herself.
 
 
 
