@@ -1,4 +1,55 @@
-taskKey="com.codegym.task.task30.task3008.big04"\n\nChat (part 4)
+taskKey="com.codegym.task.task30.task3008.big05"\n\nChat (part 5)
+
+
+The client and server will communicate through a socket connection.
+One side will write data to the socket, while the other will read. They interact by exchanging Messages.
+The Connection class will wrap the java.net.Socket class,
+which needs to be able to serialize and deserialize Message objects to/from the socket.
+The methods of this class should be callable from different threads.
+
+Add the following to the Connection class:
+
+1) Final fields:
+a) Socket socket
+b) ObjectOutputStream out
+c) ObjectInputStream in
+
+2) A constructor that has a Socket parameter and initializes the object's fields.
+To initialize the in and out fields, use the socket's corresponding threads.
+The constructor may throw an IOException. You need to create an ObjectOutputStream object before creating an ObjectInputStream object.
+Otherwise, threads trying to establish a connection through the Connection class may block each other.
+You can read more about this in the documentation for the ObjectInputStream class.
+
+3) A void send(Message message) throws IOException method.
+It should write (serialize) the message to the ObjectOutputStream.
+This method will be called from multiple threads.
+Be sure that only one thread can write to the ObjectOutputStream object at a time.
+Other threads must wait their turn. However, other methods of the Connection class should not be blocked.
+
+4) A Message receive() throws IOException, ClassNotFoundException method. It should read (deserialize) data from the ObjectInputStream.
+Make it so a read operation can't be performed simultaneously by multiple threads,
+but be sure not to block calls to other methods of the Connection class.
+
+5) A SocketAddress getRemoteSocketAddress() method, which returns the remote address of the socket connection.
+
+6) A void close() throws IOException method, which should close all the resources used by the object.
+
+The Connection class should support the Closeable interface.
+
+
+Requirements:
+1.	The Connection class should support the Closeable interface.
+2.	The Connection class must have a private final Socket socket field.
+3.	The Connection class must have a private final ObjectOutputStream out field.
+4.	The Connection class must have a private final ObjectInputStream in field.
+5.	The Connection class must have a constructor with a single Socket parameter that initializes the object&#39;s fields according to the task conditions.
+6.	The Connection class must correctly implement the send() method with one Message parameter.
+7.	The Connection class must correctly implement the receive() method without parameters.
+8.	The Connection class&#39;s getRemoteSocketAddress() method must return the remote address of the socket connection.
+9.	The Connection class&#39;s close() method should close the input stream, output stream, and socket connection.
+
+
+Chat (part 4)
 
 
 A Message is data that one party sends and the other receives.
@@ -16,14 +67,6 @@ Add the following to the Message class:
 the type field using the passed parameter, and leave the data field as null.
 6) a constructor that has MessageType type and String data parameters. It should also initialize all of the object's fields.
 
-
-Requirements:
-1.	The Message class should support the Serializable interface.
-2.	The Message class&#39;s private type field must be a MesssageType declared with the final modifier.
-3.	The Message class&#39;s private data field must be a String declared with the final modifier.
-4.	Proper getters for the data and type fields must be created in the Message class.
-5.	The Message class constructor with one MessageType parameter must initialize the type field and leave the data field equal to null.
-6.	The Message class constructor with two parameters (MessageType and String) must initialize the type and data fields.
 
 
 Chat (part 3)
