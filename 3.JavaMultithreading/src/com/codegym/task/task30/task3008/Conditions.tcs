@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task30.task3008.big01"\n\nChat (part 1)
+taskKey="com.codegym.task.task30.task3008.big02"\n\nChat (part 2)
+
+
+First of all, for convenience in working with the console, we'll implement the ConsoleHelper class. In
+the future, any work with the console should happen through this class.
+
+Add the following to it:
+1) A static BufferedReader field initialized using System.in.
+2) A static writeMessage(String message) method that should display
+the message string on the console.
+3) A static String readString() method that should read a string from
+the console. If an exception occurs while reading, display the following message
+to the user: "An error occurred while trying to enter text. Try again." And
+read the input again. The method should not throw an IOException upward.
+Other exceptions should not be handled.
+4) A static int readInt() method. It should return the entered number and
+use the readString() method. Handle any NumberFormatExceptions inside
+the method. If one occurs, then display the following message to the user "An error
+while trying to enter a number. Try again." And read in another number.
+
+In this and later tasks, unless specified otherwise, all of a class's fields must
+be private and its methods must be public.
+
+
+Requirements:
+1.	The ConsoleHelper class should create and initialize a private, non-final, static BufferedReader field.
+2.	The ConsoleHelper class should implement a static writeMessage(String message) method that displays a message on the console.
+3.	The ConsoleHelper class should implement a static readString method that returns a string read from the console.
+4.	The ConsoleHelper class should implement a static readInt method that returns a number read from the console.
+5.	The readInt method should use the readString method to read from the console.
+6.	The readString method should catch an IOException, display an error message about incorrect input, and read input from the console again.
+7.	The readInt method should catch a NumberFormatException, display an error message about incorrect input, and read input from the console again.
+
+
+Chat (part 1)
 
 
 Today we're going to write a chat system: A set of programs that you can use
@@ -15,13 +49,5 @@ a client and the server.
 
 Create these classes and add the main method to the Server class.
 
-
-Requirements:
-1.	The Server class must be public and be in a separate file.
-2.	The MessageType enum must be public and be in a separate file.
-3.	The Message class must be public and be in a separate file.
-4.	The Connection class must be public and be in a separate file.
-5.	The ConsoleHelper class must be public and be in a separate file.
-6.	A public static void main(String[] args) method must be created in the Server class.
 
 
