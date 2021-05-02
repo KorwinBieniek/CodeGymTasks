@@ -1,4 +1,23 @@
-taskKey="com.codegym.task.task31.task3110.big06"\n\nArchiver (part 6)
+taskKey="com.codegym.task.task31.task3110.big07"\n\nArchiver (part 7)
+
+
+We've done a lot and can take a quick break.
+Let's create an exception package and add two classes to it: PathNotFoundException and NoSuchZipFileException.
+We'll throw a PathNotFoundException exception if we can't find the path needed
+to extract the archive, or the path to the file you want to zip, or any other path. A NoSuchZipFileException
+will be thrown if there is an attempt to do something with an archive that doesn't
+exist.
+1.	Create the exception package
+2.	Add to it a PathNotFoundException class that inherits Exception
+3.	Add a NoSuchZipFileException class that also inherits Exception
+
+
+Requirements:
+1.	A PathNotFoundException class that inherits Exception must be created in the exception package.
+2.	A NoSuchZipFileException class that inherits Exception must be created in the exception package.
+
+
+Archiver (part 6)
 
 
 Suppose the user uses the Operation operation variable to let us know what he or she wants
@@ -17,13 +36,6 @@ corresponds to the correct command.
 must select the required command from allKnownCommandsMap and call its execute method.
 Whether or not you realized it, you just implemented the command pattern!
 
-
-Requirements:
-1.	The CommandExecutor class must be created in the root of the task.
-2.	Prevent direct calls to the CommandExecutor constructor.
-3.	You need to create a private static constant Map&lt;Operation, Command&gt; allKnownCommandsMap field in the CommandExecutor class.
-4.	The allKnownCommandsMap field must be initialized with all the Operation values and their corresponding Command classes.
-5.	In the CommandExecutor class, you need to implement an execute(Operation operation) method that calls the execute method of the required command from allKnownCommandsMap.
 
 
 Archiver (part 5)
@@ -124,44 +136,6 @@ that data to the ZipOutputStream (created in step 1)
 5.	Close the zip stream's zip entry
 6.	Close the zip stream using a try-with-resources
 7.	Run the program and verify that a file can be zipped
-
-
-
-Archiver (part 1)
-
-
-Let's write an archiver. At a minimum, an archiver should be able to zip and unzip
-files. Let's start with the first one.
-We need an archive manager. It will perform operations on the archive file (a file that
-will be stored on disk and have the zip extension). The class that will handle this will be called
-ZipFileManager. But the most important class will be called Archiver.
-Programming and other fields have a concept called full (absolute) and relative paths. First off,
-let's wrap our heads around what a path is, in general. A path is a set of symbols that indicates where in
-the operating system a file or folder is located.
-A full or absolute path is a path that starts with the root directory. In Windows,
-a disk is generally considered the root directory. An example of a full path in Windows is:
-C:\user\zips\Test1.zip.
-A relative path is a path relative to a directory. For example, zips\Test1.zip
-is the relative path of the file Test1.zip in relation to the C:\user directory (folder). The path
-relative to the C:\user\zips directory would just be Test1.zip, and would match the file name.
-Note that, by default, both the full and relative path to a file include the name
-of the file.
-1.	Create a ZipFileManager class
-2.	Add a private Path zipFile variable to the class. We will use it to store the full path to the archive
-that we will be working with.
-3.	Add a ZipFileManager(Path zipFile) constructor. Initialize the class's zipFile field.
-4.	Declare a public createZip(Path source) throws Exception method with, for now, an empty implementation.
-The Path source parameter is a path to something that we will zip.
-5.	Create an Archiver class and add a main method to it.
-6.	In the main method:
-6.1 Ask the user to enter the full path to the archive from the keyboard. Don't forget that the file name is also
-part of the full path.
-6.2 Create a ZipFileManager object, passing in the archive's file name. Figure out how to get
-a Path from a String. Hint: look into the Paths class's get() method.
-6.3 Ask the user to enter the path to the file to be zipped. Don't confuse this with
-the archive file, which we already entered. This time, we need the file that we'll
-compress, not the one we're going to store the compressed data in.
-6.4 Call the ZipFileManager object's createZip method, passing the path to be zipped.
 
 
 

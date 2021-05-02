@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandExecutor {
-
-    private final static Map<Operation, Command> allKnownCommandsMap = new HashMap<>();
+    private static final Map<Operation, Command> allKnownCommandsMap = new HashMap<>();
 
     static {
         allKnownCommandsMap.put(Operation.CREATE, new ZipCreateCommand());
