@@ -1,4 +1,42 @@
-taskKey="com.codegym.task.task31.task3110.big01"\n\nArchiver (part 1)
+taskKey="com.codegym.task.task31.task3110.big02"\n\nArchiver (part 2)
+
+
+Now let's implement the createZip(Path source) method, which will zip the file
+specified by the source argument.
+Java has a special ZipOutputStream class in the java.util.zip package. It compresses (zips) the
+data passed to it. To keep multiple files from blending together when they are compressed into one archive,
+we create a special entity called a ZipEntry for each of them. In other words, we
+first put a ZipEntry in the ZipOutputStream, and then we write the file's contents. When the file is written, it is automatically
+compressed, and when it is read, it is automatically decompressed. A ZipEntry doesn't have to be a file; it can also be a
+folder.
+To zip a file (create a new archive and add the file to it):
+1.	Create a new ZipOutputStream using the zipFile variable and the
+Files class's newOutputStream method.
+2.	Create a new ZipEntry. Pass a String containing the new entry's name to the ZipEntry constructor.
+You need to get the name from the full path source. Get only the file name and convert it to a String.
+3.	Add the created zip entry to the zip stream.
+4.	Copy the data from the file we are zipping to the zip stream. To do this:
+4.1. Create an InputStream for the source file using the Files class's newInputStream method.
+4.2. Make a loop that will read data from the InputStream (created in 4.1) as long as it has data and write
+that data to the ZipOutputStream (created in step 1)
+4.3. Close the InputStream using a try-with-resources
+5.	Close the zip stream's zip entry
+6.	Close the zip stream using a try-with-resources
+7.	Run the program and verify that a file can be zipped
+
+
+Requirements:
+1.	The createZip method must create a ZipOutputStream using the zipFile field and the Files.newOutputStream method.
+2.	The createZip method must create a ZipEntry using the file name obtained from the source parameter.
+3.	The created ZipEntry must be added to the ZipOutputStream.
+4.	An InputStream must be created for the source parameter using the Files.newInputStream method.
+5.	Data from the InputStream needs to be copied to the ZipOutputStream.
+6.	Close the current ZipOutputStream object&#39;s current entry.
+7.	The InputStream for the source must be closed.
+8.	The ZipOutputStream must be closed.
+
+
+Archiver (part 1)
 
 
 Let's write an archiver. At a minimum, an archiver should be able to zip and unzip
@@ -34,12 +72,5 @@ the archive file, which we already entered. This time, we need the file that we'
 compress, not the one we're going to store the compressed data in.
 6.4 Call the ZipFileManager object's createZip method, passing the path to be zipped.
 
-
-Requirements:
-1.	Create a ZipFileManager class.
-2.	A private Path zipFile field must be created inside the ZipFileManager class.
-3.	A constructor that initializes the zipFile field must be created inside the ZipFileManager class.
-4.	A public void createZip(Path source) throws Exception method must be created inside the ZipFileManager class.
-5.	Create an Archiver class and add a main method to it.
 
 
