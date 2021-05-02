@@ -1,4 +1,50 @@
-taskKey="com.codegym.task.task31.task3110.big08"\n\nArchiver (part 8)
+taskKey="com.codegym.task.task31.task3110.big09"\n\nArchiver (part 9)
+
+
+Now let's take care of another part of our archiver that is no less important. Frequently, users want to
+create an archive from not just one file, but from an entire folder. In this case, zipping amounts to
+successively adding a ZipEntry for each file to the archive.
+We need to write a FileManager class to get a list of all of the files in some folder. It must
+have a constructor that has a Path rootPath parameter that indicates the root (the folder containing the files
+we are interested in), and a List<Path> getFileList() method that should return a list
+of relative paths for all of the files in rootPath (including files in subfolders).
+The directory we will search can only be set once in the constructor. So, we can generate
+the list of files (relative paths) right in the constructor and save it in
+the class's List<Path> fileList variable.
+We just have to decide how to gather up all of the files, even those that might be inside a folder, inside a folder,
+inside a folder, inside the folder we're looking at. Whoa, we almost entered a recursive loop. But maybe recursion can
+help us! Let's make a collectFileList(Path path) method that adds all the files inside the path parameter to the class's fileList variable,
+and calls itself recursively on
+subfolders.
+1.	Create a FileManager class with a FileManager(Path rootPath) throws IOException constructor
+2.	Declare and initialize the following private instance variables:
+2.1. Path rootPath - The root path of the directory whose files we are interested in
+2.2. List<Path> fileList - The  list of relative paths of files inside rootPath
+3.	Create a getter for fileList
+4.	Implement a void collectFileList(Path path) throws IOException method that must:
+4.1. Check to see if the path parameter is a regular file (use the
+Files.isRegularFile method), then get its path relative to rootPath
+and add it to fileList.
+4.2. If the path parameter is a directory (determine this using the
+Files.isDirectory method), then go through all of the directory's contents and call
+collectFileList(Path path), passing in the discovered elements.
+You can go through the all of the directory's contents by first getting a DirectoryStream using the
+Files class's newDirectoryStream method. Don't forget to close the DirectoryStream.
+5.	Call the collectFileList(rootPath) method inside the FileManager constructor.
+6.	Apply everything you've learned about encapsulation to this class.
+In completing this task, you wrote an algorithm that traverses a file tree. But Java has a special
+FileVisitor interface for this. I highly recommend you learn how to use it.
+
+
+Requirements:
+1.	In the root of the task, you must create a FileManager class with a FileManager(Path rootPath) throws IOException constructor.
+2.	The FileManager class must have private Path rootPath and List&lt;Path&gt; fileList fields that are initialized inside the constructor.
+3.	The FileManager class must have a getter for the fileList field.
+4.	You need to implement a private void collectFileList(Path path) throws IOException method in the FileManager class as outlined in the task conditions.
+5.	You need to add a call to the collectFileList(rootPath) method inside the FileManager constructor.
+
+
+Archiver (part 8)
 
 
 To find out which command the user currently wants to execute, let's add an Operation
@@ -35,12 +81,6 @@ display "An error occurred. Please check the entered data."
 after handling exceptions.
 3.	Run the program and verify that the "exit" command works.
 
-
-Requirements:
-1.	You need to create a public static Operation askOperation() method in the Archiver class.
-2.	The askOperation method should display all of the possible operations and their numbers.
-3.	The askOperation method should read the selected operation&#39;s number from the keyboard and return it.
-4.	Rewrite the main method according to the task conditions.
 
 
 Archiver (part 7)
@@ -121,34 +161,6 @@ ExitCommand object and calls its execute() method
 Note that all the project files must be encoded in UTF-8. You can set the encoding in IntelliJ IDEA
 under Settings -> Editor -> File Encodings. Be sure that all three fields responsible for encoding
 are set to UTF-8.
-
-
-
-Archiver (part 3)
-
-
-As you can see, zipping isn't that bad. But our archiver is somehow
-too primitive. A real archiver should be able to do much more: extract an archive,
-add a new file to an existing archive, remove a file from an archive, and view the contents
-of an archive. Now let's improve our archiver. To do that, we have to write a few new
-classes. First, let's create an Operation enum, which will contain all the commands that
-our archiver supports.
-It would also be convenient to use ConsoleHelper to work with the console so that everything console-related
-is gathered into the same class. Going forward, unless indicated otherwise, all input and output
-should happen through ConsoleHelper.
-1.	Declare the Operation enum, and add the following commands to it:
-1.1. CREATE - Create an archive
-1.2. ADD - Add a file to an archive
-1.3. REMOVE - Remove a file from an archive
-1.4. EXTRACT - Extract an archive's contents
-1.5. CONTENT - View an archive's contents
-1.6. EXIT - Exit the program
-2.	Create a ConsoleHelper class and implement the following static public methods in it:
-2.1. void writeMessage(String message) - Display a message on the console
-2.2. String readString() - Read a String from the console
-2.3. int readInt() - Read a number from the console
-Methods that read from the console can throw an IOException if an input error occurs. Account for
-this in their declarations.
 
 
 
