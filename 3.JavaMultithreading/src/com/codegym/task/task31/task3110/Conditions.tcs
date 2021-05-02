@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task31.task3110.big10"\n\nArchiver (part 10)
+taskKey="com.codegym.task.task31.task3110.big11"\n\nArchiver (part 11)
+
+
+Finally, we'll try to provide a decent implementation for the ZipCreateCommand class's execute() method that
+we added previously. To do this, we need to:
+1.	Display "Creating an archive." at the beginning of the method. Don't forget that we are using
+the ConsoleHelper class to work with the console.
+2.	Create a new ZipFileManager object. Since we will also need to create this object
+in other commands, move the creation logic to a separate ZipFileManager getZipFileManager() throws
+Exception method in the ZipCommand class. This method should:
+2.1. Ask the user to enter the full path to the archive
+2.2. Read the path into a String variable
+2.3. Use the entered String to create a Path variable
+2.4. Create a ZipFileManager object, passing the obtained path to the constructor
+2.5. Return the created object
+3.	Ask the user to enter the full path to the file or directory to be zipped
+4.	Create a Path using the entered String
+5.	Call the ZipFileManager object's createZip() method, passing the path from step 4 to it
+6.	Display "Archive created."
+7.	Wrap the contents of the ZipCreateCommand's execute() method in a try-catch block and catch
+PathNotFoundException exceptions. If one occurs, display the message: "You
+didn't correctly enter a file name or directory."
+8.	Run the program and verify that the "Zip files into an archive" command works
+
+
+Requirements:
+1.	You need to add a public ZipFileManager getZipFileManager() throws Exception method to the ZipCommand class.
+2.	The getZipFileManager method must read the path to the archive from the console, and return a ZipFileManager object for that path.
+3.	The ZipCreateCommand class&#39;s execute method must be implemented according to the task conditions, and using the getZipFileManager method.
+4.	If a PathNotFoundException occurs, you need to display&quot;You didn&#39;t correctly enter a file name or directory.&quot;.
+
+
+Archiver (part 10)
 
 
 It's time to refactor the ZipFileManager class. The createZip method has code that we're also
@@ -38,15 +70,6 @@ source, fileName) for each element of fileNames.
 5.4. If source isn't a folder or a file, throw a
 PathNotFoundException.
 
-
-Requirements:
-1.	Add a private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception method to the ZipFileManager class.
-2.	The addNewZipEntry method must be implemented according to the task conditions.
-3.	Replace part of the createZip method&#39;s code with a call to the addNewZipEntry method.
-4.	Add a private void copyData(InputStream in, OutputStream out) throws Exception method to the ZipFileManager class.
-5.	The copyData method must read data from &quot;in&quot; and write to &quot;out&quot; until it reads all of the bytes.
-6.	Replace part of the addNewZipEntry method&#39;s code with a call to the new copyData method.
-7.	The createZip method in the ZipFileManager class must be completed according to the task conditions.
 
 
 Archiver (part 9)
@@ -160,27 +183,6 @@ corresponds to the correct command.
 5.	Implement the public static execute(Operation operation) throws Exception method, which
 must select the required command from allKnownCommandsMap and call its execute method.
 Whether or not you realized it, you just implemented the command pattern!
-
-
-
-Archiver (part 5)
-
-
-Let's divide the commands into two types: those that work directly with the archive, and helpers
-(for example, EXIT). All the commands of the first type will have shared functionality. It's convenient to pull this functionality
-into a common base class. Let's call this class ZipCommand. Like all command classes, it must
-implement the Command interface. All commands that work with an archive must
-inherit the ZipCommand class. We won't create any ZipCommand objects, so
-let's make it abstract.
-1.	Create an abstract ZipCommand class that implements the Command interface
-2.	Create a class for each command. All of the listed commands must
-inherit ZipCommand and have an empty execute() method. We'll write
-the implementation for each command separately as we implement our archiver.
-2.1. ZipCreateCommand is the command for creating an archive (zipping files into an archive)
-2.2. ZipContentCommand is the command for viewing an archive's contents
-2.3. ZipExtractCommand is the command for extracting an archive
-2.4. ZipAddCommand is the command for adding a file to an archive
-2.5. ZipRemoveCommand is the command for removing a file from an archive
 
 
 
