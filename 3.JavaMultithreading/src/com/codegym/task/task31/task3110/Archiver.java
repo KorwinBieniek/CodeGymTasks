@@ -1,5 +1,7 @@
 package com.codegym.task.task31.task3110;
 
+import com.codegym.task.task31.task3110.command.ExitCommand;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,5 +17,7 @@ public class Archiver {
 
         System.out.println("Enter the full file name for archiving:");
         zipFileManager.createZip(Paths.get(bis.readLine()));
+
+        new ExitCommand().execute();
     }
 }
