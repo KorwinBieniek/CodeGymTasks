@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task31.task3110.big14"\n\nArchiver (part 14)
+taskKey="com.codegym.task.task31.task3110.big15"\n\nArchiver (part 15)
+
+
+It's time to try to extract something. To do this, add a public void extractAll(Path
+outputFolder) throws Exception method to the ZipFileManager class. The Path outputFolder parameter is the path to which we will
+extract our archive. You already have extensive experience working with zip entries and streams, so I'll
+only give you some hints on how to implement this method. You'll have to think carefully about how
+to do the following:
+1.	Check whether the zip file exists
+2.	If the outputFolder directory does not exist, then it needs to be created, along with all the folders that
+contain it.
+3.	Inside the archive, some files may be inside folders. In this case, the ZipEntry.getName() method
+doesn't exactly return the file name, as might be expected from the method name. Instead, it returns the file's relative path
+inside the archive. This relative path should be retained after the extraction process is complete, but
+it will become relative to the directory where we have extracted the archive
+4.	Implement the ZipExtractCommand class's execute() method by analogy with our implementation of
+ZipCreateCommand. Make a similar try-catch block, and simply change the displayed messages
+so that the user knows we are currently extracting an archive, and that we need the archive's
+full name and the directory to which we will extract the archive. Don't forget to call the
+ZipFileManager class's extractAll method, and not createZip like we did in the ZipCreateCommand
+5.	Run the program and enjoy the extracted results
+
+Note:
+Use Files.newInputStream(Path path) and Files.newOutputStream(Path path) to get read and write streams.
+
+
+Requirements:
+1.	You need to create a public void extractAll(Path outputFolder) throws Exception method in the ZipFileManager class.
+2.	The extractAll(Path outputFolder) method must throw a NoSuchZipFileException if the archive file does not exist.
+3.	The extractAll(Path outputFolder) method must create the outputFolder directory if it doesn&#39;t exist.
+4.	The extractAll(Path outputFolder) method must extract all of the files from the archive into the outputFolder directory.
+5.	The ZipExtractCommand class&#39;s execute() method must get the ZipFileManager object and extract the files to the directory specified by the user.
+
+
+Archiver (part 14)
 
 
 Everything is ready to implement the ZipContentCommand class's execute() method:
@@ -11,11 +45,6 @@ FileProperties.toString() method will come in handy
 6.	Display "Archive contents viewed."
 7.	Run the program and verify that the "View the contents of an archive" command works
 
-
-Requirements:
-1.	The ZipContentCommand class&#39;s execute method needs to get a ZipFileManager object.
-2.	The ZipContentCommand class&#39;s execute method needs to get the list of files in the archive from the ZipFileManager object.
-3.	The ZipContentCommand class&#39;s execute method needs to display the properties of each file in the archive.
 
 
 Archiver (part 13)
@@ -135,45 +164,6 @@ fileNames variable
 source, fileName) for each element of fileNames.
 5.4. If source isn't a folder or a file, throw a
 PathNotFoundException.
-
-
-
-Archiver (part 9)
-
-
-Now let's take care of another part of our archiver that is no less important. Frequently, users want to
-create an archive from not just one file, but from an entire folder. In this case, zipping amounts to
-successively adding a ZipEntry for each file to the archive.
-We need to write a FileManager class to get a list of all of the files in some folder. It must
-have a constructor that has a Path rootPath parameter that indicates the root (the folder containing the files
-we are interested in), and a List<Path> getFileList() method that should return a list
-of relative paths for all of the files in rootPath (including files in subfolders).
-The directory we will search can only be set once in the constructor. So, we can generate
-the list of files (relative paths) right in the constructor and save it in
-the class's List<Path> fileList variable.
-We just have to decide how to gather up all of the files, even those that might be inside a folder, inside a folder,
-inside a folder, inside the folder we're looking at. Whoa, we almost entered a recursive loop. But maybe recursion can
-help us! Let's make a collectFileList(Path path) method that adds all the files inside the path parameter to the class's fileList variable,
-and calls itself recursively on
-subfolders.
-1.	Create a FileManager class with a FileManager(Path rootPath) throws IOException constructor
-2.	Declare and initialize the following private instance variables:
-2.1. Path rootPath - The root path of the directory whose files we are interested in
-2.2. List<Path> fileList - The  list of relative paths of files inside rootPath
-3.	Create a getter for fileList
-4.	Implement a void collectFileList(Path path) throws IOException method that must:
-4.1. Check to see if the path parameter is a regular file (use the
-Files.isRegularFile method), then get its path relative to rootPath
-and add it to fileList.
-4.2. If the path parameter is a directory (determine this using the
-Files.isDirectory method), then go through all of the directory's contents and call
-collectFileList(Path path), passing in the discovered elements.
-You can go through the all of the directory's contents by first getting a DirectoryStream using the
-Files class's newDirectoryStream method. Don't forget to close the DirectoryStream.
-5.	Call the collectFileList(rootPath) method inside the FileManager constructor.
-6.	Apply everything you've learned about encapsulation to this class.
-In completing this task, you wrote an algorithm that traverses a file tree. But Java has a special
-FileVisitor interface for this. I highly recommend you learn how to use it.
 
 
 
