@@ -1,0 +1,45 @@
+taskKey="com.codegym.task.task31.task3110.big01"\n\nArchiver (part 1)
+
+
+Let's write an archiver. At a minimum, an archiver should be able to zip and unzip
+files. Let's start with the first one.
+We need an archive manager. It will perform operations on the archive file (a file that
+will be stored on disk and have the zip extension). The class that will handle this will be called
+ZipFileManager. But the most important class will be called Archiver.
+Programming and other fields have a concept called full (absolute) and relative paths. First off,
+let's wrap our heads around what a path is, in general. A path is a set of symbols that indicates where in
+the operating system a file or folder is located.
+A full or absolute path is a path that starts with the root directory. In Windows,
+a disk is generally considered the root directory. An example of a full path in Windows is:
+C:\user\zips\Test1.zip.
+A relative path is a path relative to a directory. For example, zips\Test1.zip
+is the relative path of the file Test1.zip in relation to the C:\user directory (folder). The path
+relative to the C:\user\zips directory would just be Test1.zip, and would match the file name.
+Note that, by default, both the full and relative path to a file include the name
+of the file.
+1.	Create a ZipFileManager class
+2.	Add a private Path zipFile variable to the class. We will use it to store the full path to the archive
+that we will be working with.
+3.	Add a ZipFileManager(Path zipFile) constructor. Initialize the class's zipFile field.
+4.	Declare a public createZip(Path source) throws Exception method with, for now, an empty implementation.
+The Path source parameter is a path to something that we will zip.
+5.	Create an Archiver class and add a main method to it.
+6.	In the main method:
+6.1 Ask the user to enter the full path to the archive from the keyboard. Don't forget that the file name is also
+part of the full path.
+6.2 Create a ZipFileManager object, passing in the archive's file name. Figure out how to get
+a Path from a String. Hint: look into the Paths class's get() method.
+6.3 Ask the user to enter the path to the file to be zipped. Don't confuse this with
+the archive file, which we already entered. This time, we need the file that we'll
+compress, not the one we're going to store the compressed data in.
+6.4 Call the ZipFileManager object's createZip method, passing the path to be zipped.
+
+
+Requirements:
+1.	Create a ZipFileManager class.
+2.	A private Path zipFile field must be created inside the ZipFileManager class.
+3.	A constructor that initializes the zipFile field must be created inside the ZipFileManager class.
+4.	A public void createZip(Path source) throws Exception method must be created inside the ZipFileManager class.
+5.	Create an Archiver class and add a main method to it.
+
+
