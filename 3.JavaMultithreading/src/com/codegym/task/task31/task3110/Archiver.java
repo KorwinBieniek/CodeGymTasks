@@ -21,7 +21,6 @@ public class Archiver {
         } while (operation != Operation.EXIT);
     }
 
-
     public static Operation askOperation() throws IOException {
         ConsoleHelper.writeMessage("");
         ConsoleHelper.writeMessage("Select an operation:");
