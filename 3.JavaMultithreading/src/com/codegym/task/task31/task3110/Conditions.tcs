@@ -1,4 +1,51 @@
-taskKey="com.codegym.task.task31.task3110.big15"\n\nArchiver (part 15)
+taskKey="com.codegym.task.task31.task3110.big16"\n\nArchiver (part 16)
+
+
+It's time to remove something from an archive. An archive is a tricky thing—you can't just go and
+remove an element.
+Why? Imagine we decided to invent our own text compression algorithm. After examining the source
+text, we see that the phrase "being a programmer is cool" occurs often. In the second and subsequent
+instances of our phrase, we can replace the phrase with a note that this location represents the same phrase that was used in line S,
+starting from character K and N characters long. As we replace a lot of repeated
+phrases, the text shrink noticeably, but becomes unreadable to those not familiar with our compression algorithm.
+Of course, we can recover the text (extract it). Now imagine what we need to remove
+the part of the text that is referenced by the compressed fragments. If we did this, our entire archive would
+become meaningless. That's why you can't simply remove part of an archive. This is a highly simplified description
+of a compression technique; in reality, everything is far more complicated.
+As a result, to remove something from an archive, you need to create a new archive, and copy over everything except
+the removed file. Then you replace the old archive with the newly created one.
+1.	Add a public void removeFiles(List<Path> pathList)
+throws Exception method to the ZipFileManager class. It will remove files from an archive. A list of the relative paths to
+the files inside the archive will be passed in pathList. It must:
+1.1. Throw a NoSuchZipFileException if the archive file doesn't exist.
+1.2. Create a temporary archive file in the default directory using the Files class's createTempFile() method.
+1.3. Go through all the files of the original archive, and check whether the current file is in the list
+for removal.
+- If the file is in the list, display a message indicating that we have removed the corresponding file and
+move on to the next file.
+- If the file is not in the removal list, copy it to the new archive
+1.4. Replace the original archive file with the temporary file we wrote all of the required files to.
+You need to do this using the Files class's move() method
+2.	Add a public void removeFile(Path path) throws Exception method to the ZipFileManager class.
+It should call the removeFiles method, creating a list out of a single element. This can be done using
+the Collections class's singletonList() method. Look up how it works.
+3.	Implement the ZipRemoveCommand class's execute() method: create a ZipFileManager object,
+ask the user which file to remove from which archive, and call the removeFile() method.
+Do everything else as we did in the other commands. You don't have to catch the PathNotFoundException, since  the
+removeFile() method shouldn't throw it.
+4.	Run the program and verify that removing a file from an archive works.
+
+
+Requirements:
+1.	You need to create a public void removeFiles(List&lt;Path&gt; pathList) throws Exception method in the ZipFileManager class.
+2.	The removeFiles method must throw a NoSuchZipFileException if the archive file doesn&#39;t exist.
+3.	The removeFiles method must create a temporary archive file using the Files.createTempFile method.
+4.	The removeFiles method should write all of the files from the old archive to the new archive, except those in the list for removal.
+5.	In the ZipFileManager class, you need to create a public void removeFile(Path path) throws Exception method that delegates the call to the removeFiles(List&lt;Path&gt; pathList) method.
+6.	The ZipRemoveCommand class&#39;s execute() method should get the ZipFileManager object and remove from the archive the file read from the console.
+
+
+Archiver (part 15)
 
 
 It's time to try to extract something. To do this, add a public void extractAll(Path
@@ -23,13 +70,6 @@ ZipFileManager class's extractAll method, and not createZip like we did in the Z
 Note:
 Use Files.newInputStream(Path path) and Files.newOutputStream(Path path) to get read and write streams.
 
-
-Requirements:
-1.	You need to create a public void extractAll(Path outputFolder) throws Exception method in the ZipFileManager class.
-2.	The extractAll(Path outputFolder) method must throw a NoSuchZipFileException if the archive file does not exist.
-3.	The extractAll(Path outputFolder) method must create the outputFolder directory if it doesn&#39;t exist.
-4.	The extractAll(Path outputFolder) method must extract all of the files from the archive into the outputFolder directory.
-5.	The ZipExtractCommand class&#39;s execute() method must get the ZipFileManager object and extract the files to the directory specified by the user.
 
 
 Archiver (part 14)
@@ -122,48 +162,6 @@ Exception method in the ZipCommand class. This method should:
 PathNotFoundException exceptions. If one occurs, display the message: "You
 didn't correctly enter a file name or directory."
 8.	Run the program and verify that the "Zip files into an archive" command works
-
-
-
-Archiver (part 10)
-
-
-It's time to refactor the ZipFileManager class. The createZip method has code that we're also
-going to need in the methods that will add files to or remove them from an archive, extract files, etc. We'll
-implement those methods later, but we can move the common code to separate
-methods now.
-Additionally, the createZip method can only create an archive from a single file, but we would like to be able to
-zip an entire folder. We won't create a separate method for this, since you can pass
-both a directory and a regular file to the createZip(Path source) method.
-Today's tasks:
-1.	Implement a private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath,
-Path fileName) throws Exception method in the ZipFileManager class. It must:
-1.1. Create an InputStream for the file named fileName located in
-the filePath directory
-1.2. Create a new ZipEntry, using fileName as the name
-after converting it to a String
-1.3. Copy the data from the InputStream (from step 1.1) to the zipOutputStream parameter
-1.4. Close the zip entry
-1.5. Close the InputStream using try-with-resources
-2.	Replace part of the createZip method's code with a call to the addNewZipEntry method. Pass source.getParent()
-as the filePath parameter, and source.getFileName() as the filename.
-3.	Implement a private void copyData(InputStream in, OutputStream out) throws Exception method. It
-must read data from "in" and write to "out", until it reads through everything.
-4.	Replace part of the addNewZipEntry method's code with a call to the copyData method.
-5.	Let's return to createZip:
-5.1. At the beginning of the method, check to see if the directory (zipFile.getParent()) where we
-will create zipFile exists; if not, then create it.
-5.2. If source is a regular file (use Files.isRegularFile to check), then simply call
-addNewZipEntry.
-5.3. If source is a directory (use Files.isDirectory to check), then:
-5.3.1.	Create a FileManager object, passing
-source to the constructor
-5.3.2.	Get a list of files from the file manager, and save them to the
-fileNames variable
-5.3.3.	Call addNewZipEntry(zipOutputStream,
-source, fileName) for each element of fileNames.
-5.4. If source isn't a folder or a file, throw a
-PathNotFoundException.
 
 
 
