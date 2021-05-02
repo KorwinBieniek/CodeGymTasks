@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task31.task3110.big04"\n\nArchiver (part 4)
+taskKey="com.codegym.task.task31.task3110.big05"\n\nArchiver (part 5)
+
+
+Let's divide the commands into two types: those that work directly with the archive, and helpers
+(for example, EXIT). All the commands of the first type will have shared functionality. It's convenient to pull this functionality
+into a common base class. Let's call this class ZipCommand. Like all command classes, it must
+implement the Command interface. All commands that work with an archive must
+inherit the ZipCommand class. We won't create any ZipCommand objects, so
+let's make it abstract.
+1.	Create an abstract ZipCommand class that implements the Command interface
+2.	Create a class for each command. All of the listed commands must
+inherit ZipCommand and have an empty execute() method. We'll write
+the implementation for each command separately as we implement our archiver.
+2.1. ZipCreateCommand is the command for creating an archive (zipping files into an archive)
+2.2. ZipContentCommand is the command for viewing an archive's contents
+2.3. ZipExtractCommand is the command for extracting an archive
+2.4. ZipAddCommand is the command for adding a file to an archive
+2.5. ZipRemoveCommand is the command for removing a file from an archive
+
+
+Requirements:
+1.	The command package must have an abstract ZipCommand class that implements the Command interface.
+2.	The command package must have a ZipCreateCommand class that inherits ZipCommand.
+3.	The command package must have a ZipContentCommand class that inherits ZipCommand.
+4.	The command package must have a ZipExtractCommand class that inherits ZipCommand.
+5.	The command package must have a ZipAddCommand class that inherits ZipCommand.
+6.	The command package must have a ZipRemoveCommand class that inherits ZipCommand.
+
+
+Archiver (part 4)
 
 
 Each command implies the execution of some action. Create a Command interface with
@@ -20,13 +49,6 @@ Note that all the project files must be encoded in UTF-8. You can set the encodi
 under Settings -> Editor -> File Encodings. Be sure that all three fields responsible for encoding
 are set to UTF-8.
 
-
-Requirements:
-1.	The Command interface must be created in the command package.
-2.	Command must declare a void execute() throws Exception method.
-3.	Create an ExitCommand class in the command package. It must implement Command.
-4.	The execute method in the ExitCommand class must use ConsoleHelper to display &quot;Bye!&quot; on the console.
-5.	At the end of main method, you need to create an ExitCommand object and call its execute method.
 
 
 Archiver (part 3)
