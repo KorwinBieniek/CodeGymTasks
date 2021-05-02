@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task31.task3110.big05"\n\nArchiver (part 5)
+taskKey="com.codegym.task.task31.task3110.big06"\n\nArchiver (part 6)
+
+
+Suppose the user uses the Operation operation variable to let us know what he or she wants
+to do. Then we need to check the variable, create a corresponding
+command object, and call its execute() method. To avoid creating the required command object
+every time, we need to store it somewhere. Let's create a CommandExecutor class for this. We'll give it
+just one public static execute(Operation operation) method, which will find
+the required command and call its execute method.
+1.	Create a CommandExecutor class. It should be located at the root of the task. Don't add it to the command package.
+2.	Prevent direct calls to the class's constructor
+3.	Add a private static constant Map<Operation, Command> allKnownCommandsMap to the class to
+store the commands.
+4.	Initialize the allKnownCommandsMap field so that each field of the Operation enum
+corresponds to the correct command.
+5.	Implement the public static execute(Operation operation) throws Exception method, which
+must select the required command from allKnownCommandsMap and call its execute method.
+Whether or not you realized it, you just implemented the command pattern!
+
+
+Requirements:
+1.	The CommandExecutor class must be created in the root of the task.
+2.	Prevent direct calls to the CommandExecutor constructor.
+3.	You need to create a private static constant Map&lt;Operation, Command&gt; allKnownCommandsMap field in the CommandExecutor class.
+4.	The allKnownCommandsMap field must be initialized with all the Operation values and their corresponding Command classes.
+5.	In the CommandExecutor class, you need to implement an execute(Operation operation) method that calls the execute method of the required command from allKnownCommandsMap.
+
+
+Archiver (part 5)
 
 
 Let's divide the commands into two types: those that work directly with the archive, and helpers
@@ -17,14 +45,6 @@ the implementation for each command separately as we implement our archiver.
 2.4. ZipAddCommand is the command for adding a file to an archive
 2.5. ZipRemoveCommand is the command for removing a file from an archive
 
-
-Requirements:
-1.	The command package must have an abstract ZipCommand class that implements the Command interface.
-2.	The command package must have a ZipCreateCommand class that inherits ZipCommand.
-3.	The command package must have a ZipContentCommand class that inherits ZipCommand.
-4.	The command package must have a ZipExtractCommand class that inherits ZipCommand.
-5.	The command package must have a ZipAddCommand class that inherits ZipCommand.
-6.	The command package must have a ZipRemoveCommand class that inherits ZipCommand.
 
 
 Archiver (part 4)
