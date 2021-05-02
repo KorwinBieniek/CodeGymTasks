@@ -1,22 +1,36 @@
 package com.codegym.task.task31.task3110;
 
-import com.codegym.task.task31.task3110.command.ExitCommand;
+import com.codegym.task.task31.task3110.exception.NoSuchZipFileException;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 public class Archiver {
+    public static void main(String[] args) throws IOException {
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
+        Operation operation = null;
+        do {
+            try {
+                operation = askOperation();
+                CommandExecutor.execute(operation);
+            } catch (NoSuchZipFileException e) {
+                ConsoleHelper.writeMessage("You didn't select an archive or you selected an invalid file.");
+            } catch (Exception e) {
+                ConsoleHelper.writeMessage("An error occurred. Please check the entered data.");
+            }
 
-        System.out.println("Enter the full path to the archive file:");
-        ZipFileManager zipFileManager = new ZipFileManager(Paths.get(bis.readLine()));
+        } while (operation != Operation.EXIT);
+    }
 
-        System.out.println("Enter the full file name for archiving:");
-        zipFileManager.createZip(Paths.get(bis.readLine()));
+    public static Operation askOperation() throws IOException {
+        ConsoleHelper.writeMessage("");
+        ConsoleHelper.writeMessage("Select an operation:");
+        ConsoleHelper.writeMessage(String.format("\t %d - Zip files into an archive", Operation.CREATE.ordinal()));
+        ConsoleHelper.writeMessage(String.format("\t %d - Add a file to an archive", Operation.ADD.ordinal()));
+        ConsoleHelper.writeMessage(String.format("\t %d - Remove a file from an archive", Operation.REMOVE.ordinal()));
+        ConsoleHelper.writeMessage(String.format("\t %d - Extract an archive", Operation.EXTRACT.ordinal()));
+        ConsoleHelper.writeMessage(String.format("\t %d - View the contents of an archive", Operation.CONTENT.ordinal()));
+        ConsoleHelper.writeMessage(String.format("\t %d - Exit", Operation.EXIT.ordinal()));
 
-        new ExitCommand().execute();
+        return Operation.values()[ConsoleHelper.readInt()];
     }
 }
