@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task32.task3209.big21"\n\nHTML Editor (part 21)
+taskKey="com.codegym.task.task32.task3209.big22"\n\nHTML Editor (part 22)
+
+
+In the controller, let's implement the saveDocumentAs() method for saving the file under a new name.
+The implementation should:
+22.1.	Switch the view to the HTML tab.
+22.2.	Create a new JFileChooser object.
+22.3.	Set an HTMLFileFilter object as its filter.
+22.4.	Show the "Save File" file chooser dialog.
+22.5.	If the user confirms the file selection:
+22.5.1.	Save the selected file in the currentFile field.
+22.5.2.	Set the file name as the window title on the view.
+22.5.3.	Create a FileWriter based on currentFile.
+22.5.4.	Copy the data from document to the FileWriter object by analogy with what
+we did in the getPlainText() method.
+22.6.	The method must not throw exceptions.
+Check the Save as... menu item.
+
+
+Requirements:
+1.	The saveDocumentAs() method in the controller should switch the view to the HTML tab.
+2.	The saveDocumentAs() method in the controller should create a new JFileChooser object.
+3.	The saveDocumentAs() method in the controller should set an HTMLFileFilter object as the filter on the JFileChooser object.
+4.	The saveDocumentAs() method in the controller should use the JFileChooser.showSaveDialog() method to show the &quot;Save File&quot; file chooser dialog.
+5.	The saveDocumentAs() method in the controller should save the selected file in the currentFile field if the user confirms the file selection.
+6.	The saveDocumentAs() method in the controller should set the file name as the window title on the view if the user confirms the file selection.
+7.	The saveDocumentAs() method in the controller should create a FileWriter based on currentFile if the user confirms the file selection.
+8.	The saveDocumentAs() method in the controller should use HTMLEditorKit to copy the data from document to the FileWriter object if the user confirms the file selection.
+9.	The saveDocumentAs() method in the controller should not throw exceptions. It should only log them using ExceptionHandler.
+
+
+HTML Editor (part 21)
 
 
 To open and save the file, we'll use JFileChooser from the swing library.
@@ -11,13 +42,6 @@ directory or its name ends with ".html" or ".htm" (case insensitive).
 21.3.	To make the description of available file types in the file selection window
 "HTML and HTM files", override the getDescription() method accordingly.
 
-
-Requirements:
-1.	The HTMLFileFilter class must be in a separate file.
-2.	The HTMLFileFilter class must inherit FileFilter.
-3.	The HTMLFileFilter class&#39;s accept(File f) method must return true if the passed file is a directory or its name ends with &quot;.html&quot; or &quot;.htm&quot; (case insensitive).
-4.	The HTMLFileFilter class&#39;s accept(File f) method must return false if the passed file is NOT a directory or its name does NOT end with &quot;.html&quot; or &quot;.htm&quot; (case insensitive).
-5.	The HTMLFileFilter class&#39;s getDescription() method must return &quot;HTML and HTM files&quot;.
 
 
 HTML Editor (part 20)
@@ -81,19 +105,6 @@ all the HTML tags.
 17.2.	Copy all of the document's contents to the created object using
 the HTMLEditorKit class's write method.
 17.3.	As usual, the method must not throw exceptions.
-
-
-
-HTML Editor (part 16)
-
-
-Add a setPlainText(String text) method to the controller. It will write the passed text with
-HTML tags to document. Implement it as follows:
-16.1.	Reset the document.
-16.2.	Create a new StringReader based on the passed text.
-16.3.	Call the read() method in the HTMLEditorKit class. It reads data from the reader into
-the document field.
-16.4.	Be sure that the method does not throw exceptions. They just need to be logged.
 
 
 
