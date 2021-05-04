@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task32.task3209.big04"\n\nHTML Editor (part 4)
+taskKey="com.codegym.task.task32.task3209.big05"\n\nHTML Editor (part 5)
+
+
+5.1.	In the listeners package, declare a TabbedPaneChangeListener class that implements the ChangeListener
+interface. This class will listen for and handle changes to the state of the tabbed pane.
+In this class, implement the following:
+5.1.1.	A constructor that has a view parameter and saves
+it in the view field.
+5.1.2.	Override the method in the ChangeListener interface. It should call the
+selectedTabChanged() method on the view. We don't have that last method yet. Make a
+stub for it.
+5.2.	Declare an ExceptionHandler class. This will be our exception handler,
+which you can override in the future. For now, add a static log(Exception e)
+method to it. This method will display a short description of the problem on the console
+(use the toString method of the passed exception).
+
+
+Requirements:
+1.	The View class should have a public void selectedTabChanged() method.
+2.	The TabbedPaneChangeListener class must be in a separate file.
+3.	The TabbedPaneChangeListener class must have a View view field.
+4.	The TabbedPaneChangeListener class must have a constructor with one parameter that initializes the view field.
+5.	The TabbedPaneChangeListener class must have a public void stateChanged(ChangeEvent e) method.
+6.	The ExceptionHandler class must be in a separate file.
+7.	The ExceptionHandler class must have a public static void log(Exception e) method.
+
+
+HTML Editor (part 4)
 
 
 4.1.	Declare initMenuBar() and initEditor() methods in the View class. They will be responsible for
@@ -17,12 +44,6 @@ JFrame and Frame classes.
 At this point, when launched, the application should show a window that can be resized,
 maximized, closed, etc.
 
-
-Requirements:
-1.	The View class should have a public void initMenuBar() method.
-2.	The View class should have a public void initEditor() method.
-3.	The View class should implement a public void initGui() method.
-4.	Implement the View class&#39;s init() method in accordance with the task conditions.
 
 
 HTML Editor (part 3)
