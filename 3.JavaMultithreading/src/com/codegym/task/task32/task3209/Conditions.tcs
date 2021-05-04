@@ -1,4 +1,100 @@
-taskKey="com.codegym.task.task32.task3209.big06"\n\nHTML Editor (part 6)
+taskKey="com.codegym.task.task32.task3209.big07"\n\nHTML Editor (part 7)
+
+
+Add a MenuHelper class. This will be a helper class for initializing and configuring
+the menu. The menu will have the following structure:
+- File
+-- New
+-- Open
+-- Save
+-- Save as...
+-- Exit
+
+- Edit
+-- Undo
+-- Redo
+-- Cut
+-- Copy
+-- Paste
+
+- Style
+-- Bold
+-- Underline
+-- Italic
+-- Subscript
+-- Superscript
+-- Strikethrough
+
+- Align
+-- Left
+-- Center
+-- Right
+
+- Color
+-- Red
+-- Orange
+-- Yellow
+-- Green
+-- Blue
+-- Cyan
+-- Magenta
+-- Black
+
+- Font
+-- Font
+--- SansSerif, Serif, Monospaced, Dialog, DialogInput,
+-- Font size
+--- 6, 8, 10, 12, 14, 16, 20, 24, 32, 36, 48, 72
+
+- Help
+-- About
+
+7.1.	In MenuHelper, implement a static JMenuItem addMenuItem(JMenu parent, String
+text, ActionListener actionListener) method, where parent is the menu that we're adding the item to, text is
+the text of the item being added, and actionListener is the action listener of the added
+menu item. It must:
+7.1.1.	Use the text parameter to create a new JMenuItem.
+7.1.2.	Using the addActionListener() method to set an action listener on this item.
+7.1.3.	Add the created menu item to parent.
+7.1.4.	Return the created menu item.
+7.2.	Implement a static JMenuItem addMenuItem(JMenu parent, Action action) method. This
+method is similar to the previous one, but it has an action parameter,
+which represents the action that must be performed when the menu item is selected. Hint: Pass action
+to the constructor when creating a JMenuItem. Figure out where the name of the menu item will come from
+if it isn't set separately.
+7.3.	Implement a static JMenuItem addMenuItem(JMenu parent, String text, Action
+action) method that adds a new menu item with the text and action arguments to parent
+when this menu item is selected. In the implementation, call the method in the
+previous step.
+7.4.	Add stubs for the following static methods to MenuHelper:
+7.4.1.	void initHelpMenu(View view, JMenuBar menuBar) - This method initializes the help menu.
+7.4.2.	void initFontMenu(View view, JMenuBar menuBar) - This method initializes the
+font menu.
+7.4.3.	void initColorMenu(View view, JMenuBar menuBar) - This method initializes the color menu.
+7.4.4.	void initAlignMenu(View view, JMenuBar menuBar) - This method initializes the
+alignment menu.
+7.4.5.	void initStyleMenu(View view, JMenuBar menuBar) - This method initializes the
+style menu.
+7.4.6.	void initEditMenu(View view, JMenuBar menuBar) - This method initializes the
+edit menu.
+7.4.7.	void initFileMenu(View view, JMenuBar menuBar) - This method initializes the file menu.
+
+
+Requirements:
+1.	The MenuHelper class must be in a separate file.
+2.	The MenuHelper class must implement a public static JMenuItem addMenuItem(JMenu parent, String text, ActionListener actionListener) method.
+3.	The MenuHelper class must implement a public static JMenuItem addMenuItem(JMenu parent, Action action) method.
+4.	The MenuHelper class must implement a public static JMenuItem addMenuItem(JMenu parent, String text, Action action) method.
+5.	The MenuHelper class must have a public static void initHelpMenu(View view, JMenuBar menuBar) method.
+6.	The MenuHelper class must have a public static void initFontMenu(View view, JMenuBar menuBar) method.
+7.	The MenuHelper class must have a public static void initColorMenu(View view, JMenuBar menuBar) method.
+8.	The MenuHelper class must have a public static void initAlignMenu(View view, JMenuBar menuBar) method.
+9.	The MenuHelper class must have a public static void initStyleMenu(View view, JMenuBar menuBar) method.
+10.	The MenuHelper class must have a public static void initEditMenu(View view, JMenuBar menuBar) method.
+11.	The MenuHelper class must have a public static void initFileMenu(View view, JMenuBar menuBar) method.
+
+
+HTML Editor (part 6)
 
 
 Implement the initEditor() method, which initializes the editor panes. It must:
@@ -21,16 +117,6 @@ in the center of the current frame's content pane.
 After starting the application, you can see the latest results: two independent
 tabs (HTML and Text), and each of them lets you enter your own text.
 
-
-Requirements:
-1.	1. In the initEditor() method, the htmlTextPane component&#39;s content type must be set to &quot;text/html&quot; through the setContentType setter.
-2.	The initEditor() method should create a new local JScrollPane component using a constructor that takes htmlTextPane.
-3.	In the initEditor() method, a tab named &quot;HTML&quot; and a JScrollPane component created based on htmlTextPane must be added to the tabbedPane component.
-4.	The initEditor() method should create a new local JScrollPane component using a constructor that takes plainTextPane.
-5.	In the initEditor() method, a tab named &quot;Text&quot; and a JScrollPane component created based on plainTextPane must be added to the tabbedPane component.
-6.	In the initEditor() method, the preferred pane size must be set for the tabbedPane component using the setPreferredSize setter.
-7.	The initEditor() method must add a TabbedPaneChangeListener to the tabbedPane component using the addChangeListener method.
-8.	The initEditor() method must add the tabbed pane to the center of the current frame&#39;s content pane using the getContentPane().add() method.
 
 
 HTML Editor (part 5)
@@ -112,29 +198,6 @@ be responsible for initializing the controller and view.
 class.
 2.3.1.  The exit method in the Controller class should not be static.
 2.4.	Add an exit() method to the view. It should call exit() on the controller.
-
-
-
-HTML Editor (part 1)
-
-
-Today we'll write an HTML editor with a graphical user interface. We'll use Swing to
-create the GUI. And we'll use the MVC pattern as the
-architectural framework for our application.
-1.1.	Declare a Controller class and a View class. The View class must inherit JFrame and
-implement the ActionListener interface.
-1.2.	Add to the Controller class a View view field, responsible for the view, and an
-HTMLDocument document field, responsible for the model. From here on, any classes we use but haven't declared
-in the code are most likely in the swing library. For example, the
-HTMLDocument class is implemented in the javax.swing.text.html package.
-1.3.	Add to the Controller class a File currentFile field that will be responsible for the file that is currently
-open in our editor.
-1.4.	Add a Controller class constructor. It should have a
-view parameter and initialize the corresponding field.
-1.5.    Add an empty main method to Controller.
-1.6.	Add a Controller controller field to the View class.
-1.7.	Add a setter and getter for the controller field to the View class.
-1.8.	Add an empty implementation of the method declared in the ActionListener interface.
 
 
 
