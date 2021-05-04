@@ -1,4 +1,42 @@
-taskKey="com.codegym.task.task32.task3209.big09"\n\nHTML Editor (part 9)
+taskKey="com.codegym.task.task32.task3209.big10"\n\nHTML Editor (part 10)
+
+
+Our editor will support undo/redo of actions
+performed in the editor.
+Implement the UndoMenuListener class. This listener will listen to the menu, or more accurately,
+it will listen for the moment when the edit menu is selected by the user. At that moment, it
+will ask the view if we can currently undo or redo an
+action. The answer determines whether we should make the "Undo" and "Redo" menu items
+available.
+10.1.	Add the following fields to the UndoMenuListener class:
+10.1.1.	View view.
+10.1.2.	JMenuItem undoMenuItem.
+10.1.3.	JMenuItem redoMenuItem.
+10.2.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem,
+JMenuItem redoMenuItem) constructor. It should initialize the fields of the class.
+10.3.	Implement a menuSelected(MenuEvent menuEvent) method. It will be called before
+the menu is shown. It must:
+10.3.1.	Ask the view whether we can undo an action using the
+boolean canUndo() method. The view doesn't have such a method yet, so add a stub
+that always returns false.
+10.3.2.	Make the undoMenuItem available depending on what the view returns to us.
+Hint: use the setEnabled() method.
+10.3.3.	Take similar actions for redoMenuItem, adding a
+canRedo() stub method to the view.
+Run the program and make sure that the Undo and Redo menu items are not available.
+
+
+Requirements:
+1.	The UndoMenuListener class must have a View view field.
+2.	The UndoMenuListener class must have a JMenuItem undoMenuItem field.
+3.	The UndoMenuListener class must have a JMenuItem redoMenuItem field.
+4.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem, JMenuItem redoMenuItem) constructor. It should correctly initialize the fields of the class.
+5.	The View class must have a public boolean canUndo() method that returns false.
+6.	The View class must have a public boolean canRedo() method that returns false.
+7.	The menuSelected(MenuEvent menuEvent) method should make undoMenuItem and redoMenuItem available or unavailable.
+
+
+HTML Editor (part 9)
 
 
 9.1.	Implement the initMenuBar() method. It must:
@@ -17,12 +55,6 @@ the menu items (for example: Cut, Copy, Paste, Style (partially), Align,
 Color, Font) should already work. Be sure everything works and then continue
 developing the program.
 
-
-Requirements:
-1.	The initMenuBar() method must created a new menu (JMenuBar object).
-2.	The initMenuBar() method must use MenuHelper to initialize the menu in the following order: File, Edit, Style, Align, Color, Font, and Help.
-3.	In the initMenuBar() method, the getContentPane() method should be used to add the newly created menu to the top of the current frame&#39;s content pane.
-4.	The View class constructor must use the UIManager class to set the look and feel.
 
 
 HTML Editor (part 8)
@@ -176,27 +208,6 @@ stub for it.
 which you can override in the future. For now, add a static log(Exception e)
 method to it. This method will display a short description of the problem on the console
 (use the toString method of the passed exception).
-
-
-
-HTML Editor (part 4)
-
-
-4.1.	Declare initMenuBar() and initEditor() methods in the View class. They will be responsible for
-initializing the menus and editor panes.
-4.2.	Declare an initGui() method in the view. It will initialize the graphical
-interface. From this method, call initMenuBar() to initialize the menu, initEditor() to initialize the
-editor, and the pack() method, which we inherit from the JFrame class.
-Figure out what the pack() method does.
-4.3.	Implement the view's init() method. It must:
-4.3.1.	Call initGui() to initialize the GUI.
-4.3.2.	Add an event listener to our window. Create and use
-a FrameListener object as the listener. To add the listener, use the
-appropriate method from the Window class, inherited by our class through the
-JFrame and Frame classes.
-4.3.3.	Show our window. Use the setVisible method with the correct argument.
-At this point, when launched, the application should show a window that can be resized,
-maximized, closed, etc.
 
 
 
