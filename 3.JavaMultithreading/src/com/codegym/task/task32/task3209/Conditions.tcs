@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task32.task3209.big01"\n\nHTML Editor (part 1)
+taskKey="com.codegym.task.task32.task3209.big02"\n\nHTML Editor (part 2)
+
+
+2.1.	Add init() methods, empty for now, to the controller and view. They will
+be responsible for initializing the controller and view.
+2.2.	Now we will write a main method in the Controller class. It must:
+2.2.1.	Create a view object.
+2.2.2.	Use the view to create a controller.
+2.2.3.	Set the view's controller.
+2.2.4.	Initialize the view.
+2.2.5.	Initialize controller. The controller should be initialized after the view.
+2.3.	Add an exit() method to the controller. It should call the static exit method on the System
+class.
+2.3.1.  The exit method in the Controller class should not be static.
+2.4.	Add an exit() method to the view. It should call exit() on the controller.
+
+
+Requirements:
+1.	The controller class should have a public void init() method.
+2.	The View class should have a public void init() method.
+3.	The Controller class should implement a public void exit() method.
+4.	The View class should implement a public void exit() method.
+5.	Implement a public static void main(String[] args) method in the Controller class in accordance with the task conditions.
+
+
+HTML Editor (part 1)
 
 
 Today we'll write an HTML editor with a graphical user interface. We'll use Swing to
@@ -19,15 +44,5 @@ view parameter and initialize the corresponding field.
 1.7.	Add a setter and getter for the controller field to the View class.
 1.8.	Add an empty implementation of the method declared in the ActionListener interface.
 
-
-Requirements:
-1.	The Controller class must be in a separate file.
-2.	The View class must be in a separate file.
-3.	The View class must inherit JFrame and implement the ActionListener interface.
-4.	The Controller class should have the following private fields: View view, HTMLDocument document, File currentFile.
-5.	A public static void main(String[] args) method must be created in the Controller class.
-6.	The Controller class must have a constructor with one parameter that initializes the view field.
-7.	The View class should have a private Controller controller field, as well as a corresponding setter and getter.
-8.	The View class should have a public void actionPerformed(ActionEvent e) method.
 
 
