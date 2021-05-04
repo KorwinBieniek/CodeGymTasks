@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task32.task3209.big12"\n\nHTML Editor (part 12)
+taskKey="com.codegym.task.task32.task3209.big13"\n\nHTML Editor (part 13)
+
+
+Let's implement the TextEditMenuListener class in the listeners package. This class will work like
+the UndoMenuListener class, but for other menu items. The menu items responsible for
+style, font, color, etc. should only be available when the first tab is selected
+in our editor.
+13.1.	Add a boolean isHtmlTabSelected() method to the view. It must return
+true if the tab that displays HTML is selected in the tabbed pane (hint: its index is 0).
+13.2.	Add a View field to the TextEditMenuListener class. Initialize it in the class
+constructor.
+13.3.	In the TextEditMenuListener class, override the menuSelected(MenuEvent
+menuEvent) method. It must:
+13.3.1.	Use the parameter to get the object that the action was performed on. In
+our case, this will be a JMenu object.
+13.3.2.	Get a list of components (menu items) from this menu.
+13.3.3.	For each menu item, call the setEnabled method, passing the return value of
+the view's isHtmlTabSelected() method as an argument.
+Run the application and be sure that the style, align, color and font menu items are available
+only when the HTML tab is active, not when the Text tab is active.
+
+
+Requirements:
+1.	The View class must have a public boolean isHtmlTabSelected() method that determines the current tab.
+2.	The TextEditMenuListener class must have a View view field.
+3.	The TextEditMenuListener(View view) constructor must initialize the view field.
+4.	The TextEditMenuListener class&#39;s menuSelected(MenuEvent menuEvent) method should set the availability of the menu items in the style, align, color, and font menus depending on the selected tab.
+
+
+HTML Editor (part 12)
 
 
 12.1.	Implement the RedoAction class:
@@ -14,18 +43,6 @@ Run the program and be sure that the Subscript, Superscript, and Strikethrough
 menu items work. The menu items responsible for undo and redo aren't yet connected
 to the controller and we can't check them.
 
-
-Requirements:
-1.	The RedoAction class must have a View view field.
-2.	The RedoAction(View view) constructor must initialize the view field.
-3.	The RedoAction class&#39;s actionPerformed(ActionEvent actionEvent) method should call the redo() method on the view.
-4.	The UndoAction class must have a View view field.
-5.	The UndoAction(View view) constructor must initialize the view field.
-6.	The UndoAction class&#39;s actionPerformed(ActionEvent actionEvent) method should call the undo() method on the view.
-7.	The SubscriptAction class&#39;s no-argument constructor should call the superclass&#39;s constructor with StyleConstants.Subscript as an argument.
-8.	The SubscriptAction class&#39;s actionPerformed(ActionEvent actionEvent) method should use the StyleConstants.setSubscript method with the following arguments: SimpleAttributeSet and !StyleConstants.isSubscript(mutableAttributeSet).
-9.	The SuperscriptAction class&#39;s no-argument constructor should call the superclass&#39;s constructor with StyleConstants.Superscript as an argument.
-10.	The SuperscriptAction class&#39;s actionPerformed(ActionEvent actionEvent) method should use the StyleConstants.setSuperscript method with the following arguments: SimpleAttributeSet and !StyleConstants.isSuperscript(mutableAttributeSet).
 
 
 HTML Editor (part 11)
@@ -129,89 +146,6 @@ redoMenuItem) constructor. You find out what it will be responsible for a little
 8.2.2.	TextEditMenuListener. This class must also implement the MenuListener interface.
 Add a TextEditMenuListener(View view) constructor to it. In subsequent tasks, we'll
 take a more detailed look at it.
-
-
-
-HTML Editor (part 7)
-
-
-Add a MenuHelper class. This will be a helper class for initializing and configuring
-the menu. The menu will have the following structure:
-- File
--- New
--- Open
--- Save
--- Save as...
--- Exit
-
-- Edit
--- Undo
--- Redo
--- Cut
--- Copy
--- Paste
-
-- Style
--- Bold
--- Underline
--- Italic
--- Subscript
--- Superscript
--- Strikethrough
-
-- Align
--- Left
--- Center
--- Right
-
-- Color
--- Red
--- Orange
--- Yellow
--- Green
--- Blue
--- Cyan
--- Magenta
--- Black
-
-- Font
--- Font
---- SansSerif, Serif, Monospaced, Dialog, DialogInput,
--- Font size
---- 6, 8, 10, 12, 14, 16, 20, 24, 32, 36, 48, 72
-
-- Help
--- About
-
-7.1.	In MenuHelper, implement a static JMenuItem addMenuItem(JMenu parent, String
-text, ActionListener actionListener) method, where parent is the menu that we're adding the item to, text is
-the text of the item being added, and actionListener is the action listener of the added
-menu item. It must:
-7.1.1.	Use the text parameter to create a new JMenuItem.
-7.1.2.	Using the addActionListener() method to set an action listener on this item.
-7.1.3.	Add the created menu item to parent.
-7.1.4.	Return the created menu item.
-7.2.	Implement a static JMenuItem addMenuItem(JMenu parent, Action action) method. This
-method is similar to the previous one, but it has an action parameter,
-which represents the action that must be performed when the menu item is selected. Hint: Pass action
-to the constructor when creating a JMenuItem. Figure out where the name of the menu item will come from
-if it isn't set separately.
-7.3.	Implement a static JMenuItem addMenuItem(JMenu parent, String text, Action
-action) method that adds a new menu item with the text and action arguments to parent
-when this menu item is selected. In the implementation, call the method in the
-previous step.
-7.4.	Add stubs for the following static methods to MenuHelper:
-7.4.1.	void initHelpMenu(View view, JMenuBar menuBar) - This method initializes the help menu.
-7.4.2.	void initFontMenu(View view, JMenuBar menuBar) - This method initializes the
-font menu.
-7.4.3.	void initColorMenu(View view, JMenuBar menuBar) - This method initializes the color menu.
-7.4.4.	void initAlignMenu(View view, JMenuBar menuBar) - This method initializes the
-alignment menu.
-7.4.5.	void initStyleMenu(View view, JMenuBar menuBar) - This method initializes the
-style menu.
-7.4.6.	void initEditMenu(View view, JMenuBar menuBar) - This method initializes the
-edit menu.
-7.4.7.	void initFileMenu(View view, JMenuBar menuBar) - This method initializes the file menu.
 
 
 
