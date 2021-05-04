@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task32.task3209.big13"\n\nHTML Editor (part 13)
+taskKey="com.codegym.task.task32.task3209.big14"\n\nHTML Editor (part 14)
+
+
+14.1.	Add a selectHtmlTab() method to the view class. It must:
+14.1.1.	Select the HTML tab (switch to it).
+14.1.2.	Reset all edits using the method you previously implemented.
+14.2.	Add a getter for the model to the controller class. In our case, this is the document field.
+14.3.	Add an update() method to the view. It should get the document from
+the controller and set it on htmlTextPane.
+14.4.	Add a showAbout() method to the view. It should show a dialog
+box with information about the program. Think up the information on your own, but message type
+must be JOptionPane.INFORMATION_MESSAGE.
+
+
+Requirements:
+1.	The View class should have a public selectHtmlTab() method that selects a tab and resets all the edits.
+2.	The Controller class must have a getter for the document field.
+3.	The View class should have a public update() method that sets the document on the editing pane.
+4.	The View class should have a public showAbout() method that displays a dialog box with information about the program.
+
+
+HTML Editor (part 13)
 
 
 Let's implement the TextEditMenuListener class in the listeners package. This class will work like
@@ -19,12 +40,6 @@ the view's isHtmlTabSelected() method as an argument.
 Run the application and be sure that the style, align, color and font menu items are available
 only when the HTML tab is active, not when the Text tab is active.
 
-
-Requirements:
-1.	The View class must have a public boolean isHtmlTabSelected() method that determines the current tab.
-2.	The TextEditMenuListener class must have a View view field.
-3.	The TextEditMenuListener(View view) constructor must initialize the view field.
-4.	The TextEditMenuListener class&#39;s menuSelected(MenuEvent menuEvent) method should set the availability of the menu items in the style, align, color, and font menus depending on the selected tab.
 
 
 HTML Editor (part 12)
@@ -118,34 +133,6 @@ Run the application. Now you should see a menu bar at the top of the window. Som
 the menu items (for example: Cut, Copy, Paste, Style (partially), Align,
 Color, Font) should already work. Be sure everything works and then continue
 developing the program.
-
-
-
-HTML Editor (part 8)
-
-
-It's time to add all the necessary menu items and write classes for the actions
-that are performed when the menu items are selected. This is quite time-consuming, routine work. You're a great
-student and we wouldn't want to upset you. So, as a bonus, you're getting a ready-made
-MenuHelper class! Here's what you need to do:
-8.1.	In the actions package, write stubs for the following classes:
-8.1.1.	UndoAction. It must inherit AbstractAction and
-have an UndoAction(View view) constructor.
-8.1.2.	RedoAction. The requirements are similar to those for
-UndoAction.
-8.1.3.	StrikethroughAction class, which is responsible for the strikethrough text style. Make it inherit
-StyledEditorKit.StyledTextAction.
-8.1.4.	SubscriptAction class, which is responsible for the subscript text style. It should
-also inherit StyledEditorKit.StyledTextAction.
-8.1.5.	SuperscriptAction. It will be responsible for the superscript style. Give it
-the appropriate parent class.
-8.2.	In the listeners package, write stubs for the following classes:
-8.2.1.	UndoMenuListener. It should implement the MenuListener interface and have
-an UndoMenuListener(View view, JMenuItem undoMenuItem, JMenuItem
-redoMenuItem) constructor. You find out what it will be responsible for a little later.
-8.2.2.	TextEditMenuListener. This class must also implement the MenuListener interface.
-Add a TextEditMenuListener(View view) constructor to it. In subsequent tasks, we'll
-take a more detailed look at it.
 
 
 
