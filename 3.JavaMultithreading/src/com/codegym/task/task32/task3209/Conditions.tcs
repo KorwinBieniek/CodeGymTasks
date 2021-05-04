@@ -1,4 +1,44 @@
-taskKey="com.codegym.task.task32.task3209.big22"\n\nHTML Editor (part 22)
+taskKey="com.codegym.task.task32.task3209.big23"\n\nHTML Editor (part 23)
+
+
+23.1.	Let's write the saveDocument() method for saving the current file. The method should
+work the same as saveDocumentAs(), but not ask the user for a file. Instead, it should use
+currentFile. If currentFile is null, then call the saveDocumentAs() method.
+23.2.	It's time to implement the openDocument() method. The method should work
+like the part of the saveDocumentAs() method that is responsible for file selection.
+Hint: Pay attention to the name of the method used to display the dialog.
+When a file is selected, you must:
+23.2.1.	Set the new value of currentFile.
+23.2.2.	Reset the document.
+23.2.3.	Set the file name as the title on the view.
+23.2.4.	Use currentFile to create a FileReader.
+23.2.5.	Use an HTMLEditorKit object to read data from the FileReader into the document
+field.
+23.2.6.	Reset the edits (call the view's resetUndo method).
+23.2.7.	If exceptions occur, log them but don't throw them upward.
+Check that the Save and Open menu items work.
+
+
+Requirements:
+1.	The saveDocument() method in the controller should switch the view to the HTML tab.
+2.	The saveDocument() method in the controller should create a FileWriter based on currentFile if currentFile != null.
+3.	The saveDocument() method in the controller should use HTMLEditorKit to copy the data from document to the FileWriter object if currentFile != null.
+4.	The saveDocument() method in the controller should call the saveDocumentAs() method if currentFile == null.
+5.	The saveDocument() method in the controller should not throw exceptions. It should only log them using ExceptionHandler.
+6.	The openDocument() method in the controller should switch the view to the HTML tab.
+7.	The openDocument() method in the controller should create a new JFileChooser object.
+8.	The openDocument() method in the controller should set an HTMLFileFilter object as the filter on the JFileChooser object.
+9.	The openDocument() method in the controller should use the JFileChooser.showOpenDialog() method to show the &quot;Open File&quot; file chooser dialog.
+10.	The openDocument() method in the controller should set the new value of currentFile if the user confirms the file selection.
+11.	The openDocument() method in the controller should reset the document if the user confirms the file selection.
+12.	The openDocument() method in the controller should set the file name as the window title on the view if the user confirms the file selection.
+13.	The openDocument() method in the controller should create a FileReader based on currentFile if the user confirms the file selection.
+14.	The openDocument() method in the controller should use HTMLEditorKit to read data from the FileReader into document if the user confirms the file selection.
+15.	The openDocument() method in the controller should reset the edits if the user confirms the file selection.
+16.	The openDocument() method in the controller should not throw exceptions. It should only log them using ExceptionHandler.
+
+
+HTML Editor (part 22)
 
 
 In the controller, let's implement the saveDocumentAs() method for saving the file under a new name.
@@ -16,17 +56,6 @@ we did in the getPlainText() method.
 22.6.	The method must not throw exceptions.
 Check the Save as... menu item.
 
-
-Requirements:
-1.	The saveDocumentAs() method in the controller should switch the view to the HTML tab.
-2.	The saveDocumentAs() method in the controller should create a new JFileChooser object.
-3.	The saveDocumentAs() method in the controller should set an HTMLFileFilter object as the filter on the JFileChooser object.
-4.	The saveDocumentAs() method in the controller should use the JFileChooser.showSaveDialog() method to show the &quot;Save File&quot; file chooser dialog.
-5.	The saveDocumentAs() method in the controller should save the selected file in the currentFile field if the user confirms the file selection.
-6.	The saveDocumentAs() method in the controller should set the file name as the window title on the view if the user confirms the file selection.
-7.	The saveDocumentAs() method in the controller should create a FileWriter based on currentFile if the user confirms the file selection.
-8.	The saveDocumentAs() method in the controller should use HTMLEditorKit to copy the data from document to the FileWriter object if the user confirms the file selection.
-9.	The saveDocumentAs() method in the controller should not throw exceptions. It should only log them using ExceptionHandler.
 
 
 HTML Editor (part 21)
@@ -93,18 +122,6 @@ plainTextPane and set it on the controller using the setPlainText method.
 the text from the controller using the getPlainText() method and set it on
 plainTextPane.
 18.4.	Reset the edits (call the view's resetUndo method).
-
-
-
-HTML Editor (part 17)
-
-
-Add a String getPlainText() method to the controller. It should get text from the document with
-all the HTML tags.
-17.1.	Create a StringWriter object.
-17.2.	Copy all of the document's contents to the created object using
-the HTMLEditorKit class's write method.
-17.3.	As usual, the method must not throw exceptions.
 
 
 
