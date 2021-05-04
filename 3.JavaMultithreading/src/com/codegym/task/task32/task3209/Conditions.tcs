@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task32.task3209.big19"\n\nHTML Editor (part 19)
+taskKey="com.codegym.task.task32.task3209.big20"\n\nHTML Editor (part 20)
+
+
+20.1.	Implement the createNewDocument() method in the controller. It
+must:
+20.1.1.	Select the HTML tab on the view.
+20.1.2.	Reset the current document.
+20.1.3.	Set a new window title, e.g. "HTML editor". Use the
+setTitle() method, which is inherited by our view.
+20.1.4.	Reset the edits in the undo manager. Use the view's resetUndo method.
+20.1.5. Set currentFile to null.
+20.2.	Implement the controller's init() method. It should just call the method
+that creates a new document.
+Check that the New menu item works.
+
+
+Requirements:
+1.	The createNewDocument() method in the controller should select the HTML tab on the view.
+2.	The createNewDocument() method in the controller should reset the current document.
+3.	The createNewDocument() method in the controller should set a new window title.
+4.	The createNewDocument() method in the controller should reset the edits in the undo manager.
+5.	The createNewDocument() method in the controller should set currentFile to null.
+6.	The init() method in the controller should call the method that creates a new document.
+
+
+HTML Editor (part 19)
 
 
 Implement the actionPerformed(ActionEvent actionEvent) method on the view. This method is
@@ -16,15 +41,6 @@ if the controller doesn't have the required method yet, create a stub.
 19.7.	If "About", then call the showAbout() method on the view.
 Check that the Exit and About menu items now work.
 
-
-Requirements:
-1.	The actionPerformed(ActionEvent actionEvent) method should get a command from the event using the getActionCommand() method.
-2.	If an event with the &quot;New&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call createNewDocument() on the controller.
-3.	If an event with the &quot;Open&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call openDocument() on the controller.
-4.	If an event with the &quot;Save&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call saveDocument() on the controller.
-5.	If an event with the &quot;Save as...&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call saveDocumentAs() on the controller.
-6.	If an event with the &quot;Exit&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call exit() on the controller.
-7.	If an event with the &quot;About&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call showAbout() on the view.
 
 
 HTML Editor (part 18)
@@ -78,21 +94,6 @@ Don't forget to verify that the current document exists (is not null).
 Hint: use an appropriate method from the HTMLEditorKit class.
 15.3.	Add an edit listener to the new document.
 15.4.	Call the view's update() method.
-
-
-
-HTML Editor (part 14)
-
-
-14.1.	Add a selectHtmlTab() method to the view class. It must:
-14.1.1.	Select the HTML tab (switch to it).
-14.1.2.	Reset all edits using the method you previously implemented.
-14.2.	Add a getter for the model to the controller class. In our case, this is the document field.
-14.3.	Add an update() method to the view. It should get the document from
-the controller and set it on htmlTextPane.
-14.4.	Add a showAbout() method to the view. It should show a dialog
-box with information about the program. Think up the information on your own, but message type
-must be JOptionPane.INFORMATION_MESSAGE.
 
 
 
