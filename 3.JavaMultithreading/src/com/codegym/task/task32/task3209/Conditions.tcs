@@ -1,4 +1,44 @@
-taskKey="com.codegym.task.task32.task3209.big10"\n\nHTML Editor (part 10)
+taskKey="com.codegym.task.task32.task3209.big11"\n\nHTML Editor (part 11)
+
+
+11.1.	Add an UndoManager undoManager field to the view. Figure out what
+this class is used for. Initialize the field with a new object.
+11.2.	In the listeners package, add an UndoListener class that implements the
+UndoableEditListener interface. This class will listen for edits that can undone or redone.
+11.3.	Add the following to the UndoListener class:
+11.3.1.	An UndoManager undoManager field.
+11.3.2.	A constructor that takes an UndoManager and initializes the corresponding field.
+11.3.3.	An undoableEditHappened(undoableEditEvent e) method. It should get the edit from
+the passed event and add it to undoManager.
+11.4.	Add an UndoListener undoListener field to the view, and initialize it
+using undoManager.
+11.5.	Add the following methods to the view:
+11.5.1. void undo() - This method undoes the last action. Implement it using undoManager.
+The method must not throw exceptions. It should only log them.
+11.5.2. void redo() - This method returns the previously undone action. Implement it by analogy with
+the previous step.
+11.5.3.	Implement boolean canUndo() and boolean canRedo() methods using undoManager.
+11.5.4.	Implement a getter for undoListener.
+11.5.5.	Add and implement a void resetUndo() method that clears all edits in
+undoManager.
+
+
+Requirements:
+1.	The View class must have a private UndoManager undoManager field, which must be immediately initialized.
+2.	The View class must have a private UndoListener undoListener field, which must be immediately initialized using the undoManager field.
+3.	The View class must have a getter for the UndoListener undoListener field.
+4.	The View class must have a public void undo() method.
+5.	The View class must have a public void redo() method.
+6.	The implementation of the View class&#39;s canUndo() method should use undoManager.
+7.	The implementation of the View class&#39;s canRedo() method should use undoManager.
+8.	The View class should have a public void resetUndo() method, which should clear all edits in undoManager.
+9.	The UndoListener class must be in a separate file.
+10.	The UndoListener class must have a private UndoManager undoManager field.
+11.	The UndoListener(UndoManager undoManager) must correctly initialize the undoManager field.
+12.	The undoableEditHappened(UndoableEditEvent e) method in the UndoListener class should get the edit from the passed event and add it to undoManager.
+
+
+HTML Editor (part 10)
 
 
 Our editor will support undo/redo of actions
@@ -25,15 +65,6 @@ Hint: use the setEnabled() method.
 canRedo() stub method to the view.
 Run the program and make sure that the Undo and Redo menu items are not available.
 
-
-Requirements:
-1.	The UndoMenuListener class must have a View view field.
-2.	The UndoMenuListener class must have a JMenuItem undoMenuItem field.
-3.	The UndoMenuListener class must have a JMenuItem redoMenuItem field.
-4.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem, JMenuItem redoMenuItem) constructor. It should correctly initialize the fields of the class.
-5.	The View class must have a public boolean canUndo() method that returns false.
-6.	The View class must have a public boolean canRedo() method that returns false.
-7.	The menuSelected(MenuEvent menuEvent) method should make undoMenuItem and redoMenuItem available or unavailable.
 
 
 HTML Editor (part 9)
@@ -190,24 +221,6 @@ Think about which method you need to call and with which arguments for the tabbe
 in the center of the current frame's content pane.
 After starting the application, you can see the latest results: two independent
 tabs (HTML and Text), and each of them lets you enter your own text.
-
-
-
-HTML Editor (part 5)
-
-
-5.1.	In the listeners package, declare a TabbedPaneChangeListener class that implements the ChangeListener
-interface. This class will listen for and handle changes to the state of the tabbed pane.
-In this class, implement the following:
-5.1.1.	A constructor that has a view parameter and saves
-it in the view field.
-5.1.2.	Override the method in the ChangeListener interface. It should call the
-selectedTabChanged() method on the view. We don't have that last method yet. Make a
-stub for it.
-5.2.	Declare an ExceptionHandler class. This will be our exception handler,
-which you can override in the future. For now, add a static log(Exception e)
-method to it. This method will display a short description of the problem on the console
-(use the toString method of the passed exception).
 
 
 
