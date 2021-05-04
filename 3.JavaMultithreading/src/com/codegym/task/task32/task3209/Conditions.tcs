@@ -1,0 +1,33 @@
+taskKey="com.codegym.task.task32.task3209.big01"\n\nHTML Editor (part 1)
+
+
+Today we'll write an HTML editor with a graphical user interface. We'll use Swing to
+create the GUI. And we'll use the MVC pattern as the
+architectural framework for our application.
+1.1.	Declare a Controller class and a View class. The View class must inherit JFrame and
+implement the ActionListener interface.
+1.2.	Add to the Controller class a View view field, responsible for the view, and an
+HTMLDocument document field, responsible for the model. From here on, any classes we use but haven't declared
+in the code are most likely in the swing library. For example, the
+HTMLDocument class is implemented in the javax.swing.text.html package.
+1.3.	Add to the Controller class a File currentFile field that will be responsible for the file that is currently
+open in our editor.
+1.4.	Add a Controller class constructor. It should have a
+view parameter and initialize the corresponding field.
+1.5.    Add an empty main method to Controller.
+1.6.	Add a Controller controller field to the View class.
+1.7.	Add a setter and getter for the controller field to the View class.
+1.8.	Add an empty implementation of the method declared in the ActionListener interface.
+
+
+Requirements:
+1.	The Controller class must be in a separate file.
+2.	The View class must be in a separate file.
+3.	The View class must inherit JFrame and implement the ActionListener interface.
+4.	The Controller class should have the following private fields: View view, HTMLDocument document, File currentFile.
+5.	A public static void main(String[] args) method must be created in the Controller class.
+6.	The Controller class must have a constructor with one parameter that initializes the view field.
+7.	The View class should have a private Controller controller field, as well as a corresponding setter and getter.
+8.	The View class should have a public void actionPerformed(ActionEvent e) method.
+
+
