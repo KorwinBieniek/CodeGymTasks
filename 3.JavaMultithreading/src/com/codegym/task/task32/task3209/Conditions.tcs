@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task32.task3209.big03"\n\nHTML Editor (part 3)
+taskKey="com.codegym.task.task32.task3209.big04"\n\nHTML Editor (part 4)
+
+
+4.1.	Declare initMenuBar() and initEditor() methods in the View class. They will be responsible for
+initializing the menus and editor panes.
+4.2.	Declare an initGui() method in the view. It will initialize the graphical
+interface. From this method, call initMenuBar() to initialize the menu, initEditor() to initialize the
+editor, and the pack() method, which we inherit from the JFrame class.
+Figure out what the pack() method does.
+4.3.	Implement the view's init() method. It must:
+4.3.1.	Call initGui() to initialize the GUI.
+4.3.2.	Add an event listener to our window. Create and use
+a FrameListener object as the listener. To add the listener, use the
+appropriate method from the Window class, inherited by our class through the
+JFrame and Frame classes.
+4.3.3.	Show our window. Use the setVisible method with the correct argument.
+At this point, when launched, the application should show a window that can be resized,
+maximized, closed, etc.
+
+
+Requirements:
+1.	The View class should have a public void initMenuBar() method.
+2.	The View class should have a public void initEditor() method.
+3.	The View class should implement a public void initGui() method.
+4.	Implement the View class&#39;s init() method in accordance with the task conditions.
+
+
+HTML Editor (part 3)
 
 
 The graphical interface will be a window with a menu and a pane with
@@ -21,15 +48,6 @@ text. It will display the HTML code (HTML tags and their contents).
 3.2.4.	Override the windowClosing(WindowEvent windowEvent) method, which
 should call exit() on the view.
 
-
-Requirements:
-1.	The View class should have an initialized private JTabbedPane tabbedPane field.
-2.	The View class should have an initialized private JTextPane htmlTextPane field.
-3.	The View class should have an initialized private JEditorPane plainTextPane field.
-4.	The FrameListener class must be in a separate file.
-5.	The FrameListener class must have a private View view field.
-6.	The FrameListener class must have a constructor with one parameter that initializes the view field.
-7.	The FrameListener class must have a windowClosing(WindowEvent windowEvent) method.
 
 
 HTML Editor (part 2)
