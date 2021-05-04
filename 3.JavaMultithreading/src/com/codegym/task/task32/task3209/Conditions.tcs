@@ -1,4 +1,39 @@
-taskKey="com.codegym.task.task32.task3209.big05"\n\nHTML Editor (part 5)
+taskKey="com.codegym.task.task32.task3209.big06"\n\nHTML Editor (part 6)
+
+
+Implement the initEditor() method, which initializes the editor panes. It must:
+6.1.	Set "text/html" as the content type for the htmlTextPane component.
+Find and use the appropriate method.
+6.2.	Create a new local JScrollPane component based on htmlTextPane.
+6.3.	Add a tab named "HTML" and the component from the previous step
+to tabbedPane.
+6.4.	Create a new local JScrollPane component based on plainTextPane.
+6.5.	Add another tab named "Text" and the component from the previous step
+to tabbedPane.
+6.6.	Set the preferred pane size on tabbedPane.
+6.7.	Create a TabbedPaneChangeListener object and set it as
+a change listener on tabbedPane.
+6.8.	Add our tabbed pane to the center of the content pane of the current frame.
+You can get the current frame's content pane using the getContentPane()
+method, which is inherited from JFrame.
+Think about which method you need to call and with which arguments for the tabbed pane to be displayed
+in the center of the current frame's content pane.
+After starting the application, you can see the latest results: two independent
+tabs (HTML and Text), and each of them lets you enter your own text.
+
+
+Requirements:
+1.	1. In the initEditor() method, the htmlTextPane component&#39;s content type must be set to &quot;text/html&quot; through the setContentType setter.
+2.	The initEditor() method should create a new local JScrollPane component using a constructor that takes htmlTextPane.
+3.	In the initEditor() method, a tab named &quot;HTML&quot; and a JScrollPane component created based on htmlTextPane must be added to the tabbedPane component.
+4.	The initEditor() method should create a new local JScrollPane component using a constructor that takes plainTextPane.
+5.	In the initEditor() method, a tab named &quot;Text&quot; and a JScrollPane component created based on plainTextPane must be added to the tabbedPane component.
+6.	In the initEditor() method, the preferred pane size must be set for the tabbedPane component using the setPreferredSize setter.
+7.	The initEditor() method must add a TabbedPaneChangeListener to the tabbedPane component using the addChangeListener method.
+8.	The initEditor() method must add the tabbed pane to the center of the current frame&#39;s content pane using the getContentPane().add() method.
+
+
+HTML Editor (part 5)
 
 
 5.1.	In the listeners package, declare a TabbedPaneChangeListener class that implements the ChangeListener
@@ -14,15 +49,6 @@ which you can override in the future. For now, add a static log(Exception e)
 method to it. This method will display a short description of the problem on the console
 (use the toString method of the passed exception).
 
-
-Requirements:
-1.	The View class should have a public void selectedTabChanged() method.
-2.	The TabbedPaneChangeListener class must be in a separate file.
-3.	The TabbedPaneChangeListener class must have a View view field.
-4.	The TabbedPaneChangeListener class must have a constructor with one parameter that initializes the view field.
-5.	The TabbedPaneChangeListener class must have a public void stateChanged(ChangeEvent e) method.
-6.	The ExceptionHandler class must be in a separate file.
-7.	The ExceptionHandler class must have a public static void log(Exception e) method.
 
 
 HTML Editor (part 4)
