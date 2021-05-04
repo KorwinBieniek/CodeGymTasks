@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task32.task3209.big18"\n\nHTML Editor (part 18)
+taskKey="com.codegym.task.task32.task3209.big19"\n\nHTML Editor (part 19)
+
+
+Implement the actionPerformed(ActionEvent actionEvent) method on the view. This method is
+inherited from the ActionListener interface and will be called upon selection of menu items
+that our view has been added to as an event listener.
+19.1.	Get a command from the event using the getActionCommand() method(). It will
+be an ordinary string. You can use this string to understand which menu item created this
+event.
+19.2.	If it is the "New" command, call the controller's createNewDocument() method. From here on,
+if the controller doesn't have the required method yet, create a stub.
+19.3.	If it is the "Open" command, call the openDocument() method.
+19.4.	If "Save", then call saveDocument().
+19.5.	If "Save as...", saveDocumentAs().
+19.6.	If "Exit", exit().
+19.7.	If "About", then call the showAbout() method on the view.
+Check that the Exit and About menu items now work.
+
+
+Requirements:
+1.	The actionPerformed(ActionEvent actionEvent) method should get a command from the event using the getActionCommand() method.
+2.	If an event with the &quot;New&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call createNewDocument() on the controller.
+3.	If an event with the &quot;Open&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call openDocument() on the controller.
+4.	If an event with the &quot;Save&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call saveDocument() on the controller.
+5.	If an event with the &quot;Save as...&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call saveDocumentAs() on the controller.
+6.	If an event with the &quot;Exit&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call exit() on the controller.
+7.	If an event with the &quot;About&quot; command is passed to the actionPerformed(ActionEvent actionEvent) method, the method should call showAbout() on the view.
+
+
+HTML Editor (part 18)
 
 
 Implement the view's selectedTabChanged() method. This method is called when the selected
@@ -11,12 +40,6 @@ the text from the controller using the getPlainText() method and set it on
 plainTextPane.
 18.4.	Reset the edits (call the view's resetUndo method).
 
-
-Requirements:
-1.	The selectedTabChanged() method should check which tab is currently selected.
-2.	If the tab index is 0, the selectedTabChanged() method should get the text from plainTextPane and set it on the controller using the setPlainText() method.
-3.	If the tab index is 1, the selectedTabChanged() method should use the getPlainText() method to get the text from the controller and set it on plainTextPane.
-4.	The selectedTabChanged() method should reset the edits.
 
 
 HTML Editor (part 17)
@@ -70,29 +93,6 @@ the controller and set it on htmlTextPane.
 14.4.	Add a showAbout() method to the view. It should show a dialog
 box with information about the program. Think up the information on your own, but message type
 must be JOptionPane.INFORMATION_MESSAGE.
-
-
-
-HTML Editor (part 13)
-
-
-Let's implement the TextEditMenuListener class in the listeners package. This class will work like
-the UndoMenuListener class, but for other menu items. The menu items responsible for
-style, font, color, etc. should only be available when the first tab is selected
-in our editor.
-13.1.	Add a boolean isHtmlTabSelected() method to the view. It must return
-true if the tab that displays HTML is selected in the tabbed pane (hint: its index is 0).
-13.2.	Add a View field to the TextEditMenuListener class. Initialize it in the class
-constructor.
-13.3.	In the TextEditMenuListener class, override the menuSelected(MenuEvent
-menuEvent) method. It must:
-13.3.1.	Use the parameter to get the object that the action was performed on. In
-our case, this will be a JMenu object.
-13.3.2.	Get a list of components (menu items) from this menu.
-13.3.3.	For each menu item, call the setEnabled method, passing the return value of
-the view's isHtmlTabSelected() method as an argument.
-Run the application and be sure that the style, align, color and font menu items are available
-only when the HTML tab is active, not when the Text tab is active.
 
 
 
