@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task32.task3209.big17"\n\nHTML Editor (part 17)
+taskKey="com.codegym.task.task32.task3209.big18"\n\nHTML Editor (part 18)
+
+
+Implement the view's selectedTabChanged() method. This method is called when the selected
+tab changes. Let's begin:
+18.1.	The method should check which tab is currently selected.
+18.2.	If the tab with index 0 is selected (HTML tab), then we need to get the text from
+plainTextPane and set it on the controller using the setPlainText method.
+18.3.	If the tab with index 1 is selected (the tab with HTML code), then you need to get
+the text from the controller using the getPlainText() method and set it on
+plainTextPane.
+18.4.	Reset the edits (call the view's resetUndo method).
+
+
+Requirements:
+1.	The selectedTabChanged() method should check which tab is currently selected.
+2.	If the tab index is 0, the selectedTabChanged() method should get the text from plainTextPane and set it on the controller using the setPlainText() method.
+3.	If the tab index is 1, the selectedTabChanged() method should use the getPlainText() method to get the text from the controller and set it on plainTextPane.
+4.	The selectedTabChanged() method should reset the edits.
+
+
+HTML Editor (part 17)
 
 
 Add a String getPlainText() method to the controller. It should get text from the document with
@@ -8,13 +29,6 @@ all the HTML tags.
 the HTMLEditorKit class's write method.
 17.3.	As usual, the method must not throw exceptions.
 
-
-Requirements:
-1.	The Controller class must have a public String getPlainText() method.
-2.	A StringWriter object should be created in the getPlainText() method.
-3.	The getPlainText() method should call the write() method on the HTMLEditorKit object.
-4.	If an exception occurs in the getPlainText() method, the exception must be logged using the ExceptionHandler class&#39;s log method.
-5.	The getPlainText() method should return the text from the document with all HTML tags.
 
 
 HTML Editor (part 16)
@@ -79,24 +93,6 @@ our case, this will be a JMenu object.
 the view's isHtmlTabSelected() method as an argument.
 Run the application and be sure that the style, align, color and font menu items are available
 only when the HTML tab is active, not when the Text tab is active.
-
-
-
-HTML Editor (part 12)
-
-
-12.1.	Implement the RedoAction class:
-12.1.1.	Add a View field to the class. Add its initialization in the constructor.
-12.1.2.	Implement the actionPerformed(ActionEvent actionEvent) method. It should call the
-redo() method on the view.
-12.2.	Implement the UndoAction class by analogy with RedoAction.
-12.3.	Study the implementation of the StrikethroughAction class that you received along with the task, and
-implement the following classes in the same way:
-12.3.1.	SubscriptAction
-12.3.2.	SuperscriptAction
-Run the program and be sure that the Subscript, Superscript, and Strikethrough
-menu items work. The menu items responsible for undo and redo aren't yet connected
-to the controller and we can't check them.
 
 
 

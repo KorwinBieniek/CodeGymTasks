@@ -78,7 +78,7 @@ public class View extends JFrame implements ActionListener {
         JScrollPane plainScrollPane = new JScrollPane(plainTextPane);
         tabbedPane.addTab("Text", plainScrollPane);
 
-        tabbedPane.setPreferredSize(new Dimension(300,300));
+        tabbedPane.setPreferredSize(new Dimension(300, 300));
 
         tabbedPane.addChangeListener(new TabbedPaneChangeListener(this));
 
@@ -109,7 +109,15 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectedTabChanged() {
-
+        switch (tabbedPane.getSelectedIndex()) {
+            case 0:
+                controller.setPlainText(plainTextPane.getText());
+                break;
+            case 1:
+                plainTextPane.setText(controller.getPlainText());
+                break;
+        }
+        resetUndo();
     }
 
     public boolean canUndo() {
@@ -124,7 +132,7 @@ public class View extends JFrame implements ActionListener {
         undoManager.discardAllEdits();
     }
 
-    public boolean isHtmlTabSelected(){
+    public boolean isHtmlTabSelected() {
         return tabbedPane.getSelectedIndex() == 0;
     }
 
@@ -136,6 +144,7 @@ public class View extends JFrame implements ActionListener {
     public void update() {
         htmlTextPane.setDocument(controller.getDocument());
     }
+
     public void showAbout() {
         JOptionPane.showMessageDialog(this, "Best HTML editor", "About", JOptionPane.INFORMATION_MESSAGE);
     }
