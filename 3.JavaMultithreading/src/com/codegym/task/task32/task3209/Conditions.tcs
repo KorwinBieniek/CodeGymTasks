@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task32.task3209.big02"\n\nHTML Editor (part 2)
+taskKey="com.codegym.task.task32.task3209.big03"\n\nHTML Editor (part 3)
+
+
+The graphical interface will be a window with a menu and a pane with
+two tabs.
+The first tab will be a text pane that will render an HTML
+page. Here it will be possible to format and edit the text of the page.
+The second tab will have an editor that will display the page's HTML code. It will show
+all of the HTML tags being used. It will also be possible to change the page's text here,
+and add and remove various tags.
+3.1.	Add and initialize fields in the view class:
+3.1.1.	JTabbedPane tabbedPane - This will be a pane with two tabs.
+3.1.2.	JTextPane htmlTextPane - This will be a component for editing the HTML visually.
+It will be placed on the first tab.
+3.1.3.	JEditorPane plainTextPane - This will be a component for editing HTML as
+text. It will display the HTML code (HTML tags and their contents).
+3.2.	Add a FrameListener class to the listeners package. It must:
+3.2.1.	Inherit WindowAdapter.
+3.2.2.	Have a View view field.
+3.2.3.	In its constructor, take a View and initialize a field.
+3.2.4.	Override the windowClosing(WindowEvent windowEvent) method, which
+should call exit() on the view.
+
+
+Requirements:
+1.	The View class should have an initialized private JTabbedPane tabbedPane field.
+2.	The View class should have an initialized private JTextPane htmlTextPane field.
+3.	The View class should have an initialized private JEditorPane plainTextPane field.
+4.	The FrameListener class must be in a separate file.
+5.	The FrameListener class must have a private View view field.
+6.	The FrameListener class must have a constructor with one parameter that initializes the view field.
+7.	The FrameListener class must have a windowClosing(WindowEvent windowEvent) method.
+
+
+HTML Editor (part 2)
 
 
 2.1.	Add init() methods, empty for now, to the controller and view. They will
@@ -14,13 +48,6 @@ class.
 2.3.1.  The exit method in the Controller class should not be static.
 2.4.	Add an exit() method to the view. It should call exit() on the controller.
 
-
-Requirements:
-1.	The controller class should have a public void init() method.
-2.	The View class should have a public void init() method.
-3.	The Controller class should implement a public void exit() method.
-4.	The View class should implement a public void exit() method.
-5.	Implement a public static void main(String[] args) method in the Controller class in accordance with the task conditions.
 
 
 HTML Editor (part 1)
