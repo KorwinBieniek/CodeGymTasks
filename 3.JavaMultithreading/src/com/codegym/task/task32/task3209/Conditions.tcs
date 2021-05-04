@@ -1,4 +1,23 @@
-taskKey="com.codegym.task.task32.task3209.big16"\n\nHTML Editor (part 16)
+taskKey="com.codegym.task.task32.task3209.big17"\n\nHTML Editor (part 17)
+
+
+Add a String getPlainText() method to the controller. It should get text from the document with
+all the HTML tags.
+17.1.	Create a StringWriter object.
+17.2.	Copy all of the document's contents to the created object using
+the HTMLEditorKit class's write method.
+17.3.	As usual, the method must not throw exceptions.
+
+
+Requirements:
+1.	The Controller class must have a public String getPlainText() method.
+2.	A StringWriter object should be created in the getPlainText() method.
+3.	The getPlainText() method should call the write() method on the HTMLEditorKit object.
+4.	If an exception occurs in the getPlainText() method, the exception must be logged using the ExceptionHandler class&#39;s log method.
+5.	The getPlainText() method should return the text from the document with all HTML tags.
+
+
+HTML Editor (part 16)
 
 
 Add a setPlainText(String text) method to the controller. It will write the passed text with
@@ -9,13 +28,6 @@ HTML tags to document. Implement it as follows:
 the document field.
 16.4.	Be sure that the method does not throw exceptions. They just need to be logged.
 
-
-Requirements:
-1.	The Controller class must have a public setPlainText(String text) method that writes the text with HTML tags to the document.
-2.	The setPlainText(String text) method should reset the document using the resetDocument() method.
-3.	The setPlainText(String text) method should create a new StringReader based on the parameter.
-4.	The setPlainText(String text) method should call the read() method on the HTMLEditorKit object.
-5.	If an exception occurs in the setPlainText(String text) method, the exception must be logged using the ExceptionHandler class&#39;s log method.
 
 
 HTML Editor (part 15)
@@ -85,32 +97,6 @@ implement the following classes in the same way:
 Run the program and be sure that the Subscript, Superscript, and Strikethrough
 menu items work. The menu items responsible for undo and redo aren't yet connected
 to the controller and we can't check them.
-
-
-
-HTML Editor (part 11)
-
-
-11.1.	Add an UndoManager undoManager field to the view. Figure out what
-this class is used for. Initialize the field with a new object.
-11.2.	In the listeners package, add an UndoListener class that implements the
-UndoableEditListener interface. This class will listen for edits that can undone or redone.
-11.3.	Add the following to the UndoListener class:
-11.3.1.	An UndoManager undoManager field.
-11.3.2.	A constructor that takes an UndoManager and initializes the corresponding field.
-11.3.3.	An undoableEditHappened(undoableEditEvent e) method. It should get the edit from
-the passed event and add it to undoManager.
-11.4.	Add an UndoListener undoListener field to the view, and initialize it
-using undoManager.
-11.5.	Add the following methods to the view:
-11.5.1. void undo() - This method undoes the last action. Implement it using undoManager.
-The method must not throw exceptions. It should only log them.
-11.5.2. void redo() - This method returns the previously undone action. Implement it by analogy with
-the previous step.
-11.5.3.	Implement boolean canUndo() and boolean canRedo() methods using undoManager.
-11.5.4.	Implement a getter for undoListener.
-11.5.5.	Add and implement a void resetUndo() method that clears all edits in
-undoManager.
 
 
 
