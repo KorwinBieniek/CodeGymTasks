@@ -1,4 +1,34 @@
-taskKey="com.codegym.task.task32.task3209.big11"\n\nHTML Editor (part 11)
+taskKey="com.codegym.task.task32.task3209.big12"\n\nHTML Editor (part 12)
+
+
+12.1.	Implement the RedoAction class:
+12.1.1.	Add a View field to the class. Add its initialization in the constructor.
+12.1.2.	Implement the actionPerformed(ActionEvent actionEvent) method. It should call the
+redo() method on the view.
+12.2.	Implement the UndoAction class by analogy with RedoAction.
+12.3.	Study the implementation of the StrikethroughAction class that you received along with the task, and
+implement the following classes in the same way:
+12.3.1.	SubscriptAction
+12.3.2.	SuperscriptAction
+Run the program and be sure that the Subscript, Superscript, and Strikethrough
+menu items work. The menu items responsible for undo and redo aren't yet connected
+to the controller and we can't check them.
+
+
+Requirements:
+1.	The RedoAction class must have a View view field.
+2.	The RedoAction(View view) constructor must initialize the view field.
+3.	The RedoAction class&#39;s actionPerformed(ActionEvent actionEvent) method should call the redo() method on the view.
+4.	The UndoAction class must have a View view field.
+5.	The UndoAction(View view) constructor must initialize the view field.
+6.	The UndoAction class&#39;s actionPerformed(ActionEvent actionEvent) method should call the undo() method on the view.
+7.	The SubscriptAction class&#39;s no-argument constructor should call the superclass&#39;s constructor with StyleConstants.Subscript as an argument.
+8.	The SubscriptAction class&#39;s actionPerformed(ActionEvent actionEvent) method should use the StyleConstants.setSubscript method with the following arguments: SimpleAttributeSet and !StyleConstants.isSubscript(mutableAttributeSet).
+9.	The SuperscriptAction class&#39;s no-argument constructor should call the superclass&#39;s constructor with StyleConstants.Superscript as an argument.
+10.	The SuperscriptAction class&#39;s actionPerformed(ActionEvent actionEvent) method should use the StyleConstants.setSuperscript method with the following arguments: SimpleAttributeSet and !StyleConstants.isSuperscript(mutableAttributeSet).
+
+
+HTML Editor (part 11)
 
 
 11.1.	Add an UndoManager undoManager field to the view. Figure out what
@@ -22,20 +52,6 @@ the previous step.
 11.5.5.	Add and implement a void resetUndo() method that clears all edits in
 undoManager.
 
-
-Requirements:
-1.	The View class must have a private UndoManager undoManager field, which must be immediately initialized.
-2.	The View class must have a private UndoListener undoListener field, which must be immediately initialized using the undoManager field.
-3.	The View class must have a getter for the UndoListener undoListener field.
-4.	The View class must have a public void undo() method.
-5.	The View class must have a public void redo() method.
-6.	The implementation of the View class&#39;s canUndo() method should use undoManager.
-7.	The implementation of the View class&#39;s canRedo() method should use undoManager.
-8.	The View class should have a public void resetUndo() method, which should clear all edits in undoManager.
-9.	The UndoListener class must be in a separate file.
-10.	The UndoListener class must have a private UndoManager undoManager field.
-11.	The UndoListener(UndoManager undoManager) must correctly initialize the undoManager field.
-12.	The undoableEditHappened(UndoableEditEvent e) method in the UndoListener class should get the edit from the passed event and add it to undoManager.
 
 
 HTML Editor (part 10)
@@ -196,31 +212,6 @@ style menu.
 7.4.6.	void initEditMenu(View view, JMenuBar menuBar) - This method initializes the
 edit menu.
 7.4.7.	void initFileMenu(View view, JMenuBar menuBar) - This method initializes the file menu.
-
-
-
-HTML Editor (part 6)
-
-
-Implement the initEditor() method, which initializes the editor panes. It must:
-6.1.	Set "text/html" as the content type for the htmlTextPane component.
-Find and use the appropriate method.
-6.2.	Create a new local JScrollPane component based on htmlTextPane.
-6.3.	Add a tab named "HTML" and the component from the previous step
-to tabbedPane.
-6.4.	Create a new local JScrollPane component based on plainTextPane.
-6.5.	Add another tab named "Text" and the component from the previous step
-to tabbedPane.
-6.6.	Set the preferred pane size on tabbedPane.
-6.7.	Create a TabbedPaneChangeListener object and set it as
-a change listener on tabbedPane.
-6.8.	Add our tabbed pane to the center of the content pane of the current frame.
-You can get the current frame's content pane using the getContentPane()
-method, which is inherited from JFrame.
-Think about which method you need to call and with which arguments for the tabbed pane to be displayed
-in the center of the current frame's content pane.
-After starting the application, you can see the latest results: two independent
-tabs (HTML and Text), and each of them lets you enter your own text.
 
 
 
