@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task32.task3209.big15"\n\nHTML Editor (part 15)
+taskKey="com.codegym.task.task32.task3209.big16"\n\nHTML Editor (part 16)
+
+
+Add a setPlainText(String text) method to the controller. It will write the passed text with
+HTML tags to document. Implement it as follows:
+16.1.	Reset the document.
+16.2.	Create a new StringReader based on the passed text.
+16.3.	Call the read() method in the HTMLEditorKit class. It reads data from the reader into
+the document field.
+16.4.	Be sure that the method does not throw exceptions. They just need to be logged.
+
+
+Requirements:
+1.	The Controller class must have a public setPlainText(String text) method that writes the text with HTML tags to the document.
+2.	The setPlainText(String text) method should reset the document using the resetDocument() method.
+3.	The setPlainText(String text) method should create a new StringReader based on the parameter.
+4.	The setPlainText(String text) method should call the read() method on the HTMLEditorKit object.
+5.	If an exception occurs in the setPlainText(String text) method, the exception must be logged using the ExceptionHandler class&#39;s log method.
+
+
+HTML Editor (part 15)
 
 
 Add a resetDocument() method to the controller. It should reset the current document. It must:
@@ -10,13 +30,6 @@ Hint: use an appropriate method from the HTMLEditorKit class.
 15.3.	Add an edit listener to the new document.
 15.4.	Call the view's update() method.
 
-
-Requirements:
-1.	The Controller class must contain a public resetDocument() method that resets the current document.
-2.	The resetDocument() method should use the removeUndoableEditListener() method to remove the edit listener from the current document.
-3.	The resetDocument() method should create a new default document using the createDefaultDocument() method.
-4.	The resetDocument() method must use the addUndoableEditListener() method to add an edit listener to the new document.
-5.	The resetDocument() method should call the update() method on the view.
 
 
 HTML Editor (part 14)
@@ -98,35 +111,6 @@ the previous step.
 11.5.4.	Implement a getter for undoListener.
 11.5.5.	Add and implement a void resetUndo() method that clears all edits in
 undoManager.
-
-
-
-HTML Editor (part 10)
-
-
-Our editor will support undo/redo of actions
-performed in the editor.
-Implement the UndoMenuListener class. This listener will listen to the menu, or more accurately,
-it will listen for the moment when the edit menu is selected by the user. At that moment, it
-will ask the view if we can currently undo or redo an
-action. The answer determines whether we should make the "Undo" and "Redo" menu items
-available.
-10.1.	Add the following fields to the UndoMenuListener class:
-10.1.1.	View view.
-10.1.2.	JMenuItem undoMenuItem.
-10.1.3.	JMenuItem redoMenuItem.
-10.2.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem,
-JMenuItem redoMenuItem) constructor. It should initialize the fields of the class.
-10.3.	Implement a menuSelected(MenuEvent menuEvent) method. It will be called before
-the menu is shown. It must:
-10.3.1.	Ask the view whether we can undo an action using the
-boolean canUndo() method. The view doesn't have such a method yet, so add a stub
-that always returns false.
-10.3.2.	Make the undoMenuItem available depending on what the view returns to us.
-Hint: use the setEnabled() method.
-10.3.3.	Take similar actions for redoMenuItem, adding a
-canRedo() stub method to the view.
-Run the program and make sure that the Undo and Redo menu items are not available.
 
 
 

@@ -2,9 +2,12 @@ package com.codegym.task.task32.task3209;
 
 import com.codegym.task.task32.task3209.listeners.UndoListener;
 
+import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 
 public class Controller {
     private View view;
@@ -35,13 +38,23 @@ public class Controller {
         return document;
     }
 
-    public void resetDocument(){
+    public void resetDocument() {
         UndoListener undoListener = view.getUndoListener();
         if (document != null) {
             document.removeUndoableEditListener(undoListener);
         }
-        document = (HTMLDocument)new HTMLEditorKit().createDefaultDocument();
+        document = (HTMLDocument) new HTMLEditorKit().createDefaultDocument();
         document.addUndoableEditListener(undoListener);
         view.update();
+    }
+
+    public void setPlainText(String text) {
+        resetDocument();
+        StringReader stringReader = new StringReader(text);
+        try {
+            new HTMLEditorKit().read(stringReader, document, 0);
+        } catch (IOException | BadLocationException e) {
+            ExceptionHandler.log(e);
+        }
     }
 }
