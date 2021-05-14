@@ -1,0 +1,66 @@
+taskKey="com.codegym.task.task27.task2712.big01"\n\nRestaurant (part 1)
+
+
+Let's write a program to automate what happens in a restaurant.
+
+We'll state the task like this: the restaurant manager wants the following:
+1) each table has a tablet that can be used to place orders;
+2) while an order is being prepared, the tablet shows ads;
+3) at the end of the business day, various statistics can be reviewed:
+a) cook utilization;
+b) total revenue from orders;
+c) total revenue from ad impressions.
+
+We'll develop the kernel (without a GUI). You can add a GUI later yourself. For now, we'll limit ourselves to a console interface.
+We'll also hardcode some of the data. Later, you can connect a DB to work with.
+
+Let's point out several features that we're going to implement:
+
+First:
+- Customer orders will be sent to the cook automatically;
+- The cook will prepare an order for a while and then mark it as prepared;
+- Then the waiter will carry it away.
+
+Second:
+- Select the desired commercials from a list of paid ads;
+- Display commercials while the order is being prepared;
+- Maximize the ad revenue.
+
+Third:
+- Calculate the statistics;
+- Display the statistics to the manager.
+
+We'll start with the first feature: automated order processing:
+
+Let's begin...
+1. Create a Restaurant class with the main method.
+
+2. Let's start with the tablet: create a Tablet class, where we'll create a private final int number field. This is the tablet number,
+which will let us unambiguously determine where each order came from. The tablet number must be initialized in the constructor using a passed argument.
+
+3. In the Tablet class, create a public void createOrder() method that creates an order consisting of the dishes chosen by the customer.
+To do this, create an Order class, which we will place in the kitchen package.
+
+4. The Order class should have information about the list of dishes chosen by the customer.
+In other words, somewhere there should be a list of all dishes, and the Order class should have  a list of chosen dishes.
+The Order class needs private final Tablet tablet and protected List<Dish> dishes fields.
+The constructor must have one Tablet parameter and initialize the tablet field.
+
+5. We need a Dish class. Create it in the kitchen package. Let it be an enum with the following list of dishes: Fish, Steak, Soup, Juice, Water.
+
+6. To allow the customer to choose which dishes he or she wants, you need to display them all. To do this, in the Dish class, create a
+public static String allDishesToString() method that creates a string containing all the dishes.
+For example, "Fish, Steak, Soup, Juice, Water". Generate the string dynamically.
+
+
+Requirements:
+1.	A public static void main(String[] args) method must be created in the Restaurant class.
+2.	A private final int number field must be created in the Tablet class.
+3.	The Tablet class constructor must have 1 int parameter and initialize the number field.
+4.	A Dish enum with Fish, Steak, Soup, Juice, and Water fields must be created in the kitchen package.
+5.	A static allDishesToString method that dynamically generates a string consisting of all the dishes must be created in the Dish enum.
+6.	An Order class that contains a list of dishes and a tablet must be created in the kitchen package.
+7.	The Order class constructor must have one Tablet parameter and initialize the tablet field.
+8.	The Tablet class must have a public void createOrder() method.
+
+
