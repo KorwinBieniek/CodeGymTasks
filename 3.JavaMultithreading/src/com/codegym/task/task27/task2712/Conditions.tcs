@@ -1,4 +1,54 @@
-taskKey="com.codegym.task.task27.task2712.big01"\n\nRestaurant (part 1)
+taskKey="com.codegym.task.task27.task2712.big02"\n\nRestaurant (part 2)
+
+
+1. We work with the console a lot. It's time to create a single point of interaction.
+Create a ConsoleHelper class with a single BufferedReader, through which we will work with the console.
+Remember, this class does not store any data or state, so all its methods will be static.
+Create three methods in it:
+- writeMessage(String message) - for displaying message on the console
+- String readString() - for reading strings from the console
+- List<Dish> getAllDishesForOrder() - asks the customer to select a dish and adds it to the list.
+Display a list of all the dishes and ask the customer to enter a string (the name of a dish).
+The customer enters 'exit' to indicate the order is complete.
+If the entered dish is not on the menu, display a message stating that there is no such dish and continue taking the order.
+Rethrow IO exceptions. It isn't clear what to do with them at this level.
+
+2. Refactor the code so that we work with the console only through the ConsoleHelper class.
+
+3. Let's return to the Order class: it has a reference to the tablet, as well as a list of chosen dishes.
+Initialize the dishes list in the constructor by calling the getAllDishesForOrder method from the ConsoleHelper.
+
+4. Rewrite the toString method in the Order class. Let it return an empty string if there are no dishes in the order. Otherwise,
+the output should be similar to the example, in the order in which the dishes were added. Use ConsoleHelper.
+Also, change the Tablet class's toString method (inside the Tablet class, press Alt+Insert -> toString()).
+Example:
+Your order: [Juice, Fish] from Tablet{number=5}
+
+5. We have everything tied to the console. But, if there are exceptions, our application will die.
+To learn the cause, we'll add to the Tablet class a static java.util.logging.Logger logger field, initialized with the class name (Logger.getLogger(Tablet.class.getName())).
+
+6. We handle IO exceptions in the Tablet class's createOrder method.
+Let's write "The console is unavailable." The log level is SEVERE, which is the most serious level (the application cannot continue).
+Also, a new order must be created in the Tablet class's createOrder method.
+
+7. We need to start testing our application.
+In the main method, create a tablet and create four orders.
+
+
+Requirements:
+1.	The ConsoleHelper class&#39;s writeMessage method should display the passed string on the console.
+2.	The ConsoleHelper class&#39;s readString method should return a string read from the console.
+3.	The ConsoleHelper class&#39;s getAllDishesForOrder method should return a list of dishes chosen by the customer.
+4.	The Order class constructor should initialize the dishes list using the return value of the getAllDishesForOrder method.
+5.	The Order class&#39;s toString method must return the contents of the order according to the task conditions.
+6.	The Tablet class&#39;s logger field must be initialized using the Logger.getLogger() method with the name of the current class as the argument.
+7.	A new order must be created in the Tablet class&#39;s createOrder method. Pass the current tablet as the argument.
+8.	If there is an IOException while an order is being created, write the message &quot;The console is unavailable.&quot; (with log level SEVERE).
+9.	The Restaurant class&#39;s main method must create a new tablet along with four new orders created using that tablet.
+10.	The Tablet class&#39;s toString method must return information about the tablet (see the example in the task).
+
+
+Restaurant (part 1)
 
 
 Let's write a program to automate what happens in a restaurant.
@@ -52,15 +102,5 @@ The constructor must have one Tablet parameter and initialize the tablet field.
 public static String allDishesToString() method that creates a string containing all the dishes.
 For example, "Fish, Steak, Soup, Juice, Water". Generate the string dynamically.
 
-
-Requirements:
-1.	A public static void main(String[] args) method must be created in the Restaurant class.
-2.	A private final int number field must be created in the Tablet class.
-3.	The Tablet class constructor must have 1 int parameter and initialize the number field.
-4.	A Dish enum with Fish, Steak, Soup, Juice, and Water fields must be created in the kitchen package.
-5.	A static allDishesToString method that dynamically generates a string consisting of all the dishes must be created in the Dish enum.
-6.	An Order class that contains a list of dishes and a tablet must be created in the kitchen package.
-7.	The Order class constructor must have one Tablet parameter and initialize the tablet field.
-8.	The Tablet class must have a public void createOrder() method.
 
 
