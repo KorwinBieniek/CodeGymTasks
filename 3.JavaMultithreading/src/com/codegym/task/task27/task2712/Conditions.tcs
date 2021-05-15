@@ -1,4 +1,45 @@
-taskKey="com.codegym.task.task27.task2712.big05"\n\nRestaurant (part 5)
+taskKey="com.codegym.task.task27.task2712.big06"\n\nRestaurant (part 6)
+
+
+An order is created, prepared by the cook, and then carried out to the guest. We also calculate the time required to fill the order.
+We'll consider the first part of the task complete.
+Let's move on to the second: while the order is being prepared, ads should be shown on the tablet.
+Let's define what we mean by ads.
+
+For us, an ad is a video of a certain duration. We also know that someone has paid for a number of impressions.
+We'll assume that we know the number of paid impressions, the total cost of all impressions, and the ad itself.
+
+1. Create an ad package for ad-related functionality.
+
+2. In the ad package, create an Advertisement class that has the following fields:
+Object content - the video
+String name - the name or title
+long amountPaid - the amount paid for ads in cents. Use a long to avoid rounding problems
+int impressionsRemaining - the number of impressions that have been paid for but not shown
+int duration - the duration in seconds
+Set the access modifiers on your own.
+
+3. In the Advertisement class, create a constructor with parameters ordered according to the sequence of fields listed above
+
+4. We'll create another two classes in the same package:
+AdvertisementStorage - a repository of commercials.
+AdvertisementManager - each tablet will have its own manager object
+that will select and sequence the optimal set of videos for each order.
+It will also interact with the player and display the videos.
+
+5. Since there is only one AdvertisementStorage for the entire restaurant, we'll make it a singleton.
+
+
+Requirements:
+1.	The Advertisement class must be created in the ad package.
+2.	The AdvertisementManager class must be created in the ad package.
+3.	The AdvertisementStorage class must be created in the ad package.
+4.	All of the fields listed in the task conditions must be declared in the Advertisement class in the ad package.
+5.	The Advertisement class in the ad package must declare the correct constructor in accordance with the task conditions.
+6.	The AdvertisementStorage class should be a singleton and have a public static getInstance method.
+
+
+Restaurant (part 5)
 
 
 The cook currently prepares dishes instantaneously. In reality, cooking takes some time.
@@ -24,14 +65,6 @@ Let's make it pretty:
 Make it so that if there are no dishes in the order, then it doesn't get sent to the cook. Find this relevant place and implement the logic.
 In the Order class, create a public boolean isEmpty() helper method that determines whether there are any dishes in the order.
 
-
-Requirements:
-1.	The cooking time must correspond to the task conditions.
-2.	The duration field in the Dish enum must be private and have a public getter.
-3.	The Order class must have a public int getTotalCookingTime method that returns the amount of time required to prepare the current order.
-4.	In addition to returning the list of dishes in the order, the required cooking time must also be displayed on the screen.
-5.	If there are no dishes in the order, it should not be sent to the cook.
-6.	The Order class&#39;s isEmpty method must return true if the order is empty.
 
 
 Restaurant (part 4)
