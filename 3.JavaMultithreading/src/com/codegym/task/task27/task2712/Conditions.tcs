@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task27.task2712.big04"\n\nRestaurant (part 4)
+taskKey="com.codegym.task.task27.task2712.big05"\n\nRestaurant (part 5)
+
+
+The cook currently prepares dishes instantaneously. In reality, cooking takes some time.
+We need to calculate the time required to prepare the entire order, so we can then select commercials to fill the time.
+
+1. Suppose we know the cooking time for each dish in minutes. We'll hardcode it in the Dish class.
+1.1. Change the creation of the enum fields: Fish(25), Steak(30), Soup(15), Juice(5), Water(3);
+1.2. Create a private int duration field with a getter.
+To create a getter, press Alt+Insert and select Getter. Next, select the field name and click OK (Enter).
+
+2. Add the ability to calculate the time required to prepare the whole order.
+Where should you add it???
+2.1. If you add it to the Cook class, then the cook will be able to calculate how long it will take to prepare the order.
+For other classes to get this information, they will need access the Cook object.
+2.2. If you add it to the Order class, then access to the order will always let you find out how long the order will take.
+2.3. Choose the right place from either item 2.1 or item 2.2, and add a public int getTotalCookingTime() method,
+which will calculate the total time required to prepare all the dishes in the order.
+2.4. Let's add this information to what our cook outputs to the console. Now let's display a message like this:
+Start cooking - Your order: [Soup, Juice, Water] from Tablet{number=5}, cooking time 23 min
+
+Let's make it pretty:
+3. Start the application and immediately enter 'exit'. The output isn't very beautiful.
+Make it so that if there are no dishes in the order, then it doesn't get sent to the cook. Find this relevant place and implement the logic.
+In the Order class, create a public boolean isEmpty() helper method that determines whether there are any dishes in the order.
+
+
+Requirements:
+1.	The cooking time must correspond to the task conditions.
+2.	The duration field in the Dish enum must be private and have a public getter.
+3.	The Order class must have a public int getTotalCookingTime method that returns the amount of time required to prepare the current order.
+4.	In addition to returning the list of dishes in the order, the required cooking time must also be displayed on the screen.
+5.	If there are no dishes in the order, it should not be sent to the cook.
+6.	The Order class&#39;s isEmpty method must return true if the order is empty.
+
+
+Restaurant (part 4)
 
 
 What do we have? The cook has prepared the dishes. It's time to take them away, but the waiter is unaware.
@@ -25,14 +61,6 @@ Your order: [Water] from Tablet{number=5}
 Start cooking - Your order: [Water] from Tablet{number=5}
 Your order: [Water] from Tablet{number=5} was prepared by Amigo
 
-
-Requirements:
-1.	The Waiter class must implement the Observer interface.
-2.	The Cook class must be a descendant of the Observable class.
-3.	The Cook class&#39;s update method must call the setChanged method.
-4.	The Cook class&#39;s update method must call the notifyObservers method with the current order as the argument.
-5.	The Waiter class&#39;s update method should display a string formatted according to the task conditions.
-6.	The Restaurant class&#39;s main method should create a new waiter and use the addObserver method to add it the cook as an observer.
 
 
 Restaurant (part 3)
