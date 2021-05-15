@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task27.task2712.big06"\n\nRestaurant (part 6)
+taskKey="com.codegym.task.task27.task2712.big07"\n\nRestaurant (part 7)
+
+
+When choosing which class to start from, try to find one that is used by others, and which does not use anything.
+In our case, this is the repository of advertising videos (AdvertisementStorage).
+We decided that it would be the only one in the restaurant and made it a singleton.
+Let's describe it.
+
+1. The videos need to be stored somewhere. Let's make it a list.
+Create a videos field and initialize it with an empty list.
+Think about whether the videos field should be able to change its value?
+
+2. To make it possible to work with the videos, create the following public methods:
+2.1. list() - returns a list of all available videos.
+2.2. add(Advertisement advertisement) - adds a new video to the videos list.
+
+3. In the class constructor, let's add some data to the videos list. This is what I have:
+Object someContent = new Object();
+new Advertisement(someContent, "First Video", 5000, 100, 3 * 60) // 3 min
+new Advertisement(someContent, "Second Video", 100, 10, 15 * 60) // 15 min
+new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)   // 10 min
+
+4. In the AdvertisementManager class, we'll create a final field that references an instance of AdvertisementStorage and call it storage.
+Don't forget to initialize this field!
+
+
+Requirements:
+1.	A storage field that references an instance of the AdvertisementStorage class must be created in the AdvertisementManager class.
+2.	In the AdvertisementStorage class, the videos list must be declared with the final modifier.
+3.	In the AdvertisementStorage class, the list method must return the videos list and must be public.
+4.	In the AdvertisementStorage class, the add method must have one Advertisement parameter and add the passed object to the videos list.
+5.	In the AdvertisementStorage class constructor, several Advertisement objects must be added to the videos list.
+
+
+Restaurant (part 6)
 
 
 An order is created, prepared by the cook, and then carried out to the guest. We also calculate the time required to fill the order.
@@ -29,14 +63,6 @@ It will also interact with the player and display the videos.
 
 5. Since there is only one AdvertisementStorage for the entire restaurant, we'll make it a singleton.
 
-
-Requirements:
-1.	The Advertisement class must be created in the ad package.
-2.	The AdvertisementManager class must be created in the ad package.
-3.	The AdvertisementStorage class must be created in the ad package.
-4.	All of the fields listed in the task conditions must be declared in the Advertisement class in the ad package.
-5.	The Advertisement class in the ad package must declare the correct constructor in accordance with the task conditions.
-6.	The AdvertisementStorage class should be a singleton and have a public static getInstance method.
 
 
 Restaurant (part 5)
@@ -164,62 +190,6 @@ Also, a new order must be created in the Tablet class's createOrder method.
 
 7. We need to start testing our application.
 In the main method, create a tablet and create four orders.
-
-
-
-Restaurant (part 1)
-
-
-Let's write a program to automate what happens in a restaurant.
-
-We'll state the task like this: the restaurant manager wants the following:
-1) each table has a tablet that can be used to place orders;
-2) while an order is being prepared, the tablet shows ads;
-3) at the end of the business day, various statistics can be reviewed:
-a) cook utilization;
-b) total revenue from orders;
-c) total revenue from ad impressions.
-
-We'll develop the kernel (without a GUI). You can add a GUI later yourself. For now, we'll limit ourselves to a console interface.
-We'll also hardcode some of the data. Later, you can connect a DB to work with.
-
-Let's point out several features that we're going to implement:
-
-First:
-- Customer orders will be sent to the cook automatically;
-- The cook will prepare an order for a while and then mark it as prepared;
-- Then the waiter will carry it away.
-
-Second:
-- Select the desired commercials from a list of paid ads;
-- Display commercials while the order is being prepared;
-- Maximize the ad revenue.
-
-Third:
-- Calculate the statistics;
-- Display the statistics to the manager.
-
-We'll start with the first feature: automated order processing:
-
-Let's begin...
-1. Create a Restaurant class with the main method.
-
-2. Let's start with the tablet: create a Tablet class, where we'll create a private final int number field. This is the tablet number,
-which will let us unambiguously determine where each order came from. The tablet number must be initialized in the constructor using a passed argument.
-
-3. In the Tablet class, create a public void createOrder() method that creates an order consisting of the dishes chosen by the customer.
-To do this, create an Order class, which we will place in the kitchen package.
-
-4. The Order class should have information about the list of dishes chosen by the customer.
-In other words, somewhere there should be a list of all dishes, and the Order class should have  a list of chosen dishes.
-The Order class needs private final Tablet tablet and protected List<Dish> dishes fields.
-The constructor must have one Tablet parameter and initialize the tablet field.
-
-5. We need a Dish class. Create it in the kitchen package. Let it be an enum with the following list of dishes: Fish, Steak, Soup, Juice, Water.
-
-6. To allow the customer to choose which dishes he or she wants, you need to display them all. To do this, in the Dish class, create a
-public static String allDishesToString() method that creates a string containing all the dishes.
-For example, "Fish, Steak, Soup, Juice, Water". Generate the string dynamically.
 
 
 
