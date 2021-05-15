@@ -15,11 +15,29 @@ public class Advertisement {
     // The duration in seconds
     private int duration;
 
+    private long amountPerImpression;
+
     public Advertisement(Object content, String name, long amountPaid, int impressionsRemaining, int duration) {
         this.content = content;
         this.name = name;
         this.amountPaid = amountPaid;
         this.impressionsRemaining = impressionsRemaining;
         this.duration = duration;
+
+        if (impressionsRemaining > 0) {
+            amountPerImpression = amountPaid / impressionsRemaining;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public long getAmountPerImpression() {
+        return amountPerImpression;
     }
 }

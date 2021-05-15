@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task27.task2712.big07"\n\nRestaurant (part 7)
+taskKey="com.codegym.task.task27.task2712.big08"\n\nRestaurant (part 8)
+
+
+It's time to describe the functionality of the AdvertisementManager class.
+But first we're going to need some methods in the Advertisement class.
+
+1. Create a long amountPerImpression field in the Advertisement class.
+It should equal the cost of one ad impression in cents (amountPaid / impressionsRemaining).
+Assign a value to the field in the constructor.
+
+2. In the Advertisement class, create getters for the name, duration, and amountPerImpression fields.
+
+3. Determine what data the AdvertisementManager object needs, i.e. the time required for the cook to prepare an order.
+Because we're storing the duration of the videos in seconds, we'll also take the cooking time in seconds.
+In the AdvertisementManager class, create a constructor that has one parameter: int timeSeconds.
+Create a corresponding field and save this value in it.
+
+4. AdvertisementManager performs just one action—it processes ad videos.
+Therefore, create the only public method: void processVideos(). Its functionality will be described in the next task.
+But for now, display "calling the processVideos method"
+
+5. To test this functionality, you need to add a call to the processVideos method to the AdvertisementManager.
+Obviously, this method should be called during creation of an order, or more precisely—in parallel with the creation of an order.
+The order is prepared while the video is watched.
+Add a call to the processVideos() method in the right place.
+
+P.S. Don't forget that an order's preparation time is recorded in minutes, but the time of an ad impression in measured in seconds!
+
+
+Requirements:
+1.	Correct getters for the name, duration, and amountPerImpression fields must be created in the Advertisement class.
+2.	In the Advertisement class, the amountPerImpression field must be set equal to the result of dividing amountPaid by impressionsRemaining.
+3.	The AdvertisementManager class must have a constructor that takes one int parameter and initializes the timeSeconds field.
+4.	The AdvertisementManager class must have a processVideos method that announces when it has been called by displaying a string.
+5.	The Tablet class&#39;s createOrder method must create a new AdvertisementManager and call its processVideos method.
+
+
+Restaurant (part 7)
 
 
 When choosing which class to start from, try to find one that is used by others, and which does not use anything.
@@ -23,13 +60,6 @@ new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)   // 10 min
 4. In the AdvertisementManager class, we'll create a final field that references an instance of AdvertisementStorage and call it storage.
 Don't forget to initialize this field!
 
-
-Requirements:
-1.	A storage field that references an instance of the AdvertisementStorage class must be created in the AdvertisementManager class.
-2.	In the AdvertisementStorage class, the videos list must be declared with the final modifier.
-3.	In the AdvertisementStorage class, the list method must return the videos list and must be public.
-4.	In the AdvertisementStorage class, the add method must have one Advertisement parameter and add the passed object to the videos list.
-5.	In the AdvertisementStorage class constructor, several Advertisement objects must be added to the videos list.
 
 
 Restaurant (part 6)
@@ -152,44 +182,6 @@ Start cooking - Your order: [Soup] from Tablet{number=5}
 4.2. Send the order to the observer using notifyObservers(order);
 
 5. We'll also make a small change. Make it so that the createOrder method returns the current order, or null if the order couldn't be created.
-
-
-
-Restaurant (part 2)
-
-
-1. We work with the console a lot. It's time to create a single point of interaction.
-Create a ConsoleHelper class with a single BufferedReader, through which we will work with the console.
-Remember, this class does not store any data or state, so all its methods will be static.
-Create three methods in it:
-- writeMessage(String message) - for displaying message on the console
-- String readString() - for reading strings from the console
-- List<Dish> getAllDishesForOrder() - asks the customer to select a dish and adds it to the list.
-Display a list of all the dishes and ask the customer to enter a string (the name of a dish).
-The customer enters 'exit' to indicate the order is complete.
-If the entered dish is not on the menu, display a message stating that there is no such dish and continue taking the order.
-Rethrow IO exceptions. It isn't clear what to do with them at this level.
-
-2. Refactor the code so that we work with the console only through the ConsoleHelper class.
-
-3. Let's return to the Order class: it has a reference to the tablet, as well as a list of chosen dishes.
-Initialize the dishes list in the constructor by calling the getAllDishesForOrder method from the ConsoleHelper.
-
-4. Rewrite the toString method in the Order class. Let it return an empty string if there are no dishes in the order. Otherwise,
-the output should be similar to the example, in the order in which the dishes were added. Use ConsoleHelper.
-Also, change the Tablet class's toString method (inside the Tablet class, press Alt+Insert -> toString()).
-Example:
-Your order: [Juice, Fish] from Tablet{number=5}
-
-5. We have everything tied to the console. But, if there are exceptions, our application will die.
-To learn the cause, we'll add to the Tablet class a static java.util.logging.Logger logger field, initialized with the class name (Logger.getLogger(Tablet.class.getName())).
-
-6. We handle IO exceptions in the Tablet class's createOrder method.
-Let's write "The console is unavailable." The log level is SEVERE, which is the most serious level (the application cannot continue).
-Also, a new order must be created in the Tablet class's createOrder method.
-
-7. We need to start testing our application.
-In the main method, create a tablet and create four orders.
 
 
 
