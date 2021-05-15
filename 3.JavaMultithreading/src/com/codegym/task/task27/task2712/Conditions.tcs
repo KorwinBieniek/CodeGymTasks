@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task27.task2712.big03"\n\nRestaurant (part 3)
+taskKey="com.codegym.task.task27.task2712.big04"\n\nRestaurant (part 4)
+
+
+What do we have? The cook has prepared the dishes. It's time to take them away, but the waiter is unaware.
+We need to notify the waiter that it's time to pick up the order from the kitchen.
+This situation is similar to the previous task, so we'll use the Observer pattern again.
+
+1. Create a Waiter class in the kitchen package. It will carry the orders back to the table. The waiter won't have a name.
+
+2. Cook prepares orders, and Waiter processes them. Properly assign Observer and Observable to Waiter and Cook.
+
+3. The void update method will display a message about the order and who prepared it:
+order + " was prepared by " + cook
+
+4. In the class that inherits Observable, we'll do the following before sending an order:
+4.1. Set the flag using setChanged()
+4.2. Send the order to the observer using notifyObservers(order);
+
+5. Let's write the main method.
+For the Observable object, add our own Observer object. See item 2 and the description of the pattern in Wikipedia
+We give the cook a name. The name doesn't affect the tests. In my version, the cook's name is Amigo. :)
+
+Let's check the console output. Example of my output:
+Your order: [Water] from Tablet{number=5}
+Start cooking - Your order: [Water] from Tablet{number=5}
+Your order: [Water] from Tablet{number=5} was prepared by Amigo
+
+
+Requirements:
+1.	The Waiter class must implement the Observer interface.
+2.	The Cook class must be a descendant of the Observable class.
+3.	The Cook class&#39;s update method must call the setChanged method.
+4.	The Cook class&#39;s update method must call the notifyObservers method with the current order as the argument.
+5.	The Waiter class&#39;s update method should display a string formatted according to the task conditions.
+6.	The Restaurant class&#39;s main method should create a new waiter and use the addObserver method to add it the cook as an observer.
+
+
+Restaurant (part 3)
 
 
 Now we can create orders. Let's make it so they are automatically sent to the cook.
@@ -29,16 +66,6 @@ Start cooking - Your order: [Soup] from Tablet{number=5}
 
 5. We'll also make a small change. Make it so that the createOrder method returns the current order, or null if the order couldn't be created.
 
-
-Requirements:
-1.	The Cook class constructor must take a string as an argument and initialize the cook&#39;s name (name field).
-2.	The Cook class&#39;s toString method must return the name field.
-3.	The Cook class must implement the Observer interface.
-4.	The Tablet class must be a descendant of the Observable class.
-5.	The Tablet class&#39;s createOrder method must call the setChanged method.
-6.	The Tablet class&#39;s createOrder method must call the notifyObservers method with the current order as the argument.
-7.	The Cook class&#39;s update method should display a string formatted according to the task conditions.
-8.	The Restaurant class&#39;s main method should create a new cook and use the addObserver method to add it the tablet as an observer.
 
 
 Restaurant (part 2)
