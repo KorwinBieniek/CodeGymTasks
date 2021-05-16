@@ -1,4 +1,51 @@
-taskKey="com.codegym.task.task27.task2712.big10"\n\nRestaurant (part 10)
+taskKey="com.codegym.task.task27.task2712.big11"\n\nRestaurant (part 11)
+
+
+We've implemented the first two of the three features. You will recall that the first was automated order preparation,
+the second was commercial selection, and the third is statistics for the manager. And that's our next step.
+
+We need to implement the following functionality:
+1) calculate the statistics
+2) display the statistics to the manager
+
+Let's try to determine the sequence of actions. To display data, you must first get it from somewhere.
+
+There are two approaches:
+The FIRST approach is applied when it is difficult to obtain real data, or when someone else does the work to get the data:
+1. hardcode the data in the application
+2. display the hardcoded statistics
+3. get the real data/statistics (integrate with someone else's code)
+
+SECOND:
+1. get the real data/statistics
+2. display the statistics
+
+Because we're implementing this functionality ourselves, and the statistics aren't complicated, we'll adopt the second approach.
+Let's start by getting the real data and real statistics.
+
+Here's the idea:
+There's an event repository.
+When an event occurs, we'll record it in the repository.
+Upon a request from the manager, we'll filter the events in the repository, and then calculate and display the necessary data.
+
+First, we need several classes.
+1. Create a statistics package, where we'll create a StatisticsManager class. We'll use it to record events in the repository.
+2. We should have one repository with one entry point. Therefore, we'll make StatisticsManager a singleton.
+3. Inside the statistics package, create a nested event package to store event-related classes.
+4. Create an EventDataRow interface in the event package. At the moment, it's a marker interface,
+since it doesn't have methods and we use it to determine whether the passed object is an event.
+5. In StatisticsManager, create a public void record(EventDataRow data) method that records the event in the repository.
+We'll return to the implementation later.
+
+
+Requirements:
+1.	The StatisticsManager class in the statistics package must be a singleton.
+2.	The StatisticsManager class must have a public void record method with one EventDataRow parameter.
+3.	A public static getInstance method must be created in the StatisticsManager class.
+4.	The statistics package must contain an event package that contains an EventDataRow marker interface.
+
+
+Restaurant (part 10)
 
 
 Recursion is used when the algorithm for solving the problem is the same as the algorithm for solving part of the problem.
@@ -26,15 +73,6 @@ And don't forget to implement item 2.4 of the previous task (display all the rel
 
 The revalidate() method must be called for each video shown.
 
-
-Requirements:
-1.	The amount of money received from impressions should be the maximum of all possible options.
-2.	The total commercial playback time must NOT exceed the cooking time for the current order.
-3.	A video should be shown no more than once for any given order.
-4.	If there are several different sets of videos that will produce the same amount of money from impressions, then the option with the maximum total time should be selected.
-5.	If there are several different sets of videos that will produce the same amount of money and have the same total time, then the option with the minimum number of videos should be chosen.
-6.	The set should include only videos with a positive number of remaining impressions.
-7.	The revalidate() method must be called for each video shown.
 
 
 Restaurant (part 9)
@@ -154,34 +192,6 @@ that will select and sequence the optimal set of videos for each order.
 It will also interact with the player and display the videos.
 
 5. Since there is only one AdvertisementStorage for the entire restaurant, we'll make it a singleton.
-
-
-
-Restaurant (part 5)
-
-
-The cook currently prepares dishes instantaneously. In reality, cooking takes some time.
-We need to calculate the time required to prepare the entire order, so we can then select commercials to fill the time.
-
-1. Suppose we know the cooking time for each dish in minutes. We'll hardcode it in the Dish class.
-1.1. Change the creation of the enum fields: Fish(25), Steak(30), Soup(15), Juice(5), Water(3);
-1.2. Create a private int duration field with a getter.
-To create a getter, press Alt+Insert and select Getter. Next, select the field name and click OK (Enter).
-
-2. Add the ability to calculate the time required to prepare the whole order.
-Where should you add it???
-2.1. If you add it to the Cook class, then the cook will be able to calculate how long it will take to prepare the order.
-For other classes to get this information, they will need access the Cook object.
-2.2. If you add it to the Order class, then access to the order will always let you find out how long the order will take.
-2.3. Choose the right place from either item 2.1 or item 2.2, and add a public int getTotalCookingTime() method,
-which will calculate the total time required to prepare all the dishes in the order.
-2.4. Let's add this information to what our cook outputs to the console. Now let's display a message like this:
-Start cooking - Your order: [Soup, Juice, Water] from Tablet{number=5}, cooking time 23 min
-
-Let's make it pretty:
-3. Start the application and immediately enter 'exit'. The output isn't very beautiful.
-Make it so that if there are no dishes in the order, then it doesn't get sent to the cook. Find this relevant place and implement the logic.
-In the Order class, create a public boolean isEmpty() helper method that determines whether there are any dishes in the order.
 
 
 
