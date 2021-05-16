@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task27.task2712.big13"\n\nRestaurant (part 13)
+taskKey="com.codegym.task.task27.task2712.big14"\n\nRestaurant (part 14)
+
+
+1. Create a void put(EventDataRow data) method in StatisticsStorage.
+
+2. To allow the put(EventDataRow data) method to add the data object to the map, we need the event type (EventType).
+It would make sense for the event to store its type. Therefore,
+2.1. Add an EventType getType() method to the EventDataRow interface
+2.2. Implement this method in each event class: OrderReadyEventDataRow, NoVideosAvailableEventDataRow, VideosSelectedEventDataRow
+
+3. Make it so that the void put(EventDataRow data) method cannot be accessed outside the StatisticsManager class.
+Take advantage of the features of nested classes.
+
+Now it remains to arrange StatisticsManager calls in places that generate events.
+
+4. Record an event for the cook when the food is prepared.
+Add a getter for the dishes field to the Order class, and use it when creating the event.
+
+5. Record a "videos selected" event before displaying ads to the customer.
+
+6. The record method with one EventDataRow parameter should record the event in statisticsStorage.
+
+
+Requirements:
+1.	The EventDataRow interface should declare an EventType getType() method.
+2.	Classes that support the EventDataRow interface must correctly implement the getType() method.
+3.	When the food is prepared, the cook must generate an appropriate event.
+4.	Before a video is displayed, a &quot;videos selected&quot; event must be recorded.
+5.	The StatisticsStorage class&#39;s put method must be implemented in accordance with the task conditions.
+6.	The StatisticsManager class&#39;s record method with one EventDataRow parameter should record the passed event in statisticsStorage.
+
+
+Restaurant (part 13)
 
 
 Let's return to the StatisticsManager class's record method. It should record events in a repository.
@@ -20,12 +52,6 @@ The maps type arguments are <EventType, List<EventDataRow>>
 4. In the StatisticsStorage constructor, initialize the repository with default data:
 for example, use a loop to add a new ArrayList <EventDataRow>() for each EventType.
 
-
-Requirements:
-1.	A private StatisticsStorage class must be created in the StatisticsManager class.
-2.	The statisticsStorage field must be created and initialized in the StatisticsManager class.
-3.	A Map&lt;EventType, List&lt;EventDataRow&gt;&gt; storage field must be created in the StatisticsStorage class.
-4.	The storage field must be filled with some values.
 
 
 Restaurant (part 12)
@@ -156,36 +182,6 @@ Use the methods of the Advertisement class.
 2.5. In the Advertisement class, create a void revalidate() method. This method should:
 2.5.1. Throw an UnsupportedOperationException if the number of impressions is not positive.
 2.5.2. Decrement the number of remaining impressions.
-
-
-
-Restaurant (part 8)
-
-
-It's time to describe the functionality of the AdvertisementManager class.
-But first we're going to need some methods in the Advertisement class.
-
-1. Create a long amountPerImpression field in the Advertisement class.
-It should equal the cost of one ad impression in cents (amountPaid / impressionsRemaining).
-Assign a value to the field in the constructor.
-
-2. In the Advertisement class, create getters for the name, duration, and amountPerImpression fields.
-
-3. Determine what data the AdvertisementManager object needs, i.e. the time required for the cook to prepare an order.
-Because we're storing the duration of the videos in seconds, we'll also take the cooking time in seconds.
-In the AdvertisementManager class, create a constructor that has one parameter: int timeSeconds.
-Create a corresponding field and save this value in it.
-
-4. AdvertisementManager performs just one action—it processes ad videos.
-Therefore, create the only public method: void processVideos(). Its functionality will be described in the next task.
-But for now, display "calling the processVideos method"
-
-5. To test this functionality, you need to add a call to the processVideos method to the AdvertisementManager.
-Obviously, this method should be called during creation of an order, or more precisely—in parallel with the creation of an order.
-The order is prepared while the video is watched.
-Add a call to the processVideos() method in the right place.
-
-P.S. Don't forget that an order's preparation time is recorded in minutes, but the time of an ad impression in measured in seconds!
 
 
 

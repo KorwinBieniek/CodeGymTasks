@@ -20,9 +20,6 @@ public class StatisticsManager {
     private StatisticsManager() {
     }
 
-    public void record(EventDataRow data) {
-    }
-
     private class StatisticsStorage {
         private Map<EventType, List<EventDataRow>> storage = new HashMap<>();
 
@@ -31,5 +28,17 @@ public class StatisticsManager {
                 this.storage.put(type, new ArrayList<EventDataRow>());
             }
         }
+
+        private void put(EventDataRow data) {
+            EventType type = data.getType();
+            if (!this.storage.containsKey(type))
+                throw new UnsupportedOperationException();
+
+            this.storage.get(type).add(data);
+        }
+    }
+
+    public void record(EventDataRow data) {
+        this.statisticsStorage.put(data);
     }
 }
