@@ -1,4 +1,43 @@
-taskKey="com.codegym.task.task27.task2712.big09"\n\nRestaurant (part 9)
+taskKey="com.codegym.task.task27.task2712.big10"\n\nRestaurant (part 10)
+
+
+Recursion is used when the algorithm for solving the problem is the same as the algorithm for solving part of the problem.
+That's just what we have. We need to do a full search of all options and choose the best of them.
+
+Let me remind you of the pattern used to write recursive code:
+a) condition for terminating the recursion
+b) condition for continuing the recursion (recursive call with a set of parameters from the previous step).
+You can always find detailed information online about how to write recursion.
+
+Our current task is to provide a recursive implementation of item 2.2 of the previous task:
+(choose a list of available videos that maximizes revenues)
+The recursive method must chose the set of commercials that will be displayed to the customer.
+
+This set must meet the following requirements:
+1) the amount of money received from impressions should be the maximum of all possible options
+2) the total commercial playback time must NOT exceed the cooking time for the current order;
+3) a video is shown no more than once for any given order;
+4) if several different sets of videos will produce the same amount of money from impressions, then:
+4.1) choose the option that maximizes the total time;
+4.2) if the total time is the same for multiple such options, then select the option with the smallest number of videos;
+5) the number of remaining impressions of any commercial in the set must be positive.
+
+And don't forget to implement item 2.4 of the previous task (display all the relevant videos).
+
+The revalidate() method must be called for each video shown.
+
+
+Requirements:
+1.	The amount of money received from impressions should be the maximum of all possible options.
+2.	The total commercial playback time must NOT exceed the cooking time for the current order.
+3.	A video should be shown no more than once for any given order.
+4.	If there are several different sets of videos that will produce the same amount of money from impressions, then the option with the maximum total time should be selected.
+5.	If there are several different sets of videos that will produce the same amount of money and have the same total time, then the option with the minimum number of videos should be chosen.
+6.	The set should include only videos with a positive number of remaining impressions.
+7.	The revalidate() method must be called for each video shown.
+
+
+Restaurant (part 9)
 
 
 We need an exception that will help us handle the situation where we are unable to choose commercials.
@@ -26,13 +65,6 @@ Use the methods of the Advertisement class.
 2.5.1. Throw an UnsupportedOperationException if the number of impressions is not positive.
 2.5.2. Decrement the number of remaining impressions.
 
-
-Requirements:
-1.	The processVideos() method must not display anything.
-2.	If the video playback list is empty, the processVideos() method should throw a NoVideoAvailableException.
-3.	The NoVideoAvailableException should be caught, and a line indicating that there is no video for this order should be written to the log (see the example in the task conditions).
-4.	The NoVideoAvailableException class in the ad package must be a descendant of the RuntimeException class.
-5.	The revalidate() method must be implemented in accordance with the task conditions.
 
 
 Restaurant (part 8)
@@ -150,35 +182,6 @@ Let's make it pretty:
 3. Start the application and immediately enter 'exit'. The output isn't very beautiful.
 Make it so that if there are no dishes in the order, then it doesn't get sent to the cook. Find this relevant place and implement the logic.
 In the Order class, create a public boolean isEmpty() helper method that determines whether there are any dishes in the order.
-
-
-
-Restaurant (part 4)
-
-
-What do we have? The cook has prepared the dishes. It's time to take them away, but the waiter is unaware.
-We need to notify the waiter that it's time to pick up the order from the kitchen.
-This situation is similar to the previous task, so we'll use the Observer pattern again.
-
-1. Create a Waiter class in the kitchen package. It will carry the orders back to the table. The waiter won't have a name.
-
-2. Cook prepares orders, and Waiter processes them. Properly assign Observer and Observable to Waiter and Cook.
-
-3. The void update method will display a message about the order and who prepared it:
-order + " was prepared by " + cook
-
-4. In the class that inherits Observable, we'll do the following before sending an order:
-4.1. Set the flag using setChanged()
-4.2. Send the order to the observer using notifyObservers(order);
-
-5. Let's write the main method.
-For the Observable object, add our own Observer object. See item 2 and the description of the pattern in Wikipedia
-We give the cook a name. The name doesn't affect the tests. In my version, the cook's name is Amigo. :)
-
-Let's check the console output. Example of my output:
-Your order: [Water] from Tablet{number=5}
-Start cooking - Your order: [Water] from Tablet{number=5}
-Your order: [Water] from Tablet{number=5} was prepared by Amigo
 
 
 
