@@ -1,4 +1,34 @@
-taskKey="com.codegym.task.task27.task2712.big12"\n\nRestaurant (part 12)
+taskKey="com.codegym.task.task27.task2712.big13"\n\nRestaurant (part 13)
+
+
+Let's return to the StatisticsManager class's record method. It should record events in a repository.
+Let's create the repository :)
+The repository has a 1-to-1 relationship with the manager, i.e. there is one manager and one repository per application.
+Only the StatisticsManager can access the repository. Therefore...
+From the above, it follows that the repository must be a private inner class.
+Let's call it StatisticsStorage.
+
+1. Inside the StatisticsManager class, create a private inner StatisticsStorage class.
+
+2. To allow the manager to access the repository, you need to create a StatisticsStorage statisticsStorage field in the StatisticsManager class.
+Initialize it with an instance of the class.
+
+3. StatisticsStorage will store data internally in a Map storage field.
+The StatisticsStorage and Map must have a has-a relationship
+The maps type arguments are <EventType, List<EventDataRow>>
+
+4. In the StatisticsStorage constructor, initialize the repository with default data:
+for example, use a loop to add a new ArrayList <EventDataRow>() for each EventType.
+
+
+Requirements:
+1.	A private StatisticsStorage class must be created in the StatisticsManager class.
+2.	The statisticsStorage field must be created and initialized in the StatisticsManager class.
+3.	A Map&lt;EventType, List&lt;EventDataRow&gt;&gt; storage field must be created in the StatisticsStorage class.
+4.	The storage field must be filled with some values.
+
+
+Restaurant (part 12)
 
 
 We have several events:
@@ -26,12 +56,6 @@ amount is the amount of money in cents
 totalDuration is the total duration of the chosen commercials
 3. In the classes created in item 2, add a Date currentDate field, which you will initialize in the constructor with the current date.
 
-
-Requirements:
-1.	An EventType enum with {ORDER_READY, VIDEOS_SELECTED, NO_VIDEOS_AVAILABLE} fields must be created in the event package.
-2.	The event package must contain a OrderReadyEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
-3.	The event package must contain a NoVideosAvailableEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
-4.	The event package must contain a VideosSelectedEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
 
 
 Restaurant (part 11)
@@ -162,33 +186,6 @@ The order is prepared while the video is watched.
 Add a call to the processVideos() method in the right place.
 
 P.S. Don't forget that an order's preparation time is recorded in minutes, but the time of an ad impression in measured in seconds!
-
-
-
-Restaurant (part 7)
-
-
-When choosing which class to start from, try to find one that is used by others, and which does not use anything.
-In our case, this is the repository of advertising videos (AdvertisementStorage).
-We decided that it would be the only one in the restaurant and made it a singleton.
-Let's describe it.
-
-1. The videos need to be stored somewhere. Let's make it a list.
-Create a videos field and initialize it with an empty list.
-Think about whether the videos field should be able to change its value?
-
-2. To make it possible to work with the videos, create the following public methods:
-2.1. list() - returns a list of all available videos.
-2.2. add(Advertisement advertisement) - adds a new video to the videos list.
-
-3. In the class constructor, let's add some data to the videos list. This is what I have:
-Object someContent = new Object();
-new Advertisement(someContent, "First Video", 5000, 100, 3 * 60) // 3 min
-new Advertisement(someContent, "Second Video", 100, 10, 15 * 60) // 15 min
-new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)   // 10 min
-
-4. In the AdvertisementManager class, we'll create a final field that references an instance of AdvertisementStorage and call it storage.
-Don't forget to initialize this field!
 
 
 
