@@ -40,4 +40,11 @@ public class Advertisement {
     public long getAmountPerImpression() {
         return amountPerImpression;
     }
+
+    public void revalidate() {
+        if (impressionsRemaining == 0) {
+            throw new UnsupportedOperationException();
+        }
+        impressionsRemaining--;
+    }
 }

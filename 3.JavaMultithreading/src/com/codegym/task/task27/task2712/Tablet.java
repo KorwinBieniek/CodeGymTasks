@@ -1,6 +1,7 @@
 package com.codegym.task.task27.task2712;
 
 import com.codegym.task.task27.task2712.ad.AdvertisementManager;
+import com.codegym.task.task27.task2712.ad.NoVideoAvailableException;
 import com.codegym.task.task27.task2712.kitchen.Order;
 
 import java.io.IOException;
@@ -29,6 +30,8 @@ public class Tablet extends Observable {
             notifyObservers(order);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "The console is unavailable.");
+        } catch (NoVideoAvailableException nve) {
+            logger.log(Level.INFO, "No video is available for the following order: " + order);
         }
         return order;
     }
