@@ -4,7 +4,6 @@ import com.codegym.task.task27.task2712.statistics.event.EventDataRow;
 
 public class StatisticsManager {
     public void record(EventDataRow data) {
-
     }
 
     private StatisticsManager() {

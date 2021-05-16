@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task27.task2712.big11"\n\nRestaurant (part 11)
+taskKey="com.codegym.task.task27.task2712.big12"\n\nRestaurant (part 12)
+
+
+We have several events:
+*The cook prepared an order
+*The set of videos for an order has been chosen
+*There are no videos that can be shown while an order is prepared
+
+These are constants, so an enum is suitable for representing them.
+
+1. In the event package, create the following: enum EventType {ORDER_READY, VIDEOS_SELECTED, NO_VIDEOS_AVAILABLE}
+
+2. In the event package, create three classes corresponding to the enum fields. They will (should) represent events.
+We will record them in the repository.
+Here are the class names and constructor parameters:
+2.1. OrderReadyEventDataRow(String tabletName, String cookName, int cookingTimeSeconds, List<Dish> dishesInOrder)
+where tabletName is the name of the tablet
+cookName is the name of the cook
+cookingTimeSeconds is the time required to prepare the order in seconds
+dishesInOrder is the list of dishes to prepare
+2.2. NoVideosAvailableEventDataRow(int totalDuration)
+totalDuration is the time required to prepare the order in seconds
+2.3. VideosSelectedEventDataRow(List<Advertisement> optimalVideoSet, long amount, int totalDuration)
+optimalVideoSet is the list of videos chosen for playback
+amount is the amount of money in cents
+totalDuration is the total duration of the chosen commercials
+3. In the classes created in item 2, add a Date currentDate field, which you will initialize in the constructor with the current date.
+
+
+Requirements:
+1.	An EventType enum with {ORDER_READY, VIDEOS_SELECTED, NO_VIDEOS_AVAILABLE} fields must be created in the event package.
+2.	The event package must contain a OrderReadyEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
+3.	The event package must contain a NoVideosAvailableEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
+4.	The event package must contain a VideosSelectedEventDataRow class that implements the EventDataRow interface, with the constructor and fields described in the task conditions.
+
+
+Restaurant (part 11)
 
 
 We've implemented the first two of the three features. You will recall that the first was automated order preparation,
@@ -37,12 +73,6 @@ since it doesn't have methods and we use it to determine whether the passed obje
 5. In StatisticsManager, create a public void record(EventDataRow data) method that records the event in the repository.
 We'll return to the implementation later.
 
-
-Requirements:
-1.	The StatisticsManager class in the statistics package must be a singleton.
-2.	The StatisticsManager class must have a public void record method with one EventDataRow parameter.
-3.	A public static getInstance method must be created in the StatisticsManager class.
-4.	The statistics package must contain an event package that contains an EventDataRow marker interface.
 
 
 Restaurant (part 10)
@@ -159,39 +189,6 @@ new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)   // 10 min
 
 4. In the AdvertisementManager class, we'll create a final field that references an instance of AdvertisementStorage and call it storage.
 Don't forget to initialize this field!
-
-
-
-Restaurant (part 6)
-
-
-An order is created, prepared by the cook, and then carried out to the guest. We also calculate the time required to fill the order.
-We'll consider the first part of the task complete.
-Let's move on to the second: while the order is being prepared, ads should be shown on the tablet.
-Let's define what we mean by ads.
-
-For us, an ad is a video of a certain duration. We also know that someone has paid for a number of impressions.
-We'll assume that we know the number of paid impressions, the total cost of all impressions, and the ad itself.
-
-1. Create an ad package for ad-related functionality.
-
-2. In the ad package, create an Advertisement class that has the following fields:
-Object content - the video
-String name - the name or title
-long amountPaid - the amount paid for ads in cents. Use a long to avoid rounding problems
-int impressionsRemaining - the number of impressions that have been paid for but not shown
-int duration - the duration in seconds
-Set the access modifiers on your own.
-
-3. In the Advertisement class, create a constructor with parameters ordered according to the sequence of fields listed above
-
-4. We'll create another two classes in the same package:
-AdvertisementStorage - a repository of commercials.
-AdvertisementManager - each tablet will have its own manager object
-that will select and sequence the optimal set of videos for each order.
-It will also interact with the player and display the videos.
-
-5. Since there is only one AdvertisementStorage for the entire restaurant, we'll make it a singleton.
 
 
 
