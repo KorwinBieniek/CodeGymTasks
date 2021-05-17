@@ -1,12 +1,10 @@
 package com.codegym.task.task27.task2712.statistics;
 
+import com.codegym.task.task27.task2712.kitchen.Cook;
 import com.codegym.task.task27.task2712.statistics.event.EventDataRow;
 import com.codegym.task.task27.task2712.statistics.event.EventType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StatisticsManager {
     private static StatisticsManager ourInstance = new StatisticsManager();
@@ -16,6 +14,7 @@ public class StatisticsManager {
     }
 
     private StatisticsStorage statisticsStorage = new StatisticsStorage();
+    private Set<Cook> cooks = new HashSet<>();
 
     private StatisticsManager() {
     }
@@ -36,9 +35,25 @@ public class StatisticsManager {
 
             this.storage.get(type).add(data);
         }
+
+        private List<EventDataRow> get(EventType type) {
+            return null;
+        }
     }
 
     public void record(EventDataRow data) {
         this.statisticsStorage.put(data);
+    }
+
+    public void register(Cook cook) {
+        this.cooks.add(cook);
+    }
+
+    public Map<String, Long> getProfitMap() {
+        return null;
+    }
+
+    public Map<String, Map<String, Integer>> getCookWorkloadingMap() {
+        return null;
     }
 }

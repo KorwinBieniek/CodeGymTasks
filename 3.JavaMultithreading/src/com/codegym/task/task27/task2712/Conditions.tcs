@@ -1,4 +1,45 @@
-taskKey="com.codegym.task.task27.task2712.big14"\n\nRestaurant (part 14)
+taskKey="com.codegym.task.task27.task2712.big15"\n\nRestaurant (part 15)
+
+
+Let's think about what needs to be done so that the manager can view the following:
+1) advertising revenues, grouped by day;
+2) cook utilization (time spent working), grouped by day;
+3) list of active videos and the number of remaining impressions for each;
+4) list of inactive videos (with zero remaining impressions).
+
+For each item, we'll add a corresponding method to StatisticsManager.
+The manager will call the method, and StatisticsManager will perform the various calculations.
+But the manager has to call these methods from somewhere. We'll give him or her a tablet, but with different software.
+To do this, we'll create a ManagerTablet class that has a nice interface and the ability to access statistics.
+
+1. Create the ManagerTablet class at the root of the project.
+
+2. In the ManagerTablet class, create four void methods:
+printAdRevenue(), printCookUtilization(), printActiveVideoSet(), printArchivedVideoSet()
+They correspond to the four items listed above.
+
+3. To make it possible to check the result, in the main method, create a manager's tablet and display statistics
+using the methods listed above.
+
+We're going to need some more methods.
+4. In EventDataRow, create the following methods:
+Date getDate(), which returns the row's creation date
+int getTime(), which returns the duration
+
+5. In StatisticsManager, create a void register(Cook cook) method, which will register the cook.
+In the StatisticsManager class, create a Set cooks field and add the cook.
+
+6. Implement the necessary getters in the OrderReadyEventDataRow, NoVideosAvailableEventDataRow, and VideosSelectedEventDataRow classes.
+
+
+Requirements:
+1.	The ManagerTablet class must have the methods listed in the task conditions.
+2.	The Restaurant class&#39;s main method must create a new ManagerTablet and call methods to display statistics.
+3.	The EventDataRow interface must declare getDate and getTime methods.
+4.	The StatisticsManager class must implement a register method with one Cook parameter, that registers the cook in the cooks field (set of all cooks).
+
+
+Restaurant (part 14)
 
 
 1. Create a void put(EventDataRow data) method in StatisticsStorage.
@@ -20,14 +61,6 @@ Add a getter for the dishes field to the Order class, and use it when creating t
 
 6. The record method with one EventDataRow parameter should record the event in statisticsStorage.
 
-
-Requirements:
-1.	The EventDataRow interface should declare an EventType getType() method.
-2.	Classes that support the EventDataRow interface must correctly implement the getType() method.
-3.	When the food is prepared, the cook must generate an appropriate event.
-4.	Before a video is displayed, a &quot;videos selected&quot; event must be recorded.
-5.	The StatisticsStorage class&#39;s put method must be implemented in accordance with the task conditions.
-6.	The StatisticsManager class&#39;s record method with one EventDataRow parameter should record the passed event in statisticsStorage.
 
 
 Restaurant (part 13)
@@ -152,36 +185,6 @@ This set must meet the following requirements:
 And don't forget to implement item 2.4 of the previous task (display all the relevant videos).
 
 The revalidate() method must be called for each video shown.
-
-
-
-Restaurant (part 9)
-
-
-We need an exception that will help us handle the situation where we are unable to choose commercials.
-
-1. Create an unchecked NoVideoAvailableException in the ad package.
-
-2. Let's take a closer look at the void processVideos() method in AdvertisementManager.
-2.1. Remove the code that displays "calling the processVideos method"
-The method should:
-2.2. Choose a list of available videos that maximizes revenues. (Don't do this yet—we'll do it later).
-2.3. If there are no advertising videos that can be shown to the customer, then throw a NoVideoAvailableException,
-which you will need to catch (think about where the best place to do this would be), and log the following phrase with logging level Level.INFO
-"No video is available for the following order: " + order
-2.4. Display all the chosen commercials in order of decreasing cost per impression
-in cents. The secondary sort order is by increasing the cost per impression per second of commercial in thousandths of a cent
-Use the Collections.sort method
-(Again, don't do this yet—we'll do it later).
-Example for [Water]:
-Displaying First Video... 50, 277
-where "First Video" is the name of the commercial
-where 50 is the cost per impression in cents
-where 277 is the cost per impression per second of commercial in thousandths of a cent (equal to 0.277 cents)
-Use the methods of the Advertisement class.
-2.5. In the Advertisement class, create a void revalidate() method. This method should:
-2.5.1. Throw an UnsupportedOperationException if the number of impressions is not positive.
-2.5.2. Decrement the number of remaining impressions.
 
 
 
