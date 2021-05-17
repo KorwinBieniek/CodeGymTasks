@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task27.task2712.big20"\n\nRestaurant (part 20)
+taskKey="com.codegym.task.task27.task2712.big21"\n\nRestaurant (part 21)
+
+
+We continue to fix the bug.
+
+Now all the orders arrive in the queue, but they don't reach the cooks.
+We'll make OrderManager find any available cook and give it an order. To implement this logic,
+we need a deamon thread. It will check for orders in the queue, and then grab available cooks and give them orders.
+
+We're going to need a method that determines whether a cook is busy.
+1. In the Cook class, create a boolean busy field with a getter.
+2. At the beginning of the startCookingOrder method, set busy to true; and at the end of the method, set it to false.
+3. In the startCookingOrder method, simulate the delay resulting from preparing a dish: sleep for 10 times the order's required preparation time.
+In other words, if an order takes 30 minutes to prepare, then the delay will be 30 * 10 milliseconds.
+4. To get a list of all the cooks, in the StatisticsManager class, add a getter for the field that is populated in the register(Cook cook) method.
+
+5. In the OrderManager constructor, create and run a daemon thread. Here's the logic of the run method:
+check the queue every 10 milliseconds. If the queue has orders, then look for available cooks and pass
+them the orders (startCookingOrder method). If there are no available cooks or there are no orders in the queue, then keep waiting.
+
+
+Requirements:
+1.	A boolean busy field and corresponding getter must be created in the Cook class.
+2.	The daemon thread described in the task conditions must be created and started in the OrderManager class constructor.
+3.	In the startCookingOrder method, the Thread.sleep() method must be called with an argument equal to ten times the order&#39;s required preparation time.
+
+
+Restaurant (part 20)
 
 
 Fix a bug: a tablet sends its orders to all known chefs.
@@ -16,13 +43,6 @@ We'll take the second option.
 5. Remove the update method from the Cook class.
 6. In the main method, arrange an Observer-Observable relationship in view of the changes above.
 
-
-Requirements:
-1.	The OrderManager class should support the Observer interface.
-2.	Orders sent to the OrderManager must be added to the orderQueue queue.
-3.	The Cook class should not support the Observer interface.
-4.	The Cook class must have a public void startCookingOrder(Order order) method.
-5.	The update method should be removed from the Cook class.
 
 
 Restaurant (part 19)
@@ -160,41 +180,6 @@ Puck - 6 min
 Ramsay - 5 min
 
 6. Please note that when displaying the date, the name of the month must be in English (when formatting, you can pass Locale.ENGLISH as an argument).
-
-
-
-Restaurant (part 15)
-
-
-Let's think about what needs to be done so that the manager can view the following:
-1) advertising revenues, grouped by day;
-2) cook utilization (time spent working), grouped by day;
-3) list of active videos and the number of remaining impressions for each;
-4) list of inactive videos (with zero remaining impressions).
-
-For each item, we'll add a corresponding method to StatisticsManager.
-The manager will call the method, and StatisticsManager will perform the various calculations.
-But the manager has to call these methods from somewhere. We'll give him or her a tablet, but with different software.
-To do this, we'll create a ManagerTablet class that has a nice interface and the ability to access statistics.
-
-1. Create the ManagerTablet class at the root of the project.
-
-2. In the ManagerTablet class, create four void methods:
-printAdRevenue(), printCookUtilization(), printActiveVideoSet(), printArchivedVideoSet()
-They correspond to the four items listed above.
-
-3. To make it possible to check the result, in the main method, create a manager's tablet and display statistics
-using the methods listed above.
-
-We're going to need some more methods.
-4. In EventDataRow, create the following methods:
-Date getDate(), which returns the row's creation date
-int getTime(), which returns the duration
-
-5. In StatisticsManager, create a void register(Cook cook) method, which will register the cook.
-In the StatisticsManager class, create a Set cooks field and add the cook.
-
-6. Implement the necessary getters in the OrderReadyEventDataRow, NoVideosAvailableEventDataRow, and VideosSelectedEventDataRow classes.
 
 
 
