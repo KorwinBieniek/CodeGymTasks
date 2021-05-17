@@ -1,4 +1,30 @@
-taskKey="com.codegym.task.task27.task2712.big22"\n\nRestaurant (part 22)
+taskKey="com.codegym.task.task27.task2712.big23"\n\nRestaurant (part 23)
+
+
+That's it! You can make it beautiful on your own.
+
+For example:
+1. Threads usually use the ThreadLocalRandom class instead of Random. Refactor the code: replace Random with ThreadLocalRandom.
+2. Make Waiter a task so that it works like a thread (remove Observer). Make a queue of prepared orders. Have the waiter take orders from it and carry them out to the tables.
+3. Write a NoVideosAvailableEventDataRow event in the event log when it is not possible to select a video. Pass this event to the manager.
+4. Write a UI, for example, using Swing.
+
+Here's what you have achieved:
+1. You figured out the Observer pattern.
+2. You beefed up your ability to use recursion.
+3. You got acquainted with a way to implement statistics.
+4. You know more and can do more.
+5. You saw how to break a task into subtasks.
+6. You moved one step closer to working as a Java programmer.
+
+Congratulations!
+
+
+Requirements:
+1.	You did a great job. You finished a big task!
+
+
+Restaurant (part 22)
 
 
 Unfortunately, the orders are still not being prepared in parallel. Here's how our thread from the previous task works.
@@ -21,15 +47,6 @@ the created field equal to the constant from item 1.
 8. Make the Cook class a task (Runnable). Move the logic from the thread in the OrderManager constructor to the Cook class's run method.
 9. Remove the OrderManager class and fix the Observer-Observable relationship in the main method.
 
-
-Requirements:
-1.	A private final static LinkedBlockingQueue orderQueue field must be created in the Restaurant class.
-2.	A private LinkedBlockingQueue queue field and corresponding setter must be created in the Cook class.
-3.	A private LinkedBlockingQueue queue field must be created in the Tablet class.
-4.	The Tablet class not must be a descendant of the Observable class.
-5.	The Cook class should support the Runnable interface.
-6.	The general logic of order preparation and displaying ads must be preserved.
-7.	The OrderManager class should be deleted.
 
 
 Restaurant (part 21)
@@ -128,39 +145,6 @@ All of the createTestOrder method's other functionality remains the same
 
 3. Refactor the createTestOrder() and createOrder() methods: in one of the methods, select the code that is repeated in both methods,
 press Ctrl+Alt+M, enter any name for the method, and click OK. IDEA will offer to replace the code in the second method. Confirm the action.
-
-
-
-Restaurant (part 17)
-
-
-Let's implement the third and fourth statistics items: the lists of active and inactive videos
-It will be easier to do this with access to the video repository (AdvertisementStorage class).
-1. In the ad package, create a StatisticsAdvertisementManager that will provide information from AdvertisementStorage in the required form.
-Make it a singleton.
-
-2. In the StatisticsAdvertisementManager class, create and initialize a AdvertisementStorage field.
-
-3. In the StatisticsAdvertisementManager, create one (or two) methods (you decide) that fetch all the necessary data from the
-AdvertisementStorage: the list of active commercials and the list of inactive commercials.
-An active video is one that has at least one remaining impression.
-An inactive video is one with 0 remaining impressions.
-
-4. Implement the logic of the ManagerTablet class's printActiveVideoSet and printArchivedVideoSet methods.
-Use the method(s) created in the previous item.
-Sort alphabetically by the name of the video
-
-
-Example output for printActiveVideoSet:
-First Video - 100
-Second Video - 10
-Third Video - 2
-Fourth Video - 4
-
-In this example, printArchivedVideoSet would display the following after 50 impressions:
-Second Video
-Third Video
-Fourth Video
 
 
 
