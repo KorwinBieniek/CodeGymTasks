@@ -1,4 +1,42 @@
-taskKey="com.codegym.task.task27.task2712.big16"\n\nRestaurant (part 16)
+taskKey="com.codegym.task.task27.task2712.big17"\n\nRestaurant (part 17)
+
+
+Let's implement the third and fourth statistics items: the lists of active and inactive videos
+It will be easier to do this with access to the video repository (AdvertisementStorage class).
+1. In the ad package, create a StatisticsAdvertisementManager that will provide information from AdvertisementStorage in the required form.
+Make it a singleton.
+
+2. In the StatisticsAdvertisementManager class, create and initialize a AdvertisementStorage field.
+
+3. In the StatisticsAdvertisementManager, create one (or two) methods (you decide) that fetch all the necessary data from the
+AdvertisementStorage: the list of active commercials and the list of inactive commercials.
+An active video is one that has at least one remaining impression.
+An inactive video is one with 0 remaining impressions.
+
+4. Implement the logic of the ManagerTablet class's printActiveVideoSet and printArchivedVideoSet methods.
+Use the method(s) created in the previous item.
+Sort alphabetically by the name of the video
+
+
+Example output for printActiveVideoSet:
+First Video - 100
+Second Video - 10
+Third Video - 2
+Fourth Video - 4
+
+In this example, printArchivedVideoSet would display the following after 50 impressions:
+Second Video
+Third Video
+Fourth Video
+
+
+Requirements:
+1.	The ManagerTablet class&#39;s printActiveVideoSet method must be implemented in accordance with the task conditions.
+2.	The ManagerTablet class&#39;s printArchivedVideoSet method must be implemented in accordance with the task conditions.
+3.	The StatisticsAdvertisementManager class must be a singleton.
+
+
+Restaurant (part 16)
 
 
 Let's implement the first statistics item: advertising revenues, grouped by day.
@@ -44,12 +82,6 @@ Ramsay - 5 min
 
 6. Please note that when displaying the date, the name of the month must be in English (when formatting, you can pass Locale.ENGLISH as an argument).
 
-
-Requirements:
-1.	A getter for the amount field must be created in the VideosSelectedEventDataRow class.
-2.	A getter for the cookName field must be created in the OrderReadyEventDataRow class.
-3.	The ManagerTablet class&#39;s printAdRevenue method must be implemented in accordance with the task conditions.
-4.	The ManagerTablet class&#39;s printCookUtilization method must be implemented in accordance with the task conditions.
 
 
 Restaurant (part 15)
@@ -162,47 +194,6 @@ optimalVideoSet is the list of videos chosen for playback
 amount is the amount of money in cents
 totalDuration is the total duration of the chosen commercials
 3. In the classes created in item 2, add a Date currentDate field, which you will initialize in the constructor with the current date.
-
-
-
-Restaurant (part 11)
-
-
-We've implemented the first two of the three features. You will recall that the first was automated order preparation,
-the second was commercial selection, and the third is statistics for the manager. And that's our next step.
-
-We need to implement the following functionality:
-1) calculate the statistics
-2) display the statistics to the manager
-
-Let's try to determine the sequence of actions. To display data, you must first get it from somewhere.
-
-There are two approaches:
-The FIRST approach is applied when it is difficult to obtain real data, or when someone else does the work to get the data:
-1. hardcode the data in the application
-2. display the hardcoded statistics
-3. get the real data/statistics (integrate with someone else's code)
-
-SECOND:
-1. get the real data/statistics
-2. display the statistics
-
-Because we're implementing this functionality ourselves, and the statistics aren't complicated, we'll adopt the second approach.
-Let's start by getting the real data and real statistics.
-
-Here's the idea:
-There's an event repository.
-When an event occurs, we'll record it in the repository.
-Upon a request from the manager, we'll filter the events in the repository, and then calculate and display the necessary data.
-
-First, we need several classes.
-1. Create a statistics package, where we'll create a StatisticsManager class. We'll use it to record events in the repository.
-2. We should have one repository with one entry point. Therefore, we'll make StatisticsManager a singleton.
-3. Inside the statistics package, create a nested event package to store event-related classes.
-4. Create an EventDataRow interface in the event package. At the moment, it's a marker interface,
-since it doesn't have methods and we use it to determine whether the passed object is an event.
-5. In StatisticsManager, create a public void record(EventDataRow data) method that records the event in the repository.
-We'll return to the implementation later.
 
 
 

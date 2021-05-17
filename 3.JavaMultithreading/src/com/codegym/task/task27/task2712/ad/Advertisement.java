@@ -51,4 +51,8 @@ public class Advertisement {
     public boolean isActive() {
         return impressionsRemaining > 0;
     }
+
+    public int getHits() {
+        return impressionsRemaining;
+    }
 }
