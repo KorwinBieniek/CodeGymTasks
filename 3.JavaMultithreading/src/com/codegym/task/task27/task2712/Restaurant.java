@@ -21,10 +21,11 @@ public class Restaurant {
         StatisticsManager.getInstance().register(cook1);
         StatisticsManager.getInstance().register(cook2);
 
+        OrderManager orderManager = new OrderManager();
+
         for (Tablet tablet :
                 tablets) {
-            tablet.addObserver(cook1);
-            tablet.addObserver(cook2);
+            tablet.addObserver(orderManager);
         }
 
         Thread thread = new Thread(new RandomOrderGeneratorTask(tablets, ORDER_CREATION_INTERVAL));

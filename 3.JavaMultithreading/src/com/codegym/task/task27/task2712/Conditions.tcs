@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task27.task2712.big19"\n\nRestaurant (part 19)
+taskKey="com.codegym.task.task27.task2712.big20"\n\nRestaurant (part 20)
+
+
+Fix a bug: a tablet sends its orders to all known chefs.
+Expected behavior: a tablet sends its orders to a queue, and an available cook takes orders from the queue.
+
+There are two ways to implement this functionality:
+1) Each tablet stores a reference to the queue and pushes new orders to it.
+2) A tablet pushes its orders to the Observer, which stores a reference to the queue. The Observer puts the order into the queue.
+
+We'll take the second option.
+1. In the root of the project, create an OrderManager class that will be an Observer for the tablets.
+2. In the OrderManager class, create a LinkedBlockingQueue<Order> orderQueue field. Add to it all orders passed to the update method.
+3. The Cook class is now NOT an Observer.
+4. In the Cook class, create a void startCookingOrder(Order order) method. Move the update method's logic into this method.
+5. Remove the update method from the Cook class.
+6. In the main method, arrange an Observer-Observable relationship in view of the changes above.
+
+
+Requirements:
+1.	The OrderManager class should support the Observer interface.
+2.	Orders sent to the OrderManager must be added to the orderQueue queue.
+3.	The Cook class should not support the Observer interface.
+4.	The Cook class must have a public void startCookingOrder(Order order) method.
+5.	The update method should be removed from the Cook class.
+
+
+Restaurant (part 19)
 
 
 We need to rework the main method.
@@ -23,14 +50,6 @@ This isn't the behavior we want, so we will correct it in the next task.
 
 P.S. Don't forget to stop the thread!
 
-
-Requirements:
-1.	There should be 5 tablets created in the main method of the Restaurant class.
-2.	There should be 2 cooks created in the main method of the Restaurant class.
-3.	The cooks must be registered in the cooks set in the StatisticsManager.
-4.	A thread based on RandomOrderGeneratorTask should be created and started.
-5.	The RandomOrderGeneratorTask class constructor must match the constructor described in the task conditions.
-6.	Both cooks should be added to each tablet as observers.
 
 
 Restaurant (part 18)
@@ -176,30 +195,6 @@ int getTime(), which returns the duration
 In the StatisticsManager class, create a Set cooks field and add the cook.
 
 6. Implement the necessary getters in the OrderReadyEventDataRow, NoVideosAvailableEventDataRow, and VideosSelectedEventDataRow classes.
-
-
-
-Restaurant (part 14)
-
-
-1. Create a void put(EventDataRow data) method in StatisticsStorage.
-
-2. To allow the put(EventDataRow data) method to add the data object to the map, we need the event type (EventType).
-It would make sense for the event to store its type. Therefore,
-2.1. Add an EventType getType() method to the EventDataRow interface
-2.2. Implement this method in each event class: OrderReadyEventDataRow, NoVideosAvailableEventDataRow, VideosSelectedEventDataRow
-
-3. Make it so that the void put(EventDataRow data) method cannot be accessed outside the StatisticsManager class.
-Take advantage of the features of nested classes.
-
-Now it remains to arrange StatisticsManager calls in places that generate events.
-
-4. Record an event for the cook when the food is prepared.
-Add a getter for the dishes field to the Order class, and use it when creating the event.
-
-5. Record a "videos selected" event before displaying ads to the customer.
-
-6. The record method with one EventDataRow parameter should record the event in statisticsStorage.
 
 
 
