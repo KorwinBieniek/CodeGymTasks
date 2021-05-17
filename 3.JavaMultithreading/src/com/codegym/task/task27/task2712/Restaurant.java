@@ -1,33 +1,38 @@
 package com.codegym.task.task27.task2712;
 
 import com.codegym.task.task27.task2712.kitchen.Cook;
-import com.codegym.task.task27.task2712.statistics.StatisticsManager;
+import com.codegym.task.task27.task2712.kitchen.Order;
+import com.codegym.task.task27.task2712.kitchen.Waiter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Restaurant {
     private static final int ORDER_CREATION_INTERVAL = 100;
+    private static final LinkedBlockingQueue<Order> orderQueue = new LinkedBlockingQueue(200);
 
     public static void main(String[] args) {
         List<Tablet> tablets = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            tablets.add(new Tablet(i + 1));
+            Tablet tablet = new Tablet(i + 1);
+            tablet.setQueue(orderQueue);
+            tablets.add(tablet);
         }
 
-        Cook cook1 = new Cook("John Arne Riise");
-        Cook cook2 = new Cook("Milan Baros");
+        Cook cook = new Cook("Amigo");
+        cook.setQueue(orderQueue);
+        Cook cook2 = new Cook("FIFA");
+        cook2.setQueue(orderQueue);
 
-        StatisticsManager.getInstance().register(cook1);
-        StatisticsManager.getInstance().register(cook2);
+        Waiter waiter = new Waiter();
+        cook.addObserver(waiter);
+        cook2.addObserver(waiter);
 
-        OrderManager orderManager = new OrderManager();
-
-        for (Tablet tablet :
-                tablets) {
-            tablet.addObserver(orderManager);
-        }
-
+        Thread cook11 = new Thread(cook);
+        cook11.start();
+        Thread cook22 = new Thread(cook2);
+        cook22.start();
         Thread thread = new Thread(new RandomOrderGeneratorTask(tablets, ORDER_CREATION_INTERVAL));
         thread.start();
 
@@ -39,6 +44,7 @@ public class Restaurant {
         } catch (InterruptedException e) {
         }
 
+        // Show statistics
         ManagerTablet managerTablet = new ManagerTablet();
         managerTablet.printAdRevenue();
         managerTablet.printCookUtilization();

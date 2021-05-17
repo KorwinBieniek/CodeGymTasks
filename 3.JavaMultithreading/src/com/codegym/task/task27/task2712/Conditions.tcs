@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task27.task2712.big21"\n\nRestaurant (part 21)
+taskKey="com.codegym.task.task27.task2712.big22"\n\nRestaurant (part 22)
+
+
+Unfortunately, the orders are still not being prepared in parallel. Here's how our thread from the previous task works.
+It finds a cook, finds an order, gives the order to the cook using the startCookingOrder method, waits for the order to be prepared,
+and only then moves on to the next order. This is because all the actions are performed consecutively on a single thread.
+We can't perform actions in parallel on the same thread.
+We need a standard Producer-Consumer implementation.
+RandomOrderGeneratorTask is our Producer, because it makes orders.
+Cook is the Consumer, because it processes orders.
+
+1. Move the queue from OrderManager to Restaurant, and make it a private constant.
+2. Add a queue field and setter to the Cook class. Immediately after creating a cook, use the created setter to set
+the created field equal to the constant from item 1.
+3. Tablet should not be an Observable. Remove all the dependencies.
+4. In Tablet, create a setter and set a reference to the queue (item 1) a tablet is created.
+5. In Tablet, replace the logic that notifies the Observer with logic that adds the order to the queue.
+
+6. In the method main, create and run threads based on Cook tasks.
+7. Remove the cooks set, its getter, and the register(Cook cook) method from the StatisticsManager class.
+8. Make the Cook class a task (Runnable). Move the logic from the thread in the OrderManager constructor to the Cook class's run method.
+9. Remove the OrderManager class and fix the Observer-Observable relationship in the main method.
+
+
+Requirements:
+1.	A private final static LinkedBlockingQueue orderQueue field must be created in the Restaurant class.
+2.	A private LinkedBlockingQueue queue field and corresponding setter must be created in the Cook class.
+3.	A private LinkedBlockingQueue queue field must be created in the Tablet class.
+4.	The Tablet class not must be a descendant of the Observable class.
+5.	The Cook class should support the Runnable interface.
+6.	The general logic of order preparation and displaying ads must be preserved.
+7.	The OrderManager class should be deleted.
+
+
+Restaurant (part 21)
 
 
 We continue to fix the bug.
@@ -18,11 +52,6 @@ In other words, if an order takes 30 minutes to prepare, then the delay will be 
 check the queue every 10 milliseconds. If the queue has orders, then look for available cooks and pass
 them the orders (startCookingOrder method). If there are no available cooks or there are no orders in the queue, then keep waiting.
 
-
-Requirements:
-1.	A boolean busy field and corresponding getter must be created in the Cook class.
-2.	The daemon thread described in the task conditions must be created and started in the OrderManager class constructor.
-3.	In the startCookingOrder method, the Thread.sleep() method must be called with an argument equal to ten times the order&#39;s required preparation time.
 
 
 Restaurant (part 20)
@@ -132,54 +161,6 @@ In this example, printArchivedVideoSet would display the following after 50 impr
 Second Video
 Third Video
 Fourth Video
-
-
-
-Restaurant (part 16)
-
-
-Let's implement the first statistics item: advertising revenues, grouped by day.
-
-1. In the VideosSelectedEventDataRow class, create a getter for the amount field.
-In the OrderReadyEventDataRow class, create a getter for the cookName field.
-
-2. In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
-related to displaying advertising, and will calculate the total revenues for each day.
-Additionally, add a get helper method to the repository class to access the data.
-
-3. Let's start with the logic of the printAdRevenue method in the ManagerTablet class.
-Using the method from the previous item, display the dates and amounts in decreasing order.
-For each date with displayed ads in the event repository, the revenue per impression for that date should be displayed.
-At the end, display "Total" and the total amount.
-Example:
-14-Jul-2013 - 2.50
-13-Jul-2013 - 1.02
-12-Jul-2013 - 543.98
-Total - 547.50
-
-4. Let's implement the second statistics item: cook utilization (time spent working), grouped by day.
-
-In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
-related to a cook's work, and will calculate the total time spent working for each cook separately.
-
-5. Implement the logic of the ManagerTablet class's printCookUtilization method.
-Using the method from the previous item to display dates, names of cooks, and hours worked (round up), in decreasing order.
-For each date in the event repository with a record about work performed by a cook, the time worked on that date in minutes should be displayed.
-If a cook did not work on a day, then DO NOT display empty data for him or her (see 13-Jul-2013)
-Sort the cooks by name
-Example:
-14-Jul-2013
-Puck - 60 min
-Ramsay - 35 min
-
-13-Jul-2013
-Puck - 129 min
-
-12-Jul-2013
-Puck - 6 min
-Ramsay - 5 min
-
-6. Please note that when displaying the date, the name of the month must be in English (when formatting, you can pass Locale.ENGLISH as an argument).
 
 
 
