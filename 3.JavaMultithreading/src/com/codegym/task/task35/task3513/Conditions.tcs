@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task35.task3513.big14"\n\n2048 (part 14)
+taskKey="com.codegym.task.task35.task3513.big15"\n\n2048 (part 15)
+
+
+To compare the fitness of different moves, we need to implement support for the Comparable interface
+in the MoveFitness class.
+
+In the compareTo method, compare the numbers of empty tiles (numberOfEmptyTiles) first. If the number of empty
+tiles is equal, then compare the scores (score). If the scores are also equal, then we will consider the moves to be equally
+fit and return zero.
+
+Next we move to the Model class and implement two methods:
+1) boolean hasBoardChanged - It returns true if the tile weights in the gameTiles array
+differs from the tile weights in the topmost array of the previousStates stack. Note that we
+must not remove the top element from the stack. Use the peek method.
+2) MoveFitness getMoveFitness(Move move) - It has one Move parameter, and returns
+a MoveFitness object that describes the fitness of the passed move. Here are some tips:
+a) don't forget to call the rollback method to restore the correct game state;
+b) if the move doesn't change the state of the game board, make the number of empty tiles and the score of the MoveFitness object
+-1 and 0, respectively;
+c) you can make a move by calling the move method on the object passed as an argument.
+
+
+Requirements:
+1.	The MoveFitness class must support the Comparable interface.
+2.	The compareTo method should correctly compare two MoveFitness objects.
+3.	The hasBoardChanged method must be implemented in accordance with the task conditions.
+4.	The getMoveFitness method should return the fitness of the move passed as an argument.
+5.	If the move passed to the getMoveFitness method does not change the playing field, the number of empty cells in the returned object must be equal to -1.
+6.	The getMoveFitness method must not change the tile weights in the gameTiles array or the score.
+
+
+2048 (part 14)
 
 
 A random move is certainly not bad, but it's much cooler to implement the ability to make smart moves. We won't get bogged down in neural networks.
@@ -25,12 +56,6 @@ numberOfEmptyTiles and scores fields, as well as a private Move move field.
 The MoveFitness class needs a constructor with three parameters (int numberOfEmptyTiles, int score, Move move)
 for initializing the fields, and a getter for the move field.
 
-
-Requirements:
-1.	The Move interface must have one abstract void move method.
-2.	The Move interface must be annotated with the @FunctionInterface annotation type.
-3.	The MoveFitness class constructor must correctly initialize the object&#39;s fields.
-4.	A proper getter for the move field must be created in the MoveFitness class.
 
 
 2048 (part 13)
@@ -129,43 +154,6 @@ in the Controller class. Don't forget to add it.
 
 P.S. Finishing this task will result in a working version of the game 2048. If something doesn't work,
 or doesn't work as expected, be sure to figure it out and fix it before moving on to the subsequent tasks.
-
-
-
-2048 (part 9)
-
-
-You're doing really well! It's so good that I decided to help you a little and have already implemented the View class.
-It's quite simple. It inherits the JPanel class, overrides the paint method, and displays
-the current state of the model obtained using the controller.
-
-But you have to finish implementing the Controller class.
-
-To start, we're going to need a constructor. It will have one Model parameter, initialize the model
-field, and also save a new View object in the view field, passing the current controller (this) to the
-constructor.
-
-Next, we need a resetGame method that can return the game board to its initial state.
-You need to reset the score, set the isGameWon and isGameLost flags on the view to false, and call the
-resetGameTiles method on the model. Note: set the field values directly, without using setters.
-
-Add a private constant int WINNING_TILE = 2048. It will determine the tile weight that, when achieved,
-constitutes a win.
-
-And now, the most important thing! To be able to process user input, you need to
-override the keyPressed method with a single KeyEvent parameter.
-The logic of the method should be as follows:
-1) If the ESC key was pressed, call the resetGame method.
-2) If the model's canMove method returns false, set the isGameLost flag to true.
-3) If both the isGameLost and isGameWon flags are false, process the movement events:
-a) for KeyEvent.VK_LEFT, call the left method on the model;
-b) for KeyEvent.VK_RIGHT, call the right method on the model;
-c) for KeyEvent.VK_UP key, call the up method on the model;
-d) for KeyEvent.VK_DOWN key, call the down method on the model.
-4) If the model's maxTile field becomes equal to WINNING_TILE, set the isGameWon flag to true.
-5) Finally, call the repaint method on the view.
-
-P.S. To get the key code, use the KeyEvent class's getKeyCode method.
 
 
 

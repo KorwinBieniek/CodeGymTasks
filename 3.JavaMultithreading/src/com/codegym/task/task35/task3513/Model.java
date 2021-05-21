@@ -214,4 +214,25 @@ public class Model {
                 break;
         }
     }
+
+    private MoveFitness getMoveFitness(Move move) {
+        MoveFitness moveFitness = new MoveFitness(-1, 0, move);
+        move.move();
+        if (hasBoardChanged()) {
+            moveFitness = new MoveFitness(getEmptyTilesCount(), score, move);
+        }
+        rollback();
+        return moveFitness;
+    }
+
+    private boolean hasBoardChanged() {
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
