@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task35.task3513.big03"\n\n2048 (part 3)
+taskKey="com.codegym.task.task35.task3513.big04"\n\n2048 (part 4)
+
+
+The game 2048 begins on a board where two tiles already have initial values. But our board is still empty :(.
+Before you rush to write code, let's think about how this could be implemented.
+
+I suggest creating a private addTile method that will look at which tiles are empty. And if there are empty tiles, it will change the weight of one of them,
+chosen at random, to 2 or 4 (there should be 1 four for every 9 twos). To get a random item from the list,
+you can use the following expression: (list size * random number between zero and one).
+You can also get empty tiles using a separate private getEmptyTiles method that returns a list
+of the empty tiles in the gameTiles array.
+
+After implementing the functionality for adding new tiles, add two addTile method calls to the constructor
+to satisfy the task's starting condition.
+
+P.S. Perhaps it would be worth it to move all the code from the constructor to a resetGameTiles method so that
+starting a new game doesn't require creating a new model. You could instead simply return to the initial state
+by calling this method. The access level should be wider than private.
+P.P.S. To calculate the weight of a new tile, use the expression (Math.random () < 0.9 ? 2 : 4).
+
+
+Requirements:
+1.	The getEmptyTiles method should return a list of the empty tiles in the gameTiles array.
+2.	The addTile method should change the value of a random empty tile in the gameTiles array to 2 or 4 with a probability of 0.9 and 0.1, respectively.
+3.	The resetGameTiles method should populate the gameTiles array with new tiles and change the value of two of them with two calls to the addTile method.
+4.	The Model class constructor must call the resetGameTiles method.
+
+
+2048 (part 3)
 
 
 Let's implement the Model class. It will be responsible for all manipulations performed on the game board.
@@ -10,12 +38,6 @@ We're going to need:
 2. A private two-dimensional gameTiles array consisting of Tile objects.
 3. A constructor without parameters that initializes the game board and populates it with empty tiles.
 
-
-Requirements:
-1.	A private static final FIELD_WIDTH field equal to four must be created in the Model class.
-2.	The Model class should create a private Tile[][] gameTiles field.
-3.	The Model class&#39;s constructor without parameters must fill in the gameTiles array with new Tile objects.
-4.	The dimensions of the gameTiles array must be FIELD_WIDTH x FIELD_WIDTH.
 
 
 2048 (part 2)
