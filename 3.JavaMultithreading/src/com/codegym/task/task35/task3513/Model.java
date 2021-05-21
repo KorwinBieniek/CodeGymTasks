@@ -1,9 +1,6 @@
 package com.codegym.task.task35.task3513;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Model {
     private Tile[][] gameTiles;
@@ -234,5 +231,16 @@ public class Model {
             }
         }
         return false;
+    }
+
+    void autoMove() {
+        PriorityQueue<MoveFitness> moveEfficiencies = new PriorityQueue<>(4, Collections.reverseOrder());
+
+        moveEfficiencies.offer(getMoveFitness(this::left));
+        moveEfficiencies.offer(getMoveFitness(this::up));
+        moveEfficiencies.offer(getMoveFitness(this::right));
+        moveEfficiencies.offer(getMoveFitness(this::down));
+
+        moveEfficiencies.peek().getMove().move();
     }
 }

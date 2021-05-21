@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task35.task3513.big15"\n\n2048 (part 15)
+taskKey="com.codegym.task.task35.task3513.big16"\n\n2048 (part 16)
+
+
+You're almost there! We have a way to determine the fitness of any move, and we can also compare
+moves.
+
+Let's implement an autoMove method in the Model class. It will choose and execute the best possible move.
+
+Let's do the following:
+1) Create a local PriorityQueue with capacity for four elements, passing in Collections.reverseOrder() (that way
+the maximum element is always at the top of the queue).
+2) Fill in PriorityQueue with four MoveFitness objects (one for each possible move).
+3) Take the top element and execute associated move.
+
+After implementing the autoMove method, add a call to this method in the Controller class's keyPressed method
+in response to a press of the A key (code - KeyEvent.VK_A).
+
+P.S. As an optional exercise, you can read about method references and try to use
+the "::" operator to pass an argument to the getMoveFitness method. For the left method, you would use
+getMoveFitness(this::left). Alternatively, you can use an anonymous class.
+
+
+Requirements:
+1.	A PriorityQueue object whose size is four must be created in the autoMove method.
+2.	The autoMove method must use the offer method to add 4 MoveFitness objects (one for each possible move) to a PriorityQueue.
+3.	The Controller class&#39;s keyPressed method should call the autoMove method on the model if the key with the code KeyEvent.VK_A is pressed.
+4.	The autoMove method must call the move method on a MoveFitness object obtained using the peek or poll method.
+
+
+2048 (part 15)
 
 
 To compare the fitness of different moves, we need to implement support for the Comparable interface
@@ -19,14 +48,6 @@ b) if the move doesn't change the state of the game board, make the number of em
 -1 and 0, respectively;
 c) you can make a move by calling the move method on the object passed as an argument.
 
-
-Requirements:
-1.	The MoveFitness class must support the Comparable interface.
-2.	The compareTo method should correctly compare two MoveFitness objects.
-3.	The hasBoardChanged method must be implemented in accordance with the task conditions.
-4.	The getMoveFitness method should return the fitness of the move passed as an argument.
-5.	If the move passed to the getMoveFitness method does not change the playing field, the number of empty cells in the returned object must be equal to -1.
-6.	The getMoveFitness method must not change the tile weights in the gameTiles array or the score.
 
 
 2048 (part 14)
@@ -124,36 +145,6 @@ There's no need for a deep copy.
 
 Before restoring the game state using the rollback method, don't forget to check whether the stacks are empty
 to avoid throwing an EmptyStackException.
-
-
-
-2048 (part 10)
-
-
-It's time to start implementing the main method in the Main class—to finally be able to launch the game and relax!
-
-We only need the main method to run the application. We've already implemented all the guts.
-To do this, in the main method, we'll create a model and controller, as well as a JFrame object. I'll call it game,
-but you can choose any name you want.
-
-We will need to call some methods on our game (JFrame object) in order for everything to be displayed correctly
-on the screen:
-
-game.setTitle("2048");
-game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-game.setSize(450, 500);
-game.setResizable(false);
-
-game.add(controller.getView());
-
-game.setLocationRelativeTo(null);
-game.setVisible(true);
-
-Pay attention to the add method to which we pass the view from the controller. We don't yet have a getter for the view field
-in the Controller class. Don't forget to add it.
-
-P.S. Finishing this task will result in a working version of the game 2048. If something doesn't work,
-or doesn't work as expected, be sure to figure it out and fix it before moving on to the subsequent tasks.
 
 
 
