@@ -1,4 +1,48 @@
-taskKey="com.codegym.task.task35.task3513.big01"\n\n2048 (part 1)
+taskKey="com.codegym.task.task35.task3513.big02"\n\n2048 (part 2)
+
+
+In the game 2048 game, the board consists of 16 tiles, each of which has a certain weight.
+In addition to weight, a tile has its own color and text color used to display the tile's weight.
+Tile colors range from light gray to red, and the text color depends on the color of the tile.
+
+Create a Tile class that will describe a single tile.
+It will need the following:
+1. An int value field with default access.
+2. A constructor with a parameter that initializes the value field.
+3. A constructor without parameters (initializes the value field to zero).
+4. An isEmpty method that returns true if the value field is 0, otherwise false.
+5. A getFontColor method that returns a new Color object (0x776e65)
+if the tile weight is less than 16, otherwise 0xf9f6f2.
+6. The getTileColor method, which returns the color of a tile depending on its weight, according to the
+following values:
+0:    (0xcdc1b4);
+2:    (0xeee4da);
+4:    (0xede0c8);
+8:    (0xf2b179);
+16:   (0xf59563);
+32:   (0xf67c5f);
+64:   (0xf65e3b);
+128:  (0xedcf72);
+256:  (0xedcc61);
+512:  (0xedc850);
+1024: (0xedc53f);
+2048: (0xedc22e);
+
+for any other values: (0xff0000).
+
+The methods listed above should not be private.
+
+
+Requirements:
+1.	The Tile class must have an int value field with default access.
+2.	The Tile class constructor with one int parameter must initialize the value field.
+3.	When a Tile object is created using the no-argument constructor, the value field must be zero.
+4.	The isEmpty method must return true if the value field is 0, otherwise false.
+5.	The getFontColor method must be implemented in accordance with the task conditions.
+6.	The getTileColor method should return the color of a tile depending on its weight.
+
+
+2048 (part 1)
 
 
 Hi! I hope you've grown tired of ordinary tasks and are eagerly anticipating a big one!
@@ -14,11 +58,5 @@ To begin, we're going to need the following classes:
 
 Create them!
 
-
-Requirements:
-1.	A Controller class must be created.
-2.	A Model class must be created.
-3.	A View class must be created.
-4.	A Main class must be created with a public static main(String[] args) method.
 
 
