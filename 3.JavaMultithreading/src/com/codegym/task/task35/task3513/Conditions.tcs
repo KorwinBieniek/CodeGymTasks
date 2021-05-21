@@ -1,4 +1,20 @@
-taskKey="com.codegym.task.task35.task3513.big16"\n\n2048 (part 16)
+taskKey="com.codegym.task.task35.task3513.big17"\n\n2048 (17)
+
+
+Congratulations on implementing your own version of the game 2048!
+
+You implemented not only the basic functionality, but also the ability to undo the last move and automatically select the best move by
+evaluating the fitness of a single move.
+
+Possible improvements you could make include trying to increase the depth of your move fitness analysis and see
+whether your algorithm can achieve the maximum possible score of 839,732 points.
+
+
+Requirements:
+1.	Congratulations! You did a great job!
+
+
+2048 (part 16)
 
 
 You're almost there! We have a way to determine the fitness of any move, and we can also compare
@@ -19,12 +35,6 @@ P.S. As an optional exercise, you can read about method references and try to us
 the "::" operator to pass an argument to the getMoveFitness method. For the left method, you would use
 getMoveFitness(this::left). Alternatively, you can use an anonymous class.
 
-
-Requirements:
-1.	A PriorityQueue object whose size is four must be created in the autoMove method.
-2.	The autoMove method must use the offer method to add 4 MoveFitness objects (one for each possible move) to a PriorityQueue.
-3.	The Controller class&#39;s keyPressed method should call the autoMove method on the model if the key with the code KeyEvent.VK_A is pressed.
-4.	The autoMove method must call the move method on a MoveFitness object obtained using the peek or poll method.
 
 
 2048 (part 15)
@@ -113,38 +123,6 @@ for this. If it is true, we save the state. After performing
 a left shift, we set the isSaveNeeded flag to true.
 
 Also, make the Controller class's keyPressed method call the rollback method when the Z key (code KeyEvent.VK_Z) is pressed.
-
-
-
-2048 (part 11)
-
-
-Good work! At this stage, we already have a full-featured application, but there’s no limit to perfection.
-Let's do some more work.
-
-If you've managed to play 2048 a little, you've noticed that sometimes you really want to be able to undo
-your last move.
-
-Let's create two stacks in the Model class: one to store the previous states of the game board, and the other
-to store previous scores. Let's call them previousStates and previousScores. You can initialize them immediately when they are declared
-or in the constructor. Use the standard stack implementation (java.util.Stack).
-
-Add a boolean isSaveNeeded field and set it to true. We'll need it in the future.
-
-We have places to store state. Now we'll implement two methods to work with them.
-1. The private saveState method with one Tile[][] parameter will use the push method to save the current
-game board and score in stacks and set the isSaveNeeded flag to false.
-2. The public rollback method will use the pop method to set the current game state to the last state
-added to the stacks.
-
-Note that when you save the gameTiles array, you need to create a new array and populate it
-with new Tile objects before saving it to the stack.
-
-In the rollback method, perform a simple assignment (gameTiles = previousStates.pop()) and do the same for the score.
-There's no need for a deep copy.
-
-Before restoring the game state using the rollback method, don't forget to check whether the stacks are empty
-to avoid throwing an EmptyStackException.
 
 
 
