@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task35.task3513.big01"\n\n2048 (part 1)
+
+
+Hi! I hope you've grown tired of ordinary tasks and are eagerly anticipating a big one!
+Today we'll write a Java implementation of the game 2048. In short, if you haven't heard anything about this game, the goal is
+to get a tile with a value of 2048 on a 4x4 board. You can read more on Wikipedia:
+https://en.wikipedia.org/wiki/2048_(video_game)
+
+To begin, we're going to need the following classes:
+1. Controller - It will monitor keystrokes during the game.
+2. Model - It will contain the game logic and store the game board.
+3. View - It will provide a view of the current state of the game.
+4. Main - It will contain only the main method, serving as the entry point for our application.
+
+Create them!
+
+
+Requirements:
+1.	A Controller class must be created.
+2.	A Model class must be created.
+3.	A View class must be created.
+4.	A Main class must be created with a public static main(String[] args) method.
+
+
