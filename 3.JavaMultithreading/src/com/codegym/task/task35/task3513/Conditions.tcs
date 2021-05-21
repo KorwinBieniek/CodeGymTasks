@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task35.task3513.big11"\n\n2048 (part 11)
+taskKey="com.codegym.task.task35.task3513.big12"\n\n2048 (part 12)
+
+
+Well, shall we try our algorithm in action? We still need to add logic to save the game state at the beginning of each
+movement method, as well as another key processing case for undoing the last move.
+
+When saving the current state to the stack, be sure that the current state is always saved
+and only once. If you listened to my advice and used rotations and a call to the left method
+to implement the right, up, and down method, you can use the following approach:
+1) At the very beginning of the right, up, and down methods, call the saveState method with gameTiles as the argument.
+2) In the left method, check whether the saveState method has already been called. We have the isSaveNeeded flag
+for this. If it is true, we save the state. After performing
+a left shift, we set the isSaveNeeded flag to true.
+
+Also, make the Controller class's keyPressed method call the rollback method when the Z key (code KeyEvent.VK_Z) is pressed.
+
+
+Requirements:
+1.	The Controller class&#39;s keyPressed method should call the rollback method on the model if the key with the code KeyEvent.VK_Z is pressed.
+2.	The left method must save the current game state and score in the appropriate stacks once.
+3.	The right method must save the current game state and score in the appropriate stacks once.
+4.	The up method must save the current game state and score in the appropriate stacks once.
+5.	The down method must save the current game state and score in the appropriate stacks once.
+
+
+2048 (part 11)
 
 
 Good work! At this stage, we already have a full-featured application, but there’s no limit to perfection.
@@ -28,17 +53,6 @@ There's no need for a deep copy.
 Before restoring the game state using the rollback method, don't forget to check whether the stacks are empty
 to avoid throwing an EmptyStackException.
 
-
-Requirements:
-1.	The private fields previousStates, previousScores, and isSaveNeeded should be declared and initialized in the Model class.
-2.	The saveState method should use the push method to save a new Tile[][] object in the previousStates stack.
-3.	After the saveState method is called, the tile weights in the array at the top of the stack must match the tile weights in the array passed as an argument.
-4.	The saveState method should use the push method to save the current value of the score field in the previousScores stack.
-5.	The saveState method should set the isSaveNeeded flag to false.
-6.	The rollback method should restore the score and gameTiles fields from the appropriate stacks, if they are not empty.
-7.	The rollback method should not modify the current game state if at least one of the stacks is empty.
-8.	Each call to the saveState method must increase the number of elements in the stacks by one.
-9.	Each call to the rollback method should reduce the number of elements in the stacks by one, if possible.
 
 
 2048 (part 10)
@@ -141,22 +155,6 @@ without my help, so I'll give you just one hint.
 
 What happens if you rotate a two-dimensional array clockwise by 90 degrees, shift it to the left, and then
 rotate three times?
-
-
-
-2048 (part 6)
-
-
-So, you've implemented tile consolidation and merging. The combination of these operations gives us the ability to move to the left.
-Great! But we also need to add a new tile if the game board was changed by the movement.
-
-Let's do the following:
-1. Change the consolidateTiles method so that it returns true if it makes changes to the input array,
-otherwise false.
-2. Do the same for the mergeTiles method.
-3. Implement the left method, which will call the consolidateTiles and mergeTiles methods for each row of the
-gameTiles array and, if necessary, use the addTile method to add a tile.
-4. The left method should not be private, since it will be called from the Controller class and elsewhere.
 
 
 
