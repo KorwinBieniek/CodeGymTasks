@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task35.task3513.big12"\n\n2048 (part 12)
+taskKey="com.codegym.task.task35.task3513.big13"\n\n2048 (part 13)
+
+
+Your progress is impressive! To change things up, I suggest giving the game the ability to
+choose the next move on its own.
+
+Let's start with the simple. In the Model class, implement a randomMove that randomly calls one of the movement
+methods. You can implement this by calculating n = ((int) (Math.random () * 100)) % 4.
+The resulting number will be a pseudorandom integer in the range [0..3]. You can associate each number in this range
+with one of the methods left, right, up, or down.
+
+Don't forget to add a call to the randomMove method in the Controller class's keyPressed method in response to a press of the R key
+(code - KeyEvent.VK_R).
+
+P.S. I'll leave you entirely responsible for checking the correctness of the randomMove method.
+I'll only check for the presence of a call to the Math.random() method.
+
+
+Requirements:
+1.	The Model class must have a void randomMove() method.
+2.	The Controller class&#39;s keyPressed method should call the randomMove method on the model if the key with the code KeyEvent.VK_R is pressed.
+3.	The randomMove method should use the Math class&#39;s static random method.
+
+
+2048 (part 12)
 
 
 Well, shall we try our algorithm in action? We still need to add logic to save the game state at the beginning of each
@@ -14,13 +38,6 @@ a left shift, we set the isSaveNeeded flag to true.
 
 Also, make the Controller class's keyPressed method call the rollback method when the Z key (code KeyEvent.VK_Z) is pressed.
 
-
-Requirements:
-1.	The Controller class&#39;s keyPressed method should call the rollback method on the model if the key with the code KeyEvent.VK_Z is pressed.
-2.	The left method must save the current game state and score in the appropriate stacks once.
-3.	The right method must save the current game state and score in the appropriate stacks once.
-4.	The up method must save the current game state and score in the appropriate stacks once.
-5.	The down method must save the current game state and score in the appropriate stacks once.
 
 
 2048 (part 11)
@@ -144,17 +161,6 @@ the state of the game board is possible given the current position. Otherwise, i
 3. Make the Controller class a child of the KeyAdapter class.
 4. Add to the Controller class a getGameTiles method that calls the same method on the model.
 5. Add to the Controller class a getScore method that returns the current score (model.score).
-
-
-
-2048 (part 7)
-
-
-We've implemented movement to the left. Now we need to implement the right, up, and down methods. I'm sure you can handle it
-without my help, so I'll give you just one hint.
-
-What happens if you rotate a two-dimensional array clockwise by 90 degrees, shift it to the left, and then
-rotate three times?
 
 
 
