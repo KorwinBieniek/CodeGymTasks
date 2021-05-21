@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task35.task3513.big05"\n\n2048 (part 5)
+taskKey="com.codegym.task.task35.task3513.big06"\n\n2048 (part 6)
+
+
+So, you've implemented tile consolidation and merging. The combination of these operations gives us the ability to move to the left.
+Great! But we also need to add a new tile if the game board was changed by the movement.
+
+Let's do the following:
+1. Change the consolidateTiles method so that it returns true if it makes changes to the input array,
+otherwise false.
+2. Do the same for the mergeTiles method.
+3. Implement the left method, which will call the consolidateTiles and mergeTiles methods for each row of the
+gameTiles array and, if necessary, use the addTile method to add a tile.
+4. The left method should not be private, since it will be called from the Controller class and elsewhere.
+
+
+Requirements:
+1.	The consolidateTiles method should return true if it has made changes to the input array.
+2.	The consolidateTiles method should return false if it has NOT made changes to the input array.
+3.	The mergeTiles method should return true if it has made changes to the input array.
+4.	The mergeTiles method should return false if it has NOT made changes to the input array.
+5.	The left method should move the elements of the gameTiles array to the left according to the rules of the game and, if necessary, add tiles using the addTile method.
+6.	The left method should NOT modify the gameTiles array if a move to the left is not possible.
+
+
+2048 (part 5)
 
 
 The main actions that we need to enable are movements left, right, up and down.
@@ -29,15 +53,6 @@ if necessary, change the value of the maxTile field.
 P.S. When we implement the movement methods, tiles will always be consolidated before they are merged, so
 you can assume that the mergeTiles method will always be passed an array of tiles that does not have empty tiles in the middle.
 
-
-Requirements:
-1.	The mergeTiles method must be implemented in accordance with the task conditions.
-2.	The consolidateTiles method must be implemented in accordance with the task conditions.
-3.	The consolidateTiles method must be private.
-4.	The mergeTiles method must be private.
-5.	The mergeTiles method should correctly update the value of the score field.
-6.	The mergeTiles method should correctly update the value of the maxTile field.
-7.	The score and maxTile fields must be initialized to zero when a new model is created.
 
 
 2048 (part 4)
