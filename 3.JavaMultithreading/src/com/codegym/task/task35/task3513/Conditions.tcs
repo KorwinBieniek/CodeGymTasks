@@ -1,4 +1,47 @@
-taskKey="com.codegym.task.task35.task3513.big10"\n\n2048 (part 10)
+taskKey="com.codegym.task.task35.task3513.big11"\n\n2048 (part 11)
+
+
+Good work! At this stage, we already have a full-featured application, but there’s no limit to perfection.
+Let's do some more work.
+
+If you've managed to play 2048 a little, you've noticed that sometimes you really want to be able to undo
+your last move.
+
+Let's create two stacks in the Model class: one to store the previous states of the game board, and the other
+to store previous scores. Let's call them previousStates and previousScores. You can initialize them immediately when they are declared
+or in the constructor. Use the standard stack implementation (java.util.Stack).
+
+Add a boolean isSaveNeeded field and set it to true. We'll need it in the future.
+
+We have places to store state. Now we'll implement two methods to work with them.
+1. The private saveState method with one Tile[][] parameter will use the push method to save the current
+game board and score in stacks and set the isSaveNeeded flag to false.
+2. The public rollback method will use the pop method to set the current game state to the last state
+added to the stacks.
+
+Note that when you save the gameTiles array, you need to create a new array and populate it
+with new Tile objects before saving it to the stack.
+
+In the rollback method, perform a simple assignment (gameTiles = previousStates.pop()) and do the same for the score.
+There's no need for a deep copy.
+
+Before restoring the game state using the rollback method, don't forget to check whether the stacks are empty
+to avoid throwing an EmptyStackException.
+
+
+Requirements:
+1.	The private fields previousStates, previousScores, and isSaveNeeded should be declared and initialized in the Model class.
+2.	The saveState method should use the push method to save a new Tile[][] object in the previousStates stack.
+3.	After the saveState method is called, the tile weights in the array at the top of the stack must match the tile weights in the array passed as an argument.
+4.	The saveState method should use the push method to save the current value of the score field in the previousScores stack.
+5.	The saveState method should set the isSaveNeeded flag to false.
+6.	The rollback method should restore the score and gameTiles fields from the appropriate stacks, if they are not empty.
+7.	The rollback method should not modify the current game state if at least one of the stacks is empty.
+8.	Each call to the saveState method must increase the number of elements in the stacks by one.
+9.	Each call to the rollback method should reduce the number of elements in the stacks by one, if possible.
+
+
+2048 (part 10)
 
 
 It's time to start implementing the main method in the Main class—to finally be able to launch the game and relax!
@@ -26,12 +69,6 @@ in the Controller class. Don't forget to add it.
 P.S. Finishing this task will result in a working version of the game 2048. If something doesn't work,
 or doesn't work as expected, be sure to figure it out and fix it before moving on to the subsequent tasks.
 
-
-Requirements:
-1.	A proper getter for the view field must be created in the Controller class.
-2.	A new model and a controller based on that model should be created in the Main class&#39;s main method.
-3.	A JFrame object must be created in the Main class&#39;s main method.
-4.	The methods listed in the task conditions must be called on a JFrame object in the Main class&#39;s main method.
 
 
 2048 (part 9)
@@ -120,39 +157,6 @@ otherwise false.
 3. Implement the left method, which will call the consolidateTiles and mergeTiles methods for each row of the
 gameTiles array and, if necessary, use the addTile method to add a tile.
 4. The left method should not be private, since it will be called from the Controller class and elsewhere.
-
-
-
-2048 (part 5)
-
-
-The main actions that we need to enable are movements left, right, up and down.
-If you've already played 2048, then you know that when you move in a direction, tiles
-with values move to empty tiles, and tiles with the same value combine.
-
-As a basic scenario, let's consider movement to the left and think about what happens when we want to do
-this action.
-
-For each row or column, two things actually happen:
-a) Consolidate the tiles so that all the empty tiles are on the right, i.e.
-the row {4, 2, 0, 4} becomes {4, 2, 4, 0}
-b) Merge tiles with the same value, i.e. the row {4, 4, 2, 0} becomes {8, 2, 0, 0}.
-Note that the row {4, 4, 4, 4} will become {8, 8, 0, 0}, and {4, 4, 4, 0} becomes {8, 4, 0 , 0}.
-
-Create consolidateTiles(Tile[] tiles) and mergeTiles(Tile[] tiles) methods that implement steps
-a) and b) respectively. We will use them only inside the Model class, so give them the narrowest
-possible access.
-
-Also, add int score and int maxTile fields, which should store the current score and the highest tile weight
-on the game board. The score increases after each merger. For example, if the current score is 20 and
-the row {4, 4, 4, 0} is merged, then the score should increase by 8. The access level for these fields should be wider than private.
-The easiest thing to do is to update these fields in the mergeTiles method, for example:
-1) If the tile merger condition is satisfied, check whether the new value is greater than the maximum value and,
-if necessary, change the value of the maxTile field.
-2) Increase the value of the score field by the amount of the tile weight generated by the merger.
-
-P.S. When we implement the movement methods, tiles will always be consolidated before they are merged, so
-you can assume that the mergeTiles method will always be passed an array of tiles that does not have empty tiles in the middle.
 
 
 
