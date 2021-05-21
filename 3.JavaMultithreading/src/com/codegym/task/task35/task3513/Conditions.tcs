@@ -1,4 +1,51 @@
-taskKey="com.codegym.task.task35.task3513.big08"\n\n2048 (part 8)
+taskKey="com.codegym.task.task35.task3513.big09"\n\n2048 (part 9)
+
+
+You're doing really well! It's so good that I decided to help you a little and have already implemented the View class.
+It's quite simple. It inherits the JPanel class, overrides the paint method, and displays
+the current state of the model obtained using the controller.
+
+But you have to finish implementing the Controller class.
+
+To start, we're going to need a constructor. It will have one Model parameter, initialize the model
+field, and also save a new View object in the view field, passing the current controller (this) to the
+constructor.
+
+Next, we need a resetGame method that can return the game board to its initial state.
+You need to reset the score, set the isGameWon and isGameLost flags on the view to false, and call the
+resetGameTiles method on the model. Note: set the field values directly, without using setters.
+
+Add a private constant int WINNING_TILE = 2048. It will determine the tile weight that, when achieved,
+constitutes a win.
+
+And now, the most important thing! To be able to process user input, you need to
+override the keyPressed method with a single KeyEvent parameter.
+The logic of the method should be as follows:
+1) If the ESC key was pressed, call the resetGame method.
+2) If the model's canMove method returns false, set the isGameLost flag to true.
+3) If both the isGameLost and isGameWon flags are false, process the movement events:
+a) for KeyEvent.VK_LEFT, call the left method on the model;
+b) for KeyEvent.VK_RIGHT, call the right method on the model;
+c) for KeyEvent.VK_UP key, call the up method on the model;
+d) for KeyEvent.VK_DOWN key, call the down method on the model.
+4) If the model's maxTile field becomes equal to WINNING_TILE, set the isGameWon flag to true.
+5) Finally, call the repaint method on the view.
+
+P.S. To get the key code, use the KeyEvent class's getKeyCode method.
+
+
+Requirements:
+1.	A private static constant int WINNING_TILE = 2048 must be created in the Controller class.
+2.	The Controller class constructor with one Model parameter must be implemented in accordance with the task conditions.
+3.	The resetGame method should return the game to its initial state, as described in the task conditions.
+4.	The keyPressed method should call the resetGame method if the ESC key is pressed.
+5.	The keyPressed method must set the isGameLost flag to true if no move is possible.
+6.	The keyPressed method should call the correct methods for moving the game board if a corresponding key is pressed and both the isGameLost and isGameWon flags are false.
+7.	The keyPressed method should set the isGameWon flag to true if the model.maxTile and WINNING_TILE fields become equal after the movement.
+8.	The keyPressed method should call the repaint method on the object saved in the view field.
+
+
+2048 (part 8)
 
 
 The model is almost ready! Let's add a couple more simple methods and start implementing the controller.
@@ -21,13 +68,6 @@ the state of the game board is possible given the current position. Otherwise, i
 4. Add to the Controller class a getGameTiles method that calls the same method on the model.
 5. Add to the Controller class a getScore method that returns the current score (model.score).
 
-
-Requirements:
-1.	The Model class must implement a correct getter for the gameTiles field.
-2.	The Model class&#39;s canMove method must be implemented in accordance with the task conditions.
-3.	The Controller class must be a child of the KeyAdapter class.
-4.	The getGameTiles method in the Controller class must return the result of calling the getGameTiles method on the model.
-5.	The getScore method in the Controller class must return the model&#39;s score field.
 
 
 2048 (part 7)
@@ -109,20 +149,6 @@ P.S. Perhaps it would be worth it to move all the code from the constructor to a
 starting a new game doesn't require creating a new model. You could instead simply return to the initial state
 by calling this method. The access level should be wider than private.
 P.P.S. To calculate the weight of a new tile, use the expression (Math.random () < 0.9 ? 2 : 4).
-
-
-
-2048 (part 3)
-
-
-Let's implement the Model class. It will be responsible for all manipulations performed on the game board.
-
-But to manipulate the game board, we ought to start by creating it!
-
-We're going to need:
-1. A private constant FIELD_WIDTH = 4, which defines the width of the game board.
-2. A private two-dimensional gameTiles array consisting of Tile objects.
-3. A constructor without parameters that initializes the game board and populates it with empty tiles.
 
 
 
