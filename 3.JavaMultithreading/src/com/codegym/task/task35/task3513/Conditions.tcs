@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task35.task3513.big02"\n\n2048 (part 2)
+taskKey="com.codegym.task.task35.task3513.big03"\n\n2048 (part 3)
+
+
+Let's implement the Model class. It will be responsible for all manipulations performed on the game board.
+
+But to manipulate the game board, we ought to start by creating it!
+
+We're going to need:
+1. A private constant FIELD_WIDTH = 4, which defines the width of the game board.
+2. A private two-dimensional gameTiles array consisting of Tile objects.
+3. A constructor without parameters that initializes the game board and populates it with empty tiles.
+
+
+Requirements:
+1.	A private static final FIELD_WIDTH field equal to four must be created in the Model class.
+2.	The Model class should create a private Tile[][] gameTiles field.
+3.	The Model class&#39;s constructor without parameters must fill in the gameTiles array with new Tile objects.
+4.	The dimensions of the gameTiles array must be FIELD_WIDTH x FIELD_WIDTH.
+
+
+2048 (part 2)
 
 
 In the game 2048 game, the board consists of 16 tiles, each of which has a certain weight.
@@ -32,14 +52,6 @@ for any other values: (0xff0000).
 
 The methods listed above should not be private.
 
-
-Requirements:
-1.	The Tile class must have an int value field with default access.
-2.	The Tile class constructor with one int parameter must initialize the value field.
-3.	When a Tile object is created using the no-argument constructor, the value field must be zero.
-4.	The isEmpty method must return true if the value field is 0, otherwise false.
-5.	The getFontColor method must be implemented in accordance with the task conditions.
-6.	The getTileColor method should return the color of a tile depending on its weight.
 
 
 2048 (part 1)
