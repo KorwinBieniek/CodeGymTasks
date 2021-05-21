@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task35.task3513.big07"\n\n2048 (part 7)
+taskKey="com.codegym.task.task35.task3513.big08"\n\n2048 (part 8)
+
+
+The model is almost ready! Let's add a couple more simple methods and start implementing the controller.
+
+Our model lacks a way to get the game board in order to pass it to the view for rendering,
+as well as a method that can determine whether a move is possible in the current position.
+
+
+For its part, the controller will be mainly used to handle user input from the keyboard,
+so we'll make it a child of the KeyAdapter class.
+
+We're going to need private model and view fields of the appropriate types, as well as getGameTiles and getScore methods
+that return the corresponding properties of the model.
+
+Breaking it into simple steps:
+1. Add a getter for the gameTiles field to the Model class.
+2. Add to the Model class a canMove method that returns true if a move that changes
+the state of the game board is possible given the current position. Otherwise, it should return false.
+3. Make the Controller class a child of the KeyAdapter class.
+4. Add to the Controller class a getGameTiles method that calls the same method on the model.
+5. Add to the Controller class a getScore method that returns the current score (model.score).
+
+
+Requirements:
+1.	The Model class must implement a correct getter for the gameTiles field.
+2.	The Model class&#39;s canMove method must be implemented in accordance with the task conditions.
+3.	The Controller class must be a child of the KeyAdapter class.
+4.	The getGameTiles method in the Controller class must return the result of calling the getGameTiles method on the model.
+5.	The getScore method in the Controller class must return the model&#39;s score field.
+
+
+2048 (part 7)
 
 
 We've implemented movement to the left. Now we need to implement the right, up, and down methods. I'm sure you can handle it
@@ -7,14 +39,6 @@ without my help, so I'll give you just one hint.
 What happens if you rotate a two-dimensional array clockwise by 90 degrees, shift it to the left, and then
 rotate three times?
 
-
-Requirements:
-1.	The up method should move the elements of the gameTiles array upward according to the rules of the game and, if necessary, add tiles using the addTile method.
-2.	The up method should NOT modify the gameTiles array if a move upward is not possible.
-3.	The down method should move the elements of the gameTiles array downward according to the rules of the game and, if necessary, add tiles using the addTile method.
-4.	The down method should NOT modify the gameTiles array if a move downward is not possible.
-5.	The right method should move the elements of the gameTiles array to the right according to the rules of the game and, if necessary, add tiles using the addTile method.
-6.	The right method should NOT modify the gameTiles array if a move to the right is not possible.
 
 
 2048 (part 6)
@@ -99,42 +123,6 @@ We're going to need:
 1. A private constant FIELD_WIDTH = 4, which defines the width of the game board.
 2. A private two-dimensional gameTiles array consisting of Tile objects.
 3. A constructor without parameters that initializes the game board and populates it with empty tiles.
-
-
-
-2048 (part 2)
-
-
-In the game 2048 game, the board consists of 16 tiles, each of which has a certain weight.
-In addition to weight, a tile has its own color and text color used to display the tile's weight.
-Tile colors range from light gray to red, and the text color depends on the color of the tile.
-
-Create a Tile class that will describe a single tile.
-It will need the following:
-1. An int value field with default access.
-2. A constructor with a parameter that initializes the value field.
-3. A constructor without parameters (initializes the value field to zero).
-4. An isEmpty method that returns true if the value field is 0, otherwise false.
-5. A getFontColor method that returns a new Color object (0x776e65)
-if the tile weight is less than 16, otherwise 0xf9f6f2.
-6. The getTileColor method, which returns the color of a tile depending on its weight, according to the
-following values:
-0:    (0xcdc1b4);
-2:    (0xeee4da);
-4:    (0xede0c8);
-8:    (0xf2b179);
-16:   (0xf59563);
-32:   (0xf67c5f);
-64:   (0xf65e3b);
-128:  (0xedcf72);
-256:  (0xedcc61);
-512:  (0xedc850);
-1024: (0xedc53f);
-2048: (0xedc22e);
-
-for any other values: (0xff0000).
-
-The methods listed above should not be private.
 
 
 
