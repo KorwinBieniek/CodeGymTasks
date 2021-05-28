@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task20.task2028.big02"\n\nBuild a tree (part 2)
+taskKey="com.codegym.task.task20.task2028.big03"\n\nBuild a tree (part 3)
+
+
+We've created a class that defines a tree. Now we need a class that defines the nodes of a tree:
+1) In the CustomTree class, create a static inner generic class Entry<T> with the default access modifier.
+2) Make this class support the Serializable interface.
+3) Declare the following fields (with the default access modifier):
+- String elementName;
+- boolean availableToAddLeftChildren, availableToAddRightChildren;
+- Entry<T> parent, leftChild, rightChild;
+- you can declare other fields, if necessary;
+4) Implement a public constructor with one String parameter:
+- set the field elementName equal to the passed argument;
+- set the availableToAddLeftChildren field equal to true;
+- set the availableToAddRightChildren field equal to true;
+5) Implement the public boolean isAvailableToAddChildren method, which returns the logical disjunction (boolean OR) of the availableToAddLeftChildren and availableToAddRightChildren fields.
+
+
+Requirements:
+1.	The CustomTree.Entry class must be declared with the default access modifier.
+2.	The CustomTree.Entry class must support the Serializable interface.
+3.	There must be a String field called elementName in the CustomTree.Entry class.
+4.	There must be a boolean field called availableToAddLeftChildren in the CustomTree.Entry class.
+5.	There must be a boolean field called  availableToAddRightChildren in the CustomTree.Entry class.
+6.	There must be an Entry field called parent in the CustomTree.Entry class.
+7.	There must be an Entry field called leftChild in the CustomTree.Entry class.
+8.	There must be an Entry field called rightChild in the CustomTree.Entry class.
+9.	The CustomTree.Entry class must correctly implement a constructor with one String parameter (see the task conditions).
+10.	The CustomTree.Entry class must correctly implement the isAvailableToAddChildren method (see the task conditions).
+
+
+Build a tree (part 2)
 
 
 Despite the fact that our tree descends from the AbstractList class, it is not a list in the traditional sense.
@@ -14,15 +45,6 @@ public List<String> subList(int fromIndex, int toIndex)
 protected void removeRange(int fromIndex, int toIndex)
 public boolean addAll(int index, Collection<? extends String> c)
 
-
-Requirements:
-1.	An UnsupportedOperationException should occur if the get(int index) method is called.
-2.	An UnsupportedOperationException should occur if the set(int index, String element) method is called.
-3.	An UnsupportedOperationException should occur if the add(int index, String element) method is called.
-4.	An UnsupportedOperationException should occur if the String remove(int index) method is called.
-5.	An UnsupportedOperationException should occur if the subList(int fromIndex, int toIndex) method is called.
-6.	An UnsupportedOperationException should occur if the removeRange(int fromIndex, int toIndex) method is called.
-7.	An UnsupportedOperationException should occur if the addAll(int index, Collection&lt;? extends String&gt; c) method is called.
 
 
 Build a tree (part 1)
