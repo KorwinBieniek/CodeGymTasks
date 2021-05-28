@@ -1,4 +1,27 @@
-taskKey="com.codegym.task.task20.task2028.big04"\n\nBuild a tree (part 4)
+taskKey="com.codegym.task.task20.task2028.big05"\n\nBuild a tree (part 5)
+
+
+We can add elements to the tree. Now let's work on deleting them:
+Implement the remove(Object o) method, which will remove the tree node whose name was passed as an argument.
+
+The method must throw an UnsupportedOperationException if the argument is not a String.
+If there are multiple tree nodes with the passed name, delete only the first node found.
+
+Don't forget to compare your tree's behavior with the following picture:
+http://info.javarush.ru/uploads/images/00/04/89/2014/03/21/ee9a9b.jpg
+
+What happens if you remove nodes 3, 4, 5, and 6 from the tree, and then try to add a new node?
+In this case, nodes 1 and 2 should regain the ability to have descendants (you might have to make changes to the add() method).
+
+
+Requirements:
+1.	After using the remove method to remove the last added node from the tree, the size method should return N-1.
+2.	After removing the second node added to the tree, the size method should return N/2 + 1 (if N&gt;2 and a power of two), where N is the size of the tree before removal.
+3.	The remove() method must throw an UnsupportedOperationException if the argument is not a String.
+4.	If no nodes can have descendants, you must restore their ability to do so.
+
+
+Build a tree (part 4)
 
 
 Every tree starts with a root, so don't forget to add an Entry<String> field called root with the default access modifier to the CustomTree class.
@@ -18,12 +41,6 @@ You need to:
 
 You can create methods and fields not listed in the task, if necessary.
 
-
-Requirements:
-1.	There must be an Entry field called root in the CustomTree.Entry class.
-2.	Override the add(String s) and size() methods in the CustomTree class.
-3.	After using the add method to add N nodes to the tree, the size method must return N.
-4.	The getParent method must return the name of the parent of any node in the tree.
 
 
 Build a tree (part 3)
