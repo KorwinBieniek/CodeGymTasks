@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task20.task2028.big01"\n\nBuild a tree (part 1)
+
+
+Amigo, it seems you may now have an adequate foundation. It's time to test your skills by doing a big task!
+Today, we'll implement our own tree in a slightly non-standard way (based on AbstractList).
+To get background information, use your favorite search engine and the text below.
+
+The nodes of the tree should be like those in the picture:
+http://info.codegym.ru/uploads/images/00/04/89/2014/03/21/ee9a9b.jpg
+
+First, let's make our tree a descendant of the AbstractList class with a String parameter, and
+we'll implement the Cloneable and Serializable interfaces.
+
+For now, leave the standard implementations of the get(int index) and size() methods.
+
+
+Requirements:
+1.	The CustomTree class must support the Cloneable interface.
+2.	The CustomTree class must support the Serializable interface.
+3.	The CustomTree class must be a descendant of the AbstractList&lt;String&gt; class.
+
+
