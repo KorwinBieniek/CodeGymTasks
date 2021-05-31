@@ -1,15 +1,26 @@
-taskKey="com.codegym.task.task22.task2213.big02"\n\nTetris (part 2)
+taskKey="com.codegym.task.task22.task2213.big03"\n\nTetris (part 3)
+
+
+There's a field and a game piece, but how do we get them?
+
+Add getters for the field and gamePiece fields.
+
+
+Requirements:
+1.	A getField() method with no parameters must be created in the Tetris class.
+2.	A getGamePiece() method with no parameters must be created in the Tetris class.
+3.	The getField() method must be declared with the widest possible access.
+4.	The getGamePiece() method must be declared with the widest possible access.
+5.	The getField() method should return the value of the field variable.
+6.	The getGamePiece() method should return the value of the gamePiece field.
+
+
+Tetris (part 2)
 
 
 Great!
 Now add the following two fields to the Tetris class: Field field and GamePiece gamePiece.
 
-
-Requirements:
-1.	A Field field variable must be created in the Tetris class.
-2.	A GamePiece gamePiece field must be created in the Tetris class.
-3.	The field variable must be declared with a private access modifier.
-4.	The gamePiece field must be declared with a private access modifier.
 
 
 Tetris (part 1)
