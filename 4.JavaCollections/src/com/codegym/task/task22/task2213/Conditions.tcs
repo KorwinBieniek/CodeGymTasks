@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task22.task2213.big01"\n\nTetris (part 1)
+
+
+Let's write Tetris!
+
+Our Tetris game consists of two things: a game fields and game pieces that fall from above.
+So to start, create three class: Field, GamePiece, and Tetris.
+
+We will also need a method main() in the Tetris class.
+
+
+Requirements:
+1.	The Field class must be in a separate file.
+2.	The GamePiece class must be in a separate file.
+3.	The Tetris class must be in a separate file.
+4.	The Tetris class must have a main method.
+
+
