@@ -1,4 +1,30 @@
-taskKey="com.codegym.task.task22.task2213.big05"\n\nTetris (part 5)
+taskKey="com.codegym.task.task22.task2213.big06"\n\nTetris (part 6)
+
+
+Now let's move on to the Field class.
+It will be responsible for storing information about which cells of the game field are currently occupied and which are empty.
+Add the following two fields to the Field class: int width and int height.
+We also need a matrix, i.e. a two-dimensional array: int[][] matrix;
+In the same place, add getters for these variables.
+Add a constructor that has two parameters: width and height. And don't forget about the matrix.
+
+IMPORTANT!
+A two-dimensional array can be represented as an array of arrays or as a rectangular matrix.
+The first coordinate refers to the row, and the second refers to the column.
+In other words, the cell with coordinates (x, y) is matrix[y][x].
+
+
+Requirements:
+1.	A private int width field must be created in the Field class.
+2.	A private int height field must be created in the Field class.
+3.	A private int[][] matrix field (a two-dimensional array of ints) must be created in the Field class.
+4.	A proper getter for the height field must be created in the Field class.
+5.	A proper getter for the width field must be created in the Field class.
+6.	A proper getter for the matrix field must be created in the Field class.
+7.	A properly working constructor with (int, int) parameters must be created in the Field class. The Matrix field must be initialized with a new array whose dimensions are [y][x] (height by width).
+
+
+Tetris (part 5)
 
 
 Now you need to create the Tetris object itself.
@@ -8,14 +34,6 @@ The game field must NOT be private.
 Then in the main() method, create a Tetris object and save it in this variable.
 Then add a call to the run() method.
 
-
-Requirements:
-1.	The game field must be created in the Tetris class.
-2.	The game field must NOT be private.
-3.	The game field must be static.
-4.	The game field must be a Tetris.
-5.	The game field must be initialized with a new Tetris object in the main() method.
-6.	The run() method must be called on the game field in the main() method.
 
 
 Tetris (part 4)
