@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task22.task2213.big04"\n\nTetris (part 4)
+taskKey="com.codegym.task.task22.task2213.big05"\n\nTetris (part 5)
+
+
+Now you need to create the Tetris object itself.
+Add a static Tetris field to the Tetris class.
+The game field must NOT be private.
+
+Then in the main() method, create a Tetris object and save it in this variable.
+Then add a call to the run() method.
+
+
+Requirements:
+1.	The game field must be created in the Tetris class.
+2.	The game field must NOT be private.
+3.	The game field must be static.
+4.	The game field must be a Tetris.
+5.	The game field must be initialized with a new Tetris object in the main() method.
+6.	The run() method must be called on the game field in the main() method.
+
+
+Tetris (part 4)
 
 
 We'll also need a couple of methods.
@@ -17,14 +37,6 @@ From now on, if there are no explicit instructions about which access modifier t
 * This may seem insignificant at first, but it is actually one of the fundamental principles of OOP.
 * Learn to do it correctly right from the start!
 
-
-Requirements:
-1.	A run() method with no parameters must be created in the Tetris class.
-2.	A step() method with no parameters must be created in the Tetris class.
-3.	The run() method should NOT be private.
-4.	The step() method should NOT be private.
-5.	The run() method must not return a value.
-6.	The step method must not return a value.
 
 
 Tetris (part 3)
