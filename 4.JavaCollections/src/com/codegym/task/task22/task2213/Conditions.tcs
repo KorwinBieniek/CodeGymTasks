@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task22.task2213.big06"\n\nTetris (part 6)
+taskKey="com.codegym.task.task22.task2213.big07"\n\nTetris (part 7)
+
+
+We'll need 4 more methods in the Field class:
+a) print() - The object draws its current state on the screen;
+b) removeFullLines() - Completely full rows are removed from the matrix, and higher rows are moved down;
+c) Integer getValue(int x, int y) - Returns the matrix value with coordinates (x, y);
+d) void setValue(int x, int y, int value) - Sets to matrix value with coordinates (x, y) to the passed value.
+
+
+Requirements:
+1.	A print() method with no parameters must be created in the Field class.
+2.	A removeFullLines() method with no parameters must be created in the Field class.
+3.	A getValue() method with two int parameters must be created in the Field class.
+4.	A setValue() method with three int parameters must be created in the Field class.
+5.	The print() method must not return a value.
+6.	The removeFullLines() method must not return a value.
+7.	The getValue() method should return an Integer.
+8.	The setValue() method must not return a value.
+
+
+Tetris (part 6)
 
 
 Now let's move on to the Field class.
@@ -13,15 +34,6 @@ A two-dimensional array can be represented as an array of arrays or as a rectang
 The first coordinate refers to the row, and the second refers to the column.
 In other words, the cell with coordinates (x, y) is matrix[y][x].
 
-
-Requirements:
-1.	A private int width field must be created in the Field class.
-2.	A private int height field must be created in the Field class.
-3.	A private int[][] matrix field (a two-dimensional array of ints) must be created in the Field class.
-4.	A proper getter for the height field must be created in the Field class.
-5.	A proper getter for the width field must be created in the Field class.
-6.	A proper getter for the matrix field must be created in the Field class.
-7.	A properly working constructor with (int, int) parameters must be created in the Field class. The Matrix field must be initialized with a new array whose dimensions are [y][x] (height by width).
 
 
 Tetris (part 5)
@@ -71,18 +83,6 @@ Tetris (part 2)
 
 Great!
 Now add the following two fields to the Tetris class: Field field and GamePiece gamePiece.
-
-
-
-Tetris (part 1)
-
-
-Let's write Tetris!
-
-Our Tetris game consists of two things: a game fields and game pieces that fall from above.
-So to start, create three class: Field, GamePiece, and Tetris.
-
-We will also need a method main() in the Tetris class.
 
 
 
