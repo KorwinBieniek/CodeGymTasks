@@ -1,18 +1,39 @@
-taskKey="com.codegym.task.task22.task2213.big03"\n\nTetris (part 3)
+taskKey="com.codegym.task.task22.task2213.big04"\n\nTetris (part 4)
+
+
+We'll also need a couple of methods.
+Add run() and step() methods to the Tetris class:
+
+run() will be responsible for the entire game.
+The step() method will be responsible for a single step in the game.
+
+The return type is void for both methods.
+
+From now on, if there are no explicit instructions about which access modifier to use, make methods public, and fields — private.
+
+* In general, you should use the most restrictive access modifier you can.
+* In other words, if the system's logic requires calls to a method from outside its class, then we can't make that method private.
+* At the same time, there's no reason to make methods public if they will only be used within their package.
+* This may seem insignificant at first, but it is actually one of the fundamental principles of OOP.
+* Learn to do it correctly right from the start!
+
+
+Requirements:
+1.	A run() method with no parameters must be created in the Tetris class.
+2.	A step() method with no parameters must be created in the Tetris class.
+3.	The run() method should NOT be private.
+4.	The step() method should NOT be private.
+5.	The run() method must not return a value.
+6.	The step method must not return a value.
+
+
+Tetris (part 3)
 
 
 There's a field and a game piece, but how do we get them?
 
 Add getters for the field and gamePiece fields.
 
-
-Requirements:
-1.	A getField() method with no parameters must be created in the Tetris class.
-2.	A getGamePiece() method with no parameters must be created in the Tetris class.
-3.	The getField() method must be declared with the widest possible access.
-4.	The getGamePiece() method must be declared with the widest possible access.
-5.	The getField() method should return the value of the field variable.
-6.	The getGamePiece() method should return the value of the gamePiece field.
 
 
 Tetris (part 2)

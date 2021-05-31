@@ -12,6 +12,14 @@ public class Tetris {
         return gamePiece;
     }
 
+    void step() {
+
+    }
+
+    void run() {
+
+    }
+
     public static void main(String[] args) {
 
     }
