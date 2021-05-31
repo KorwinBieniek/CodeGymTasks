@@ -1,4 +1,18 @@
-taskKey="com.codegym.task.task22.task2213.big01"\n\nTetris (part 1)
+taskKey="com.codegym.task.task22.task2213.big02"\n\nTetris (part 2)
+
+
+Great!
+Now add the following two fields to the Tetris class: Field field and GamePiece gamePiece.
+
+
+Requirements:
+1.	A Field field variable must be created in the Tetris class.
+2.	A GamePiece gamePiece field must be created in the Tetris class.
+3.	The field variable must be declared with a private access modifier.
+4.	The gamePiece field must be declared with a private access modifier.
+
+
+Tetris (part 1)
 
 
 Let's write Tetris!
@@ -8,11 +22,5 @@ So to start, create three class: Field, GamePiece, and Tetris.
 
 We will also need a method main() in the Tetris class.
 
-
-Requirements:
-1.	The Field class must be in a separate file.
-2.	The GamePiece class must be in a separate file.
-3.	The Tetris class must be in a separate file.
-4.	The Tetris class must have a main method.
 
 
