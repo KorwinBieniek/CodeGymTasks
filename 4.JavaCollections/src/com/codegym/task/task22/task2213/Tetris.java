@@ -10,7 +10,7 @@ public class Tetris {
     private Field field;                // Game field
     private GamePiece gamePiece;              // Game piece
 
-    private boolean isGameOver;         // Indicates whether the game is over?
+    private boolean isGameOver;         // Indicates whether the game is over
 
     public Tetris(int width, int height) {
         field = new Field(width, height);
@@ -43,7 +43,7 @@ public class Tetris {
         // Set the initial value of isGameOver to false
         isGameOver = false;
         // Create the first game piece in the middle at the top: x = half of the width, y = 0.
-        gamePiece = GamePieceFactory.createRandomGamePiece(field.getWidth() / 2, 0);
+        gamePiece = GamePieceFactory.createRandomGamePiece(field.getWidth()/2, 0);
 
         // The game is not over yet
         while (!isGameOver) {
@@ -69,7 +69,7 @@ public class Tetris {
 
             step();             // Take a step
             field.print();      // Display the field
-            Thread.sleep(300);  // Pause for 300 milliseconds (about 1/3 of a second)
+            Thread.sleep(300);  // Pause 300 milliseconds (about 1/3 of a second)
         }
 
         // Display "Game Over"
@@ -77,7 +77,7 @@ public class Tetris {
     }
 
     public void step() {
-        // Drop the game piece lower
+        // Drop the game piece down
         gamePiece.down();
 
         // If the game piece can't be placed in the current location
@@ -85,11 +85,11 @@ public class Tetris {
             gamePiece.up();                    // Put it back
             gamePiece.land();                // Land it
 
-            isGameOver = gamePiece.getY() <= 1;// If the game piece lands at the very top, then the game is over
+            isGameOver = gamePiece.getY () <= 1; // If the game piece lands at the very top, then the game is over
 
             field.removeFullLines();        // Remove the completed lines
 
-            gamePiece = GamePieceFactory.createRandomGamePiece(field.getWidth() / 2, 0); // Create a new game piece
+            gamePiece = GamePieceFactory.createRandomGamePiece(field.getWidth()/2, 0); // Create a new game piece
         }
     }
 

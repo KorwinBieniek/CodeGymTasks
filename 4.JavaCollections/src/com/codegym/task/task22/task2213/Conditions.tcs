@@ -1,4 +1,18 @@
-taskKey="com.codegym.task.task22.task2213.big15"\n\nTetris (part 15)
+taskKey="com.codegym.task.task22.task2213.big16"\n\nTetris (part 16)
+
+
+Write your own implementation of the left(), right(), up(), and down() methods in the GamePiece class.
+What do you think these methods should do?
+
+
+Requirements:
+1.	The left() method should reduce the value of the x field by one if doing so is possible (if doing so does not move beyond the boundaries of the game field).
+2.	The right() method should increase the value of the x field by one if doing so is possible (if doing so does not move beyond the boundaries of the game field).
+3.	The up() method should reduce the value of the y field by one.
+4.	The down() method should increase the value of the y field by one.
+
+
+Tetris (part 15)
 
 
 Implement the step() method in the Tetris class.
@@ -10,13 +24,6 @@ b) land it (the game piece "lands")
 c) delete all full lines in the field object
 d) create a new game piece to replace the previous one.
 
-
-Requirements:
-1.	You need to drop the current game piece down one step in the Tetris class&#39;s step() method.
-2.	In the Tetris class&#39;s step() method, you need to call the up method on the current game piece if it cannot be dropped below its current position.
-3.	In the Tetris class&#39;s step() method, you need to call the land method on the current game piece if it cannot be dropped below its current position.
-4.	In the Tetris class&#39;s step() method, you need to delete all full lines if the current game piece cannot be dropped below its current position.
-5.	In the Tetris class&#39;s step() method, if the current game piece cannot be dropped below its current position, you need to create a new random game piece (createRandomGamePiece method) and save it in the gamePiece field.
 
 
 Tetris (part 14)
@@ -95,24 +102,6 @@ Now create a GamePieceFactory class.
 We'll use it to create game pieces of various shapes.
 For now, it will have only one static createRandomGamePiece() method:
 static GamePiece createRandomGamePiece(int x, int y)
-
-
-
-Tetris (part 10)
-
-
-We also need methods to control the game piece.
-
-Add the following methods to the GamePiece class:
-left() - For moving game pieces to the left.
-right() - For moving game pieces to the right.
-down() - For moving game pieces down.
-up() - For moving game pieces up.
-rotate() For rotating the game piece about the main diagonal.
-downMaximum() - Drop the game piece to the bottom.
-boolean isCurrentPositionAvailable() - Checks whether the game piece can be placed in the current position. For the test, hardcode the a return value of true. We won't implement the logic now.
-land() - Called when the game piece reaches the bottom or lands on another game piece
-All of its occupied cells should now be added to Field.
 
 
 
