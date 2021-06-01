@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task22.task2213.big14"\n\nTetris (part 14)
+taskKey="com.codegym.task.task22.task2213.big15"\n\nTetris (part 15)
+
+
+Implement the step() method in the Tetris class.
+This method should drop the game piece down by one step.
+
+If the game piece cannot be placed in the new location, then:
+a) put it back (bring it back up)
+b) land it (the game piece "lands")
+c) delete all full lines in the field object
+d) create a new game piece to replace the previous one.
+
+
+Requirements:
+1.	You need to drop the current game piece down one step in the Tetris class&#39;s step() method.
+2.	In the Tetris class&#39;s step() method, you need to call the up method on the current game piece if it cannot be dropped below its current position.
+3.	In the Tetris class&#39;s step() method, you need to call the land method on the current game piece if it cannot be dropped below its current position.
+4.	In the Tetris class&#39;s step() method, you need to delete all full lines if the current game piece cannot be dropped below its current position.
+5.	In the Tetris class&#39;s step() method, if the current game piece cannot be dropped below its current position, you need to create a new random game piece (createRandomGamePiece method) and save it in the gamePiece field.
+
+
+Tetris (part 14)
 
 
 Implement the removeFullLines() method in the Field class.
@@ -20,10 +41,6 @@ matrix[i+1] = matrix[i];
 c) create a new line:
 matrix[i] = new int[width];
 
-
-Requirements:
-1.	After the removeFullLines() method is run, no lines consisting of only ones should be left in the matrix array.
-2.	The remaining lines should be correctly shifted, and new lines should be added to replace the lines that are removed.
 
 
 Tetris (part 13)
@@ -96,18 +113,6 @@ downMaximum() - Drop the game piece to the bottom.
 boolean isCurrentPositionAvailable() - Checks whether the game piece can be placed in the current position. For the test, hardcode the a return value of true. We won't implement the logic now.
 land() - Called when the game piece reaches the bottom or lands on another game piece
 All of its occupied cells should now be added to Field.
-
-
-
-Tetris (part 9)
-
-
-You may have noticed that we're writing the program "top down".
-First, we decide what classes we need. Then we decide about the methods.
-And then we start writing the code for the methods.
-We're breaking a big task into many small ones.
-When the code for all the methods is ready, we'll only need to check whether everything works as it should.
-And if necessary — make some changes.
 
 
 

@@ -2,10 +2,22 @@ package com.codegym.task.task22.task2213;
 
 import java.util.ArrayList;
 
+/**
+ * The Field class describes the Tetris game field
+ */
 public class Field {
+    // Width and height
     private int width;
     private int height;
+
+    // Matrix representing the field: 1 means that part of the field is occupied, 0 means it is available
     private int[][] matrix;
+
+    public Field(int width, int height) {
+        this.width = width;
+        this.height = height;
+        matrix = new int[height][width];
+    }
 
     public int getWidth() {
         return width;
@@ -19,13 +31,29 @@ public class Field {
         return matrix;
     }
 
-    public Field(int width, int height) {
-        this.height = height;
-        this.width = width;
-        matrix = new int[height][width];
+    /**
+     * The method returns the value of the matrix at coordinates (x, y)
+     * If the coordinates are outside the matrix, the method returns null.
+     */
+    public Integer getValue(int x, int y) {
+        if (x >= 0 && x < width && y >= 0 && y < height)
+            return matrix[y][x];
+
+        return null;
     }
 
-    void print() {
+    /**
+     * The method sets the matrix cell with coordinates (x, y) to the passed value
+     */
+    public void setValue(int x, int y, int value) {
+        if (x >= 0 && x < width && y >= 0 && y < height)
+            matrix[y][x] = value;
+    }
+
+    /**
+     * The method displays the current contents of the matrix on the screen
+     */
+    public void print() {
         // Create an array where we will "draw" the current game state
         int[][] canvas = new int[height][width];
 
@@ -73,7 +101,10 @@ public class Field {
         System.out.println();
     }
 
-    void removeFullLines() {
+    /**
+     * Remove the completed lines
+     */
+    public void removeFullLines() {
         // Create a list to store the lines
         ArrayList<int[]> lines = new ArrayList<>();
 
@@ -97,24 +128,5 @@ public class Field {
 
         // Convert the list back into a matrix
         matrix = lines.toArray(new int[height][width]);
-    }
-
-    /**
-     * The method returns the value of the matrix at coordinates (x, y)
-     * If the coordinates are outside the matrix, the method returns null.
-     */
-    public Integer getValue(int x, int y) {
-        if (x >= 0 && x < width && y >= 0 && y < height)
-            return matrix[y][x];
-
-        return null;
-    }
-
-    /**
-     * The method sets the matrix cell with coordinates (x, y) to the passed value
-     */
-    public void setValue(int x, int y, int value) {
-        if (x >= 0 && x < width && y >= 0 && y < height)
-            matrix[y][x] = value;
     }
 }
