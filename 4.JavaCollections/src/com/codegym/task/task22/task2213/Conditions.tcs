@@ -1,4 +1,21 @@
-taskKey="com.codegym.task.task22.task2213.big10"\n\nTetris (part 10)
+taskKey="com.codegym.task.task22.task2213.big11"\n\nTetris (part 11)
+
+
+Now create a GamePieceFactory class.
+We'll use it to create game pieces of various shapes.
+For now, it will have only one static createRandomGamePiece() method:
+static GamePiece createRandomGamePiece(int x, int y)
+
+
+Requirements:
+1.	The GamePieceFactory class must be in a separate file.
+2.	A createRandomGamePiece() method with two int parameters must be created in the GamePieceFactory class.
+3.	The createRandomGamePiece() method must be static.
+4.	It should be possible to access the createRandomGamePiece() method from outside the GamePieceFactory class.
+5.	The createRandomGamePiece() method must return a GamePiece.
+
+
+Tetris (part 10)
 
 
 We also need methods to control the game piece.
@@ -14,17 +31,6 @@ boolean isCurrentPositionAvailable() - Checks whether the game piece can be plac
 land() - Called when the game piece reaches the bottom or lands on another game piece
 All of its occupied cells should now be added to Field.
 
-
-Requirements:
-1.	A left() method with no parameters must be created in the GamePiece class.
-2.	A right() method with no parameters must be created in the GamePiece class.
-3.	A down() method with no parameters must be created in the GamePiece class.
-4.	A up() method with no parameters must be created in the GamePiece class.
-5.	A rotate() method with no parameters must be created in the GamePiece class.
-6.	A downMaximum() method with no parameters must be created in the GamePiece class.
-7.	A isCurrentPositionAvailable() method with no parameters must be created in the GamePiece class.
-8.	A land() method with no parameters must be created in the GamePiece class.
-9.	The isCurrentPositionAvailable() method should return true.
 
 
 Tetris (part 9)
@@ -82,18 +88,6 @@ IMPORTANT!
 A two-dimensional array can be represented as an array of arrays or as a rectangular matrix.
 The first coordinate refers to the row, and the second refers to the column.
 In other words, the cell with coordinates (x, y) is matrix[y][x].
-
-
-
-Tetris (part 5)
-
-
-Now you need to create the Tetris object itself.
-Add a static Tetris field to the Tetris class.
-The game field must NOT be private.
-
-Then in the main() method, create a Tetris object and save it in this variable.
-Then add a call to the run() method.
 
 
 
