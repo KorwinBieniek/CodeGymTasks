@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task22.task2213.big07"\n\nTetris (part 7)
+taskKey="com.codegym.task.task22.task2213.big08"\n\nTetris (part 8)
+
+
+Now create the backbone of the GamePiece class.
+This class will describe the falling game pieces.
+
+We need to know the coordinates and shape.
+The two variables x and y will be responsible for the coordinates.
+The matrix is responsible for the shape. A two-dimensional 3x3 array consisting of ones and zeros.
+A one means the cell is occupied — a zero means it is empty.
+
+Add the following two fields to the GamePiece class: int x, int y.
+And add a two-dimensional array: int[][] matrix.
+In the same place, add getters for these variables.
+Add a constructor with three parameters: x, y, and matrix.
+
+
+Requirements:
+1.	A private int x field must be created in the GamePiece class.
+2.	A private int y field must be created in the GamePiece class.
+3.	A private int[][] matrix field (a two-dimensional array of ints) must be created in the GamePiece class.
+4.	A proper getter for the x field must be created in the GamePiece class.
+5.	A proper getter for the y field must be created in the GamePiece class.
+6.	A proper getter for the matrix field must be created in the GamePiece class.
+7.	A correctly working public constructor with three parameters (int x, int y, int[][] matrix) must be created in the GamePiece class.
+
+
+Tetris (part 7)
 
 
 We'll need 4 more methods in the Field class:
@@ -7,16 +34,6 @@ b) removeFullLines() - Completely full rows are removed from the matrix, and hig
 c) Integer getValue(int x, int y) - Returns the matrix value with coordinates (x, y);
 d) void setValue(int x, int y, int value) - Sets to matrix value with coordinates (x, y) to the passed value.
 
-
-Requirements:
-1.	A print() method with no parameters must be created in the Field class.
-2.	A removeFullLines() method with no parameters must be created in the Field class.
-3.	A getValue() method with two int parameters must be created in the Field class.
-4.	A setValue() method with three int parameters must be created in the Field class.
-5.	The print() method must not return a value.
-6.	The removeFullLines() method must not return a value.
-7.	The getValue() method should return an Integer.
-8.	The setValue() method must not return a value.
 
 
 Tetris (part 6)
@@ -75,14 +92,6 @@ Tetris (part 3)
 There's a field and a game piece, but how do we get them?
 
 Add getters for the field and gamePiece fields.
-
-
-
-Tetris (part 2)
-
-
-Great!
-Now add the following two fields to the Tetris class: Field field and GamePiece gamePiece.
 
 
 
