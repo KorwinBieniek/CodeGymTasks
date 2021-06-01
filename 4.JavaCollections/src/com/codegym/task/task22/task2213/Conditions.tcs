@@ -1,4 +1,19 @@
-taskKey="com.codegym.task.task22.task2213.big08"\n\nTetris (part 8)
+taskKey="com.codegym.task.task22.task2213.big09"\n\nTetris (part 9)
+
+
+You may have noticed that we're writing the program "top down".
+First, we decide what classes we need. Then we decide about the methods.
+And then we start writing the code for the methods.
+We're breaking a big task into many small ones.
+When the code for all the methods is ready, we'll only need to check whether everything works as it should.
+And if necessary — make some changes.
+
+
+Requirements:
+1.	Review the class structure we&#39;ve created and pay attention to the order in which we wrote the program.
+
+
+Tetris (part 8)
 
 
 Now create the backbone of the GamePiece class.
@@ -14,15 +29,6 @@ And add a two-dimensional array: int[][] matrix.
 In the same place, add getters for these variables.
 Add a constructor with three parameters: x, y, and matrix.
 
-
-Requirements:
-1.	A private int x field must be created in the GamePiece class.
-2.	A private int y field must be created in the GamePiece class.
-3.	A private int[][] matrix field (a two-dimensional array of ints) must be created in the GamePiece class.
-4.	A proper getter for the x field must be created in the GamePiece class.
-5.	A proper getter for the y field must be created in the GamePiece class.
-6.	A proper getter for the matrix field must be created in the GamePiece class.
-7.	A correctly working public constructor with three parameters (int x, int y, int[][] matrix) must be created in the GamePiece class.
 
 
 Tetris (part 7)
@@ -83,15 +89,6 @@ From now on, if there are no explicit instructions about which access modifier t
 * At the same time, there's no reason to make methods public if they will only be used within their package.
 * This may seem insignificant at first, but it is actually one of the fundamental principles of OOP.
 * Learn to do it correctly right from the start!
-
-
-
-Tetris (part 3)
-
-
-There's a field and a game piece, but how do we get them?
-
-Add getters for the field and gamePiece fields.
 
 
 
