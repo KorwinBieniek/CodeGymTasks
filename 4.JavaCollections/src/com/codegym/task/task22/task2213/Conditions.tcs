@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task22.task2213.big09"\n\nTetris (part 9)
+taskKey="com.codegym.task.task22.task2213.big10"\n\nTetris (part 10)
+
+
+We also need methods to control the game piece.
+
+Add the following methods to the GamePiece class:
+left() - For moving game pieces to the left.
+right() - For moving game pieces to the right.
+down() - For moving game pieces down.
+up() - For moving game pieces up.
+rotate() For rotating the game piece about the main diagonal.
+downMaximum() - Drop the game piece to the bottom.
+boolean isCurrentPositionAvailable() - Checks whether the game piece can be placed in the current position. For the test, hardcode the a return value of true. We won't implement the logic now.
+land() - Called when the game piece reaches the bottom or lands on another game piece
+All of its occupied cells should now be added to Field.
+
+
+Requirements:
+1.	A left() method with no parameters must be created in the GamePiece class.
+2.	A right() method with no parameters must be created in the GamePiece class.
+3.	A down() method with no parameters must be created in the GamePiece class.
+4.	A up() method with no parameters must be created in the GamePiece class.
+5.	A rotate() method with no parameters must be created in the GamePiece class.
+6.	A downMaximum() method with no parameters must be created in the GamePiece class.
+7.	A isCurrentPositionAvailable() method with no parameters must be created in the GamePiece class.
+8.	A land() method with no parameters must be created in the GamePiece class.
+9.	The isCurrentPositionAvailable() method should return true.
+
+
+Tetris (part 9)
 
 
 You may have noticed that we're writing the program "top down".
@@ -8,9 +37,6 @@ We're breaking a big task into many small ones.
 When the code for all the methods is ready, we'll only need to check whether everything works as it should.
 And if necessary — make some changes.
 
-
-Requirements:
-1.	Review the class structure we&#39;ve created and pay attention to the order in which we wrote the program.
 
 
 Tetris (part 8)
@@ -68,27 +94,6 @@ The game field must NOT be private.
 
 Then in the main() method, create a Tetris object and save it in this variable.
 Then add a call to the run() method.
-
-
-
-Tetris (part 4)
-
-
-We'll also need a couple of methods.
-Add run() and step() methods to the Tetris class:
-
-run() will be responsible for the entire game.
-The step() method will be responsible for a single step in the game.
-
-The return type is void for both methods.
-
-From now on, if there are no explicit instructions about which access modifier to use, make methods public, and fields — private.
-
-* In general, you should use the most restrictive access modifier you can.
-* In other words, if the system's logic requires calls to a method from outside its class, then we can't make that method private.
-* At the same time, there's no reason to make methods public if they will only be used within their package.
-* This may seem insignificant at first, but it is actually one of the fundamental principles of OOP.
-* Learn to do it correctly right from the start!
 
 
 
