@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task22.task2213.big11"\n\nTetris (part 11)
+taskKey="com.codegym.task.task22.task2213.big12"\n\nTetris (part 12)
+
+
+In Tetris, we control the movement of the game piece using the keyboard.
+
+There are 4 actions:
+move left (left arrow key),
+move right (right arrow key),
+rotate the game piece (number 5 on the numeric keypad),
+drop the game piece (space).
+
+We'll handle keyboard input in the Tetris class's run() method.
+
+And now I have two pieces of news for you: good and bad.
+The bad news is that Java doesn't let you read keys
+until the user presses enter.
+Not very convenient, right?
+
+The good news is that I've written a special class (KeyboardObserver) that let's you get around this limitation.
+So you can use it.
+
+There's also some wonderful news.
+You've done a great job so far, so I'll help you a little.
+I've written the following methods for you:
+a) createRandomGamePiece() in GamePieceFactory
+b) run() in Tetris
+
+Study them carefully and then proceed.
+
+
+Requirements:
+1.	Carefully study the run() method in the Tetris class.
+2.	Carefully study the GamePieceFactory class&#39;s createRandomGamePiece() method.
+3.	Carefully study the KeyboardObserver class.
+
+
+Tetris (part 11)
 
 
 Now create a GamePieceFactory class.
@@ -6,13 +42,6 @@ We'll use it to create game pieces of various shapes.
 For now, it will have only one static createRandomGamePiece() method:
 static GamePiece createRandomGamePiece(int x, int y)
 
-
-Requirements:
-1.	The GamePieceFactory class must be in a separate file.
-2.	A createRandomGamePiece() method with two int parameters must be created in the GamePieceFactory class.
-3.	The createRandomGamePiece() method must be static.
-4.	It should be possible to access the createRandomGamePiece() method from outside the GamePieceFactory class.
-5.	The createRandomGamePiece() method must return a GamePiece.
 
 
 Tetris (part 10)
@@ -71,23 +100,6 @@ a) print() - The object draws its current state on the screen;
 b) removeFullLines() - Completely full rows are removed from the matrix, and higher rows are moved down;
 c) Integer getValue(int x, int y) - Returns the matrix value with coordinates (x, y);
 d) void setValue(int x, int y, int value) - Sets to matrix value with coordinates (x, y) to the passed value.
-
-
-
-Tetris (part 6)
-
-
-Now let's move on to the Field class.
-It will be responsible for storing information about which cells of the game field are currently occupied and which are empty.
-Add the following two fields to the Field class: int width and int height.
-We also need a matrix, i.e. a two-dimensional array: int[][] matrix;
-In the same place, add getters for these variables.
-Add a constructor that has two parameters: width and height. And don't forget about the matrix.
-
-IMPORTANT!
-A two-dimensional array can be represented as an array of arrays or as a rectangular matrix.
-The first coordinate refers to the row, and the second refers to the column.
-In other words, the cell with coordinates (x, y) is matrix[y][x].
 
 
 
