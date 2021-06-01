@@ -5,7 +5,7 @@ package com.codegym.task.task22.task2213;
  */
 public class GamePieceFactory {
     /**
-     * A set of six patterns for creating game pieces.
+     * A set of six patterns for creating game pieces
      */
     public static final int[][][] BRICKS = {{
             {1, 1, 0},                          //   X X

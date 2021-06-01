@@ -1,15 +1,23 @@
-taskKey="com.codegym.task.task22.task2213.big16"\n\nTetris (part 16)
+taskKey="com.codegym.task.task22.task2213.big17"\n\nTetris (part 17)
+
+
+I've corrected the code a little bit.
+But overall, well done.
+Enjoy playing Tetris!
+P.S.
+Just don't forget to adjust the height of the console.
+
+
+Requirements:
+1.	Your big task for Level 32 is done!
+
+
+Tetris (part 16)
 
 
 Write your own implementation of the left(), right(), up(), and down() methods in the GamePiece class.
 What do you think these methods should do?
 
-
-Requirements:
-1.	The left() method should reduce the value of the x field by one if doing so is possible (if doing so does not move beyond the boundaries of the game field).
-2.	The right() method should increase the value of the x field by one if doing so is possible (if doing so does not move beyond the boundaries of the game field).
-3.	The up() method should reduce the value of the y field by one.
-4.	The down() method should increase the value of the y field by one.
 
 
 Tetris (part 15)
@@ -92,16 +100,6 @@ a) createRandomGamePiece() in GamePieceFactory
 b) run() in Tetris
 
 Study them carefully and then proceed.
-
-
-
-Tetris (part 11)
-
-
-Now create a GamePieceFactory class.
-We'll use it to create game pieces of various shapes.
-For now, it will have only one static createRandomGamePiece() method:
-static GamePiece createRandomGamePiece(int x, int y)
 
 
 
