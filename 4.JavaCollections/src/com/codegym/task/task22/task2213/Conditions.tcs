@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task22.task2213.big12"\n\nTetris (part 12)
+taskKey="com.codegym.task.task22.task2213.big13"\n\nTetris (part 13)
+
+
+Now we'll start to implement the methods we've created.
+Implement the print() method in the Field class
+a) The method should display a rectangle of '.' characters and 'X' characters.
+b) The rectangle's height is equal to height, and its width is equal to width
+c) If a cell is empty, display a period. If it is not empty, display the English letter 'X'.
+
+Hint:
+if (matrix[y][x]==0) ...
+
+
+Requirements:
+1.	The print() method should display the data on the screen.
+2.	The print() method should display height rows.
+3.	The number of characters in each row should be equal to width.
+4.	If an array element is equal to 0, a period must be displayed on the screen, otherwise &mdash; the English letter &#39;X&#39;.
+
+
+Tetris (part 12)
 
 
 In Tetris, we control the movement of the game piece using the keyboard.
@@ -27,11 +47,6 @@ b) run() in Tetris
 
 Study them carefully and then proceed.
 
-
-Requirements:
-1.	Carefully study the run() method in the Tetris class.
-2.	Carefully study the GamePieceFactory class&#39;s createRandomGamePiece() method.
-3.	Carefully study the KeyboardObserver class.
 
 
 Tetris (part 11)
@@ -89,17 +104,6 @@ Add the following two fields to the GamePiece class: int x, int y.
 And add a two-dimensional array: int[][] matrix.
 In the same place, add getters for these variables.
 Add a constructor with three parameters: x, y, and matrix.
-
-
-
-Tetris (part 7)
-
-
-We'll need 4 more methods in the Field class:
-a) print() - The object draws its current state on the screen;
-b) removeFullLines() - Completely full rows are removed from the matrix, and higher rows are moved down;
-c) Integer getValue(int x, int y) - Returns the matrix value with coordinates (x, y);
-d) void setValue(int x, int y, int value) - Sets to matrix value with coordinates (x, y) to the passed value.
 
 
 
