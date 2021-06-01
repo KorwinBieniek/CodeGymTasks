@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task22.task2213.big13"\n\nTetris (part 13)
+taskKey="com.codegym.task.task22.task2213.big14"\n\nTetris (part 14)
+
+
+Implement the removeFullLines() method in the Field class.
+Here's what we need to do:
+a) delete all lines from the matrix that are completely full (consist of only ones);
+b) move the remaining lines down;
+c) create new lines to replace missing ones.
+
+IMPORTANT!
+matrix[y][x] contains the element with coordinates (x, y).
+matrix[i] contains the i-th line.
+We can:
+a) remove a line:
+matrix[i] = null;
+
+b) copy a reference to a line:
+matrix[i+1] = matrix[i];
+
+c) create a new line:
+matrix[i] = new int[width];
+
+
+Requirements:
+1.	After the removeFullLines() method is run, no lines consisting of only ones should be left in the matrix array.
+2.	The remaining lines should be correctly shifted, and new lines should be added to replace the lines that are removed.
+
+
+Tetris (part 13)
 
 
 Now we'll start to implement the methods we've created.
@@ -10,12 +38,6 @@ c) If a cell is empty, display a period. If it is not empty, display the English
 Hint:
 if (matrix[y][x]==0) ...
 
-
-Requirements:
-1.	The print() method should display the data on the screen.
-2.	The print() method should display height rows.
-3.	The number of characters in each row should be equal to width.
-4.	If an array element is equal to 0, a period must be displayed on the screen, otherwise &mdash; the English letter &#39;X&#39;.
 
 
 Tetris (part 12)
@@ -86,24 +108,6 @@ And then we start writing the code for the methods.
 We're breaking a big task into many small ones.
 When the code for all the methods is ready, we'll only need to check whether everything works as it should.
 And if necessary — make some changes.
-
-
-
-Tetris (part 8)
-
-
-Now create the backbone of the GamePiece class.
-This class will describe the falling game pieces.
-
-We need to know the coordinates and shape.
-The two variables x and y will be responsible for the coordinates.
-The matrix is responsible for the shape. A two-dimensional 3x3 array consisting of ones and zeros.
-A one means the cell is occupied — a zero means it is empty.
-
-Add the following two fields to the GamePiece class: int x, int y.
-And add a two-dimensional array: int[][] matrix.
-In the same place, add getters for these variables.
-Add a constructor with three parameters: x, y, and matrix.
 
 
 
