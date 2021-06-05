@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task25.task2515.big11"\n\nSpace (part 11)
+taskKey="com.codegym.task.task25.task2515.big12"\n\nSpace (part 12)
+
+
+Now let's do the ship.
+For complexity, we'll do this: if the user presses the left button, the ship will start moving to the left and continue to do so.
+If the user presses the right button, it will start moving to the right and continue to do so until it hits the edge.
+Accordingly, we'll create a special dx variable that will store the direction of the ship's movement.
+if dx = 1, then the ship moves 1 to the right with each step,
+if dx = -1, then the ship moves 1 to the left with each each step.
+Here's what we need:
+a) add a constructor as follows:
+The ship's radius is equal to 3. The ship is large — it's no rocket or bomb.
+public Spaceship(double x, double y)
+{
+super(x, y, 3);
+}
+b) add a double dx variable to the Spaceship class (the default value is 0);
+c) the moveLeft() method, which sets dx equal to -1;
+d) the moveRight() method, which sets dx equal to 1.
+
+
+Requirements:
+1.	In the Spaceship class, the constructor must take x and y coordinates, and always set the radius equal to 3.
+2.	Add a double dx field to the Spaceship class.
+3.	In the Spaceship class, implement the moveLeft() method, which sets the dx field equal to -1.
+4.	In the Spaceship class, implement the moveRight() method, which sets the dx field equal to 1.
+
+
+Space (part 11)
 
 
 Now we'll write the Rocket class.
@@ -7,11 +35,6 @@ But:
 a) Rockets fly upward (i.e. y is decreased by 1);
 b) We'll draw 'R' instead of 'B'.
 
-
-Requirements:
-1.	In the Rocket class, the constructor must take coordinates, and always set the radius equal to 1.
-2.	In the Rocket class, implement the move() method, which decrements the y coordinate by one.
-3.	In the Rocket class, implement the draw(Canvas canvas) method, which will set the value at coordinates (x, y) equal to &#39;R&#39;.
 
 
 Space (part 10)
@@ -92,28 +115,6 @@ a) Add two variables (width and height) to the class;
 b) Add a char[][] matrix field to the class;
 c) Add getters for them;
 d) Initialize the matrix in the constructor.
-
-
-
-Space (part 6)
-
-
-But there's more.
-The BaseObject class needs more methods.
-For now, these will be empty draw() and move() methods.
-Subclasses will have to override them and implement the necessary functionality.
-
-Also add a die() method, which causes the object to die (isAlive = false)
-
-We'll also need to determine whether the ship was hit by a bomb hit or a UFO was hit by a missile.
-This is how we'll do that:
-Create a special method: public boolean intersects(BaseObject o)
-It will determine whether objects intersect. If they intersect, return true; if not, false.
-
-Because we're treating objects as circles for convenience, I propose the following collision-detection algorithm:
-if the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
-Or to put it more simply:
-distance_between_objects < max(radius_of_the_first_object, radius_of_the_second_object).
 
 
 
