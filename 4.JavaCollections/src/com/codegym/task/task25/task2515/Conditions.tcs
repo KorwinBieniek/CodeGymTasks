@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task25.task2515.big01"\n\nSpace (part 1)
+
+
+Let's write a new computer game.
+We'll have a spaceship that will shoot rockets at UFOs.
+For their part, the UFOs will lob bombs at the spaceship.
+And, of course, all this is happening in outer space.
+
+We're going to need the following classes: Space, Spaceship, and Ufo.
+Create the following classes: Space, SpaceShip, Ufo.
+Add a main method to the Space class.
+
+
+Requirements:
+1.	Create a Space class in a separate file.
+2.	Create a Spaceship class in a separate file.
+3.	Create a Ufo class in a separate file.
+4.	Add a main method to the Space class.
+
+
