@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task25.task2515.big14"\n\nSpace (part 14)
+taskKey="com.codegym.task.task25.task2515.big15"\n\nSpace (part 15)
+
+
+We still have to finish the Space class.
+
+Implement the getAllItems method:
+The method should return one common list of all BaseObject objects.
+
+Implement the moveAllItems method:
+The method should move all the objects all at the same time.
+Here's what we need:
+a) get a list of all BaseObjects;
+b) call the move() method on each of them.
+
+
+Requirements:
+1.	Implement the getAllItems() method in the Space class. It should return a list of all BaseObjects stored in the fields of the Space object.
+2.	Implement the moveAllItems() method in the Space class. It should call move() on all BaseObjects stored in the fields of the Space object.
+
+
+Space (part 14)
 
 
 Now write the Ufo class.
@@ -22,14 +42,6 @@ The fire() method:
 The UFO drops the bomb from its center.
 Implement it by analogy with the Spaceship class.
 
-
-Requirements:
-1.	In the Ufo class, the constructor must take x and y coordinates, and always set the radius equal to 3.
-2.	In the Ufo class, add a field with a matrix object by analogy with the Spaceship class.
-3.	In the Ufo class, implement the draw() method, which should draw the object by analogy with the Spaceship class.
-4.	In the Ufo class, implement the move() method, which changes the object&#39;s coordinates according to the task conditions.
-5.	In the Ufo class, implement the fire() method, which creates a bomb under the center of the object and adds it to the Space.bombs list.
-6.	In the Ufo class&#39;s move() method, call the fire() method with a probability of 10%.
 
 
 Space (part 13)
@@ -112,21 +124,6 @@ Let's just set the value at coordinates (x, y) to color "B":
 canvas.setPoint(x, y, 'B').
 
 d) Create a public static Space game in the Space class.
-
-
-
-Space (part 9)
-
-
-Canvas needs another two methods. Write them.
-a) the clear() method();
-This method will clear the matrix so it can be drawn on again.
-For example, replace all characters in the matrix with spaces.
-
-b) the print() method();
-This method draws the matrix on the screen.
-You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
-Don't forget to add a pair of blank lines at the end so that matrices displayed at different times do not run together.
 
 
 
