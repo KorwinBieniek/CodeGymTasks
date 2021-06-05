@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task25.task2515.big15"\n\nSpace (part 15)
+taskKey="com.codegym.task.task25.task2515.big16"\n\nSpace (part 16)
+
+
+And a little bit more:
+
+Implement the createUfo() method:
+If the list of UFOs is empty, create a ship in the center at the top of the screen.
+
+Implement the checkBombs() method:
+You need to check whether a bomb collided with the ship.
+If there was a collision, then the ship and the bomb die: call the die() method.
+A bomb also dies if it moves beyond the limits of the screen (y > height).
+
+Implement the checkRockets() method:
+You need to check whether a rocket collided with a UFO.
+If there was a collision, then the rocket and the UFO die: call the die() method.
+A rocket also dies if it moves beyond the limits of the screen (y < 0).
+
+Implement the removeDead() method:
+This method should remove all dead objects (isAlive() == false) from the ufos, rockets, and bombs lists.
+
+
+Requirements:
+1.	In the Space class, implement the createUfo() method as described in the task conditions.
+2.	In the Space class, implement the checkBombs() method as described in the task conditions.
+3.	In the Space class, implement the checkRockets() method as described in the task conditions.
+4.	In the Space class, implement the removeDead() method as described in the task conditions.
+
+
+Space (part 15)
 
 
 We still have to finish the Space class.
@@ -12,10 +41,6 @@ Here's what we need:
 a) get a list of all BaseObjects;
 b) call the move() method on each of them.
 
-
-Requirements:
-1.	Implement the getAllItems() method in the Space class. It should return a list of all BaseObjects stored in the fields of the Space object.
-2.	Implement the moveAllItems() method in the Space class. It should call move() on all BaseObjects stored in the fields of the Space object.
 
 
 Space (part 14)
@@ -97,33 +122,6 @@ It's almost the same as the Bomb class.
 But:
 a) Rockets fly upward (i.e. y is decreased by 1);
 b) We'll draw 'R' instead of 'B'.
-
-
-
-Space (part 10)
-
-
-Now we'll write the Bomb class. Everything is simple here.
-Bomb inherits BaseObject.
-Here's what we need:
-a) change the constructor:
-The Bomb constructor should look something like this:
-public Bomb(double x, double y)
-{
-super(x, y, 1);
-}
-We use the super keyword to pass the x and y values passed to the Bomb constructor on to the BaseObject constructor,
-where we also indicate a bomb radius equal to 1.
-
-b) implement the move() method:
-everything is simple here — the bomb drops downward, so just increase y by 1.
-
-c) draw(Canvas canvas) method:
-again, the logic is not very complicated here.
-Let's just set the value at coordinates (x, y) to color "B":
-canvas.setPoint(x, y, 'B').
-
-d) Create a public static Space game in the Space class.
 
 
 
