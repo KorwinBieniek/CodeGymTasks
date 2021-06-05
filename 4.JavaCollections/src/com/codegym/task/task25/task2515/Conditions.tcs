@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task25.task2515.big04"\n\nSpace (part 4)
+taskKey="com.codegym.task.task25.task2515.big05"\n\nSpace (part 5)
+
+
+Now let's move on to the BaseObject class.
+I want to make some suggestions.
+
+First, for simplicity, treat all of our objects in space as circles.
+We'll draw them as shapes, just as before.
+But when calculating object collisions, we'll assume they are round.
+Doing it this way is much simpler.
+
+Second. Let the objects' coordinates and radius be real numbers.
+This will ensure smooth motion and accurate calculations.
+And we'll round them when drawing.
+
+Here's what we need:
+a) Add to the BaseObject class the variables double x, double y, and double radius, as well as getters and setters for them.
+b) Add a boolean isAlive variable (to indicate whether the object is alive).
+c) Add a getter (an isAlive() method for the isAlive variable).
+d) Add a BaseObject(double x, double y, double radius) constructor.
+e) Be sure that isAlive is set to true in the constructor (stillborn objects are of no use to us).
+f) You need to go through all the subclasses and fix their constructors.
+If you use IntelliJ IDEA, Alt+Insert will help you.
+
+
+Requirements:
+1.	Create a double x field in the BaseObject class. Add a getter and setter for it.
+2.	Create a double y field in the BaseObject class. Add a getter and setter for it.
+3.	Create a double radius field in the BaseObject class. Add a getter and setter for it.
+4.	Create a boolean isAlive field in the BaseObject class. Add a getter for it.
+5.	Create a BaseObject(double x, double y, double radius) constructor in the BaseObject class. The isAlive field must be set to true.
+6.	Create similar constructors in all classes that inherit BaseObject.
+
+
+Space (part 4)
 
 
 What is Space class missing?
@@ -9,11 +43,6 @@ And the draw method is responsible for drawing the next "frame".
 We'll also benefit from a sleep(int ms) method.
 Create them.
 
-
-Requirements:
-1.	Create a run() method in the Space class.
-2.	Create a draw() method in the Space class.
-3.	Create a sleep(int ms) method in the Space class.
 
 
 Space (part 3)
