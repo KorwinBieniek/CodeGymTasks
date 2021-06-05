@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task25.task2515.big09"\n\nSpace (part 9)
+taskKey="com.codegym.task.task25.task2515.big10"\n\nSpace (part 10)
+
+
+Now we'll write the Bomb class. Everything is simple here.
+Bomb inherits BaseObject.
+Here's what we need:
+a) change the constructor:
+The Bomb constructor should look something like this:
+public Bomb(double x, double y)
+{
+super(x, y, 1);
+}
+We use the super keyword to pass the x and y values passed to the Bomb constructor on to the BaseObject constructor,
+where we also indicate a bomb radius equal to 1.
+
+b) implement the move() method:
+everything is simple here — the bomb drops downward, so just increase y by 1.
+
+c) draw(Canvas canvas) method:
+again, the logic is not very complicated here.
+Let's just set the value at coordinates (x, y) to color "B":
+canvas.setPoint(x, y, 'B').
+
+d) Create a public static Space game in the Space class.
+
+
+Requirements:
+1.	In the Bomb class, the constructor must take coordinates, and always set the radius equal to 1.
+2.	In the Bomb class, implement the move() method, which increments the y coordinate by one.
+3.	In the Bomb class, implement the draw(Canvas canvas) method, which will set the value at coordinates (x, y) equal to &#39;B&#39;.
+4.	Create a public static Space game field in the Space class.
+
+
+Space (part 9)
 
 
 Canvas needs another two methods. Write them.
@@ -11,12 +44,6 @@ This method draws the matrix on the screen.
 You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
 Don't forget to add a pair of blank lines at the end so that matrices displayed at different times do not run together.
 
-
-Requirements:
-1.	Create a clear() method in the Canvas class.
-2.	The clear() method should clear the matrix.
-3.	Create a print() method in the Canvas class.
-4.	The print() method should draw the matrix on the console.
 
 
 Space (part 8)
@@ -103,19 +130,6 @@ d) Add a BaseObject(double x, double y, double radius) constructor.
 e) Be sure that isAlive is set to true in the constructor (stillborn objects are of no use to us).
 f) You need to go through all the subclasses and fix their constructors.
 If you use IntelliJ IDEA, Alt+Insert will help you.
-
-
-
-Space (part 4)
-
-
-What is Space class missing?
-That's right! run() and draw() methods.
-If you recall, the run method manages all the game logic.
-And the draw method is responsible for drawing the next "frame".
-
-We'll also benefit from a sleep(int ms) method.
-Create them.
 
 
 
