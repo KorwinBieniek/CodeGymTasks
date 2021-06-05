@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task25.task2515.big13"\n\nSpace (part 13)
+taskKey="com.codegym.task.task25.task2515.big14"\n\nSpace (part 14)
+
+
+Now write the Ufo class.
+It's a bit more complicated than the Bomb class and simpler than Spaceship.
+You will need draw(), move(), and fire() methods.
+Also, don't forget about the constructor. The parameters are doubles, and UFO's radius will be equal to 3.
+
+We'll implement the draw() method by analogy with Spaceship. We'll use 'U' to draw UFOs.
+Add a matrix by analogy with Spaceship.
+
+You need to implement the move() method as follows:
+a) the UFO moves randomly;
+Hint:
+double dx = Math.random() * 2 - 1;  // -1..1
+double dy = Math.random() * 2 - 1;  // -1..1
+b) the UFO does not move into the bottom half of the screen;
+y <= height/2
+c) the UFO has a 10% chance of shooting (calling the fire method).
+
+The fire() method:
+The UFO drops the bomb from its center.
+Implement it by analogy with the Spaceship class.
+
+
+Requirements:
+1.	In the Ufo class, the constructor must take x and y coordinates, and always set the radius equal to 3.
+2.	In the Ufo class, add a field with a matrix object by analogy with the Spaceship class.
+3.	In the Ufo class, implement the draw() method, which should draw the object by analogy with the Spaceship class.
+4.	In the Ufo class, implement the move() method, which changes the object&#39;s coordinates according to the task conditions.
+5.	In the Ufo class, implement the fire() method, which creates a bomb under the center of the object and adds it to the Space.bombs list.
+6.	In the Ufo class&#39;s move() method, call the fire() method with a probability of 10%.
+
+
+Space (part 13)
 
 
 We now turn to the draw and move methods.
@@ -19,11 +53,6 @@ c) add these rockets to the list of rockets in the game object.
 You can get it as follows:
 Space.game.getRockets()
 
-
-Requirements:
-1.	In the Spaceship class, implement the move() method, which increases the x field by the value of dx and checks whether the ship has reached the limits of outer space.
-2.	Add an empty draw(Canvas canvas) method in the Spaceship class.
-3.	In the Spaceship class, implement the fire() method, which creates two rockets, whose coordinates are equal to the left and right edges of the ship, and adds them to the game object&#39;s rockets field.
 
 
 Space (part 12)
@@ -98,30 +127,6 @@ b) the print() method();
 This method draws the matrix on the screen.
 You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
 Don't forget to add a pair of blank lines at the end so that matrices displayed at different times do not run together.
-
-
-
-Space (part 8)
-
-
-What are we going to do with Canvas?
-We'll draw on it (on its matrix).
-Therefore, we need two methods:
-public void setPoint(double x, double y, char c),
-public void drawMatrix(double x, double y, int[][] matrix, char c).
-
-The first method (setPoint) will "set a point with coordinates (x, y) to color c".
-In this method, you need to:
-a) round x and y to integers,
-b) set matrix[y][x] to c,
-c) do nothing if x < 0 or y < 0 or y >= matrix.length or x >= matrix[0].length.
-
-The second method (drawMatrix) copies the passed image (matrix) to the Canvas matrix.
-And it doesn't simply copy image, but rather it starts from coordinates (x, y).
-In this method, you need to:
-a) use two nested loops to go through all the "pixels" of the passed image,
-b) if the value of matrix[i][j] is not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
-setPoint(x + j, y + i, c)
 
 
 
