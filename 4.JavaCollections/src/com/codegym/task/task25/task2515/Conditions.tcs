@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task25.task2515.big05"\n\nSpace (part 5)
+taskKey="com.codegym.task.task25.task2515.big06"\n\nSpace (part 6)
+
+
+But there's more.
+The BaseObject class needs more methods.
+For now, these will be empty draw() and move() methods.
+Subclasses will have to override them and implement the necessary functionality.
+
+Also add a die() method, which causes the object to die (isAlive = false)
+
+We'll also need to determine whether the ship was hit by a bomb hit or a UFO was hit by a missile.
+This is how we'll do that:
+Create a special method: public boolean intersects(BaseObject o)
+It will determine whether objects intersect. If they intersect, return true; if not, false.
+
+Because we're treating objects as circles for convenience, I propose the following collision-detection algorithm:
+if the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
+Or to put it more simply:
+distance_between_objects < max(radius_of_the_first_object, radius_of_the_second_object).
+
+
+Requirements:
+1.	Create an empty draw() method in the BaseObject class.
+2.	Create an empty move() method in the BaseObject class.
+3.	In the BaseObject class, create a die() method that sets the isAlive field to false.
+4.	In the BaseObject class, create an intersects(BaseObject o) method that returns a boolean.
+5.	Implement the intersects(BaseObject o) method. If the objects collide, return true; otherwise, false.
+
+
+Space (part 5)
 
 
 Now let's move on to the BaseObject class.
@@ -22,14 +51,6 @@ e) Be sure that isAlive is set to true in the constructor (stillborn objects are
 f) You need to go through all the subclasses and fix their constructors.
 If you use IntelliJ IDEA, Alt+Insert will help you.
 
-
-Requirements:
-1.	Create a double x field in the BaseObject class. Add a getter and setter for it.
-2.	Create a double y field in the BaseObject class. Add a getter and setter for it.
-3.	Create a double radius field in the BaseObject class. Add a getter and setter for it.
-4.	Create a boolean isAlive field in the BaseObject class. Add a getter for it.
-5.	Create a BaseObject(double x, double y, double radius) constructor in the BaseObject class. The isAlive field must be set to true.
-6.	Create similar constructors in all classes that inherit BaseObject.
 
 
 Space (part 4)
