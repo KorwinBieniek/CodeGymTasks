@@ -1,4 +1,22 @@
-taskKey="com.codegym.task.task25.task2515.big03"\n\nSpace (part 3)
+taskKey="com.codegym.task.task25.task2515.big04"\n\nSpace (part 4)
+
+
+What is Space class missing?
+That's right! run() and draw() methods.
+If you recall, the run method manages all the game logic.
+And the draw method is responsible for drawing the next "frame".
+
+We'll also benefit from a sleep(int ms) method.
+Create them.
+
+
+Requirements:
+1.	Create a run() method in the Space class.
+2.	Create a draw() method in the Space class.
+3.	Create a sleep(int ms) method in the Space class.
+
+
+Space (part 3)
 
 
 Why do we need the Space class?
@@ -19,16 +37,6 @@ And don't forget to add getters for the variables, and also a setter for the shi
 What should the constructor have?
 Parameters for the width and height will suffice.
 
-
-Requirements:
-1.	Create a width field in the Space class. Add a getter for it.
-2.	Create a height field in the Space class. Add a getter for it.
-3.	Create a ship field in the Space class. Add a getter and setter for it.
-4.	Create a ufos field in the Space class. Add a getter for it.
-5.	Create a rockets field in the Space class. Add a getter for it.
-6.	Create a bombs field in the Space class. Add a getter for it.
-7.	In the Space class, create a constructor that initializes the width and height fields.
-8.	Initialize the fields that store collections.
 
 
 Space (part 2)
