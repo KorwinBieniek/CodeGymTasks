@@ -1,4 +1,15 @@
-taskKey="com.codegym.task.task25.task2515.big16"\n\nSpace (part 16)
+taskKey="com.codegym.task.task25.task2515.big17"\n\nSpace (part 17)
+
+
+We need to finish the draw() method.
+We'll do something similar with the move method. I'll write it myself today.
+
+
+Requirements:
+1.	Proceed to the next stage of the task.
+
+
+Space (part 16)
 
 
 And a little bit more:
@@ -19,12 +30,6 @@ A rocket also dies if it moves beyond the limits of the screen (y < 0).
 Implement the removeDead() method:
 This method should remove all dead objects (isAlive() == false) from the ufos, rockets, and bombs lists.
 
-
-Requirements:
-1.	In the Space class, implement the createUfo() method as described in the task conditions.
-2.	In the Space class, implement the checkBombs() method as described in the task conditions.
-3.	In the Space class, implement the checkRockets() method as described in the task conditions.
-4.	In the Space class, implement the removeDead() method as described in the task conditions.
 
 
 Space (part 15)
@@ -111,17 +116,6 @@ super(x, y, 3);
 b) add a double dx variable to the Spaceship class (the default value is 0);
 c) the moveLeft() method, which sets dx equal to -1;
 d) the moveRight() method, which sets dx equal to 1.
-
-
-
-Space (part 11)
-
-
-Now we'll write the Rocket class.
-It's almost the same as the Bomb class.
-But:
-a) Rockets fly upward (i.e. y is decreased by 1);
-b) We'll draw 'R' instead of 'B'.
 
 
 
