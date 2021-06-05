@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task25.task2515.big08"\n\nSpace (part 8)
+taskKey="com.codegym.task.task25.task2515.big09"\n\nSpace (part 9)
+
+
+Canvas needs another two methods. Write them.
+a) the clear() method();
+This method will clear the matrix so it can be drawn on again.
+For example, replace all characters in the matrix with spaces.
+
+b) the print() method();
+This method draws the matrix on the screen.
+You should be able to figure this out on your own: Displaying a set of characters is not so difficult.
+Don't forget to add a pair of blank lines at the end so that matrices displayed at different times do not run together.
+
+
+Requirements:
+1.	Create a clear() method in the Canvas class.
+2.	The clear() method should clear the matrix.
+3.	Create a print() method in the Canvas class.
+4.	The print() method should draw the matrix on the console.
+
+
+Space (part 8)
 
 
 What are we going to do with Canvas?
@@ -20,12 +41,6 @@ a) use two nested loops to go through all the "pixels" of the passed image,
 b) if the value of matrix[i][j] is not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
 setPoint(x + j, y + i, c)
 
-
-Requirements:
-1.	Create a public void setPoint(double x, double y, char c) method in the Canvas class.
-2.	The setPoint method must assign char c to the matrix at coordinates (x, y).
-3.	Create a void drawMatrix(double x, double y, int[][] matrix, char c) method in the Canvas class.
-4.	Starting at (x, y), the drawMatrix method must fill the canvas with char c based on the matrix passed to the method.
 
 
 Space (part 7)
@@ -101,29 +116,6 @@ And the draw method is responsible for drawing the next "frame".
 
 We'll also benefit from a sleep(int ms) method.
 Create them.
-
-
-
-Space (part 3)
-
-
-Why do we need the Space class?
-To store all the objects and control how they interact.
-What fields should it have?
-width and height.
-What else?
-a) ship (our spaceship),
-b) a list to store all the UFOs (List<Ufo>),
-c) a list to store all the rockets (List<Rocket>),
-d) a list to store all the bombs (List<Bomb>).
-
-Task:
-Add all these variables to the Space class.
-Initialize the collections.
-And don't forget to add getters for the variables, and also a setter for the ship field!
-
-What should the constructor have?
-Parameters for the width and height will suffice.
 
 
 
