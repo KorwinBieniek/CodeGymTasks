@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task25.task2515.big02"\n\nSpace (part 2)
+taskKey="com.codegym.task.task25.task2515.big03"\n\nSpace (part 3)
+
+
+Why do we need the Space class?
+To store all the objects and control how they interact.
+What fields should it have?
+width and height.
+What else?
+a) ship (our spaceship),
+b) a list to store all the UFOs (List<Ufo>),
+c) a list to store all the rockets (List<Rocket>),
+d) a list to store all the bombs (List<Bomb>).
+
+Task:
+Add all these variables to the Space class.
+Initialize the collections.
+And don't forget to add getters for the variables, and also a setter for the ship field!
+
+What should the constructor have?
+Parameters for the width and height will suffice.
+
+
+Requirements:
+1.	Create a width field in the Space class. Add a getter for it.
+2.	Create a height field in the Space class. Add a getter for it.
+3.	Create a ship field in the Space class. Add a getter and setter for it.
+4.	Create a ufos field in the Space class. Add a getter for it.
+5.	Create a rockets field in the Space class. Add a getter for it.
+6.	Create a bombs field in the Space class. Add a getter for it.
+7.	In the Space class, create a constructor that initializes the width and height fields.
+8.	Initialize the fields that store collections.
+
+
+Space (part 2)
 
 
 We will have bombs and rockets.
@@ -21,13 +54,6 @@ Objects will use it to draw themselves.
 Or rather, they will draw themselves on it.
 Create this class as well.
 
-
-Requirements:
-1.	Create a Bomb class in a separate file.
-2.	Create a Rocket class in a separate file.
-3.	Create an abstract BaseObject class in a separate file.
-4.	The Ufo, Spaceship, Rocket, and Bomb classes must inherit BaseObject.
-5.	Create a Canvas class in a separate file.
 
 
 Space (part 1)
