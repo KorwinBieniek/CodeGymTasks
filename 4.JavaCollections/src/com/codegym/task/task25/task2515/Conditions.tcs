@@ -1,4 +1,20 @@
-taskKey="com.codegym.task.task25.task2515.big10"\n\nSpace (part 10)
+taskKey="com.codegym.task.task25.task2515.big11"\n\nSpace (part 11)
+
+
+Now we'll write the Rocket class.
+It's almost the same as the Bomb class.
+But:
+a) Rockets fly upward (i.e. y is decreased by 1);
+b) We'll draw 'R' instead of 'B'.
+
+
+Requirements:
+1.	In the Rocket class, the constructor must take coordinates, and always set the radius equal to 1.
+2.	In the Rocket class, implement the move() method, which decrements the y coordinate by one.
+3.	In the Rocket class, implement the draw(Canvas canvas) method, which will set the value at coordinates (x, y) equal to &#39;R&#39;.
+
+
+Space (part 10)
 
 
 Now we'll write the Bomb class. Everything is simple here.
@@ -23,12 +39,6 @@ canvas.setPoint(x, y, 'B').
 
 d) Create a public static Space game in the Space class.
 
-
-Requirements:
-1.	In the Bomb class, the constructor must take coordinates, and always set the radius equal to 1.
-2.	In the Bomb class, implement the move() method, which increments the y coordinate by one.
-3.	In the Bomb class, implement the draw(Canvas canvas) method, which will set the value at coordinates (x, y) equal to &#39;B&#39;.
-4.	Create a public static Space game field in the Space class.
 
 
 Space (part 9)
@@ -104,32 +114,6 @@ Because we're treating objects as circles for convenience, I propose the followi
 if the center of the circle of one object lies within the circle of another, then we'll conclude that they've collided.
 Or to put it more simply:
 distance_between_objects < max(radius_of_the_first_object, radius_of_the_second_object).
-
-
-
-Space (part 5)
-
-
-Now let's move on to the BaseObject class.
-I want to make some suggestions.
-
-First, for simplicity, treat all of our objects in space as circles.
-We'll draw them as shapes, just as before.
-But when calculating object collisions, we'll assume they are round.
-Doing it this way is much simpler.
-
-Second. Let the objects' coordinates and radius be real numbers.
-This will ensure smooth motion and accurate calculations.
-And we'll round them when drawing.
-
-Here's what we need:
-a) Add to the BaseObject class the variables double x, double y, and double radius, as well as getters and setters for them.
-b) Add a boolean isAlive variable (to indicate whether the object is alive).
-c) Add a getter (an isAlive() method for the isAlive variable).
-d) Add a BaseObject(double x, double y, double radius) constructor.
-e) Be sure that isAlive is set to true in the constructor (stillborn objects are of no use to us).
-f) You need to go through all the subclasses and fix their constructors.
-If you use IntelliJ IDEA, Alt+Insert will help you.
 
 
 
