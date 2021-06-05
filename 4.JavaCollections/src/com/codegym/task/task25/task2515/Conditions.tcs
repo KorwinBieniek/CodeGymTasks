@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task25.task2515.big01"\n\nSpace (part 1)
+taskKey="com.codegym.task.task25.task2515.big02"\n\nSpace (part 2)
+
+
+We will have bombs and rockets.
+That means we need Bomb and Rocket classes.
+Create them.
+
+Our classes will have a lot in common.
+They will move about in space and be drawn on the screen.
+That means that they'll all have coordinates and a size.
+And a move() method for moving and a draw() method for drawing them on the screen.
+
+Here's an interesting suggestion: let's make one base class for all the objects.
+Let this be the BaseObject class.
+And the Ufo, Spaceship, Rocket, and Bomb classes will inherit it.
+Create an abstract BaseObject class and add it as the parent of the Ufo, Spaceship, Rocket, and Bomb classes.
+
+We also need a Canvas class.
+It will be responsible for drawing the objects.
+Objects will use it to draw themselves.
+Or rather, they will draw themselves on it.
+Create this class as well.
+
+
+Requirements:
+1.	Create a Bomb class in a separate file.
+2.	Create a Rocket class in a separate file.
+3.	Create an abstract BaseObject class in a separate file.
+4.	The Ufo, Spaceship, Rocket, and Bomb classes must inherit BaseObject.
+5.	Create a Canvas class in a separate file.
+
+
+Space (part 1)
 
 
 Let's write a new computer game.
@@ -10,11 +42,5 @@ We're going to need the following classes: Space, Spaceship, and Ufo.
 Create the following classes: Space, SpaceShip, Ufo.
 Add a main method to the Space class.
 
-
-Requirements:
-1.	Create a Space class in a separate file.
-2.	Create a Spaceship class in a separate file.
-3.	Create a Ufo class in a separate file.
-4.	Add a main method to the Space class.
 
 
