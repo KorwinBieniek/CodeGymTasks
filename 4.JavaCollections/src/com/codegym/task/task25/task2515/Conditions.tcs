@@ -1,12 +1,20 @@
-taskKey="com.codegym.task.task25.task2515.big17"\n\nSpace (part 17)
+taskKey="com.codegym.task.task25.task2515.big18"\n\nSpace (part 18)
+
+
+Make width and height bigger and you can play!
+Enjoy the game :)
+
+
+Requirements:
+1.	Relax and enjoy.
+
+
+Space (part 17)
 
 
 We need to finish the draw() method.
 We'll do something similar with the move method. I'll write it myself today.
 
-
-Requirements:
-1.	Proceed to the next stage of the task.
 
 
 Space (part 16)
@@ -94,28 +102,6 @@ c) add these rockets to the list of rockets in the game object.
 
 You can get it as follows:
 Space.game.getRockets()
-
-
-
-Space (part 12)
-
-
-Now let's do the ship.
-For complexity, we'll do this: if the user presses the left button, the ship will start moving to the left and continue to do so.
-If the user presses the right button, it will start moving to the right and continue to do so until it hits the edge.
-Accordingly, we'll create a special dx variable that will store the direction of the ship's movement.
-if dx = 1, then the ship moves 1 to the right with each step,
-if dx = -1, then the ship moves 1 to the left with each each step.
-Here's what we need:
-a) add a constructor as follows:
-The ship's radius is equal to 3. The ship is large — it's no rocket or bomb.
-public Spaceship(double x, double y)
-{
-super(x, y, 3);
-}
-b) add a double dx variable to the Spaceship class (the default value is 0);
-c) the moveLeft() method, which sets dx equal to -1;
-d) the moveRight() method, which sets dx equal to 1.
 
 
 
