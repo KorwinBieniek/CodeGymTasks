@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task25.task2515.big12"\n\nSpace (part 12)
+taskKey="com.codegym.task.task25.task2515.big13"\n\nSpace (part 13)
+
+
+We now turn to the draw and move methods.
+In the move() method, you need to:
+a) increase x by dx;
+b) check to see whether the ship has moved beyond the boundaries of outer space [0, Space.game.getWidth()]. Use the checkBorders method.
+Bear in mind that the ship's width is equal to twice its radius.
+
+I'll implement the draw method myself: just declare an empty method.
+
+We also need a fire() method, since our ship can shoot.
+This method is called when we need to fire a shot.
+In this method, you need to:
+a) create two rockets;
+b) set their coordinates equal to the left and right edges of the ship (the guns are located a distance of 2 from the center of the ship);
+c) add these rockets to the list of rockets in the game object.
+
+You can get it as follows:
+Space.game.getRockets()
+
+
+Requirements:
+1.	In the Spaceship class, implement the move() method, which increases the x field by the value of dx and checks whether the ship has reached the limits of outer space.
+2.	Add an empty draw(Canvas canvas) method in the Spaceship class.
+3.	In the Spaceship class, implement the fire() method, which creates two rockets, whose coordinates are equal to the left and right edges of the ship, and adds them to the game object&#39;s rockets field.
+
+
+Space (part 12)
 
 
 Now let's do the ship.
@@ -18,12 +46,6 @@ b) add a double dx variable to the Spaceship class (the default value is 0);
 c) the moveLeft() method, which sets dx equal to -1;
 d) the moveRight() method, which sets dx equal to 1.
 
-
-Requirements:
-1.	In the Spaceship class, the constructor must take x and y coordinates, and always set the radius equal to 3.
-2.	Add a double dx field to the Spaceship class.
-3.	In the Spaceship class, implement the moveLeft() method, which sets the dx field equal to -1.
-4.	In the Spaceship class, implement the moveRight() method, which sets the dx field equal to 1.
 
 
 Space (part 11)
@@ -100,21 +122,6 @@ In this method, you need to:
 a) use two nested loops to go through all the "pixels" of the passed image,
 b) if the value of matrix[i][j] is not 0, then paint point (x+j, y+i) the color c in the Canvas object's matrix:
 setPoint(x + j, y + i, c)
-
-
-
-Space (part 7)
-
-
-Now let's tackle the Canvas class.
-It will contain a matrix that we will "draw" on.
-The matrix has a width and height.
-And we'll use it to store characters (chars) rather than numbers (ints).
-Here's what we need:
-a) Add two variables (width and height) to the class;
-b) Add a char[][] matrix field to the class;
-c) Add getters for them;
-d) Initialize the matrix in the constructor.
 
 
 
