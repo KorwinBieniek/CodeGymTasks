@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task25.task2515.big06"\n\nSpace (part 6)
+taskKey="com.codegym.task.task25.task2515.big07"\n\nSpace (part 7)
+
+
+Now let's tackle the Canvas class.
+It will contain a matrix that we will "draw" on.
+The matrix has a width and height.
+And we'll use it to store characters (chars) rather than numbers (ints).
+Here's what we need:
+a) Add two variables (width and height) to the class;
+b) Add a char[][] matrix field to the class;
+c) Add getters for them;
+d) Initialize the matrix in the constructor.
+
+
+Requirements:
+1.	Create a width field in the Canvas class. Add a getter for it.
+2.	Create a height field in the Canvas class. Add a getter for it.
+3.	Create a char[][] matrix field in the Canvas class. Add a getter for it.
+4.	Create a Canvas(int width, int height) constructor in the Canvas class. Initialize the width and height fields.
+5.	Initialize the char[height][width] matrix field in the constructor.
+
+
+Space (part 6)
 
 
 But there's more.
@@ -18,13 +40,6 @@ if the center of the circle of one object lies within the circle of another, the
 Or to put it more simply:
 distance_between_objects < max(radius_of_the_first_object, radius_of_the_second_object).
 
-
-Requirements:
-1.	Create an empty draw() method in the BaseObject class.
-2.	Create an empty move() method in the BaseObject class.
-3.	In the BaseObject class, create a die() method that sets the isAlive field to false.
-4.	In the BaseObject class, create an intersects(BaseObject o) method that returns a boolean.
-5.	Implement the intersects(BaseObject o) method. If the objects collide, return true; otherwise, false.
 
 
 Space (part 5)
@@ -111,20 +126,6 @@ It will be responsible for drawing the objects.
 Objects will use it to draw themselves.
 Or rather, they will draw themselves on it.
 Create this class as well.
-
-
-
-Space (part 1)
-
-
-Let's write a new computer game.
-We'll have a spaceship that will shoot rockets at UFOs.
-For their part, the UFOs will lob bombs at the spaceship.
-And, of course, all this is happening in outer space.
-
-We're going to need the following classes: Space, Spaceship, and Ufo.
-Create the following classes: Space, SpaceShip, Ufo.
-Add a main method to the Space class.
 
 
 

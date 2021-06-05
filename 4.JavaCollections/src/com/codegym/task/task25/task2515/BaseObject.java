@@ -1,11 +1,15 @@
 package com.codegym.task.task25.task2515;
 
+/**
+ * The base class for all game objects.
+ */
 public abstract class BaseObject {
-
-    private double x;
-    private double y;
-    private double radius;
-
+    // Coordinates
+    protected double x;
+    protected double y;
+    // Object radius
+    protected double radius;
+    // Indicates whether the object is alive
     private boolean isAlive;
 
     public BaseObject(double x, double y, double radius) {
@@ -13,28 +17,6 @@ public abstract class BaseObject {
         this.y = y;
         this.radius = radius;
         this.isAlive = true;
-    }
-
-    public void draw() {
-    }
-
-    public void move() {
-    }
-
-    public void die() {
-        isAlive = false;
-    }
-
-    public boolean intersects(BaseObject o) {
-        double dx = x - o.x;
-        double dy = y - o.y;
-        double destination = Math.sqrt(dx * dx + dy * dy);
-        double destination2 = Math.max(radius, o.radius);
-        return destination <= destination2;
-    }
-
-    public boolean isAlive() {
-        return isAlive;
     }
 
     public double getX() {
@@ -59,5 +41,52 @@ public abstract class BaseObject {
 
     public void setRadius(double radius) {
         this.radius = radius;
+    }
+
+    /**
+     * This method draws the object on the canvas.
+     */
+    public void draw(Canvas canvas) {
+        //do nothing
+    }
+
+    /**
+     * Move by one step.
+     */
+    public void move() {
+        //do nothing
+    }
+
+    /**
+     * Check whether (x, y) is beyond the borders.
+     */
+    public void checkBorders(double minx, double maxx, double miny, double maxy) {
+        if (x < minx) x = minx;
+        if (x > maxx) x = maxx;
+        if (y < miny) y = miny;
+        if (y > maxy) y = maxy;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    public void die() {
+        isAlive = false;
+    }
+
+    /**
+     * Check whether the passed object (o) and the object (this) intersect.
+     */
+    public boolean intersects(BaseObject o) {
+        double dx = x - o.x;
+        double dy = y - o.y;
+        double destination = Math.sqrt(dx * dx + dy * dy);
+        double destination2 = Math.max(radius, o.radius);
+        return destination <= destination2;
     }
 }
