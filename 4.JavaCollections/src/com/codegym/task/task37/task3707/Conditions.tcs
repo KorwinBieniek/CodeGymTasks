@@ -1,4 +1,39 @@
-taskKey="com.codegym.task.task37.task3707.big01"\n\nAmigoSet (part 1)
+taskKey="com.codegym.task.task37.task3707.big02"\n\nAmigoSet (part 2)
+
+
+We won't re-invent the mechanism for working with hashes — It has already been implemented in lots of collections.
+We'll grab HashMap and use it.
+
+1. Create a private Object PRESENT constant and initialize it with an Object. This will be our stub.
+
+2. Create a private transient HashMap<E, Object> map field. A list of keys will be our set. And instead of values, we'll shove the PRESENT stub into the map.
+Remember, we only need keys, and for each key we'll insert PRESENT instead of values. We've got to have something there :)
+Let's see what we end up with :)
+
+Collections usually have several constructors, so:
+
+3. Create a no-argument constructor that initializes the map field.
+
+4. Create a constructor with one Collection<? extends E> collection parameter.
+To initialize the map field, use a constructor that lets you pass the initial capacity.
+Calculate your capacity using the following formula: the maximum of 16 and the rounded-up value of (collection.size()/.75f)
+Add all of the elements from the passed collection to our collection.
+We have the method needed to add all the elements thanks to the fact that AbstractSet inherits AbstractCollection.
+
+5. Write your own implementation of the add(E e) method: add element e to map as a key with PRESENT as the value.
+Return true if the new element was added, otherwise return false.
+
+
+Requirements:
+1.	A private static final PRESENT field must be created and initialized with an Object in the AmigoSet class.
+2.	The AmigoSet class must create a private transient HashMap map field.
+3.	The AmigoSet class must implement a no-argument constructor as outlined in the task conditions.
+4.	The AmigoSet class must implement a constructor with a single Collection parameter as outlined in the task conditions.
+5.	The add method must add a new element to map using the passed parameter as the key and the PRESENT object as the value.
+6.	The add method must return true if the new element was successfully added; otherwise, it must return false.
+
+
+AmigoSet (part 1)
 
 
 Let's write some sort of collection. Let it be your very own Set.
@@ -14,10 +49,5 @@ These names aren't essential, but they make the code easier to read.
 
 3. Use IDEA's hotkeys to implement the necessary methods. Keep the default implementation.
 
-
-Requirements:
-1.	The AmigoSet class must be a child of the AbstractSet class.
-2.	The AmigoSet class must support the Serializable, Cloneable, and Set interfaces.
-3.	The AmigoSet class must be a generic class.
 
 
