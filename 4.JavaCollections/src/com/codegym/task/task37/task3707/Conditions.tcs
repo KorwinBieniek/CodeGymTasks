@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task37.task3707.big02"\n\nAmigoSet (part 2)
+taskKey="com.codegym.task.task37.task3707.big03"\n\nAmigoSet (part 3)
+
+
+Write your own implementation of the following methods that allow you to work with the keys in map:
+* Iterator<E> iterator () - Obviously, this is a key iterator. Get the set of keys in map, and return its iterator
+* int size() - This is the number of keys in map. It is equal to the number of elements in map.
+* boolean isEmpty()
+* boolean contains(Object o)
+* void clear()
+* boolean remove(Object o)
+
+Don't write anything of your own. Just use what has already been implemented for a set of keys in map.
+Use Alt+Insert => Override methods
+
+
+Requirements:
+1.	The iterator method must return an iterator for the map field&#39;s set of keys.
+2.	The size method must return the same value as the map field&#39;s size method.
+3.	The isEmpty method must return true if there are no elements in map; otherwise, it must return false.
+4.	The contains method must return true if the element in question is in map; otherwise, it should return false.
+5.	The clear method must call the map object&#39;s clear method.
+6.	The remove method must remove the passed argument from map.
+
+
+AmigoSet (part 2)
 
 
 We won't re-invent the mechanism for working with hashes — It has already been implemented in lots of collections.
@@ -23,14 +47,6 @@ We have the method needed to add all the elements thanks to the fact that Abstra
 5. Write your own implementation of the add(E e) method: add element e to map as a key with PRESENT as the value.
 Return true if the new element was added, otherwise return false.
 
-
-Requirements:
-1.	A private static final PRESENT field must be created and initialized with an Object in the AmigoSet class.
-2.	The AmigoSet class must create a private transient HashMap map field.
-3.	The AmigoSet class must implement a no-argument constructor as outlined in the task conditions.
-4.	The AmigoSet class must implement a constructor with a single Collection parameter as outlined in the task conditions.
-5.	The add method must add a new element to map using the passed parameter as the key and the PRESENT object as the value.
-6.	The add method must return true if the new element was successfully added; otherwise, it must return false.
 
 
 AmigoSet (part 1)
