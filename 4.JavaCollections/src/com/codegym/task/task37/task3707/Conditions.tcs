@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task37.task3707.big04"\n\nAmigoSet (part 4)
+taskKey="com.codegym.task.task37.task3707.big05"\n\nAmigoSet (part 5)
+
+
+Your AmigoSet set implements the Serializable interface. However, it doesn't serialize properly.
+
+1. Implement your own logic for serializing and deserializing.
+Remember which private methods you need to add in order to serialize correctly.
+To serialize:
+* serialize the set
+* serialize the map object's capacity and loadFactor. You'll need them for deserialization.
+Since this data is package-private, use the HashMapReflectionHelper utility class to get it.
+
+To deserialize:
+* read all of the data
+* create a map using the constructor with capacity and loadFactor parameters
+
+2. Remember what transient means?
+
+
+Requirements:
+1.	The AmigoSet class must have a private writeObject method with one ObjectOutputStream parameter.
+2.	The AmigoSet class must have a private readObject method with one ObjectInputStream parameter.
+3.	The writeObject method must call the defaultWriteObject method on the ObjectOutputStream object passed as an argument.
+4.	The readObject method must call the defaultReadObject method on the ObjectInputStream object passed as an argument.
+5.	The object serialized using the writeObject method must equal the object deserialized using the readObject method.
+
+
+AmigoSet (part 4)
 
 
 Your AmigoSet set implements the Cloneable interface. However, it doesn't clone properly.
@@ -10,11 +37,6 @@ Write your own implementation of the Object clone() method, so that it creates a
 
 Expand the access modifier to public.
 
-
-Requirements:
-1.	In the AmigoSet class, the clone method must have the public access level.
-2.	If an exception occurs during the cloning process, an InternalError must be thrown.
-3.	The clone method must be implemented in the AmigoSet class as outlined in the task conditions.
 
 
 AmigoSet (part 3)
