@@ -1,4 +1,19 @@
-taskKey="com.codegym.task.task37.task3707.big05"\n\nAmigoSet (part 5)
+taskKey="com.codegym.task.task37.task3707.big06"\n\nAmigoSet (part 6)
+
+
+Open the HashSet's source (if you don't have the Java source, download it, and connect it), and compare it to your code.
+You can do this quickly by comparing with the clipboard. Copy the HashSet class's source code to the clipboard.
+Go to the AmigoSet class, and then right-click -> Compare with Clipboard.
+
+You've just implemented a set similar to HashSet. Now you understand how HashSet is built.
+Well done! Now collections don't scare you!
+
+
+Requirements:
+1.	Congratulations! You&#39;ve written your own set implementation and dived deep into HashSet!
+
+
+AmigoSet (part 5)
 
 
 Your AmigoSet set implements the Serializable interface. However, it doesn't serialize properly.
@@ -16,13 +31,6 @@ To deserialize:
 
 2. Remember what transient means?
 
-
-Requirements:
-1.	The AmigoSet class must have a private writeObject method with one ObjectOutputStream parameter.
-2.	The AmigoSet class must have a private readObject method with one ObjectInputStream parameter.
-3.	The writeObject method must call the defaultWriteObject method on the ObjectOutputStream object passed as an argument.
-4.	The readObject method must call the defaultReadObject method on the ObjectInputStream object passed as an argument.
-5.	The object serialized using the writeObject method must equal the object deserialized using the readObject method.
 
 
 AmigoSet (part 4)
