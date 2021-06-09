@@ -1,0 +1,36 @@
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (part 1)
+
+
+Let&#39;s write a Shortener. It will be similar to
+Google URL Shortener (https://goo.gl), but we&#39;ll extend its functionality and
+make it console-based. It will shorten not only links, but also any string.
+Our Shortener class will return a unique identifier
+for any string, and vice versa &mdash; it will return a string based on a previously
+obtained identifier.
+
+Two additional requirements for Shortener:
+- for two identical strings, the same identifier should be returned;
+- it must support as many strings as there are unique long values:
+the identifiers will be longs.
+The first requirement greatly affects performance, because upon receiving
+the identifier for a new string, we need to check whether we processed the
+string previously in order to return the old identifier.
+
+1.1.	Declare a Shortener class.
+1.2.	Add stub methods to the declared class:
+1.2.1.	Long getId(String string) &ndash; Returns the id for the specified
+string.
+1.2.2.	String getString(Long id) &ndash; Returns a string for the specified
+id or null if an invalid id is passed.
+
+1.3.    Create a Solution class with an empty main method.
+
+P.S. Make all methods public and fields private if there are no explicit instructions regarding access modifiers.
+
+
+Требования:
+1.	A public Long getId(String string) method must be declared in the Shortener class.
+2.	A String getString(Long id) method must be declared in the Shortener class.
+3.	A public static void main(String[] args) method must be declared in the Solution class.
+
+
