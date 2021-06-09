@@ -1,4 +1,54 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (5)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (6)
+
+
+The first strategy is ready. It&#39;s time to test it. To do this:
+6.1.	Create a Solution class if you haven&#39;t already done so.
+6.2.	Add implementations of the static helper methods to the Solution class:
+6.2.1.	Set&lt;Long&gt; getIds(Shortener shortener, Set&lt;String&gt; strings). This method should
+return a set of identifiers for a passed set of strings. You need to use shortner to get
+the identifier for each individual string.
+6.2.2.	Set&lt;String&gt; getStrings(Shortener shortener, Set&lt;Long&gt; keys). The method will
+return the set of strings that matches the passed set of identifiers.
+Of course, when you use Shortener for its actual purposes, you probably won&#39;t have to get a set of identifiers from a set of strings, nor vice versa.
+This task is only necessary for testing.
+6.2.3.	testStrategy(StorageStrategy strategy, long elementsNumber). The method will
+test the passed strategy on a specific number of
+elements (elementsNumber). The implementation should:
+6.2.3.1.	Display the name of the class strategy. The name must not include the package name.
+6.2.3.2.	Generate a test set using Helper and the specified
+number of elements (elementsNumber).
+6.2.3.3.	Create a Shortener object using the passed strategy.
+6.2.3.4.	Measure and display the time required to run the getIds method
+for the given strategy and the given set of elements. Display
+time in milliseconds. When measuring the method&#39;s execution time, you can
+ignore the processor switching to other threads, as well as the time
+spent on the call itself, returning values, and calling methods
+to get the time (date). Measure time
+using Date objects.
+6.2.3.5.	Measure and display the time required to run the
+getStrings method for a given strategy and the set of identifiers obtained in the
+previous clause.
+6.2.3.6.	Check whether the contents of the set of generated strings and the set
+returned by getStrings method
+are the same. If the sets are the same, then display &quot;The test passed.&quot;.
+Otherwise, display &quot;The test failed.&quot;.
+6.2.4.	Add a main() method. Inside the method, test the
+HashMapStorageStrategy strategy on 10,000 items.
+6.3.	Verify that the program works and the test is passed.
+
+
+Требования:
+1.	The getIds method must return the set of identifiers for the passed set of strings.
+2.	The getStrings method must return the set of strings for the passed set of identifiers.
+3.	The testStrategy method should display the name of the strategy class.
+4.	The testStrategy method should generate a test set of strings using the Helper class&#39;s generateRandomString method (the number of elements must be equal to the elementsNumber parameter).
+5.	The testStrategy method must create a Shortener object using the passed strategy.
+6.	The testStrategy method should use Date objects to measure the execution time of the getIds and getStrings methods.
+7.	 The testStrategy method should compare the number of generated strings and the strings in the set obtained from the getStrings method, and display the result of the test.
+8.	The main method must call the testStrategy method.
+
+
+Shortener (6)
 
 
 Let&#39;s write our first repository (storage strategy). Internally, it will
@@ -9,17 +59,8 @@ have an ordinary HashMap. We&#39;ll keep all the strategies in the strategy pack
 use the data field. Don&#39;t create additional fields.
 
 
-Требования:
-1.	The HashMapStorageStrategy class must support the StorageStrategy interface.
-2.	A HashMap data field must be created and initialized in the HashMapStorageStrategy class.
-3.	The HashMapStorageStrategy class must correctly implement the containsKey method.
-4.	The HashMapStorageStrategy class must correctly implement the containsValue method.
-5.	The HashMapStorageStrategy class must correctly implement the put method.
-6.	The HashMapStorageStrategy class must correctly implement the getValue method.
-7.	The HashMapStorageStrategy class must correctly implement the getKey method.
 
-
-Shortener (5)
+Shortener (6)
 
 
 We&#39;ll need several helper classes:
@@ -37,7 +78,7 @@ a brief description of the exception.
 
 
 
-Shortener (5)
+Shortener (6)
 
 
 Let&#39;s return to the Shortener class:
@@ -63,7 +104,7 @@ by adding the appropriate modifier to the method headers.
 
 
 
-Shortener (5)
+Shortener (6)
 
 
 Shortener will support various data storage strategies
@@ -85,7 +126,7 @@ repository.
 
 
 
-Shortener (5)
+Shortener (6)
 
 
 Let&#39;s write a Shortener. It will be similar to
