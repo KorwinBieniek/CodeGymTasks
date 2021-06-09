@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task37.task3702.\n\nFactories (part 2)
+taskKey="com.codegym.task.task37.task3702.\n\nFactories (part 3)
+
+
+1. Create a female package and create KidGirl, TeenGirl, and Woman classes in it by analogy with the classes in the male package.
+
+2. Create a FemaleFactory in the female package by analogy with MaleFactory and using the same principle for getting objects.
+
+3.  Think about what these two factories have in common. What could you do to easily switch between them?
+The answer is in the next task.
+
+
+Требования:
+1.	The KidGirl, TeenGirl, and Woman classes must be in the female package and support the Human interface.
+2.	The toString method must be overridden in the KidGirl, TeenGirl, and Woman classes as outlined in the task conditions.
+3.	The KidGirl class&#39;s MAX_AGE constant must be equal to 12.
+4.	The TeenGirl class&#39;s MAX_AGE constant must be equal to 19.
+5.	The getPerson method must return a Woman object for any age over 19.
+6.	The getPerson method must return a TeenGirl object for ages greater than 12, but less than 20.
+7.	The getPerson method must return a KidGirl object for any age under 13.
+
+
+Factories (part 3)
 
 
 1. Create a public MaleFactory class in the male package with a public getPerson method that accepts one int age argument and
@@ -17,15 +38,8 @@ TeenBoy{}
 Well done! The factory is complete! This is the Factory Method pattern.
 
 
-Требования:
-1.	The screen output must match the task conditions.
-2.	In the Solution class&#39;s main method, the getPerson method must be called three times on the MaleFactory, using the arguments 99, 4, and 15.
-3.	The getPerson method must return a Man object for any age over 19.
-4.	The getPerson method must return a TeenBoy object for ages greater than 12, but less than 20.
-5.	The getPerson method must return a KidBoy object for any age under 13.
 
-
-Factories (part 2)
+Factories (part 3)
 
 
 Hi!
