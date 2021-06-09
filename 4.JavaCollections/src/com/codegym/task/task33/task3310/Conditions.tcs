@@ -1,4 +1,47 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (13)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (14)
+
+
+We&#39;ve tested our strategies many times using the Solution class&#39;s
+testStrategy() method. It&#39;s time to use JUnit to write real unit tests.
+14.1.	Read about unit tests.
+14.2.	Download and connect the JUnit 4.12 library. Figure out how to use it.
+The JUnit library depends on the hamcrest-core library. Connect it as well. Use version 1.3.
+14.3.	Add a FunctionalTest class to the tests package. In this class, we&#39;ll check
+the functionality of our strategies.
+14.4.	Add a testStorage(Shortener shortener) method to the FunctionalTest class. It
+must:
+14.4.1.	Create three strings. String 1 and 3 should be the same.
+14.4.2.	Get and save identifiers for all three strings using
+shortener.
+14.4.3.	Check that the identifier for String 2 is not equal to the identifier for Strings 1
+and 3. Hint: Assert.assertNotEquals method.
+14.4.4.	Check that the identifiers for Strings 1 and 3 are equal. Hint: Assert.assertEquals
+method.
+14.4.5.	Use shortner to get three strings for three ids.
+14.4.6.	Check that the strings obtained in the preceding item are the same as the
+original. Hint: Assert.assertEquals method.
+14.5.	Add tests to the FunctionalTest class:
+14.5.1.	testHashMapStorageStrategy()
+14.5.2.	testOurHashMapStorageStrategy()
+14.5.3.	testFileStorageStrategy()
+14.5.4.	testHashBiMapStorageStrategy()
+14.5.5.	testDualHashBidiMapStorageStrategy()
+14.5.6.	testOurHashBiMapStorageStrategy()
+Each test must have a @Test annotation. Create the appropriate strategy.
+Create a Shortener object based on the strategy and call the corresponding testStorage
+method.
+Run the program and verify that all tests pass.
+
+
+
+Требования:
+1.	The FunctionalTest class must be added to the created tests package.
+2.	In the testStorage method, the getId and getString methods must be called three times.
+3.	The test methods listed in the task conditions should be marked only with the @Test annotation.
+4.	Each test method must call the testStorage method.
+
+
+Shortener (14)
 
 
 Consider another implementation of BiMap &mdash; this time from Apache Commons Collections.
@@ -10,17 +53,8 @@ Consider another implementation of BiMap &mdash; this time from Apache Commons C
 of the six strategies.
 
 
-Требования:
-1.	The DualHashBidiMapStorageStrategy class must support the StorageStrategy interface.
-2.	Only one DualHashBidiMap data field should be created in the DualHashBidiMapStorageStrategy class.
-3.	The containsKey method should check whether the key is contained in data.
-4.	The containsValue method should check whether the value is contained in data.
-5.	The put method must add a pair (key, value) to data.
-6.	The getValue method should return a value obtained from data.
-7.	The getKey method should use the getKey method should return the key obtained from data.
 
-
-Shortener (13)
+Shortener (14)
 
 
 It&#39;s not all that uncommon to need to create a Map that works in two directions (from key to
@@ -36,7 +70,7 @@ of the five strategies.
 
 
 
-Shortener (13)
+Shortener (14)
 
 
 As you&#39;ve noticed, getting an identifier using a string takes a lot more
@@ -59,7 +93,7 @@ HashMapStorageStrategy would be preferred.
 
 
 
-Shortener (13)
+Shortener (14)
 
 
 Create and implement a FileStorageStrategy class. It must:
@@ -90,7 +124,7 @@ long maxBucketSize
 
 
 
-Shortener (13)
+Shortener (14)
 
 
 Let&#39;s write another strategy. We&#39;ll call it FileStorageStrategy. It will be very similar
@@ -116,37 +150,6 @@ the file. Be aware that each entry may contain another entry.
 return null.
 9.4.4. void remove() - Delete the file pointed to by path.
 The constructor and methods should not throw exceptions.
-
-
-
-Shortener (13)
-
-
-Add and implement a OurHashMapStorageStrategy class, using the Entry class from the
-previous subtask. The OurHashMapStorageStrategy class must implement
-the StorageStrategy interface.
-8.1. Add the following fields to the class:
-8.1.1. static final int DEFAULT_INITIAL_CAPACITY = 16;
-8.1.2. static final float DEFAULT_LOAD_FACTOR = 0.75f;
-8.1.3. Entry[] table = new Entry[DEFAULT_INITIAL_CAPACITY];
-8.1.4. int size;
-8.1.5. int threshold = (int) (DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR);
-8.1.6. float loadFactor = DEFAULT_LOAD_FACTOR;
-8.2. Implement the following helper methods in the class:
-8.2.1. int hash(Long k)
-8.2.2. int indexFor(int hash, int length)
-8.2.3. Entry getEntry(Long key)
-8.2.4. void resize(int newCapacity)
-8.2.5. void transfer(Entry[] newTable)
-8.2.6. void addEntry(int hash, Long key, String value, int bucketIndex)
-8.2.7. void createEntry(int hash, Long key, String value, int bucketIndex)
-8.3. Add the public methods required by the StorageStrategy interface.
-Don&#39;t use any additional fields. Don&#39;t implement any methods
-not specified in the task. If you have questions on how to implement a
-method or what it&#39;s supposed to do, you can always take a look at how the corresponding
-method works in HashMap.
-You can add testing of the new strategy to the Solution class&#39;s main method. Run the program
-and compare the execution time of the two strategies on the same number of elements.
 
 
 
