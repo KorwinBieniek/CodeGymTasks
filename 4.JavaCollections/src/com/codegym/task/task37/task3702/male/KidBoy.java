@@ -1,6 +1,5 @@
 package com.codegym.task.task37.task3702.male;
 
-
 import com.codegym.task.task37.task3702.Human;
 
 public class KidBoy implements Human {
