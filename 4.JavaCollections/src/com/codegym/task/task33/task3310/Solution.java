@@ -1,5 +1,6 @@
 package com.codegym.task.task33.task3310;
 
+import com.codegym.task.task33.task3310.strategy.FileStorageStrategy;
 import com.codegym.task.task33.task3310.strategy.HashMapStorageStrategy;
 import com.codegym.task.task33.task3310.strategy.OurHashMapStorageStrategy;
 import com.codegym.task.task33.task3310.strategy.StorageStrategy;
@@ -13,6 +14,8 @@ public class Solution {
         long elementsNumber = 10000;
 
         testStrategy(new HashMapStorageStrategy(), elementsNumber);
+
+        testStrategy(new FileStorageStrategy(), elementsNumber);
 
         testStrategy(new OurHashMapStorageStrategy(), elementsNumber);
     }
