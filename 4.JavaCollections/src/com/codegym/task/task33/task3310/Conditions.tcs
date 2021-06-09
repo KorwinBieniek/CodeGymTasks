@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (12)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (13)
+
+
+Consider another implementation of BiMap &mdash; this time from Apache Commons Collections.
+13.1.	Download and connect Apache Commons Collections 4.0.
+13.2.	Implement a DualHashBidiMapStorageStrategy. It must:
+13.2.1.	support the StorageStrategy interface.
+13.2.2.	have only one DualHashBidiMap data field.
+13.3.	Test the new strategy in the main() method. Run the program and compare the performance
+of the six strategies.
+
+
+Требования:
+1.	The DualHashBidiMapStorageStrategy class must support the StorageStrategy interface.
+2.	Only one DualHashBidiMap data field should be created in the DualHashBidiMapStorageStrategy class.
+3.	The containsKey method should check whether the key is contained in data.
+4.	The containsValue method should check whether the value is contained in data.
+5.	The put method must add a pair (key, value) to data.
+6.	The getValue method should return a value obtained from data.
+7.	The getKey method should use the getKey method should return the key obtained from data.
+
+
+Shortener (13)
 
 
 It&#39;s not all that uncommon to need to create a Map that works in two directions (from key to
@@ -13,17 +35,8 @@ Google.
 of the five strategies.
 
 
-Требования:
-1.	The HashBiMapStorageStrategy class must support the StorageStrategy interface.
-2.	Only one HashBiMap data field should be created in the HashBiMapStorageStrategy class.
-3.	The containsKey method should check whether the key is contained in data.
-4.	The containsValue method should check whether the value is contained in data.
-5.	The put method must add a pair (key, value) to data.
-6.	The getValue method should return a value obtained from data.
-7.	The getKey method should return a value obtained from data.inverse().
 
-
-Shortener (12)
+Shortener (13)
 
 
 As you&#39;ve noticed, getting an identifier using a string takes a lot more
@@ -46,7 +59,7 @@ HashMapStorageStrategy would be preferred.
 
 
 
-Shortener (12)
+Shortener (13)
 
 
 Create and implement a FileStorageStrategy class. It must:
@@ -77,7 +90,7 @@ long maxBucketSize
 
 
 
-Shortener (12)
+Shortener (13)
 
 
 Let&#39;s write another strategy. We&#39;ll call it FileStorageStrategy. It will be very similar
@@ -106,7 +119,7 @@ The constructor and methods should not throw exceptions.
 
 
 
-Shortener (12)
+Shortener (13)
 
 
 Add and implement a OurHashMapStorageStrategy class, using the Entry class from the
@@ -134,30 +147,6 @@ method or what it&#39;s supposed to do, you can always take a look at how the co
 method works in HashMap.
 You can add testing of the new strategy to the Solution class&#39;s main method. Run the program
 and compare the execution time of the two strategies on the same number of elements.
-
-
-
-Shortener (12)
-
-
-Let&#39;s start implementing the second strategy: OurHashMapStorageStrategy. It won&#39;t
-use the ready-made HashMap from the standard library, but rather will itself be
-a collection.
-
-7.1.	Understand how the standard HashMap works. Look at its source code or
-google for articles about it.
-7.2.	If you really did the previous item, then you know what the
-Node class, which supports the Entry interface, is used for inside HashMap. Create your own analog inside the
-strategy package. This should be an ordinary, non-nested, non-generic class. Make it public.
-Unlike the Node class in HashMap, our class will only support
-the Serializable interface and will be called Entry.
-7.3.	Add the following fields to Entry: Long key, String value, Entry next, int hash. As you can
-see, our implementation will only support Long keys and
-String values. Keep the default field visibility.
-7.4.	Add and implement an Entry(int hash, Long key, String value, Entry next) constructor.
-7.5.	Add and implement the following methods: Long getKey(), String getValue(), int hashCode(), boolean equals(), and String
-toString(). Don&#39;t implement the remaining methods from the original Entry. We&#39;re
-writing the simplified version.
 
 
 
