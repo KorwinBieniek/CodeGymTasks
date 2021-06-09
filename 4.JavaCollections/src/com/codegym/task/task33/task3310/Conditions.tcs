@@ -1,4 +1,25 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (4)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (5)
+
+
+Let&#39;s write our first repository (storage strategy). Internally, it will
+have an ordinary HashMap. We&#39;ll keep all the strategies in the strategy package.
+5.1. Create a HashMapStorageStrategy class that implements the StorageStrategy interface.
+5.2. Add a HashMap&lt;Long, String&gt; data field to the class. It will store our data.
+5.3. Implement all the methods the class needs. The methods&#39; implementations must
+use the data field. Don&#39;t create additional fields.
+
+
+Требования:
+1.	The HashMapStorageStrategy class must support the StorageStrategy interface.
+2.	A HashMap data field must be created and initialized in the HashMapStorageStrategy class.
+3.	The HashMapStorageStrategy class must correctly implement the containsKey method.
+4.	The HashMapStorageStrategy class must correctly implement the containsValue method.
+5.	The HashMapStorageStrategy class must correctly implement the put method.
+6.	The HashMapStorageStrategy class must correctly implement the getValue method.
+7.	The HashMapStorageStrategy class must correctly implement the getKey method.
+
+
+Shortener (5)
 
 
 We&#39;ll need several helper classes:
@@ -15,13 +36,8 @@ come through this method!
 a brief description of the exception.
 
 
-Требования:
-1.	The Helper class&#39;s generateRandomString method should generate a random string in the manner described in the task conditions.
-2.	The Helper class&#39;s printMessage method should display the passed text on the screen.
-3.	The ExceptionHandler class&#39;s log method should display a brief description of the exception.
 
-
-Shortener (4)
+Shortener (5)
 
 
 Let&#39;s return to the Shortener class:
@@ -47,7 +63,7 @@ by adding the appropriate modifier to the method headers.
 
 
 
-Shortener (4)
+Shortener (5)
 
 
 Shortener will support various data storage strategies
@@ -69,7 +85,7 @@ repository.
 
 
 
-Shortener (4)
+Shortener (5)
 
 
 Let&#39;s write a Shortener. It will be similar to
