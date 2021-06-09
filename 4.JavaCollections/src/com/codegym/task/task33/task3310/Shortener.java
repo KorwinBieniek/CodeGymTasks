@@ -4,7 +4,7 @@ import com.codegym.task.task33.task3310.strategy.StorageStrategy;
 
 public class Shortener {
     private Long lastId = 0L;
-    private StorageStrategy storageStrategy;
+    private com.codegym.task.task33.task3310.strategy.StorageStrategy storageStrategy;
 
     public Shortener(StorageStrategy storageStrategy) {
         this.storageStrategy = storageStrategy;
