@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (11)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (12)
+
+
+It&#39;s not all that uncommon to need to create a Map that works in two directions (from key to
+value, and from value to key). Implementations of such collections
+already exist in various third-party libraries. One such is guava from
+Google.
+12.1.	Download and connect the guava library, version 19.0.
+12.2.	Implement the HashBiMapStorageStrategy. It must:
+12.2.1.	support the StorageStrategy interface.
+12.2.2.	have only one HashBiMap data field.
+12.3.	Test the new strategy in the main() method. Run the program and compare the performance
+of the five strategies.
+
+
+Требования:
+1.	The HashBiMapStorageStrategy class must support the StorageStrategy interface.
+2.	Only one HashBiMap data field should be created in the HashBiMapStorageStrategy class.
+3.	The containsKey method should check whether the key is contained in data.
+4.	The containsValue method should check whether the value is contained in data.
+5.	The put method must add a pair (key, value) to data.
+6.	The getValue method should return a value obtained from data.
+7.	The getKey method should return a value obtained from data.inverse().
+
+
+Shortener (12)
 
 
 As you&#39;ve noticed, getting an identifier using a string takes a lot more
@@ -20,17 +45,8 @@ Think about when it makes sense to use OurHashBiMapStorageStrategy and when
 HashMapStorageStrategy would be preferred.
 
 
-Требования:
-1.	The OurHashBiMapStorageStrategy class must support the StorageStrategy interface.
-2.	Two HashMaps (k2v and v2k) must be created and initialized in the OurHashBiMapStorageStrategy class.
-3.	The containsKey method should check whether the parameter is contained in k2v.
-4.	The containsValue method should check whether the parameter is contained in v2k.
-5.	The put method should add a pair (key, value) to k2v and a pair (value, key) to v2k.
-6.	The getValue method should return a value obtained from k2v.
-7.	The getKey method should return a value obtained from v2k.
 
-
-Shortener (11)
+Shortener (12)
 
 
 Create and implement a FileStorageStrategy class. It must:
@@ -61,7 +77,7 @@ long maxBucketSize
 
 
 
-Shortener (11)
+Shortener (12)
 
 
 Let&#39;s write another strategy. We&#39;ll call it FileStorageStrategy. It will be very similar
@@ -90,7 +106,7 @@ The constructor and methods should not throw exceptions.
 
 
 
-Shortener (11)
+Shortener (12)
 
 
 Add and implement a OurHashMapStorageStrategy class, using the Entry class from the
@@ -121,7 +137,7 @@ and compare the execution time of the two strategies on the same number of eleme
 
 
 
-Shortener (11)
+Shortener (12)
 
 
 Let&#39;s start implementing the second strategy: OurHashMapStorageStrategy. It won&#39;t
@@ -142,46 +158,6 @@ String values. Keep the default field visibility.
 7.5.	Add and implement the following methods: Long getKey(), String getValue(), int hashCode(), boolean equals(), and String
 toString(). Don&#39;t implement the remaining methods from the original Entry. We&#39;re
 writing the simplified version.
-
-
-
-Shortener (11)
-
-
-The first strategy is ready. It&#39;s time to test it. To do this:
-6.1.	Create a Solution class if you haven&#39;t already done so.
-6.2.	Add implementations of the static helper methods to the Solution class:
-6.2.1.	Set&lt;Long&gt; getIds(Shortener shortener, Set&lt;String&gt; strings). This method should
-return a set of identifiers for a passed set of strings. You need to use shortner to get
-the identifier for each individual string.
-6.2.2.	Set&lt;String&gt; getStrings(Shortener shortener, Set&lt;Long&gt; keys). The method will
-return the set of strings that matches the passed set of identifiers.
-Of course, when you use Shortener for its actual purposes, you probably won&#39;t have to get a set of identifiers from a set of strings, nor vice versa.
-This task is only necessary for testing.
-6.2.3.	testStrategy(StorageStrategy strategy, long elementsNumber). The method will
-test the passed strategy on a specific number of
-elements (elementsNumber). The implementation should:
-6.2.3.1.	Display the name of the class strategy. The name must not include the package name.
-6.2.3.2.	Generate a test set using Helper and the specified
-number of elements (elementsNumber).
-6.2.3.3.	Create a Shortener object using the passed strategy.
-6.2.3.4.	Measure and display the time required to run the getIds method
-for the given strategy and the given set of elements. Display
-time in milliseconds. When measuring the method&#39;s execution time, you can
-ignore the processor switching to other threads, as well as the time
-spent on the call itself, returning values, and calling methods
-to get the time (date). Measure time
-using Date objects.
-6.2.3.5.	Measure and display the time required to run the
-getStrings method for a given strategy and the set of identifiers obtained in the
-previous clause.
-6.2.3.6.	Check whether the contents of the set of generated strings and the set
-returned by getStrings method
-are the same. If the sets are the same, then display &quot;The test passed.&quot;.
-Otherwise, display &quot;The test failed.&quot;.
-6.2.4.	Add a main() method. Inside the method, test the
-HashMapStorageStrategy strategy on 10,000 items.
-6.3.	Verify that the program works and the test is passed.
 
 
 
