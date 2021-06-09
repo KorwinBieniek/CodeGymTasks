@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task37.task3702.\n\nFactories (part 3)
+taskKey="com.codegym.task.task37.task3702.\n\nFactories (part 4)
+
+
+1. At the root of the task, create an AbstractFactory interface and move the factories&#39; common method into it.
+
+2. Implement the AbstractFactory interface in both factories.
+
+3. At the root of the task, create a FactoryProducer class and create a public static HumanFactoryType enum in it
+with the values MALE and FEMALE.
+
+4. In FactoryProducer, create a public static getFactory method with a HumanFactoryType parameter.
+This method must return a factory: MaleFactory for MALE; FemaleFactory for FEMALE.
+
+Well done! The factory producer is complete! This is the Abstract Factory pattern.
+It doesn&#39;t matter to you which factory is used in the code.
+
+Here&#39;s what you&#39;ve achieved:
+1. You&#39;ve mastered the Factory Method pattern.
+2. You&#39;ve mastered the Abstract Factory pattern.
+3. +2 patterns for passing interviews.
+You&#39;ve gotten even closer to working as a Java programmer. You&#39;ll reach your goal soon!
+
+
+Требования:
+1.	The MaleFactory class must support the AbstractFactory interface.
+2.	The FemaleFactory class must support the AbstractFactory interface.
+3.	A HumanFactoryType enum with MALE and FEMALE values must be created in the FactoryProducer class.
+4.	The FactoryProducer class&#39;s getFactory method must accept a single HumanFactoryType argument.
+5.	The FactoryProducer class&#39;s getFactory method must return one of the factories depending on the passed argument.
+
+
+Factories (part 4)
 
 
 1. Create a female package and create KidGirl, TeenGirl, and Woman classes in it by analogy with the classes in the male package.
@@ -9,17 +40,8 @@ taskKey="com.codegym.task.task37.task3702.\n\nFactories (part 3)
 The answer is in the next task.
 
 
-Требования:
-1.	The KidGirl, TeenGirl, and Woman classes must be in the female package and support the Human interface.
-2.	The toString method must be overridden in the KidGirl, TeenGirl, and Woman classes as outlined in the task conditions.
-3.	The KidGirl class&#39;s MAX_AGE constant must be equal to 12.
-4.	The TeenGirl class&#39;s MAX_AGE constant must be equal to 19.
-5.	The getPerson method must return a Woman object for any age over 19.
-6.	The getPerson method must return a TeenGirl object for ages greater than 12, but less than 20.
-7.	The getPerson method must return a KidGirl object for any age under 13.
 
-
-Factories (part 3)
+Factories (part 4)
 
 
 1. Create a public MaleFactory class in the male package with a public getPerson method that accepts one int age argument and
@@ -39,7 +61,7 @@ Well done! The factory is complete! This is the Factory Method pattern.
 
 
 
-Factories (part 3)
+Factories (part 4)
 
 
 Hi!
