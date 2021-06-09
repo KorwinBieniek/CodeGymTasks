@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (10)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (11)
+
+
+As you&#39;ve noticed, getting an identifier using a string takes a lot more
+time than getting a string using an identifier. This is expected and is a consequence of
+HashMap&#39;s implementation. Let&#39;s write a fourth strategy:
+OurHashBiMapStorageStrategy, which will eliminate this shortcoming.
+11.1.	Create an OurHashBiMapStorageStrategy class that implements the
+StorageStrategy interface.
+11.2.	Add two fields: HashMap&lt;Long, String&gt; k2v and HashMap&lt;String, Long&gt; v2k
+The first will maintain a mapping from keys to values, and the second will do the opposite: from values
+to keys.
+11.3.	Implement the StorageStrategy interface&#39;s methods, optimizing for
+speed. Hint: when a new key-value pair must be added,
+add it to two fields at once.
+Test the new strategy in the main() method. Run the program and compare the performance of
+all 4 strategies. Be sure that we&#39;ve made it significantly faster to get
+an identifier. Of course, you understand that this solution has both advantages and disadvantages.
+Think about when it makes sense to use OurHashBiMapStorageStrategy and when
+HashMapStorageStrategy would be preferred.
+
+
+Требования:
+1.	The OurHashBiMapStorageStrategy class must support the StorageStrategy interface.
+2.	Two HashMaps (k2v and v2k) must be created and initialized in the OurHashBiMapStorageStrategy class.
+3.	The containsKey method should check whether the parameter is contained in k2v.
+4.	The containsValue method should check whether the parameter is contained in v2k.
+5.	The put method should add a pair (key, value) to k2v and a pair (value, key) to v2k.
+6.	The getValue method should return a value obtained from k2v.
+7.	The getKey method should return a value obtained from v2k.
+
+
+Shortener (11)
 
 
 Create and implement a FileStorageStrategy class. It must:
@@ -28,13 +60,8 @@ private long bucketSizeLimit = DEFAULT_BUCKET_SIZE_LIMIT
 long maxBucketSize
 
 
-Требования:
-1.	The FileStorageStrategy class must support the StorageStrategy interface.
-2.	All the required fields (according to the task conditions) must be created in the FileStorageStrategy class.
-3.	The StorageStrategy interface&#39;s methods must be implemented in FileStorageStrategy in a way that ensures the correct operation of the Shortener class on which it is based.
 
-
-Shortener (10)
+Shortener (11)
 
 
 Let&#39;s write another strategy. We&#39;ll call it FileStorageStrategy. It will be very similar
@@ -63,7 +90,7 @@ The constructor and methods should not throw exceptions.
 
 
 
-Shortener (10)
+Shortener (11)
 
 
 Add and implement a OurHashMapStorageStrategy class, using the Entry class from the
@@ -94,7 +121,7 @@ and compare the execution time of the two strategies on the same number of eleme
 
 
 
-Shortener (10)
+Shortener (11)
 
 
 Let&#39;s start implementing the second strategy: OurHashMapStorageStrategy. It won&#39;t
@@ -118,7 +145,7 @@ writing the simplified version.
 
 
 
-Shortener (10)
+Shortener (11)
 
 
 The first strategy is ready. It&#39;s time to test it. To do this:
@@ -155,18 +182,6 @@ Otherwise, display &quot;The test failed.&quot;.
 6.2.4.	Add a main() method. Inside the method, test the
 HashMapStorageStrategy strategy on 10,000 items.
 6.3.	Verify that the program works and the test is passed.
-
-
-
-Shortener (10)
-
-
-Let&#39;s write our first repository (storage strategy). Internally, it will
-have an ordinary HashMap. We&#39;ll keep all the strategies in the strategy package.
-5.1. Create a HashMapStorageStrategy class that implements the StorageStrategy interface.
-5.2. Add a HashMap&lt;Long, String&gt; data field to the class. It will store our data.
-5.3. Implement all the methods the class needs. The methods&#39; implementations must
-use the data field. Don&#39;t create additional fields.
 
 
 
