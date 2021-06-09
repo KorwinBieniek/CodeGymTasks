@@ -34,7 +34,7 @@ public class SpeedTest {
         long idToStringTime2 = getTimeToGetStrings(shortener2, ids2, strings2);
 
         Assert.assertTrue(stringToIdTime1 > stringToIdTime2);
-        Assert.assertEquals(idToStringTime1, idToStringTime2, 30);
+        Assert.assertEquals(idToStringTime1, idToStringTime2, 20);
     }
 
     public long getTimeToGetIds(Shortener shortener, Set<String> strings, Set<Long> ids) {
