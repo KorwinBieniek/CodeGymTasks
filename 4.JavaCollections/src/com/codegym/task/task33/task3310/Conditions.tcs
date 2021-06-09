@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task33.task3310.\n\nShortener (part 2)
+taskKey="com.codegym.task.task33.task3310.\n\nShortener (part 3)
+
+
+Let&#39;s return to the Shortener class:
+3.1.	Add a Long lastId field to it. Initialize it to zero. This field will
+hold the identifier of the last string
+added to the repository.
+3.2.	Add a StorageStrategy storageStrategy field that will store the
+data storage strategy.
+3.3.	Add a constructor that accepts a StorageStrategy and initializes
+the corresponding field.
+3.4.	Implement the getId method. It should:
+3.4.1.	Check whether the passed value is in the repository. If it is, then return
+its key.
+3.4.2.	If the passed value is not in the repository, then:
+3.4.2.1.	Increase the value of lastId by one;
+3.4.2.2.	Add a new key-value pair (new value of lastId, passed string) to the
+repository;
+3.4.2.3.	Return the new value of lastId.
+3.5.	Implement the getString method. It should return the string for a given identifier
+(key).
+3.6.	Make sure you can call the getId and getString methods from different threads
+by adding the appropriate modifier to the method headers.
+
+
+Требования:
+1.	A private Long lastID field must be created and initialized to zero in the Shortener class.
+2.	A private StorageStrategy storageStrategy field must be created in the Shortener class.
+3.	The Shortener class constructor must have one StorageStrategy parameter and use it to initialize the storageStrategy field.
+4.	The getId method must be implemented in accordance with the task conditions.
+5.	The getString method must be implemented in accordance with the task conditions.
+
+
+Shortener (part 3)
 
 
 Shortener will support various data storage strategies
@@ -19,16 +52,8 @@ repository.
 2.2.5.	String getValue(Long key) - Return the value for the passed key.
 
 
-Требования:
-1.	A boolean containsKey(Long key) method must be declared in the StorageStrategy interface.
-2.	A boolean containsValue(String value) method must be declared in the StorageStrategy interface.
-3.	A void put(Long key, String value) method must be declared in the StorageStrategy interface.
-4.	A Long getKey(String value) method must be declared in the StorageStrategy interface.
-5.	A boolean String getValue(Long key) method must be declared in the StorageStrategy interface.
-6.	The StorageStrategy interface must be created in the strategy package.
 
-
-Shortener (part 2)
+Shortener (part 3)
 
 
 Let&#39;s write a Shortener. It will be similar to
