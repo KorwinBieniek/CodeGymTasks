@@ -1,4 +1,45 @@
-taskKey="com.codegym.task.task39.task3913.big06"\n\nLog parser (part 6)
+taskKey="com.codegym.task.task39.task3913.big07"\n\nLog parser (part 7)
+
+
+Now give our query language support for an additional query parameter.
+The additional parameter will be responsible for the range of dates we are interested in.
+Example query: get ip for user = &quot;Eduard Bentley&quot; and date between
+&quot;11.12.2013 0:00:00&quot; and &quot;03.01.2014 23:59:59&quot;.
+Expected result: Set&lt;String&gt; with the following entries: 127.0.0.1 and 146.34.15.5.
+
+Here&#39;s the general format for a query:
+get field1 for field2 = &quot;value1&quot; and date between &quot;after&quot; and &quot;before&quot;
+The additional parameter can only be the range of dates we are interested in.
+
+You must maintain support for the old query format.
+
+
+Требования:
+1.	Calling the execute method with &quot;get ip for user = \&quot;&lt;any_user&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique IP addresses that user &lt;any_user&gt; worked from in the period between the &lt;after&gt; and &lt;before&gt; dates.
+2.	Calling the execute method with &quot;get ip for date = \&quot;&lt;any_date&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique IP addresses that generated events at the specified time &lt;any_date&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+3.	Calling the execute method with &quot;get ip for event = \&quot;&lt;any_event&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique IP addresses with an &lt;any_event&gt; event in the period between the &lt;after&gt; and &lt;before&gt; dates.
+4.	Calling the execute method with &quot;get ip for status = \&quot;&lt;any_status&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique IP addresses with events with status &lt;any_status&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+5.	Calling the execute method with &quot;get user for ip = \&quot;&lt;any_ip&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique users who worked from the IP address &lt;any_ip&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+6.	Calling the execute method with &quot;get user for date = \&quot;&lt;any_date&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique users that performed any action at the specified time &lt;any_date&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+7.	Calling the execute method with &quot;get user for event = \&quot;&lt;any_event&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique users with an &lt;any_event&gt; event in the period between the &lt;after&gt; and &lt;before&gt; dates.
+8.	Calling the execute method with &quot;get user for status = \&quot;&lt;any_status&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique users with an &lt;any_status&gt; status in the period between the &lt;after&gt; and &lt;before&gt; dates.
+9.	Calling the execute method with &quot;get date for ip = \&quot;&lt;any_ip&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique dates on which any event came from the IP address &lt;any_ip&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+10.	Calling the execute method with &quot;get date for user = \&quot;&lt;any_user&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique dates on which user &lt;any_user&gt; performed any action in the period between the &lt;after&gt; and &lt;before&gt; dates.
+11.	Calling the execute method with &quot;get date for event = \&quot;&lt;any_event&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique dates on which an &lt;any_event&gt; event in the period between the &lt;after&gt; and &lt;before&gt; dates.
+12.	Calling the execute method with &quot;get date for status = \&quot;&lt;any_status&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique dates on which any event with status &lt;any_status&gt; occurred in the period between the &lt;after&gt; and &lt;before&gt; dates.
+13.	Calling the execute method with &quot;get event for ip = \&quot;&lt;any_ip&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique events that came from the IP address &lt;any_ip&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+14.	Calling the execute method with &quot;get event for user = \&quot;&lt;any_user&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique events generated by user &lt;any_user&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+15.	Calling the execute method with &quot;get event for date = \&quot;&lt;any_date&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique events that occurred at time &lt;any_date&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+16.	Calling the execute method with &quot;get event for status = \&quot;&lt;any_status&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique events with status &lt;any_status&gt; that occurred in the period between the &lt;after&gt; and &lt;before&gt; dates.
+17.	Calling the execute method with &quot;get status for ip = \&quot;&lt;any_ip&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique statuses that came from the IP address &lt;any_ip&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+18.	Calling the execute method with &quot;get status for user = \&quot;&lt;any_user&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique statuses generated by user &lt;any_user&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+19.	Calling the execute method with &quot;get status for date = \&quot;&lt;any_date&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique statuses that occurred at time &lt;any_date&gt; in the period between the &lt;after&gt; and &lt;before&gt; dates.
+20.	Calling the execute method with &quot;get status for event = \&quot;&lt;any_event&gt;\&quot; and date between \&quot;&lt;after&gt;\&quot; and \&quot;&lt;before&gt;\&quot;&quot; as the argument should return the set of unique statuses with an &lt;any_event&gt; event in the period between the &lt;after&gt; and &lt;before&gt; dates.
+21.	You must maintain support for the query format used in task 5.
+22.	You must maintain support for the query format used in task 6.
+
+
+Log parser (part 7)
 
 
 Let&#39;s add support for query parameters to our query language.
@@ -23,31 +64,8 @@ the specific task that was attempted.
 You must maintain support for the old query format.
 
 
-Требования:
-1.	Calling the execute method with &quot;get ip for user = \&quot;&lt;_user&gt;/&quot;&quot; as the argument should return the set of unique IP addresses that user &lt;_user&gt; worked from.
-2.	Calling the execute method with &quot;get ip for date = \&quot;&lt;_date&gt;/&quot;&quot; as the argument should return the set of unique IP addresses that generated events that occurred at the specified time &lt;_date&gt;.
-3.	Calling the execute method with &quot;get ip for event = \&quot;&lt;_event&gt;/&quot;&quot; as the argument should return the set of unique IP addresses with an event equal to &lt;_event&gt;.
-4.	Calling the execute method with &quot;get ip for status = \&quot;&lt;_status&gt;/&quot;&quot; as the argument should return the set of unique IP addresses that generated events with status &lt;_status&gt;.
-5.	Calling the execute method with &quot;get user for ip = \&quot;&lt;_ip&gt;/&quot;&quot; as the argument should return the set of unique user that worked from the IP address &lt;_ip&gt;.
-6.	Calling the execute method with &quot;get user for date = \&quot;&lt;_date&gt;/&quot;&quot; as the argument should return the set of unique users who performed any action at the specified time &lt;_date&gt;.
-7.	Calling the execute method with &quot;get user for event = \&quot;&lt;_event&gt;/&quot;&quot; as the argument should return the set of unique users with an event equal to &lt;_event&gt;.
-8.	Calling the execute method with &quot;get user for status = \&quot;&lt;_status&gt;/&quot;&quot; as the argument should return the set of unique users with a status equal to &lt;_status&gt;.
-9.	Calling the execute method with &quot;get date for ip = \&quot;&lt;_ip&gt;/&quot;&quot; as the argument should return the set of unique dates on which any event was generated by the IP address &lt;_ip&gt;.
-10.	Calling the execute method with &quot;get date for user = \&quot;&lt;_user&gt;/&quot;&quot; as the argument should return the set of unique dates on which user &lt;_user&gt; performed any action.
-11.	Calling the execute method with &quot;get date for event = \&quot;&lt;_event&gt;/&quot;&quot; as the argument should return the set of unique dates on which an event equal to &lt;_event&gt; occurred.
-12.	Calling the execute method with &quot;get date for status = \&quot;&lt;_status&gt;/&quot;&quot; as the argument should return the set of unique dates on which any event with status &lt;_status&gt; occurred.
-13.	Calling the execute method with &quot;get event for ip = \&quot;&lt;_ip&gt;/&quot;&quot; as the argument should return the set of unique events that came from the IP address &lt;_ip&gt;.
-14.	Calling the execute method with &quot;get event for user = \&quot;&lt;_user&gt;/&quot;&quot; as the argument should return the set of unique events generated by user &lt;_user&gt;.
-15.	Calling the execute method with &quot;get event for date = \&quot;&lt;_date&gt;/&quot;&quot; as the argument should return the set of unique events that occurred at time &lt;_date&gt;.
-16.	Calling the execute method with &quot;get event for status = \&quot;&lt;_status&gt;/&quot;&quot; as the argument should return the set of unique events with status &lt;_status&gt;.
-17.	Calling the execute method with &quot;get status for ip = \&quot;&lt;_ip&gt;/&quot;&quot; as the argument should return the set of unique statuses that came from the IP address &lt;_ip&gt;.
-18.	Calling the execute method with &quot;get status for user = \&quot;&lt;_user&gt;/&quot;&quot; as the argument should return the set of unique statuses generated by user &lt;_user&gt;.
-19.	Calling the execute method with &quot;get status for date = \&quot;&lt;_date&gt;/&quot;&quot; as the argument should return the set of unique statuses that occurred at time &lt;_date&gt;.
-20.	Calling the execute method with &quot;get status for event = \&quot;&lt;_event&gt;/&quot;&quot; as the argument should return the set of unique statuses for the &lt;_event&gt; event.
-21.	You must maintain support for the old query format.
 
-
-Log parser (part 6)
+Log parser (part 7)
 
 
 As you noticed, there are a huge number of combinations of parameter to choose from for selecting
@@ -77,7 +95,7 @@ Dates for date queries, Events for event queries, and Statuses for status querie
 
 
 
-Log parser (part 6)
+Log parser (part 7)
 
 
 Implement the EventQuery interface in the LogParser class:
@@ -99,7 +117,7 @@ number of completions) map.
 
 
 
-Log parser (part 6)
+Log parser (part 7)
 
 
 Implement the DateQuery interface in the LogParser class:
@@ -122,7 +140,7 @@ user downloaded the plugin.
 
 
 
-Log parser (part 6)
+Log parser (part 7)
 
 
 Implement the UserQuery interface in the LogParser class:
@@ -142,61 +160,6 @@ users who have attempted the task with the specified task number.
 users who have completed any task.
 2.11.	The getUsersWhoHaveCompletedTasks(Date after, Date before, int task) must return
 users who have completed the task with the specified task number.
-
-
-
-Log parser (part 6)
-
-
-Today we&#39;re going to write a log parser.
-The log file has the following format:
-ip username date event status
-where:
-ip is the IP address from which the user generated the event,
-user is the username (one or more words separated by spaces),
-date is the date of the event formatted as &lt;day.month.year hour:minute:second&gt;,
-event is one of the following events:
-LOGIN - a user logged in,
-DOWNLOAD_PLUGIN - a user downloaded the plugin,
-SEND_MESSAGE - a user sent a message,
-ATTEMPT_TASK - a user attempted to complete a task,
-COMPLETE_TASK - a user has completed a task.
-The ATTEMPT_TASK and COMPLETE_TASK events have one additional parameter,
-separated from the others by a space: the task number.
-status is one of the following event statuses:
-OK - the event succeeded,
-FAILED - the event failed,
-ERROR - an error occurred.
-
-Example of a line from a log file:
-&quot;146.34.15.5	Eduard Bentley	05.01.2021 20:22:55	COMPLETE_TASK 48	FAILED&quot;.
-The log file entries are not necessarily ordered by date: events could
-be logged in a different order than they occur.
-
-The class that will be responsible for parsing logs is called LogParser.
-1.1.	Add a LogParser class constructor with a Path logDir parameter that indicates
-the directory with the logs. There may be several logs. All of them must have the LOG extension.
-1.2.	Implement the IPQuery interface in the LogParser class:
-1.2.1.	The getNumberOfUniqueIPs(Date after, Date before) method should return
-the number of unique IP addresses for the specified period. Hereinafter,
-if a method has Date after and Date before parameters, then you should only return
-data related to this period (including the dates represented by the after and before parameters).
-If the after parameter is null, then you need to process all entries whose
-date is less than or equal to the before parameter.
-If the before parameter is null, then you need to process all entries whose
-date is greater than or equal to the after parameter.
-If both after and before are null, then you need to process absolutely every entry
-(without filtering by date).
-1.2.2.	The getUniqueIPs() method must return a set of all
-unique IP address. Store each IP address in a String.
-1.2.3.	The getIPsForUser() method must return the IP addresses that the passed user
-has worked from.
-1.2.4.	The getIPsForEvent() method must return the IP addresses that produced
-the passed event.
-1.2.5.	The getIPsForStatus() method must return the IP addresses that generated events that
-ended with the passed status.
-
-You can change the implementation of the main() method as you see fit.
 
 
 
