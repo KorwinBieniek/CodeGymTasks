@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task39.task3913.big02"\n\nLog parser (part 2)
+taskKey="com.codegym.task.task39.task3913.big03"\n\nLog parser (part 3)
+
+
+Implement the DateQuery interface in the LogParser class:
+3.1.	The getDatesForUserAndEvent() method must return the dates when a specific
+user generated a specific event.
+3.2.	The getDatesWhenSomethingFailed() method must return the dates when
+any event failed (FAILED status).
+3.3.	The getDatesWhenErrorOccurred() method must return the dates when
+any event ended in an error (ERROR status).
+3.4.	The getDateWhenUserLoggedInFirstTime() method must return the date when
+the user logged in for the first time in the specified period. If there is no such date in the logs, return null.
+3.5.	The getDateWhenUserAttemptedTask() method must return the date when the user
+first attempted to completed the specified task. If there is no such date in the logs, return null.
+3.6.	The getDateWhenUserCompletedTask() method must return the date when the user
+first completed the specified task. If there is no such date in the logs, return null.
+3.7.	The getDatesWhenUserSentMessages() method must return the dates when the
+user sent a message.
+3.8.	The getDatesWhenUserDownloadedPlugin() method must return the dates when the
+user downloaded the plugin.
+
+
+Требования:
+1.	The LogParser class must support the DateQuery interface.
+2.	The getDatesForUserAndEvent(String, Event, Date, Date) method must return the set of dates when the passed user generated the passed event in the specified period.
+3.	The getDatesWhenSomethingFailed(Date, Date) method must return the set of dates when any event failed in the specified period.
+4.	The getDatesWhenErrorOccurred(Date, Date) method must return the set of dates when any event ended with an error in the specified period.
+5.	The getDateWhenUserLoggedInFirstTime(String, Date, Date) method must return the date when the passed user logged in for the first time in the specified period. If there is no such date in the logs, return null.
+6.	The getDateWhenUserAttemptedTask(String, int, Date, Date) method must return the date when the passed user first attempted to complete the task with the specified task number in the specified period. If there is no such date in the logs, return null.
+7.	The getDateWhenUserCompletedTask(String, int, Date, Date) method must return the date when the passed user first completed the task with the specified task number in the specified period. If there is no such date in the logs, return null.
+8.	The getDatesWhenUserSentMessages(String, Date, Date) method must return the set of dates when the passed user sent a message in the specified period.
+9.	The getDatesWhenUserDownloadedPlugin(String, Date, Date) method must return a set of dates when the passed user downloaded the plugin in the specified period.
+
+
+Log parser (part 3)
 
 
 Implement the UserQuery interface in the LogParser class:
@@ -20,22 +54,8 @@ users who have completed any task.
 users who have completed the task with the specified task number.
 
 
-Требования:
-1.	The LogParser class must support the UserQuery interface.
-2.	The getAllUsers() method must return a set containing all users.
-3.	The getNumberOfUsers(Date, Date) method must return the number of unique users for the specified period.
-4.	The getNumberOfUserEvents(String, Date, Date) method must return the number of events from the passed user for the specified period.
-5.	The getUsersForIP(String, Date, Date) method must return a set containing users who worked from the passed IP address in the specified period.
-6.	The getUsersWhoHaveLoggedIn(Date, Date) method must return a set containing users who logged in in the specified period.
-7.	The getUsersWhoHaveDownloadedPlugin(Date, Date) method must return a set containing users who downloaded the plugin in the specified period.
-8.	The getUsersWhoHaveSentMessages(Date, Date) method must return a set containing users who sent a message in the specified period.
-9.	The getUsersWhoHaveAttemptedTasks(Date, Date) method must return a set containing users who attempted any task in the specified period.
-10.	The getUsersWhoHaveAttemptedTasks(Date, Date, int task) method must return a set containing users who have attempted the task with the specified task number for the specified period.
-11.	The getUsersWhoHaveCompletedTasks(Date, Date) method must return a set containing users who completed any task in the specified period.
-12.	The getUsersWhoHaveCompletedTasks(Date, Date, int task) method must return a set containing users who have completed the task with the specified task number for the specified period.
 
-
-Log parser (part 2)
+Log parser (part 3)
 
 
 Today we&#39;re going to write a log parser.
