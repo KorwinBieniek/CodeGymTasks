@@ -20,6 +20,7 @@ public class JobPosting {
         if (companyName != null ? !companyName.equals(vacancy.companyName) : vacancy.companyName != null) return false;
         if (websiteName != null ? !websiteName.equals(vacancy.websiteName) : vacancy.websiteName != null) return false;
         return url != null ? url.equals(vacancy.url) : vacancy.url == null;
+
     }
 
     @Override
