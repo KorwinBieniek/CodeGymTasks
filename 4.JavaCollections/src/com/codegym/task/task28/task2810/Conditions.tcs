@@ -1,4 +1,49 @@
-taskKey="com.codegym.task.task28.task2810.big14"\n\nAggregator (part 14)
+taskKey="com.codegym.task.task28.task2810.big15"\n\nAggregator (part 15)
+
+
+In the HtmlView class, only the getUpdatedFileContents method is still empty. In this task, I&#39;ll describe what it should do.
+
+1. In HtmlView, create a protected Document getDocument() throws IOException method that
+parses the jobPostings.html file using jsoup. The file&#39;s encoding is UTF-8. Use the filePath field.
+
+2. Get an element that has the template class.
+Make a copy of this object. Then remove the &quot;style&quot; attribute and the &quot;template&quot; class from it.
+Use this element as a template to add a new row to the table of job postings.
+
+3. Remove all of the previously added job postings. The only class they have is &quot;vacancy&quot;.
+There is one existing job posting in the backup.html file: Junior Java Developer.
+You need to remove all of the tr tags where class=&quot;vacancy&quot;.
+But don&#39;t remove the tr tag where class=&quot;vacancy template&quot;.
+Use the remove method.
+
+4. For each job posting, in a loop:
+4.1. Use the clone method to clone the tag template obtained in item 2.
+4.2. Get the element that has the &quot;city&quot; class. Write the city from the job posting in it.
+4.3. Get the element that has the &quot;companyName&quot; class. Write the company name from the job posting in it.
+4.4. Get the hyperlink element (&lt;a&gt; tag). Write the job title in it. Create a working hyperlink to the job posting in place of href=&quot;url&quot;.
+4.5. Add the outerHtml of the element that you wrote job data to,
+right before the template &lt;tr class=&quot;vacancy template&quot; style=&quot;display: none&quot;&gt;.
+
+5. Return the entire document&#39;s HTML code.
+
+6. If an exception occurs, display its stack trace and return &quot;Some exception occurred&quot;.
+
+7. Run the application and be sure that all of the job postings are written to the jobPostings.html file.
+
+
+Требования:
+1.	In the HtmlView class, add a protected Document getDocument() method, in which you will use jsoup to parse the jobPostings.html file.
+2.	Implement the getUpdatedFileContents() method. To start, get a parsed page using the getDocument() method.
+3.	Get an element that has the template class. Make a copy of this object. Then remove the &quot;style&quot; attribute and the &quot;template&quot; class from it.
+4.	Remove from the page all previously added job postings with the &quot;vacancy&quot; class. The element with the &quot;vacancy template&quot; class must remain.
+5.	Use the copy of the template to add a separate HTML element to the page before the template object for each job posting. Return the entire page&#39;s HTML code.
+6.	For each job posting, there should be a valid hyperlink with the job title (title) and URL to the posting (href).
+7.	Each job posting must have a valid element with the &quot;city&quot; class.
+8.	Each job posting must have a valid element with the &quot;companyName&quot; class.
+9.	If an exception occurs, display its stack trace and return &quot;Some exception occurred&quot;.
+
+
+Aggregator (part 15)
 
 
 There are still two empty methods in the HtmlView class.
@@ -23,13 +68,8 @@ The list of job postings passed to HtmlView.update corresponds to the query &quo
 Use the &quot;Expression Evaluation&quot; window. I think you&#39;ll need it in the next task.
 
 
-Требования:
-1.	In the HtmlView class&#39;s updateFile method, open a file output stream.
-2.	Write to the file the data that the updateFile method receives as an argument.
-3.	Close the file output stream.
 
-
-Aggregator (part 14)
+Aggregator (part 15)
 
 
 Check it out &mdash; there are two new files in the view package:
@@ -57,7 +97,7 @@ Hint: the path must begin with &quot;./&quot;.
 
 
 
-Aggregator (part 14)
+Aggregator (part 15)
 
 
 To run the application, you need to emulate a user event:
@@ -77,7 +117,7 @@ Did it work? Great! It works!
 
 
 
-Aggregator (part 14)
+Aggregator (part 15)
 
 
 Model has a selectCity method to which the name of the city for the job search is passed.
@@ -98,7 +138,7 @@ Throw an IllegalArgumentException for invalid data
 
 
 
-Aggregator (part 14)
+Aggregator (part 15)
 
 
 View has an update method. The list of job postings is passed to it to be displayed.
@@ -117,26 +157,6 @@ Throw an IllegalArgumentException if invalid data is passed.
 5. Implement the selectCity method:
 5.1. get job postings from each provider,
 5.2. update the view with the list of job postings from item 5.1.
-
-
-
-Aggregator (part 14)
-
-
-It&#39;s time to refactor the code a little.
-Read about the Model-View-Controller (MVC) pattern on the Internet.
-In short, the user uses the view to generate events that are processed by the controller.
-The controller decides what data it needs, and accesses the correct model.
-The model gets data, for example, from a database or a URL. Then the model passes the data to the view.
-The view then displays the data.
-
-1. Create a view package and create a View interface with two methods in it:
-void update(List&lt;JobPosting&gt; jobPostings);
-void setController(Controller controller);
-
-2. In the view package, create an HtmlView class that implements View.
-
-3. In the HtmlView class, create a controller field and use it to implement one of the interface&#39;s methods.
 
 
 
