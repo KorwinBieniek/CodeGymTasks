@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task28.task2810.big13"\n\nAggregator (part 13)
+taskKey="com.codegym.task.task28.task2810.big14"\n\nAggregator (part 14)
+
+
+There are still two empty methods in the HtmlView class.
+In this task, I&#39;ll describe what the updateFile method should do. And I&#39;ll also tell you how to debug it.
+
+It accepts the file&#39;s body as a String. You need to write it to the file located at the filePath path.
+You already know how to do this, so I won&#39;t mention those details here.
+
+Now, how to debug it.
+Set a breakpoint and run it in debug mode.
+Press Alt+F8 (Run -&gt; Evaluate Expression).
+In the expression field (the top line), write System.out.println(&quot;AAA&quot;) and press Alt+V (the Evaluate button at the bottom).
+Go to the console. &quot;AAA&quot; is displayed there.
+
+You can use this window to see the current data and replace it with whatever data you need.
+You can do anything you want. For example, you can delete all of a map&#39;s elements, change the value of any variable,
+assign a new value, or set it to null.
+Set a breakpoint in Controller.onCitySelected, and run it in debug mode.
+Did it stop at that breakpoint? Great! Press Alt+F8 and enter cityName = &quot;junior&quot; in the field at the top;
+then press Alt+V and F9 to continue running the application.
+The list of job postings passed to HtmlView.update corresponds to the query &quot;Java junior&quot;.
+Use the &quot;Expression Evaluation&quot; window. I think you&#39;ll need it in the next task.
+
+
+Требования:
+1.	In the HtmlView class&#39;s updateFile method, open a file output stream.
+2.	Write to the file the data that the updateFile method receives as an argument.
+3.	Close the file output stream.
+
+
+Aggregator (part 14)
 
 
 Check it out &mdash; there are two new files in the view package:
@@ -25,14 +56,8 @@ Create the path dynamically using this.getClass().GetPackage() and the &quot;/&q
 Hint: the path must begin with &quot;./&quot;.
 
 
-Требования:
-1.	In the HtmlView class, create an empty private String getUpdatedFileContents(List&lt;JobPosting&gt;) method.
-2.	In the HtmlView class, create an empty private void updateFile(String) method.
-3.	Using the created methods, implement the update method in accordance with the task conditions.
-4.	In the HtmlView class, create a private final String filePath field and assign it the relative path to jobPostings.html.
 
-
-Aggregator (part 13)
+Aggregator (part 14)
 
 
 To run the application, you need to emulate a user event:
@@ -52,7 +77,7 @@ Did it work? Great! It works!
 
 
 
-Aggregator (part 13)
+Aggregator (part 14)
 
 
 Model has a selectCity method to which the name of the city for the job search is passed.
@@ -73,7 +98,7 @@ Throw an IllegalArgumentException for invalid data
 
 
 
-Aggregator (part 13)
+Aggregator (part 14)
 
 
 View has an update method. The list of job postings is passed to it to be displayed.
@@ -95,7 +120,7 @@ Throw an IllegalArgumentException if invalid data is passed.
 
 
 
-Aggregator (part 13)
+Aggregator (part 14)
 
 
 It&#39;s time to refactor the code a little.
@@ -112,35 +137,6 @@ void setController(Controller controller);
 2. In the view package, create an HtmlView class that implements View.
 
 3. In the HtmlView class, create a controller field and use it to implement one of the interface&#39;s methods.
-
-
-
-Aggregator (part 13)
-
-
-Run the program in debug mode again.
-Copy the value of document.html() into the HTML file we created earlier.
-Format it and find the tags with job postings.
-
-Read additional lesson material about attribute selectors in the Community.
-
-PLEASE NOTE THIS SPECIAL RULE FOR TESTING THIS TASK!
-The HTML code on the Linkedin page might change. To allow this task to work consistently without requiring us to change the tests,
-use the cached version at http://codegym.cc/testdata/big28data.html
-This is only for this item. Use real pages in subsequent tasks.
-
-1. In the LinkedinStrategy class, create a protected Document getDocument(String searchString, int page) throws IOException method.
-
-2. Implement the following logic in the LinkedinStrategy class&#39;s getJobPostings method:
-2.1. Use the getDocument method to fetch the cached Linkedin page. The numbering starts with 0.
-2.2. Get the list of elements with the &quot;jobs-search-result-item&quot; class. There should be up to 25 job postings per page.
-2.3. If there is data in the list from step 2.2, then for each element:
-2.3.1. create a JobPosting and set all its fields using data from the current element.
-2.4. Repeat items 2.1-2.3 for the next Linkedin page.
-2.5. When there are no more pages of job postings, exit the loop.
-
-Ignore exceptions.
-Add all job postings to a single list and return it.
 
 
 
