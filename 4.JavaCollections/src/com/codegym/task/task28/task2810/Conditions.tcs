@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task28.task2810.big12"\n\nAggregator (part 12)
+taskKey="com.codegym.task.task28.task2810.big13"\n\nAggregator (part 13)
+
+
+Check it out &mdash; there are two new files in the view package:
+jobPostings.html (you will write data here),
+backup.html (a copy of jobPostings.html for data recovery if the data in jobPostings.html is erased somehow).
+
+Hover over and right-click jobPostings.html in the project tree on the left. Then click &quot;Open in Browser&quot;.
+This way you will see the result of your parsing.
+
+It&#39;s time to display the job postings.
+1. In the HtmlView class&#39;s update method, implement the following:
+1.1. create a new body for jobPostings.html, which will hold the job postings,
+1.2. write the updated body to the jobPostings.html file,
+1.3. All exceptions must be handled in this method. Display a stack trace if an exception occurs.
+
+2. To implement item 1, create two empty private methods:
+String getUpdatedFileContents(List&lt;JobPosting&gt;) and void updateFile(String),
+We will implement them in future tasks.
+
+3. To get to the jobPostings.html file, create a relative path to it.
+In the HtmlView class, create a private final String filePath field and assign it the relative path to jobPostings.html.
+The path must be relative to the project&#39;s root.
+Create the path dynamically using this.getClass().GetPackage() and the &quot;/&quot; separator.
+Hint: the path must begin with &quot;./&quot;.
+
+
+Требования:
+1.	In the HtmlView class, create an empty private String getUpdatedFileContents(List&lt;JobPosting&gt;) method.
+2.	In the HtmlView class, create an empty private void updateFile(String) method.
+3.	Using the created methods, implement the update method in accordance with the task conditions.
+4.	In the HtmlView class, create a private final String filePath field and assign it the relative path to jobPostings.html.
+
+
+Aggregator (part 13)
 
 
 To run the application, you need to emulate a user event:
@@ -17,13 +51,8 @@ This is an indication that you can move on.
 Did it work? Great! It works!
 
 
-Требования:
-1.	In the HtmlView class, create and implement a public void emulateCitySelection() method according to the task conditions.
-2.	Display the number of job postings in the HtmlView class&#39;s update method.
-3.	Implement the main method in accordance with the task conditions and check whether the application works as expected.
 
-
-Aggregator (part 12)
+Aggregator (part 13)
 
 
 Model has a selectCity method to which the name of the city for the job search is passed.
@@ -44,7 +73,7 @@ Throw an IllegalArgumentException for invalid data
 
 
 
-Aggregator (part 12)
+Aggregator (part 13)
 
 
 View has an update method. The list of job postings is passed to it to be displayed.
@@ -66,7 +95,7 @@ Throw an IllegalArgumentException if invalid data is passed.
 
 
 
-Aggregator (part 12)
+Aggregator (part 13)
 
 
 It&#39;s time to refactor the code a little.
@@ -86,7 +115,7 @@ void setController(Controller controller);
 
 
 
-Aggregator (part 12)
+Aggregator (part 13)
 
 
 Run the program in debug mode again.
@@ -112,33 +141,6 @@ This is only for this item. Use real pages in subsequent tasks.
 
 Ignore exceptions.
 Add all job postings to a single list and return it.
-
-
-
-Aggregator (part 12)
-
-
-To let Linkedin know who&#39;s connecting to it, we&#39;ll add Request Headers to our request.
-
-There are developer tools that show various information about requests.
-I&#39;ll tell you about two tools.
-
-***Chrome****
-1. In the Chrome browser, go to Menu -&gt; Tools -&gt; Developer Tools, or press Ctrl+Shift+I
-2. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
-3. Go to the Network tab. The requested URL should be at the top.
-It shows that the GET method was used to send the data (POST is also an option), and that the status is 200 (success)
-4. Select it and you will see information about the page.
-5. Find &quot;Request Headers&quot;
-
-***Firefox***
-1. Firefox has a Firebug plugin. Install Firebug (Menu -&gt; Add-ons -&gt; Search -&gt; Firebug -&gt; install).
-2. Right-click to inspect an element using Firebug. Go to the Net tab and then the HTML submenu.
-3. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
-4. The HTML submenu has a list of requests, including the one you entered in the browser bar. Click on it and go to the &quot;Headers&quot; menu
-5. Find &quot;Request Headers&quot;
-
-Add a userAgent and referrer to the Linkedin connection.
 
 
 
