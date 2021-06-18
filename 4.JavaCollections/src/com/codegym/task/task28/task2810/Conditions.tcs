@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task28.task2810.big09"\n\nAggregator (part 9)
+taskKey="com.codegym.task.task28.task2810.big10"\n\nAggregator (part 10)
+
+
+View has an update method. The list of job postings is passed to it to be displayed.
+Obviously, only the model will call this method, since only the model gets the data.
+It&#39;s time to create the model.
+
+1. Create a Model class in the model package.
+
+2. Add two fields: 1) a view, 2) an array of providers.
+
+3. Create a constructor with two parameters: 1) a view, 2) an array of providers.
+Throw an IllegalArgumentException if invalid data is passed.
+
+4. Create a public void selectCity(String city) method.
+
+5. Implement the selectCity method:
+5.1. get job postings from each provider,
+5.2. update the view with the list of job postings from item 5.1.
+
+
+Требования:
+1.	Create a Model class in the model package.
+2.	Add two fields to the Model class: a view and an array of providers.
+3.	Create a constructor with two parameters: a view and an array of providers. Throw an IllegalArgumentException if invalid data is passed.
+4.	Add a public void selectCity(String city) method to the Model class.
+5.	Implement the selectCity method. It must get job postings from each provider and pass them to the view&#39;s update method.
+
+
+Aggregator (part 10)
 
 
 It&#39;s time to refactor the code a little.
@@ -17,14 +46,8 @@ void setController(Controller controller);
 3. In the HtmlView class, create a controller field and use it to implement one of the interface&#39;s methods.
 
 
-Требования:
-1.	It the root of the task, create a new view package and create a View interface in it.
-2.	The View interface must have two methods as per the task conditions.
-3.	In the view package, create a new HtmlView class that implements View.
-4.	In the HtmlView class, create a controller field and implement one of the interface&#39;s methods to initialize it.
 
-
-Aggregator (part 9)
+Aggregator (part 10)
 
 
 Run the program in debug mode again.
@@ -53,7 +76,7 @@ Add all job postings to a single list and return it.
 
 
 
-Aggregator (part 9)
+Aggregator (part 10)
 
 
 To let Linkedin know who&#39;s connecting to it, we&#39;ll add Request Headers to our request.
@@ -80,7 +103,7 @@ Add a userAgent and referrer to the Linkedin connection.
 
 
 
-Aggregator (part 9)
+Aggregator (part 10)
 
 
 1. On the left in the Project panel, find &quot;External Libraries&quot; at the bottom. Find the examples package in jsoup, and look at the classes in this package.
@@ -101,7 +124,7 @@ Press Alt+Enter for the equals() and hashCode() methods.
 
 
 
-Aggregator (part 9)
+Aggregator (part 10)
 
 
 1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
@@ -116,42 +139,6 @@ Accept IDEA&#39;s suggestion and create a method.
 Inside the method, go through all of the providers and collect all their job postings and add them to the list. Display the number of job postings.
 
 5. Fix the NullPointerException (NPE) if one occurs (add a stub).
-
-
-
-Aggregator (part 9)
-
-
-Open the Linkedin website (https://www.linkedin.com/jobs/)
-Type &quot;Java San Francisco&quot; in the search bar. At the bottom, navigate to the second page, since URLs often differ between the first and subsequent pages.
-I got this URL:
-https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&amp;start=25
-It follows that:
-1) if you need to filter by city, then you add the name of the city after the word &quot;Java&quot; and separate them with a &quot;+&quot; sign,
-2) there are 25 job postings per page.
-
-So, a generic URL would look something like this:
-https://www.linkedin.com/jobs/search?keywords=Java+ADDITIONAL_VALUE&amp;start=PAGE_VALUE
-
-1. Use the resulting URL to create a private String URL_FORMAT constant in LinkedinStrategy, which will be passed to String.format.
-String.format(URL_FORMAT, &quot;San+Francisco&quot;, 75) must be equal to
-&quot;https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&amp;start=75&quot;
-To do this, copy the URL into your code and press the required key combination over it.
-Ctrl+Alt+C is for creating constants,
-Ctrl+Alt+M is for creating methods,
-Ctrl+Alt+V is for creating variables.
-
-2. You need to get the web page&#39;s source code programmatically. This is done with an HTTP request. You will need a Java HTML Parser.
-jsoup is a good parser. Let&#39;s use it.
-Find the jsoup website, and download version 1.9.2 of the library and its source files. You don&#39;t need to include them in the project!
-
-3. Connect the new libraries:
-In IDEA, open the &quot;Project Structure&quot; menu item (in the File menu).
-On the left, select Project Settings -&gt; Libraries. In the upper-right window, click &quot;+&quot;.
-Choose &quot;Java&quot; if the libraries aren&#39;t there yet, or choose &quot;Attach Files or Directories&quot; to add jar files to an existing library.
-In the dialog box, open the folder path from item 2. Then open the folder itself and select all of the *.jar files.
-
-4. Read additional material for this lesson in the Community.
 
 
 
