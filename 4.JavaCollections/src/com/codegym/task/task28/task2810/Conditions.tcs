@@ -1,4 +1,35 @@
-taskKey="com.codegym.task.task28.task2810.big06"\n\nAggregator (part 6)
+taskKey="com.codegym.task.task28.task2810.big07"\n\nAggregator (part 7)
+
+
+To let Linkedin know who&#39;s connecting to it, we&#39;ll add Request Headers to our request.
+
+There are developer tools that show various information about requests.
+I&#39;ll tell you about two tools.
+
+***Chrome****
+1. In the Chrome browser, go to Menu -&gt; Tools -&gt; Developer Tools, or press Ctrl+Shift+I
+2. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
+3. Go to the Network tab. The requested URL should be at the top.
+It shows that the GET method was used to send the data (POST is also an option), and that the status is 200 (success)
+4. Select it and you will see information about the page.
+5. Find &quot;Request Headers&quot;
+
+***Firefox***
+1. Firefox has a Firebug plugin. Install Firebug (Menu -&gt; Add-ons -&gt; Search -&gt; Firebug -&gt; install).
+2. Right-click to inspect an element using Firebug. Go to the Net tab and then the HTML submenu.
+3. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
+4. The HTML submenu has a list of requests, including the one you entered in the browser bar. Click on it and go to the &quot;Headers&quot; menu
+5. Find &quot;Request Headers&quot;
+
+Add a userAgent and referrer to the Linkedin connection.
+
+
+Требования:
+1.	In the LinkedinStrategy class&#39;s getJobPostings method, add a userAgent header after creating the connection.
+2.	In the LinkedinStrategy class&#39;s getJobPostings method, add a referrer header after creating the connection.
+
+
+Aggregator (part 7)
 
 
 1. On the left in the Project panel, find &quot;External Libraries&quot; at the bottom. Find the examples package in jsoup, and look at the classes in this package.
@@ -18,13 +49,8 @@ Hooray! This is the page&#39;s HTML code :)
 Press Alt+Enter for the equals() and hashCode() methods.
 
 
-Требования:
-1.	In the LinkedinStrategy class&#39;s getJobPostings method, connect to the Linkedin URL using the GET method.
-2.	Copy the page&#39;s HTML code to a file for further analysis (we won&#39;t verify that you have done this).
-3.	Use the IDE to generate the equals() and hashCode() methods in the JobPosting class.
 
-
-Aggregator (part 6)
+Aggregator (part 7)
 
 
 1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
@@ -42,7 +68,7 @@ Inside the method, go through all of the providers and collect all their job pos
 
 
 
-Aggregator (part 6)
+Aggregator (part 7)
 
 
 Open the Linkedin website (https://www.linkedin.com/jobs/)
@@ -78,7 +104,7 @@ In the dialog box, open the folder path from item 2. Then open the folder itself
 
 
 
-Aggregator (part 6)
+Aggregator (part 7)
 
 
 Starting in this task, you will begin writing the logic for fetching data from a website.
@@ -104,7 +130,7 @@ This class will implement a specific strategy for working with the Linkedin webs
 
 
 
-Aggregator (part 6)
+Aggregator (part 7)
 
 
 1. Create a Controller class which will contain business logic.
@@ -120,29 +146,6 @@ Do you remember how to do that? You need to press Alt+Enter on the constructor&#
 5. Create a provider in the main method. Then create the controller using this provider.
 
 6. In the main method, display the Controller object on the console.
-
-
-
-Aggregator (part 6)
-
-
-It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.
-What do we need?
-There should be a list of websites we are searching for jobs.
-First, we&#39;ll use https://www.linkedin.com/jobs/. We&#39;ll add other job search sites later.
-These are the same site, just with different domains.
-
-Where do we start our implementation? With the main method, of course! :)
-1. Create an Aggregator class with a main method.
-
-2. Create a model package, and create a Provider class inside it.
-This class represents a generalization of how job posting data is retrieved.
-
-3. Since the same script will be executed for each site, we&#39;ll use the Strategy pattern. Read about it online on Wikipedia.
-Create a Strategy interface in the model package.
-It will be responsible for fetching data from a website.
-
-4. Add a Strategy strategy field to the Provider class. Add a constructor with this parameter and an appropriate setter.
 
 
 
