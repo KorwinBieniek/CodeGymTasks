@@ -11,11 +11,15 @@ public class HtmlView implements View {
 
     @Override
     public void update(List<JobPosting> vacancies) {
-
+        System.out.println(vacancies.size());
     }
 
     @Override
     public void setController(Controller controller) {
         this.controller = controller;
+    }
+
+    public void emulateCitySelection() {
+        controller.onCitySelected("Odessa");
     }
 }

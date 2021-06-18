@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task28.task2810.big11"\n\nAggregator (part 11)
+taskKey="com.codegym.task.task28.task2810.big12"\n\nAggregator (part 12)
+
+
+To run the application, you need to emulate a user event:
+1. In the HtmlView class, create a public void emulateCitySelection() method.
+Let this method call the controller using the city &quot;Odessa&quot;.
+
+2. To check whether everything is working, display something on the console in the HtmlView&#39;s update method, for example, the number of job postings.
+This is an indication that you can move on.
+
+3. To get started, you need to update Aggregator&#39;s main method.
+3.1. Create a view, model, and controller.
+3.2. Pass the controller to the view.
+3.3. Call the view&#39;s emulateCitySelection method.
+
+4. Run the application! Wait a few seconds to get the data.
+Did it work? Great! It works!
+
+
+Требования:
+1.	In the HtmlView class, create and implement a public void emulateCitySelection() method according to the task conditions.
+2.	Display the number of job postings in the HtmlView class&#39;s update method.
+3.	Implement the main method in accordance with the task conditions and check whether the application works as expected.
+
+
+Aggregator (part 12)
 
 
 Model has a selectCity method to which the name of the city for the job search is passed.
@@ -18,15 +43,8 @@ Throw an IllegalArgumentException for invalid data
 6. Remove the code from the main method. This code is no longer valid.
 
 
-Требования:
-1.	Add a new Model model field to the Controller class.
-2.	Remove the scan method, toString method, constructor, and providers field from Controller.
-3.	Add a new constructor with a Model parameter to Controller. Throw an IllegalArgumentException for invalid data.
-4.	Create a public void onCitySelected(String cityName) method in Controller, in which we will call the appropriate method on the model.
-5.	Remove the old code from the main method.
 
-
-Aggregator (part 11)
+Aggregator (part 12)
 
 
 View has an update method. The list of job postings is passed to it to be displayed.
@@ -48,7 +66,7 @@ Throw an IllegalArgumentException if invalid data is passed.
 
 
 
-Aggregator (part 11)
+Aggregator (part 12)
 
 
 It&#39;s time to refactor the code a little.
@@ -68,7 +86,7 @@ void setController(Controller controller);
 
 
 
-Aggregator (part 11)
+Aggregator (part 12)
 
 
 Run the program in debug mode again.
@@ -97,7 +115,7 @@ Add all job postings to a single list and return it.
 
 
 
-Aggregator (part 11)
+Aggregator (part 12)
 
 
 To let Linkedin know who&#39;s connecting to it, we&#39;ll add Request Headers to our request.
@@ -121,27 +139,6 @@ It shows that the GET method was used to send the data (POST is also an option),
 5. Find &quot;Request Headers&quot;
 
 Add a userAgent and referrer to the Linkedin connection.
-
-
-
-Aggregator (part 11)
-
-
-1. On the left in the Project panel, find &quot;External Libraries&quot; at the bottom. Find the examples package in jsoup, and look at the classes in this package.
-
-2. Similar to the implementations in the jsoup examples, connect to the Linkedin URL using the GET method.
-This needs to be done in the LinkedinStrategy class&#39;s getJobPostings method.
-Hint: You&#39;ll get a Document object.
-
-3. Set a breakpoint right after the connection. Run the program in debug mode.
-Copy the value of document.html() into the clipboard.
-
-4. Create a file with an html extension somewhere in the project&#39;s root.
-Paste the contents of the clipboard into this file, and format it using Ctrl+Alt+L. IDEA knows how to format HTML.
-Hooray! This is the page&#39;s HTML code :)
-
-5. Implement equals/hashCode methods in the JobPosting class.
-Press Alt+Enter for the equals() and hashCode() methods.
 
 
 
