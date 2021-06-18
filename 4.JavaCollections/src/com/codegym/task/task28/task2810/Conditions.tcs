@@ -1,4 +1,37 @@
-taskKey="com.codegym.task.task28.task2810.big02"\n\nAggregator (part 2)
+taskKey="com.codegym.task.task28.task2810.big03"\n\nAggregator (part 3)
+
+
+Starting in this task, you will begin writing the logic for fetching data from a website.
+This logic will be contained entirely in the classes that implement Strategy.
+
+Speaking in terms of the Strategy pattern, the provider acts as the context.
+The provider must have a method that will call the strategy&#39;s method for performing the primary operation.
+This method will return all of the Java job postings from the selected website.
+
+1. In the root of the task, create a vo (value object) package and create a JobPosting class in it.
+This class will store job posting data.
+
+2. In Provider, create a List&lt;JobPosting&gt; getJavaJobPostings(String searchString) method. Leave the method empty for now.
+
+3. What data is associated with a job posting?
+A job title, city, company name, name of the website where the job posting was found, and a link to the job posting.
+In the JobPosting class, create the corresponding String fields: title, city, companyName, websiteName, and url.
+
+4. Create getters and setters for all of the JobPosting class&#39;s fields.
+
+5. In the model package, create an LinkedinStrategy class that implements Strategy.
+This class will implement a specific strategy for working with the Linkedin website (https://www.linkedin.com/jobs/).
+
+
+Требования:
+1.	In the root of the task, create a vo package and create a JobPosting class in it.
+2.	In the Provider class, create an empty getJavaJobPostings(String searchString) method that will return a list of job postings.
+3.	Create the following String fields in the JobPosting class: title, city, companyName, websiteName, and url.
+4.	Create getters and setters for the JobPosting class&#39;s fields.
+5.	In the model package, create an LinkedinStrategy class that implements the Strategy interface.
+
+
+Aggregator (part 3)
 
 
 1. Create a Controller class which will contain business logic.
@@ -16,16 +49,8 @@ Do you remember how to do that? You need to press Alt+Enter on the constructor&#
 6. In the main method, display the Controller object on the console.
 
 
-Требования:
-1.	Create a Controller class.
-2.	Add a constructor to the Controller class that accepts as many providers as are passed to it.
-3.	In the constructor, save all of the providers to the providers field. If no providers are passed, then throw an IllegalArgumentException.
-4.	In the Controller class, create a toString method with a standard implementation.
-5.	In the main method, create a provider and a controller using that provider.
-6.	In the main method, display the controller object on the console.
 
-
-Aggregator (part 2)
+Aggregator (part 3)
 
 
 It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.
