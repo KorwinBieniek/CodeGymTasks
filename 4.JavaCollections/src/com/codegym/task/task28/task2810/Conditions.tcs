@@ -1,4 +1,30 @@
-taskKey="com.codegym.task.task28.task2810.big05"\n\nAggregator (part 5)
+taskKey="com.codegym.task.task28.task2810.big06"\n\nAggregator (part 6)
+
+
+1. On the left in the Project panel, find &quot;External Libraries&quot; at the bottom. Find the examples package in jsoup, and look at the classes in this package.
+
+2. Similar to the implementations in the jsoup examples, connect to the Linkedin URL using the GET method.
+This needs to be done in the LinkedinStrategy class&#39;s getJobPostings method.
+Hint: You&#39;ll get a Document object.
+
+3. Set a breakpoint right after the connection. Run the program in debug mode.
+Copy the value of document.html() into the clipboard.
+
+4. Create a file with an html extension somewhere in the project&#39;s root.
+Paste the contents of the clipboard into this file, and format it using Ctrl+Alt+L. IDEA knows how to format HTML.
+Hooray! This is the page&#39;s HTML code :)
+
+5. Implement equals/hashCode methods in the JobPosting class.
+Press Alt+Enter for the equals() and hashCode() methods.
+
+
+Требования:
+1.	In the LinkedinStrategy class&#39;s getJobPostings method, connect to the Linkedin URL using the GET method.
+2.	Copy the page&#39;s HTML code to a file for further analysis (we won&#39;t verify that you have done this).
+3.	Use the IDE to generate the equals() and hashCode() methods in the JobPosting class.
+
+
+Aggregator (part 6)
 
 
 1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
@@ -15,15 +41,8 @@ Inside the method, go through all of the providers and collect all their job pos
 5. Fix the NullPointerException (NPE) if one occurs (add a stub).
 
 
-Требования:
-1.	Add the getJobPostings(String searchString) method to the Strategy interface.
-2.	Update the LinkedinStrategy class so that there are no errors.
-3.	Implement the getJavaJobPostings method in the Provider class.
-4.	In the main method, add a call to controller.scan() instead of outputting to the screen. Implement this method as outlined in the task conditions.
-5.	The main method must not throw a NullPointerException. Put stubs in the required places.
 
-
-Aggregator (part 5)
+Aggregator (part 6)
 
 
 Open the Linkedin website (https://www.linkedin.com/jobs/)
@@ -59,7 +78,7 @@ In the dialog box, open the folder path from item 2. Then open the folder itself
 
 
 
-Aggregator (part 5)
+Aggregator (part 6)
 
 
 Starting in this task, you will begin writing the logic for fetching data from a website.
@@ -85,7 +104,7 @@ This class will implement a specific strategy for working with the Linkedin webs
 
 
 
-Aggregator (part 5)
+Aggregator (part 6)
 
 
 1. Create a Controller class which will contain business logic.
@@ -104,7 +123,7 @@ Do you remember how to do that? You need to press Alt+Enter on the constructor&#
 
 
 
-Aggregator (part 5)
+Aggregator (part 6)
 
 
 It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.
