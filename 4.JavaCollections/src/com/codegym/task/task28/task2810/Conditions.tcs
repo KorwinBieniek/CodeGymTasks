@@ -1,4 +1,29 @@
-taskKey="com.codegym.task.task28.task2810.big04"\n\nAggregator (part 4)
+taskKey="com.codegym.task.task28.task2810.big05"\n\nAggregator (part 5)
+
+
+1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
+
+2. Correct the errors in the LinkedinStrategy class.
+
+3. Return to the Provider class&#39;s getJavaJobPostings method. Implement it assuming that all the data is adequate.
+
+4. Let&#39;s try to run our program and see how it works.
+In the main method, write controller.scan() instead of outputting to the screen;
+Accept IDEA&#39;s suggestion and create a method.
+Inside the method, go through all of the providers and collect all their job postings and add them to the list. Display the number of job postings.
+
+5. Fix the NullPointerException (NPE) if one occurs (add a stub).
+
+
+Требования:
+1.	Add the getJobPostings(String searchString) method to the Strategy interface.
+2.	Update the LinkedinStrategy class so that there are no errors.
+3.	Implement the getJavaJobPostings method in the Provider class.
+4.	In the main method, add a call to controller.scan() instead of outputting to the screen. Implement this method as outlined in the task conditions.
+5.	The main method must not throw a NullPointerException. Put stubs in the required places.
+
+
+Aggregator (part 5)
 
 
 Open the Linkedin website (https://www.linkedin.com/jobs/)
@@ -33,13 +58,8 @@ In the dialog box, open the folder path from item 2. Then open the folder itself
 4. Read additional material for this lesson in the Community.
 
 
-Требования:
-1.	Create a private String URL_FORMAT constant in the LinkedinStrategy class.
-2.	The result of calling String.format(URL_FORMAT, String, int) must match the task conditions.
-3.	To complete future instructions, install version 1.9.2 of the jsoup library (we won&#39;t verify that you have done this).
 
-
-Aggregator (part 4)
+Aggregator (part 5)
 
 
 Starting in this task, you will begin writing the logic for fetching data from a website.
@@ -65,7 +85,7 @@ This class will implement a specific strategy for working with the Linkedin webs
 
 
 
-Aggregator (part 4)
+Aggregator (part 5)
 
 
 1. Create a Controller class which will contain business logic.
@@ -84,7 +104,7 @@ Do you remember how to do that? You need to press Alt+Enter on the constructor&#
 
 
 
-Aggregator (part 4)
+Aggregator (part 5)
 
 
 It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.

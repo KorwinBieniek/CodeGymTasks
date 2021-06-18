@@ -1,8 +1,11 @@
 package com.codegym.task.task28.task2810;
 
 import com.codegym.task.task28.task2810.model.Provider;
+import com.codegym.task.task28.task2810.vo.JobPosting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
 
@@ -18,5 +21,13 @@ public class Controller {
         return "Controller{" +
                 "providers=" + Arrays.toString(providers) +
                 '}';
+    }
+
+    public void scan() {
+        List<JobPosting> vacancies = new ArrayList<>();
+        for (Provider provider : providers) {
+            vacancies.addAll(provider.getJavaJobPostings("MyTown"));
+        }
+        System.out.println(vacancies.size());
     }
 }
