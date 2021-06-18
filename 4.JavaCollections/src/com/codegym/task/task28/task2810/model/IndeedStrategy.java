@@ -35,7 +35,7 @@ public class IndeedStrategy implements Strategy {
                     JobPosting vacancy = new JobPosting();
                     vacancy.setWebsiteName("indeed.com");
                     vacancy.setTitle(title.get(0).attr("title"));
-                    vacancy.setUrl(title.get(0).attr("href"));
+                    vacancy.setUrl("https://www.indeed.com" + title.get(0).attr("href"));
                     vacancy.setCity(locations.size() > 0 ? locations.get(0).text() : "");
                     vacancy.setCompanyName(companyName.get(0).text());
 
