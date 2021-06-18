@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task28.task2810.big10"\n\nAggregator (part 10)
+taskKey="com.codegym.task.task28.task2810.big11"\n\nAggregator (part 11)
+
+
+Model has a selectCity method to which the name of the city for the job search is passed.
+Obviously, this method will be called by the controller, since it decides which model to use.
+
+1. Add a new Model model field to the Controller.
+
+2. Remove the scan() method from the Controller. Its logic has been moved to the model.
+
+3. Remove the constructor, toString method, and providers field from the controller.
+
+4. Create a Controller constructor with a Model parameter.
+Throw an IllegalArgumentException for invalid data
+
+5. Create a public void onCitySelected(String cityName) method in Controller, in which we will call the appropriate method on the model.
+
+6. Remove the code from the main method. This code is no longer valid.
+
+
+Требования:
+1.	Add a new Model model field to the Controller class.
+2.	Remove the scan method, toString method, constructor, and providers field from Controller.
+3.	Add a new constructor with a Model parameter to Controller. Throw an IllegalArgumentException for invalid data.
+4.	Create a public void onCitySelected(String cityName) method in Controller, in which we will call the appropriate method on the model.
+5.	Remove the old code from the main method.
+
+
+Aggregator (part 11)
 
 
 View has an update method. The list of job postings is passed to it to be displayed.
@@ -19,15 +47,8 @@ Throw an IllegalArgumentException if invalid data is passed.
 5.2. update the view with the list of job postings from item 5.1.
 
 
-Требования:
-1.	Create a Model class in the model package.
-2.	Add two fields to the Model class: a view and an array of providers.
-3.	Create a constructor with two parameters: a view and an array of providers. Throw an IllegalArgumentException if invalid data is passed.
-4.	Add a public void selectCity(String city) method to the Model class.
-5.	Implement the selectCity method. It must get job postings from each provider and pass them to the view&#39;s update method.
 
-
-Aggregator (part 10)
+Aggregator (part 11)
 
 
 It&#39;s time to refactor the code a little.
@@ -47,7 +68,7 @@ void setController(Controller controller);
 
 
 
-Aggregator (part 10)
+Aggregator (part 11)
 
 
 Run the program in debug mode again.
@@ -76,7 +97,7 @@ Add all job postings to a single list and return it.
 
 
 
-Aggregator (part 10)
+Aggregator (part 11)
 
 
 To let Linkedin know who&#39;s connecting to it, we&#39;ll add Request Headers to our request.
@@ -103,7 +124,7 @@ Add a userAgent and referrer to the Linkedin connection.
 
 
 
-Aggregator (part 10)
+Aggregator (part 11)
 
 
 1. On the left in the Project panel, find &quot;External Libraries&quot; at the bottom. Find the examples package in jsoup, and look at the classes in this package.
@@ -121,24 +142,6 @@ Hooray! This is the page&#39;s HTML code :)
 
 5. Implement equals/hashCode methods in the JobPosting class.
 Press Alt+Enter for the equals() and hashCode() methods.
-
-
-
-Aggregator (part 10)
-
-
-1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
-
-2. Correct the errors in the LinkedinStrategy class.
-
-3. Return to the Provider class&#39;s getJavaJobPostings method. Implement it assuming that all the data is adequate.
-
-4. Let&#39;s try to run our program and see how it works.
-In the main method, write controller.scan() instead of outputting to the screen;
-Accept IDEA&#39;s suggestion and create a method.
-Inside the method, go through all of the providers and collect all their job postings and add them to the list. Display the number of job postings.
-
-5. Fix the NullPointerException (NPE) if one occurs (add a stub).
 
 
 
