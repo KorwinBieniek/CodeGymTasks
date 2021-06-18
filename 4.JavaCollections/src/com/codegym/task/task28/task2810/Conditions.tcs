@@ -1,4 +1,45 @@
-taskKey="com.codegym.task.task28.task2810.big03"\n\nAggregator (part 3)
+taskKey="com.codegym.task.task28.task2810.big04"\n\nAggregator (part 4)
+
+
+Open the Linkedin website (https://www.linkedin.com/jobs/)
+Type &quot;Java San Francisco&quot; in the search bar. At the bottom, navigate to the second page, since URLs often differ between the first and subsequent pages.
+I got this URL:
+https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&amp;start=25
+It follows that:
+1) if you need to filter by city, then you add the name of the city after the word &quot;Java&quot; and separate them with a &quot;+&quot; sign,
+2) there are 25 job postings per page.
+
+So, a generic URL would look something like this:
+https://www.linkedin.com/jobs/search?keywords=Java+ADDITIONAL_VALUE&amp;start=PAGE_VALUE
+
+1. Use the resulting URL to create a private String URL_FORMAT constant in LinkedinStrategy, which will be passed to String.format.
+String.format(URL_FORMAT, &quot;San+Francisco&quot;, 75) must be equal to
+&quot;https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&amp;start=75&quot;
+To do this, copy the URL into your code and press the required key combination over it.
+Ctrl+Alt+C is for creating constants,
+Ctrl+Alt+M is for creating methods,
+Ctrl+Alt+V is for creating variables.
+
+2. You need to get the web page&#39;s source code programmatically. This is done with an HTTP request. You will need a Java HTML Parser.
+jsoup is a good parser. Let&#39;s use it.
+Find the jsoup website, and download version 1.9.2 of the library and its source files. You don&#39;t need to include them in the project!
+
+3. Connect the new libraries:
+In IDEA, open the &quot;Project Structure&quot; menu item (in the File menu).
+On the left, select Project Settings -&gt; Libraries. In the upper-right window, click &quot;+&quot;.
+Choose &quot;Java&quot; if the libraries aren&#39;t there yet, or choose &quot;Attach Files or Directories&quot; to add jar files to an existing library.
+In the dialog box, open the folder path from item 2. Then open the folder itself and select all of the *.jar files.
+
+4. Read additional material for this lesson in the Community.
+
+
+Требования:
+1.	Create a private String URL_FORMAT constant in the LinkedinStrategy class.
+2.	The result of calling String.format(URL_FORMAT, String, int) must match the task conditions.
+3.	To complete future instructions, install version 1.9.2 of the jsoup library (we won&#39;t verify that you have done this).
+
+
+Aggregator (part 4)
 
 
 Starting in this task, you will begin writing the logic for fetching data from a website.
@@ -23,15 +64,8 @@ In the JobPosting class, create the corresponding String fields: title, city, co
 This class will implement a specific strategy for working with the Linkedin website (https://www.linkedin.com/jobs/).
 
 
-Требования:
-1.	In the root of the task, create a vo package and create a JobPosting class in it.
-2.	In the Provider class, create an empty getJavaJobPostings(String searchString) method that will return a list of job postings.
-3.	Create the following String fields in the JobPosting class: title, city, companyName, websiteName, and url.
-4.	Create getters and setters for the JobPosting class&#39;s fields.
-5.	In the model package, create an LinkedinStrategy class that implements the Strategy interface.
 
-
-Aggregator (part 3)
+Aggregator (part 4)
 
 
 1. Create a Controller class which will contain business logic.
@@ -50,7 +84,7 @@ Do you remember how to do that? You need to press Alt+Enter on the constructor&#
 
 
 
-Aggregator (part 3)
+Aggregator (part 4)
 
 
 It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.
