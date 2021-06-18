@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task28.task2810.big01"\n\nAggregator (part 1)
+taskKey="com.codegym.task.task28.task2810.big02"\n\nAggregator (part 2)
+
+
+1. Create a Controller class which will contain business logic.
+
+2. Add a public constructor to Controller. It should accept as many providers as are passed to it.
+Save them to a private providers field.
+Do you remember how to do that? You need to press Alt+Enter on the constructor&#39;s parameter, and then select &quot;Create Field for Parameter &#39;providers&#39;&quot;.
+
+3. If no providers are passed to the controller&#39;s constructor, then throw an IllegalArgumentException.
+
+4. Create a toString method in the Controller class (Alt+Insert -&gt; toString()) with a standard implementation (it should display the providers field).
+
+5. Create a provider in the main method. Then create the controller using this provider.
+
+6. In the main method, display the Controller object on the console.
+
+
+Требования:
+1.	Create a Controller class.
+2.	Add a constructor to the Controller class that accepts as many providers as are passed to it.
+3.	In the constructor, save all of the providers to the providers field. If no providers are passed, then throw an IllegalArgumentException.
+4.	In the Controller class, create a toString method with a standard implementation.
+5.	In the main method, create a provider and a controller using that provider.
+6.	In the main method, display the controller object on the console.
+
+
+Aggregator (part 2)
 
 
 It&#39;s time to work with information from the Internet a little. In this task, you&#39;ll be writing an aggregator for Java job posting.
@@ -19,11 +46,5 @@ It will be responsible for fetching data from a website.
 
 4. Add a Strategy strategy field to the Provider class. Add a constructor with this parameter and an appropriate setter.
 
-
-Требования:
-1.	Create an Aggregator class with a main method.
-2.	Create a model package, and create a Provider class inside it.
-3.	Create a Strategy interface in the model package.
-4.	Add a Strategy strategy field to the Provider class. Add a constructor with this parameter and an appropriate setter.
 
 
