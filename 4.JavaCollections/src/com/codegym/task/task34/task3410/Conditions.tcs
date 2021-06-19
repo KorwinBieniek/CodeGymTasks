@@ -1,4 +1,68 @@
-taskKey="com.codegym.task.task34.task3410.big13"\n\nSokoban (part 13)
+taskKey="com.codegym.task.task34.task3410.big15"\n\nSokoban (part 15)
+
+
+The time has come to implement the model&#39;s move() method, which is responsible for movement. But first,
+let&#39;s implement some helper methods. Add the following methods to the Model class:
+15.1. boolean checkWallCollision(CollisionObject gameObject, Direction direction). This
+method checks for collisions with a wall. It should return true if the gameObject will collide
+with a wall by moving in the passed direction;
+otherwise, it should return false. To determine if there is a collision, use the game object&#39;s
+isCollision() method.
+15.2. boolean checkBoxCollisionAndMoveIfAvailable(Direction direction). This method checks for
+collisions with boxes. The method should:
+15.2.1. Return true if the player can&#39;t move in the specified direction (i.e. the cell is occupied by
+a box with a wall behind it or by a box with another box behind it).
+15.2.2. Return false if the player can move in the specified direction (i.e. the cell is occupied by
+an empty cell or by a storage location or by a box with an empty
+cell or a storage location behind it). In this case, if a movable box is in the way, then
+you need to move it to new coordinates. Note that
+all the objects move by a fixed distance equal to BOARD_CELL_SIZE regardless
+of the dimensions used for drawing.
+Hint: check for collisions using the game objects&#39; isCollision() methods
+and the model&#39;s checkWallCollision() method.
+15.3. void checkCompletion(). This method must check whether the level has been completed (whether
+all the storage locations have boxes on them, i.e. their coordinates match). If this condition
+is true, then let the event listener know that the current level is complete.
+15.4. void move(Direction direction). The method should:
+15.4.1. Check for a wall collision (use the checkWallCollision() method). If there is a
+collision, then exit the method.
+15.4.2. Check for a box collision (use the checkBoxCollisionAndMoveIfAvailable() method). If there is a
+collision, then exit the method.
+15.4.3. Move the player in the passed direction.
+15.4.4. Check whether the level is completed.
+
+Run the program and be sure that the player can move itself and
+boxes, that walls prevent the player from moving, and that when you move all the boxes onto storage locations that a message about
+completing the level is displayed.
+
+
+Требования:
+1.	Implement the boolean checkWallCollision(CollisionObject gameObject, Direction direction) method in the Model class.
+2.	Implement the boolean checkBoxCollisionAndMoveIfAvailable(Direction direction) method in the Model class.
+3.	Implement the void checkCompletion() method in the Model class.
+4.	Implement the void move(Direction direction) method in the Model class.
+
+
+Sokoban (part 15)
+
+
+Let&#39;s make our game more interactive (using a keyboard
+to move the player). We&#39;ll start by handling keystrokes.
+14.1. Add to the Board class a nested KeyHandler class that
+inherits KeyAdapter.
+14.2. Overload its keyPressed() method. If the key with code VK_LEFT is pressed,
+then send an event with a Direction.LEFT argument to eventListener.
+Handle keystrokes with codes VK_RIGHT, VK_UP, and
+VK_DOWN in a similar manner. If the user presses the R key, which has code VK_R, then call the event
+listener&#39;s restart() method.
+14.3. In the Board class constructor:
+14.3.1. Create a KeyHandler object.
+14.3.2. Use the addKeyListener() method to the handler to the listener.
+14.3.3. Set focusable to true (using the setFocusable() method).
+
+
+
+Sokoban (part 15)
 
 
 Let&#39;s fill out the controller&#39;s functionality.
@@ -21,16 +85,8 @@ a level. Hint: use JOptionPane.showMessageDialog.
 the view&#39;s completed() method.
 
 
-Требования:
-1.	The Controller class constructor should set up an event listener for the model and view.
-2.	Implement the controller&#39;s move(Direction direction) method.
-3.	Implement the controller&#39;s restart() method.
-4.	Implement the controller&#39;s startNextLevel() method.
-5.	Implement the view&#39;s completed(int level) method.
-6.	Implement the controller&#39;s levelCompleted(int level) method.
 
-
-Sokoban (part 13)
+Sokoban (part 15)
 
 
 Let&#39;s try organizing the interaction between the view and model.
@@ -52,7 +108,7 @@ Run the program and be sure that all of the game objects are drawn correctly.
 
 
 
-Sokoban (part 13)
+Sokoban (part 15)
 
 
 Let&#39;s begin fleshing out the Model class&#39; functionality. Add the following:
@@ -72,7 +128,7 @@ currentLevel variable, which stores the current level number, and restart the ne
 
 
 
-Sokoban (part 13)
+Sokoban (part 15)
 
 
 The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
@@ -86,45 +142,6 @@ matter what this method returns. For now, have it always return a set with: one 
 one storage location, one box, and several walls. That will make it easier to debug the game.
 The coordinates of each object must be non-zero and multiples of half of
 BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
-
-
-
-Sokoban (part 13)
-
-
-Various events will occur during the game. Let&#39;s create an
-EventListener interface. Every class that wants to handle events must
-implement it. And classes that generate events will call
-this interface&#39;s methods.
-9.1. Add the EventListener interface to the controller package.
-9.2. Add these void methods to the interface:
-9.2.1. move(Direction direction) - moves the object in the specified direction.
-9.2.2. restart() - restart the current level.
-9.2.3. startNextLevel() - start the next level.
-9.2.4. levelCompleted(int level) - the level with the passed index has been completed.
-9.3. Add the EventListener interface to the Controller class, and write the stubs required to
-implement the interface.
-9.4. Add an EventListener eventListener field to the Model and Board classes.
-9.5. Add the setEventListener(EventListener eventListener) method
-to the Model, View, and Board classes. In the View class, this method must call the analogous method on the
-board object. In the Model and Field classes, it must set the value of the internal eventListener fields.
-
-
-
-Sokoban (part 13)
-
-
-You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
-store these objects.
-8.1. Create a GameObjects class in the model package.
-8.2. Add the following:
-8.2.1. Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations, and Player player fields.
-8.2.2. Getters for these fields.
-8.2.3. A class constructor that accepts Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations,
-and Player player arguments, and that initializes the class&#39;s fields.
-8.2.4. A Set&lt;GameObject&gt; getAll() method. It must return a set containing
-all of the objects stored in the object.
-
 
 
 
