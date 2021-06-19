@@ -1,4 +1,27 @@
-taskKey="com.codegym.task.task26.task2613.big11"\n\nCashMachine (part 11)
+taskKey="com.codegym.task.task26.task2613.big12"\n\nCashMachine (part 12)
+
+
+In part 11, we hardcoded the credit card number and PIN code used to allow working with our ATM.
+But we could have lots of users. We certainly won&#39;t hardcode them all! If we need to add another user,
+we would have to redeploy our application. There is a solution to this problem.
+
+Note that a new resources package has been added. We&#39;ll store our resource files in it.
+This package has the verifiedCards.properties file, where card numbers and PIN codes are specified.
+
+1. Add a private ResourceBundle validCreditCards field to LoginCommand.
+In the declaration, initialize this field with the data from the verifiedCards.properties file.
+Read online to find out how this is done for a ResourceBundle.
+Important: build the path to verifiedCards.properties dynamically using the CashMachine class&#39;s getPackage() method
+2. Replace the hardcoded credit card and PIN data with a check to see whether the entered user data is in verifiedCards.properties.
+
+
+Требования:
+1.	LoginCommand must have a private ResourceBundle validCreditCards field.
+2.	The validCreditCards field must be initialized from the verifiedCards.properties file.
+3.	Check credit cards and PIN codes using verifiedCards.properties.
+
+
+CashMachine (part 12)
 
 
 Congratulations! You implemented WithdrawCommand! The main functionality is finished. Next you can do some polishing and make things pretty.
@@ -24,15 +47,8 @@ The LOGIN operation must be run once before any other operations are performed.
 Don&#39;t forget about InterruptedOperationExceptions anywhere the user can stop working with the ATM. So, call the operation inside a try-catch block.
 
 
-Требования:
-1.	The Operation enum must have a LOGIN operation with ordinal 0.
-2.	In the getAllowableOperationByOrdinal(Integer i) method, prevent the user from selecting the LOGIN operation.
-3.	The LoginCommand class&#39;s execute method must implement an algorithm for the LOGIN command according to the task conditions.
-4.	The CommandExecutor class&#39;s allKnownCommandsMap field must contain the new operation.
-5.	The main method should call the LOGIN operation.
 
-
-CashMachine (part 11)
+CashMachine (part 12)
 
 
 Today we&#39;ll tackle WithdrawCommand. It&#39;s the most complex operation.
@@ -84,7 +100,7 @@ Don&#39;t forget that maps sometimes throw ConcurrentModificationExceptions.
 
 
 
-CashMachine (part 11)
+CashMachine (part 12)
 
 
 Today we&#39;re going to tackle ExitCommand.
@@ -104,7 +120,7 @@ Use ConsoleHelper to say goodbye to the user in the catch block.
 
 
 
-CashMachine (part 11)
+CashMachine (part 12)
 
 
 It&#39;s time to whip our main method into shape. It already has a bunch of stuff that shouldn&#39;t be there.
@@ -134,7 +150,7 @@ Add a boolean hasMoney() method to the manipulator. It should indicate whether a
 
 
 
-CashMachine (part 11)
+CashMachine (part 12)
 
 
 Let&#39;s return to the Command pattern.
@@ -156,26 +172,6 @@ Implement this logic.
 
 We&#39;ll check that your structure matches the tests on the server.
 We&#39;ll carry the logic over to the next task.
-
-
-
-CashMachine (part 11)
-
-
-To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
-For now, we have two such blocks: 1) code for the DEPOSIT operation, 2) code for the INFO operation.
-This code is in the main method. We need to get rid of it.
-Now you need to make it so the user is the one who chooses the operation to perform.
-
-1. Add a static Operation getAllowableOperationByOrdinal(Integer i) method to the Operation enum
-It should return one of the enum&#39;s fields: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
-Throw an IllegalArgumentException if invalid data is entered.
-
-2. In the ConsoleHelper class, implement the logic for a static Operation requestOperation() method.
-Ask the user to choose an operation.
-If the user enters 1, execute the INFO command, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
-Use the method described in item 1.
-Handle any exceptions and repeat the request for an operation.
 
 
 
