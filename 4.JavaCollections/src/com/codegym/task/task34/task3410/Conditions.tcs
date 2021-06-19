@@ -1,4 +1,27 @@
-taskKey="com.codegym.task.task34.task3410.big09"\n\nSokoban (part 9)
+taskKey="com.codegym.task.task34.task3410.big10"\n\nSokoban (part 10)
+
+
+The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
+write a LevelLoader test stub. Why a test stub? We don&#39;t
+need the full functionality yet. It&#39;s pretty complicated, so we&#39;ll leave it for later. For now:
+10.1. Create a LevelLoader class in the model package.
+10.2. Add a constructor that accepts a Path levels argument. The levels parameter is
+the path to the test file containing the level descriptions.
+10.3. Add the GameObjects getLevel(int level) method to the LevelLoader class. For now, it doesn&#39;t
+matter what this method returns. For now, have it always return a set with: one player,
+one storage location, one box, and several walls. That will make it easier to debug the game.
+The coordinates of each object must be non-zero and multiples of half of
+BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
+
+
+Требования:
+1.	Create a LevelLoader class in the model package.
+2.	Add a constructor that accepts a Path levels argument.
+3.	Add the GameObjects getLevel(int level) method to the LevelLoader class.
+4.	Create a getLevel method test stub as outlined in the task conditions.
+
+
+Sokoban (part 10)
 
 
 Various events will occur during the game. Let&#39;s create an
@@ -19,15 +42,8 @@ to the Model, View, and Board classes. In the View class, this method must call 
 board object. In the Model and Field classes, it must set the value of the internal eventListener fields.
 
 
-Требования:
-1.	Add the EventListener interface to the controller package.
-2.	Add the following methods to the EventListener interface: move(Direction direction), restart(), startNextLevel(), and levelCompleted(int level).
-3.	Add the EventListener interface to the Controller class, and write the stubs required to implement the interface.
-4.	Add an EventListener eventListener field to the Model and Board classes.
-5.	Implement the setEventListener(EventListener eventListener) method in the Model, View and Board classes.
 
-
-Sokoban (part 9)
+Sokoban (part 10)
 
 
 You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
@@ -44,7 +60,7 @@ all of the objects stored in the object.
 
 
 
-Sokoban (part 9)
+Sokoban (part 10)
 
 
 Let&#39;s make the Wall class. A wall can collide with other objects, but it
@@ -58,7 +74,7 @@ no one is limiting your choice of color. Show your full creative potential.
 
 
 
-Sokoban (part 9)
+Sokoban (part 10)
 
 
 It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
@@ -76,7 +92,7 @@ Board class&#39;s paint() method.
 
 
 
-Sokoban (part 9)
+Sokoban (part 10)
 
 
 Box and Player game objects can not only
@@ -101,34 +117,6 @@ To check how your box and player are drawn, you can create
 a Box or Player object in the Board class&#39;s paint() method and call the object&#39;s
 draw() method. Do this only do to test the draw() methods. We&#39;ll implement the
 paint() method differently in the future.
-
-
-
-Sokoban (part 9)
-
-
-We already have a shared GameObject class. It&#39;s time to create classes
-for specific types of game objects.
-4.1. Some game objects can move (player and boxes) and some can&#39;t (walls
-and storage locations).
-4.1.1. Add the Movable interface to the model package.
-4.1.2. The Movable interface must have a void move(int x, int y) method.
-4.2. Add a Direction enum to the model package. It must have the following values:
-LEFT, RIGHT, UP, and DOWN. This type will be used to describe the direction
-of an object&#39;s movement.
-4.3. The &quot;storage location&quot; objects don&#39;t support collision detection (the player and
-boxes can freely move over them). As for other objects,
-they must not pass through one another, i.e. they should collide. For example,
-a box can&#39;t be pushed through a wall.
-4.3.1. Add an abstract CollisionObject class to the model package.
-3.4.2. The CollisionObject class must inherit GameObject.
-4.3.3. Add the following to the CollisionObject class:
-4.3.3.1. A constructor that accepts int x and int y arguments.
-4.3.3.2. A boolean isCollision(GameObject gameObject, Direction direction) method.
-This method should return true if the current
-object will collide with the gameObject parameter after moving a distance of BOARD_CELL_SIZE
-in the direction specified by the direction parameter.
-Otherwise, it should return false. If (x, y) coordinates match, you have a collision.
 
 
 
