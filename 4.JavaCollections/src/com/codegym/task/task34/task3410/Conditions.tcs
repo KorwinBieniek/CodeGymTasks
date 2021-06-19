@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task34.task3410.big07"\n\nSokoban (part 7)
+taskKey="com.codegym.task.task34.task3410.big08"\n\nSokoban (part 8)
+
+
+You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
+store these objects.
+8.1. Create a GameObjects class in the model package.
+8.2. Add the following:
+8.2.1. Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations, and Player player fields.
+8.2.2. Getters for these fields.
+8.2.3. A class constructor that accepts Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations,
+and Player player arguments, and that initializes the class&#39;s fields.
+8.2.4. A Set&lt;GameObject&gt; getAll() method. It must return a set containing
+all of the objects stored in the object.
+
+
+
+Требования:
+1.	Create a GameObjects class in the model package.
+2.	Add Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations and Player player fields to the GameObjects class.
+3.	Add getters for these fields to the GameObjects class.
+4.	Add a GameObjects class constructor that accepts Set&lt;Wall&gt; walls, Set &lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations, and Player player arguments and initializes the class&#39;s fields.
+5.	Add a Set&lt;GameObject&gt; getAll() method to the GameObjects class. It must return a set with all of the objects stored in the object.
+
+
+Sokoban (part 8)
 
 
 Let&#39;s make the Wall class. A wall can collide with other objects, but it
@@ -11,14 +35,8 @@ Hint: you could draw walls as brown squares, but
 no one is limiting your choice of color. Show your full creative potential.
 
 
-Требования:
-1.	Add a Wall class to the model package.
-2.	The class must inherit the most appropriate base class.
-3.	Implement a constructor that accepts int x and int y as arguments.
-4.	Implement the method for drawing a wall.
 
-
-Sokoban (part 7)
+Sokoban (part 8)
 
 
 It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
@@ -36,7 +54,7 @@ Board class&#39;s paint() method.
 
 
 
-Sokoban (part 7)
+Sokoban (part 8)
 
 
 Box and Player game objects can not only
@@ -64,7 +82,7 @@ paint() method differently in the future.
 
 
 
-Sokoban (part 7)
+Sokoban (part 8)
 
 
 We already have a shared GameObject class. It&#39;s time to create classes
@@ -92,7 +110,7 @@ Otherwise, it should return false. If (x, y) coordinates match, you have a colli
 
 
 
-Sokoban (part 7)
+Sokoban (part 8)
 
 
 Soon we&#39;ll be creating various game objects. It would be handy to be able
@@ -107,34 +125,6 @@ sets up the view properly. You will also need:
 3.2.3. Create a stub for a paint(Graphics g) method. It won&#39;t do anything yet.
 3.3. Add a call to the view&#39;s init() method to the Controller class constructor.
 3.4. The Controller class&#39;s main() method must create a new Controller object.
-
-
-
-Sokoban (part 7)
-
-
-The foundation is laid, so now let&#39;s start building. You can think of the gameplay
-as the interaction of GameObject objects. We&#39;ll have several types of them:
-Box, StorageLocation (the place where you need to put the box), Wall, and Player.
-2.1. Add an abstract GameObject class to the model package.
-2.2. Add the following fields to the GameObject class: int x, int y, int width, and int height. These fields represent the position and
-size of the object when drawn.
-2.3. Add setters and getters for the class&#39;s fields.
-2.4. Add to the Model class a public static int BOARD_CELL_SIZE = 20 constant. This
-represents the size of cells on the game board. All game objects will occupy one cell
-of the game board. This is the size that will be used when calculating movement and
-object collisions. The size stored inside an object will only be
-used when drawing that object.
-2.5. Add two constructors to the GameObject class:
-2.5.1. GameObject(int x, int y)
-2.5.2. GameObject(int x, int y, int width, int height)
-The constructors must initialize all of the class&#39;s fields. If width and height aren&#39;t passed,
-then use BOARD_CELL_SIZE as the width and height.
-2.6. Add an abstract void draw(Graphics graphics) method to the GameObject class. This method
-will be implemented differently in each type of game object. In other words,
-each type of game object will know how it should be drawn and will
-draw itself in the graphics context. Graphics is an abstract class from the
-java.awt library.
 
 
 
