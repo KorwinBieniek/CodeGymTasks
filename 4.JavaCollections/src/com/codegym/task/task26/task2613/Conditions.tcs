@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task26.task2613.big07"\n\nCashMachine (part 7)
+taskKey="com.codegym.task.task26.task2613.big08"\n\nCashMachine (part 8)
+
+
+It&#39;s time to whip our main method into shape. It already has a bunch of stuff that shouldn&#39;t be there.
+
+1. Move the logic from main to DepositCommand and InfoCommand.
+So what&#39;s happened to main? We have a loop, in which we ask the user for an operation and then call a method on the CommandExecutor.
+And so on forever... You need to come up the exit condition for the loop.
+Correct the loop to make it a do-while. The exit condition is the EXIT operation.
+
+2. Let&#39;s run the program and top up the account with &quot;EUR 100 2&quot; and &quot;USD 20 6&quot;. Then we&#39;ll look at INFO.
+It&#39;s not clear what to do, since we&#39;ve created 2 manipulators: the first for EUR, the second for USD.
+Let&#39;s improve the logic of InfoCommand. We need to display the balance for each manipulator.
+
+2.1. In the CurrencyManipulatorFactory class, create a static getAllCurrencyManipulators() method that returns a Collection of all manipulators.
+You stored all the manipulators in a map, right? If not, then refactor.
+2.2. In InfoCommand, display &quot;&lt;currency code&gt; - &lt;total amount of money for the selected currency&gt;&quot;.
+Let&#39;s run the program and top up the account with &quot;EUR 100 2&quot; and &quot;USD 20 6&quot;. Then we&#39;ll look at INFO.
+Does everything work correctly?
+EUR - 200
+USD - 120
+Excellent!
+
+3. Run the program and immediately request the INFO operation as the first operation. Nothing is displayed? That&#39;s no good.
+Add a boolean hasMoney() method to the manipulator. It should indicate whether any banknotes have been added.
+
+4. In InfoCommand, use the method in item 3 and display &quot;No money available.&quot; if there is no money in the ATM.
+
+
+Требования:
+1.	There should be a public static Collection&lt;CurrencyManipulator&gt; getAllCurrencyManipulators() method in the CurrencyManipulatorFactory class.
+2.	The CurrencyManipulator class should have a boolean hasMoney() method.
+3.	In the InfoCommand class&#39;s execute() method, for each manipulator, display: &quot;&lt;currency code&gt; - &lt;total amount of money for the selected currency&gt;&quot;; if there&#39;s no money in the ATM, display &quot;No money available.&quot;.
+4.	In the DepositCommand class&#39;s execute() method, request the currency code, then request the denomination and number of banknotes, and then add them to the manipulator. If the user enters an invalid denomination or number of banknotes (i.e. values that are not numbers), repeat the request for the denomination and number of banknotes.
+5.	In the CashMachine class&#39;s main method, request an operation from the user. Perform the operation in CommandExecutor. Repeat until the user selects the EXIT operation.
+
+
+CashMachine (part 8)
 
 
 Let&#39;s return to the Command pattern.
@@ -22,21 +59,8 @@ We&#39;ll check that your structure matches the tests on the server.
 We&#39;ll carry the logic over to the next task.
 
 
-Требования:
-1.	The Command interface must be in a separate file.
-2.	The Command interface must have a void execute() method.
-3.	The DepositCommand class, which implements the Command interface, must be in a separate file.
-4.	The InfoCommand class, which implements the Command interface, must be in a separate file.
-5.	The WithdrawCommand class, which implements the Command interface, must be in a separate file.
-6.	The ExitCommand class, which implements the Command interface, must be in a separate file.
-7.	The CommandExecutor class must be in a separate file.
-8.	The CommandExecutor class must have a private static Map&lt;Operation, Command&gt; allKnownCommandsMap field.
-9.	The CommandExecutor class must have a public static final void execute(Operation operation) method.
-10.	The CommandExecutor class must have a private constructor.
-11.	The CommandExecutor class&#39;s Map&lt;Operation, Command&gt; allKnownCommandsMap field must be initialized with all known operations and commands.
 
-
-CashMachine (part 7)
+CashMachine (part 8)
 
 
 To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
@@ -56,7 +80,7 @@ Handle any exceptions and repeat the request for an operation.
 
 
 
-CashMachine (part 7)
+CashMachine (part 8)
 
 
 1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
@@ -72,7 +96,7 @@ Before you start refactoring, you need to understand one thing. But we won&#39;t
 
 
 
-CashMachine (part 7)
+CashMachine (part 8)
 
 
 1. Let&#39;s decide what operation to start with.
@@ -103,7 +127,7 @@ Let&#39;s start it, debug it, and check it out.
 
 
 
-CashMachine (part 7)
+CashMachine (part 8)
 
 
 1. Create CurrencyManipulator class that stores all the information about the selected currency.
@@ -121,21 +145,6 @@ Ignore case when searching for a currency manipulator.
 Where do you think the best place to store all the manipulators would be?  Here&#39;s a little hint: the field should be called map.
 
 Make it impossible to create CurrencyManipulatorFactory objects.
-
-
-
-CashMachine (part 7)
-
-
-1. Create two static methods in ConsoleHelper:
-1.1 writeMessage(String message), which will write our message to the console.
-1.2 String readString(), which will read a string from the console and return it.
-If some exception occurs when working with the console, then we&#39;ll catch it and won&#39;t process the input.
-By the way, create only one instance of BufferedReader, and save it in the static bis field.
-
-2. Create an exception package, where we will put two checked exceptions:
-2.1 We&#39;ll throw an InterruptedOperationException will be thrown when you need to interrupt the current operation and sign out of the application.
-2.2 InsufficientFundsException will throw when we can not issue the requested amount.
 
 
 
