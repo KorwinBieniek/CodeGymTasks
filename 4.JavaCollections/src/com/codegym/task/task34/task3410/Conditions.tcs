@@ -1,4 +1,40 @@
-taskKey="com.codegym.task.task34.task3410.big01"\n\nSokoban (part 1)
+taskKey="com.codegym.task.task34.task3410.big02"\n\nSokoban (part 2)
+
+
+The foundation is laid, so now let&#39;s start building. You can think of the gameplay
+as the interaction of GameObject objects. We&#39;ll have several types of them:
+Box, StorageLocation (the place where you need to put the box), Wall, and Player.
+2.1. Add an abstract GameObject class to the model package.
+2.2. Add the following fields to the GameObject class: int x, int y, int width, and int height. These fields represent the position and
+size of the object when drawn.
+2.3. Add setters and getters for the class&#39;s fields.
+2.4. Add to the Model class a public static int BOARD_CELL_SIZE = 20 constant. This
+represents the size of cells on the game board. All game objects will occupy one cell
+of the game board. This is the size that will be used when calculating movement and
+object collisions. The size stored inside an object will only be
+used when drawing that object.
+2.5. Add two constructors to the GameObject class:
+2.5.1. GameObject(int x, int y)
+2.5.2. GameObject(int x, int y, int width, int height)
+The constructors must initialize all of the class&#39;s fields. If width and height aren&#39;t passed,
+then use BOARD_CELL_SIZE as the width and height.
+2.6. Add an abstract void draw(Graphics graphics) method to the GameObject class. This method
+will be implemented differently in each type of game object. In other words,
+each type of game object will know how it should be drawn and will
+draw itself in the graphics context. Graphics is an abstract class from the
+java.awt library.
+
+
+Требования:
+1.	Add an abstract GameObject class to the model package.
+2.	Add the following fields to the GameObject class: int x, int y, int width, and int height.
+3.	Add setters and getters for the fields of the GameObject class.
+4.	Add a public static int BOARD_CELL_SIZE = 20 constant to the Model class.
+5.	Add two constructors to the GameObject class: GameObject(int x, int y) and GameObject(int x, int y, int width, int height). The constructors must initialize all of the class&#39;s fields as outlined in the task conditions.
+6.	Add an abstract void draw(Graphics graphics) method to the GameObject class.
+
+
+Sokoban (part 2)
 
 
 Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
@@ -18,13 +54,5 @@ in a field inside the class (which you will also need to add). Name the field &q
 the constructor.
 1.6. Since the controller is our main class, add the main method to it.
 
-
-Требования:
-1.	Create a view package and add a View class that inherits JFrame.
-2.	Create a model package and add a Model class.
-3.	Create a controller package and add a Controller class with a default constructor.
-4.	Add a View class constructor that accepts a Controller and saves it in a field inside the class (which you will also need to add). Name the field &quot;controller&quot;.
-5.	 Add View view and Model model fields to the Controller class. Initialize them in the constructor.
-6.	Add a main method to the Controller class.
 
 
