@@ -1,4 +1,38 @@
-taskKey="com.codegym.task.task26.task2613.big10"\n\nCashMachine (part 10)
+taskKey="com.codegym.task.task26.task2613.big11"\n\nCashMachine (part 11)
+
+
+Congratulations! You implemented WithdrawCommand! The main functionality is finished. Next you can do some polishing and make things pretty.
+Let&#39;s implement one sweet feature. We can get by without it, but it will make things more beautiful.
+I&#39;m talking about verification of the user&#39;s credit card. No, there won&#39;t be any third-party API. Just processing of data from the console.
+
+Let&#39;s call this the LOGIN operation and make a corresponding command.
+1. Add the LOGIN operation with ordinal 0
+2. Prevent the user from selecting this operation from the list.
+In the only method for selecting operations, use the operation&#39;s ordinal to deny access &mdash; throw an IllegalArgumentException.
+3. Create LoginCommand by analogy with the other commands. In this command, hardcode card number and PIN code
+123456789012 and 1234, respectively.
+4. Implement the following logic for LoginCommand:
+4.1. Until the user enters a valid card number and PIN code, perform the following actions:
+4.2. Request 2 numbers from the user: a 12-digit credit card number and a 4-digit PIN code.
+4.3. Display a message if the user enters invalid data.
+4.4. If the data is valid, then compare them with the hardcoded values (123456789012 and 1234).
+4.5. If the user enters the data specified in item 4.4, then report that the verification was successful.
+4.6. If the user does NOT enter the data specified in item 4.4, then return to item 4.1.
+5. Fix CommandExecutor. Add the new operation to allKnownCommandsMap.
+6. Fix the main method.
+The LOGIN operation must be run once before any other operations are performed.
+Don&#39;t forget about InterruptedOperationExceptions anywhere the user can stop working with the ATM. So, call the operation inside a try-catch block.
+
+
+Требования:
+1.	The Operation enum must have a LOGIN operation with ordinal 0.
+2.	In the getAllowableOperationByOrdinal(Integer i) method, prevent the user from selecting the LOGIN operation.
+3.	The LoginCommand class&#39;s execute method must implement an algorithm for the LOGIN command according to the task conditions.
+4.	The CommandExecutor class&#39;s allKnownCommandsMap field must contain the new operation.
+5.	The main method should call the LOGIN operation.
+
+
+CashMachine (part 11)
 
 
 Today we&#39;ll tackle WithdrawCommand. It&#39;s the most complex operation.
@@ -49,15 +83,8 @@ The available banknotes cannot provide the requested amount. Throw an exception.
 Don&#39;t forget that maps sometimes throw ConcurrentModificationExceptions.
 
 
-Требования:
-1.	The CurrencyManipulator class must have a boolean isAmountAvailable(int expectedAmount) method.
-2.	The isAmountAvailable method should return true if there is enough money for the withdrawal.
-3.	The CurrencyManipulator class must contain a Map&lt;Integer, Integer&gt; withdrawAmount(int expectedAmount) method.
-4.	The withdrawAmount method should return a map according to the task conditions.
-5.	The WithdrawCommand class&#39;s execute method must implement an algorithm for WithdrawCommand according to the task conditions.
 
-
-CashMachine (part 10)
+CashMachine (part 11)
 
 
 Today we&#39;re going to tackle ExitCommand.
@@ -77,7 +104,7 @@ Use ConsoleHelper to say goodbye to the user in the catch block.
 
 
 
-CashMachine (part 10)
+CashMachine (part 11)
 
 
 It&#39;s time to whip our main method into shape. It already has a bunch of stuff that shouldn&#39;t be there.
@@ -107,7 +134,7 @@ Add a boolean hasMoney() method to the manipulator. It should indicate whether a
 
 
 
-CashMachine (part 10)
+CashMachine (part 11)
 
 
 Let&#39;s return to the Command pattern.
@@ -132,7 +159,7 @@ We&#39;ll carry the logic over to the next task.
 
 
 
-CashMachine (part 10)
+CashMachine (part 11)
 
 
 To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
@@ -149,22 +176,6 @@ Ask the user to choose an operation.
 If the user enters 1, execute the INFO command, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
 Use the method described in item 1.
 Handle any exceptions and repeat the request for an operation.
-
-
-
-CashMachine (part 10)
-
-
-1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
-But we couldn&#39;t see the results.
-So, in the manipulator, create an int getTotalAmount() method that calculates the total amount for the selected currency.
-
-2. Call the getTotalAmount() method in the main method.
-Is everything working correctly? Then let&#39;s move right along.
-Clearly, the getTotalAmount() method calculates what we need for the INFO operation.
-So it&#39;s time for a little refactoring.
-Read about the Command pattern!!
-Before you start refactoring, you need to understand one thing. But we won&#39;t go over that just now.
 
 
 
