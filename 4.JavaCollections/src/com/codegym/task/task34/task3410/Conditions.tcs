@@ -1,4 +1,24 @@
-taskKey="com.codegym.task.task34.task3410.big06"\n\nSokoban (part 6)
+taskKey="com.codegym.task.task34.task3410.big07"\n\nSokoban (part 7)
+
+
+Let&#39;s make the Wall class. A wall can collide with other objects, but it
+can&#39;t move.
+7.1. Add a Wall class to the model package.
+7.2. Make the class inherit the appropriate parent class.
+7.3. Implement a constructor with int x and int y parameters.
+7.4. Implement the method for drawing.
+Hint: you could draw walls as brown squares, but
+no one is limiting your choice of color. Show your full creative potential.
+
+
+Требования:
+1.	Add a Wall class to the model package.
+2.	The class must inherit the most appropriate base class.
+3.	Implement a constructor that accepts int x and int y as arguments.
+4.	Implement the method for drawing a wall.
+
+
+Sokoban (part 7)
 
 
 It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
@@ -15,14 +35,8 @@ As with previous game objects, you can test the draw method in the
 Board class&#39;s paint() method.
 
 
-Требования:
-1.	Add a StorageLocation class to the model package.
-2.	The class must inherit the most appropriate base class.
-3.	Add a constructor that accepts int x and int y arguments. The width and height of storage locations must be equal to 2.
-4.	Implement the method for drawing a storage location.
 
-
-Sokoban (part 6)
+Sokoban (part 7)
 
 
 Box and Player game objects can not only
@@ -50,7 +64,7 @@ paint() method differently in the future.
 
 
 
-Sokoban (part 6)
+Sokoban (part 7)
 
 
 We already have a shared GameObject class. It&#39;s time to create classes
@@ -78,7 +92,7 @@ Otherwise, it should return false. If (x, y) coordinates match, you have a colli
 
 
 
-Sokoban (part 6)
+Sokoban (part 7)
 
 
 Soon we&#39;ll be creating various game objects. It would be handy to be able
@@ -96,7 +110,7 @@ sets up the view properly. You will also need:
 
 
 
-Sokoban (part 6)
+Sokoban (part 7)
 
 
 The foundation is laid, so now let&#39;s start building. You can think of the gameplay
@@ -121,28 +135,6 @@ will be implemented differently in each type of game object. In other words,
 each type of game object will know how it should be drawn and will
 draw itself in the graphics context. Graphics is an abstract class from the
 java.awt library.
-
-
-
-Sokoban (part 6)
-
-
-Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
-You can read more about it on Wikipedia. The game will consist of 3
-main components (as you may have guessed, you&#39;ll need the MVC pattern).
-The graphical interface will be implemented using Swing.
-1.1. Create a view package and add a View class that inherits JFrame. This class
-will be responsible for displaying our game.
-1.2. Create a model package and add a Model class. This class will be responsible for our game&#39;s
-model. How do you like the class names? Totally unpredictable, right? :) Actually,
-it&#39;s very important to name classes in a way that allows anyone seeing your project for the first time
-to immediately understand what the classes are responsible for.
-1.3. Create a controller package and add a Controller class with a default constructor.
-1.4. Add a View class constructor that accept a Controller and saves it
-in a field inside the class (which you will also need to add). Name the field &quot;controller&quot;.
-1.5. Add View view and Model model fields to the Controller class. Initialize them in
-the constructor.
-1.6. Since the controller is our main class, add the main method to it.
 
 
 
