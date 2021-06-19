@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task34.task3410.big05"\n\nSokoban (part 5)
+taskKey="com.codegym.task.task34.task3410.big06"\n\nSokoban (part 6)
+
+
+It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
+that all the boxes must be moved to. Objects of this type must not move
+across the board or collide with other game objects.
+6.1. Add a StorageLocation class to the model package.
+6.2. The class must inherit the most appropriate base class.
+6.3. Add a constructor that accepts int x and int y arguments. The width and height
+of storage locations must be equal to 2.
+6.4. Implement the method for drawing a storage location. Hint: you can use red and
+an unfilled circle.
+
+As with previous game objects, you can test the draw method in the
+Board class&#39;s paint() method.
+
+
+Требования:
+1.	Add a StorageLocation class to the model package.
+2.	The class must inherit the most appropriate base class.
+3.	Add a constructor that accepts int x and int y arguments. The width and height of storage locations must be equal to 2.
+4.	Implement the method for drawing a storage location.
+
+
+Sokoban (part 6)
 
 
 Box and Player game objects can not only
@@ -25,15 +49,8 @@ draw() method. Do this only do to test the draw() methods. We&#39;ll implement t
 paint() method differently in the future.
 
 
-Требования:
-1.	Create a Player class and a Box class in the model package. Make each of them inherit the most appropriate class.
-2.	The Player and Box classes must support the interface responsible for object movement.
-3.	Add Player and Box class constructors that accept int x and int y arguments.
-4.	In the Player and Box classes, implement the method responsible for movement. It must shift the object&#39;s (x, y) coordinates by the passed values.
-5.	In the Player and Box classes, implement the method responsible for drawing.
 
-
-Sokoban (part 5)
+Sokoban (part 6)
 
 
 We already have a shared GameObject class. It&#39;s time to create classes
@@ -61,7 +78,7 @@ Otherwise, it should return false. If (x, y) coordinates match, you have a colli
 
 
 
-Sokoban (part 5)
+Sokoban (part 6)
 
 
 Soon we&#39;ll be creating various game objects. It would be handy to be able
@@ -79,7 +96,7 @@ sets up the view properly. You will also need:
 
 
 
-Sokoban (part 5)
+Sokoban (part 6)
 
 
 The foundation is laid, so now let&#39;s start building. You can think of the gameplay
@@ -107,7 +124,7 @@ java.awt library.
 
 
 
-Sokoban (part 5)
+Sokoban (part 6)
 
 
 Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
