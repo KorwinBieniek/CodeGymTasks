@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task26.task2613.big02"\n\nCashMachine (part 2)
+taskKey="com.codegym.task.task26.task2613.big03"\n\nCashMachine (part 3)
+
+
+1. Create CurrencyManipulator class that stores all the information about the selected currency.
+The class must have:
+1.1 String currencyCode &mdash; currency code, i.e. USD. It consists of three letters.
+1.2 Map&lt;Integer, Integer&gt; denominations is a map of (denomination, quantity) pairs.
+To see which currency is associated with the manipulator, add a getter for currencyCode.
+Obviously, the manipulator can&#39;t function without the currency&#39;s name,
+so add a constructor with this parameter and initialize currencyCode.
+
+2. There may be several currencies, so we need a factory to create and store the manipulators.
+Create a CurrencyManipulatorFactory class with the static getManipulatorByCurrencyCode(String currencyCode) method.
+In this method, we&#39;ll create the relevant manipulator if it doesn&#39;t already exist, or return a previously created one.
+Ignore case when searching for a currency manipulator.
+Where do you think the best place to store all the manipulators would be?  Here&#39;s a little hint: the field should be called map.
+
+Make it impossible to create CurrencyManipulatorFactory objects.
+
+
+Требования:
+1.	The CurrencyManipulator class must be in a separate file.
+2.	The CurrencyManipulator class must have a String currencyCode field.
+3.	The CurrencyManipulator class must have a private Map&lt;Integer, Integer&gt; denominations field.
+4.	The CurrencyManipulator class must have a getter for the currencyCode field.
+5.	The CurrencyManipulator class must have a constructor with one parameter that initializes the currencyCode field.
+6.	The CurrencyManipulatorFactory class must be in a separate file.
+7.	The CurrencyManipulatorFactory class must have a private default constructor.
+8.	The CurrencyManipulatorFactory class must have a private static Map&lt;String, CurrencyManipulator&gt; map field.
+9.	The CurrencyManipulatorFactory class must have a static getManipulatorByCurrencyCode(String currencyCode) method.
+
+
+CashMachine (part 3)
 
 
 1. Create two static methods in ConsoleHelper:
@@ -12,15 +44,8 @@ By the way, create only one instance of BufferedReader, and save it in the stati
 2.2 InsufficientFundsException will throw when we can not issue the requested amount.
 
 
-Требования:
-1.	The InterruptedOperationException class must be in a separate file and must be abstract.
-2.	The InsufficientFundsException class must be in a separate file and must be abstract.
-3.	The ConsoleHelper class should have a private static BufferedReader bis field, which must be initialized immediately.
-4.	The ConsoleHelper class must have a public static writeMessage(String message) method that displays the passed parameter on the console.
-5.	The ConsoleHelper class must have a public static readString() method that reads a string from the console and returns it.
 
-
-CashMachine (part 2)
+CashMachine (part 3)
 
 
 Let&#39;s write an ATM emulator.
