@@ -1,4 +1,34 @@
-taskKey="com.codegym.task.task34.task3410.big15"\n\nSokoban (part 15)
+taskKey="com.codegym.task.task34.task3410.big16"\n\nSokoban (part 16)
+
+
+All that remains is to finish implementing the level loader.
+16.1. Open the levels.txt file and carefully study the file structure. The character &#39;X&#39;
+represents a wall, &lsquo;*&rsquo; represents a box, &lsquo;.&rsquo; represents a storage location, &lsquo;&amp;&rsquo; represents a box in a storage location, and &lsquo;@&rsquo; represents the player.
+There are 60 levels in the file.
+16.2. Implement the GameObjects getLevel(int level) method. It must:
+16.2.1. Read the data for the passed level from the file. The levels should repeat in a loop.
+If the user has completed all 60 levels and gets to level 61, then
+the program takes the user back to level 1. And instead of level 62, the player is taken to level 2, etc.
+16.2.2. Create all of the game objects described in the specified level. The coordinates
+of each game object must be calculated using the following logic:
+16.2.2.1. The top-left object (if there is one) must have
+coordinates x = x0 = BOARD_CELL_SIZE / 2 and y = y0 = BOARD_CELL_SIZE / 2.
+16.2.2.2. An object that is one cell to the right must
+have coordinates x = x0 + BOARD_CELL_SIZE and y = y0.
+16.2.2.3. An object that is one cell below the top-left object
+must have coordinates x = x0 and y = y0 + BOARD_CELL_SIZE.
+16.2.2.4. The coordinates of all objects on the board must be calculated in a similar manner.
+16.2.3. Create a new GameObjects object and put all of the objects into it.
+16.2.4. Return the created object container.
+
+The game must be fully functional. Check to see if there are any problems. If there are, fix them.
+
+
+Требования:
+1.	Implement the GameObjects getLevel(int level) method as outlined in the task conditions.
+
+
+Sokoban (part 16)
 
 
 The time has come to implement the model&#39;s move() method, which is responsible for movement. But first,
@@ -36,14 +66,8 @@ boxes, that walls prevent the player from moving, and that when you move all the
 completing the level is displayed.
 
 
-Требования:
-1.	Implement the boolean checkWallCollision(CollisionObject gameObject, Direction direction) method in the Model class.
-2.	Implement the boolean checkBoxCollisionAndMoveIfAvailable(Direction direction) method in the Model class.
-3.	Implement the void checkCompletion() method in the Model class.
-4.	Implement the void move(Direction direction) method in the Model class.
 
-
-Sokoban (part 15)
+Sokoban (part 16)
 
 
 Let&#39;s make our game more interactive (using a keyboard
@@ -62,7 +86,7 @@ listener&#39;s restart() method.
 
 
 
-Sokoban (part 15)
+Sokoban (part 16)
 
 
 Let&#39;s fill out the controller&#39;s functionality.
@@ -86,7 +110,7 @@ the view&#39;s completed() method.
 
 
 
-Sokoban (part 15)
+Sokoban (part 16)
 
 
 Let&#39;s try organizing the interaction between the view and model.
@@ -108,7 +132,7 @@ Run the program and be sure that all of the game objects are drawn correctly.
 
 
 
-Sokoban (part 15)
+Sokoban (part 16)
 
 
 Let&#39;s begin fleshing out the Model class&#39; functionality. Add the following:
@@ -125,23 +149,6 @@ from levelLoader for the specified level and save them in the gameObjects field.
 with the appropriate argument.
 11.7. The startNextLevel() method must increase the value of the
 currentLevel variable, which stores the current level number, and restart the new level.
-
-
-
-Sokoban (part 15)
-
-
-The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
-write a LevelLoader test stub. Why a test stub? We don&#39;t
-need the full functionality yet. It&#39;s pretty complicated, so we&#39;ll leave it for later. For now:
-10.1. Create a LevelLoader class in the model package.
-10.2. Add a constructor that accepts a Path levels argument. The levels parameter is
-the path to the test file containing the level descriptions.
-10.3. Add the GameObjects getLevel(int level) method to the LevelLoader class. For now, it doesn&#39;t
-matter what this method returns. For now, have it always return a set with: one player,
-one storage location, one box, and several walls. That will make it easier to debug the game.
-The coordinates of each object must be non-zero and multiples of half of
-BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
 
 
 
