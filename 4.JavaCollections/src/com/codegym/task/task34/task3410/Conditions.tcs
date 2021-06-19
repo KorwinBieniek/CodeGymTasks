@@ -1,4 +1,39 @@
-taskKey="com.codegym.task.task34.task3410.big04"\n\nSokoban (part 4)
+taskKey="com.codegym.task.task34.task3410.big05"\n\nSokoban (part 5)
+
+
+Box and Player game objects can not only
+collide with other objects, but also move around the board.
+5.1. Create a Player class and a Box class in the model package. Make each of them
+inherit the most appropriate class.
+5.2. The created classes must support the interface responsible for object
+movement.
+5.3. Add constructors that accept int x and int y arguments.
+5.4. In each class, implement the method responsible for movement. It must shift
+the object&#39;s (x, y) coordinates by the passed values.
+5.5. In each class, implement the method responsible for drawing. This method should:
+set a color and draw some basic shapes. Be sure
+that the coordinates of the shape&#39;s center are (x, y), and that its width and height match
+the width and height fields.
+Hint: you can draw the player as a solid yellow circle, and boxes &mdash; as orange
+squares with diagonals. But these are just examples. You can choose the colors yourself.
+The appearance of your objects is limited only by your imagination and the methods available
+in the Graphics class.
+
+To check how your box and player are drawn, you can create
+a Box or Player object in the Board class&#39;s paint() method and call the object&#39;s
+draw() method. Do this only do to test the draw() methods. We&#39;ll implement the
+paint() method differently in the future.
+
+
+Требования:
+1.	Create a Player class and a Box class in the model package. Make each of them inherit the most appropriate class.
+2.	The Player and Box classes must support the interface responsible for object movement.
+3.	Add Player and Box class constructors that accept int x and int y arguments.
+4.	In the Player and Box classes, implement the method responsible for movement. It must shift the object&#39;s (x, y) coordinates by the passed values.
+5.	In the Player and Box classes, implement the method responsible for drawing.
+
+
+Sokoban (part 5)
 
 
 We already have a shared GameObject class. It&#39;s time to create classes
@@ -25,17 +60,8 @@ in the direction specified by the direction parameter.
 Otherwise, it should return false. If (x, y) coordinates match, you have a collision.
 
 
-Требования:
-1.	Add a Movable interface to the model package.
-2.	The Movable interface must declare a void move(int x, int y) method.
-3.	Add a Direction enum to the model package. It must have the following values: LEFT, RIGHT, UP, and DOWN.
-4.	Add an abstract CollisionObject class to the model package.
-5.	The CollisionObject class must inherit GameObject.
-6.	Add a CollisionObject class constructor that accepts int x and int y arguments.
-7.	Add a boolean isCollision(GameObject gameObject, Direction direction) method to the CollisionObject class. It must implement the behavior described in the task conditions.
 
-
-Sokoban (part 4)
+Sokoban (part 5)
 
 
 Soon we&#39;ll be creating various game objects. It would be handy to be able
@@ -53,7 +79,7 @@ sets up the view properly. You will also need:
 
 
 
-Sokoban (part 4)
+Sokoban (part 5)
 
 
 The foundation is laid, so now let&#39;s start building. You can think of the gameplay
@@ -81,7 +107,7 @@ java.awt library.
 
 
 
-Sokoban (part 4)
+Sokoban (part 5)
 
 
 Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
