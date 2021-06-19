@@ -1,0 +1,28 @@
+taskKey="com.codegym.task.task26.task2613.big01"\n\nCashMachine (part 1)
+
+
+Let&#39;s write an ATM emulator.
+We will support the following operations:
+deposit money, withdraw money, and show the status of the ATM.
+We will also support multiple currencies.
+The ATM will operate using the banknotes we put into it.
+If there are insufficient banknotes to make a withdrawal, then we will inform the user.
+Obviously, everything should be user friendly, so you&#39;ll have to arrange things just right.
+
+Let&#39;s begin:
+1. Create a CashMachine class with the main method.
+2. We&#39;ll specify the supported operations in an Operation enum: INFO, DEPOSIT, WITHDRAW.
+Since everything needs to be user friendly, we&#39;ll say goodbye to the user when the application closes.
+Therefore, we&#39;ll add another operation: EXIT.
+3. We&#39;ll be actively communicating with with the user, so there will be a lot of text output.
+To concentrate the code for working with the console in one place, create a ConsoleHelper class.
+
+
+Требования:
+1.	The CashMachine class must be in a separate file.
+2.	The Operation class must be in a separate file.
+3.	The ConsoleHelper class must be in a separate file.
+4.	A public static void main(String[] args) method must be created in the CashMachine class.
+5.	The Operation enum must have these fields: INFO, DEPOSIT, WITHDRAW, EXIT.
+
+
