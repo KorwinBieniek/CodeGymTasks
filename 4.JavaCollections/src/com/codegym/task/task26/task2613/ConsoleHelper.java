@@ -1,5 +1,7 @@
 package com.codegym.task.task26.task2613;
 
+import com.codegym.task.task26.task2613.exception.InterruptedOperationException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,17 +13,20 @@ public class ConsoleHelper {
         System.out.println(message);
     }
 
-    public static String readString() {
+    public static String readString() throws InterruptedOperationException {
         try {
             String text = bis.readLine();
+            if ("exit".equals(text.toLowerCase())) {
+                throw new InterruptedOperationException();
+            }
+
             return text;
-        } catch (IOException ignored) {
-            /* NOP */
+        } catch (IOException ignored) { //suppose it will never occur
         }
         return null;
     }
 
-    public static String requestCurrencyCode() {
+    public static String requestCurrencyCode() throws InterruptedOperationException {
         while (true) {
             ConsoleHelper.writeMessage("Please choose a currency code, e.g. USD.");
             String currencyCode = ConsoleHelper.readString();
@@ -33,7 +38,7 @@ public class ConsoleHelper {
         }
     }
 
-    public static String[] getTwoValidNumbers(String currencyCode) {
+    public static String[] getTwoValidNumbers(String currencyCode) throws InterruptedOperationException {
         while (true) {
             ConsoleHelper.writeMessage(String.format("Please enter an integer denomination and an integer count. For example, '10 3' means 30 %s.", currencyCode));
             String s = ConsoleHelper.readString();
@@ -53,7 +58,7 @@ public class ConsoleHelper {
         }
     }
 
-    public static Operation requestOperation() {
+    public static Operation requestOperation() throws InterruptedOperationException {
         while (true) {
             ConsoleHelper.writeMessage("Please choose an operation or type 'EXIT' to end the session.");
             ConsoleHelper.writeMessage("\t 1 - operation.INFO");

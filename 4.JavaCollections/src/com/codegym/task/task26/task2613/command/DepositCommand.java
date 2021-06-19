@@ -3,13 +3,14 @@ package com.codegym.task.task26.task2613.command;
 import com.codegym.task.task26.task2613.ConsoleHelper;
 import com.codegym.task.task26.task2613.CurrencyManipulator;
 import com.codegym.task.task26.task2613.CurrencyManipulatorFactory;
+import com.codegym.task.task26.task2613.exception.InterruptedOperationException;
 
 
 class DepositCommand implements Command {
 
 
     @Override
-    public void execute()  {
+    public void execute() throws InterruptedOperationException {
         ConsoleHelper.writeMessage("Making deposit...");
         String currencyCode = ConsoleHelper.requestCurrencyCode();
         CurrencyManipulator manipulator = CurrencyManipulatorFactory.getManipulatorByCurrencyCode(currencyCode);
