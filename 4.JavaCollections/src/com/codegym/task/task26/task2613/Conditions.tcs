@@ -1,4 +1,42 @@
-taskKey="com.codegym.task.task26.task2613.big06"\n\nCashMachine (part 6)
+taskKey="com.codegym.task.task26.task2613.big07"\n\nCashMachine (part 7)
+
+
+Let&#39;s return to the Command pattern.
+
+1. Create a command package. It will contain all classes with relevant logic.
+Think about the access modifier for each class in this package.
+
+2. Create a Command interface with a void execute() method.
+
+3. For each operation, create a command class that follows the Command pattern.
+The names of these classes are DepositCommand, InfoCommand, WithdrawCommand, ExitCommand.
+
+4. Create a public CommandExecutor class that we will use to interact with all the commands.
+Create a static Map&lt;Operation, Command&gt; allKnownCommandsMap field in it. Initialize the map with all known operations and commands.
+
+4.1 Create a public static final void execute(Operation operation) method that will call the execute method on the desired command.
+Implement this logic.
+4.2. Arrange access modifiers correctly, accounting for the fact that the only entry point is the execute method.
+
+We&#39;ll check that your structure matches the tests on the server.
+We&#39;ll carry the logic over to the next task.
+
+
+Требования:
+1.	The Command interface must be in a separate file.
+2.	The Command interface must have a void execute() method.
+3.	The DepositCommand class, which implements the Command interface, must be in a separate file.
+4.	The InfoCommand class, which implements the Command interface, must be in a separate file.
+5.	The WithdrawCommand class, which implements the Command interface, must be in a separate file.
+6.	The ExitCommand class, which implements the Command interface, must be in a separate file.
+7.	The CommandExecutor class must be in a separate file.
+8.	The CommandExecutor class must have a private static Map&lt;Operation, Command&gt; allKnownCommandsMap field.
+9.	The CommandExecutor class must have a public static final void execute(Operation operation) method.
+10.	The CommandExecutor class must have a private constructor.
+11.	The CommandExecutor class&#39;s Map&lt;Operation, Command&gt; allKnownCommandsMap field must be initialized with all known operations and commands.
+
+
+CashMachine (part 7)
 
 
 To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
@@ -17,12 +55,8 @@ Use the method described in item 1.
 Handle any exceptions and repeat the request for an operation.
 
 
-Требования:
-1.	The Operation enum must have a static getAllowableOperationByOrdinal(Integer i) method.
-2.	The ConsoleHelper class must have an Operation requestOperation() method.
 
-
-CashMachine (part 6)
+CashMachine (part 7)
 
 
 1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
@@ -38,7 +72,7 @@ Before you start refactoring, you need to understand one thing. But we won&#39;t
 
 
 
-CashMachine (part 6)
+CashMachine (part 7)
 
 
 1. Let&#39;s decide what operation to start with.
@@ -69,7 +103,7 @@ Let&#39;s start it, debug it, and check it out.
 
 
 
-CashMachine (part 6)
+CashMachine (part 7)
 
 
 1. Create CurrencyManipulator class that stores all the information about the selected currency.
@@ -90,7 +124,7 @@ Make it impossible to create CurrencyManipulatorFactory objects.
 
 
 
-CashMachine (part 6)
+CashMachine (part 7)
 
 
 1. Create two static methods in ConsoleHelper:
@@ -102,27 +136,6 @@ By the way, create only one instance of BufferedReader, and save it in the stati
 2. Create an exception package, where we will put two checked exceptions:
 2.1 We&#39;ll throw an InterruptedOperationException will be thrown when you need to interrupt the current operation and sign out of the application.
 2.2 InsufficientFundsException will throw when we can not issue the requested amount.
-
-
-
-CashMachine (part 6)
-
-
-Let&#39;s write an ATM emulator.
-We will support the following operations:
-deposit money, withdraw money, and show the status of the ATM.
-We will also support multiple currencies.
-The ATM will operate using the banknotes we put into it.
-If there are insufficient banknotes to make a withdrawal, then we will inform the user.
-Obviously, everything should be user friendly, so you&#39;ll have to arrange things just right.
-
-Let&#39;s begin:
-1. Create a CashMachine class with the main method.
-2. We&#39;ll specify the supported operations in an Operation enum: INFO, DEPOSIT, WITHDRAW.
-Since everything needs to be user friendly, we&#39;ll say goodbye to the user when the application closes.
-Therefore, we&#39;ll add another operation: EXIT.
-3. We&#39;ll be actively communicating with with the user, so there will be a lot of text output.
-To concentrate the code for working with the console in one place, create a ConsoleHelper class.
 
 
 
