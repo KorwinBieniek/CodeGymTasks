@@ -1,4 +1,26 @@
-taskKey="com.codegym.task.task26.task2613.big01"\n\nCashMachine (part 1)
+taskKey="com.codegym.task.task26.task2613.big02"\n\nCashMachine (part 2)
+
+
+1. Create two static methods in ConsoleHelper:
+1.1 writeMessage(String message), which will write our message to the console.
+1.2 String readString(), which will read a string from the console and return it.
+If some exception occurs when working with the console, then we&#39;ll catch it and won&#39;t process the input.
+By the way, create only one instance of BufferedReader, and save it in the static bis field.
+
+2. Create an exception package, where we will put two checked exceptions:
+2.1 We&#39;ll throw an InterruptedOperationException will be thrown when you need to interrupt the current operation and sign out of the application.
+2.2 InsufficientFundsException will throw when we can not issue the requested amount.
+
+
+Требования:
+1.	The InterruptedOperationException class must be in a separate file and must be abstract.
+2.	The InsufficientFundsException class must be in a separate file and must be abstract.
+3.	The ConsoleHelper class should have a private static BufferedReader bis field, which must be initialized immediately.
+4.	The ConsoleHelper class must have a public static writeMessage(String message) method that displays the passed parameter on the console.
+5.	The ConsoleHelper class must have a public static readString() method that reads a string from the console and returns it.
+
+
+CashMachine (part 2)
 
 
 Let&#39;s write an ATM emulator.
@@ -17,12 +39,5 @@ Therefore, we&#39;ll add another operation: EXIT.
 3. We&#39;ll be actively communicating with with the user, so there will be a lot of text output.
 To concentrate the code for working with the console in one place, create a ConsoleHelper class.
 
-
-Требования:
-1.	The CashMachine class must be in a separate file.
-2.	The Operation class must be in a separate file.
-3.	The ConsoleHelper class must be in a separate file.
-4.	A public static void main(String[] args) method must be created in the CashMachine class.
-5.	The Operation enum must have these fields: INFO, DEPOSIT, WITHDRAW, EXIT.
 
 
