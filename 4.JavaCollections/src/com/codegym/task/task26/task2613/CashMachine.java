@@ -10,11 +10,11 @@ public class CashMachine {
     public static void main(String[] args) {
         Locale.setDefault(Locale.ENGLISH);
         try {
-            Operation operation;
-            do {
-                operation = ConsoleHelper.requestOperation();
-                CommandExecutor.execute(operation);
-            } while (operation != Operation.EXIT);
+        Operation operation;
+        do {
+            operation = ConsoleHelper.requestOperation();
+            CommandExecutor.execute(operation);
+        } while (operation != Operation.EXIT);
         } catch (InterruptedOperationException ignored) {
             ConsoleHelper.writeMessage("Session terminated. Thank you for using the CodeGym ATM. Good luck.");
         }
