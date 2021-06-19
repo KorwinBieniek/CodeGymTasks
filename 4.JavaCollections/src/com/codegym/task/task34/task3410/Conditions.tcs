@@ -1,4 +1,32 @@
-taskKey="com.codegym.task.task34.task3410.big11"\n\nSokoban (part 11)
+taskKey="com.codegym.task.task34.task3410.big12"\n\nSokoban (part 12)
+
+
+Let&#39;s try organizing the interaction between the view and model.
+12.1. Add an update() method to the View class. It must call the repaint() method on the
+board field. In other words, the update() method will update the view
+(redraw the board).
+12.2. Add the GameObjects getGameObjects() method to the controller class. It must
+request game objects from the model and return them. Add the same method to the view class.
+It should get objects from the controller.
+12.3. Properly implement the paint(Graphics g) method in the Board class. It must:
+12.3.1. Fill the entire board with some color such as black (call the setColor and
+fillRect methods).
+12.3.2. Get all the game objects from the view.
+12.3.3. Draw all the game objects.
+12.4. The Controller must restart the model in its constructor.
+
+
+Run the program and be sure that all of the game objects are drawn correctly.
+
+
+Требования:
+1.	Implement the update() method in the View class.
+2.	Implement the GameObjects getGameObjects() method in the Controller class.
+3.	Properly implement the paint(Graphics g) method in the Field class.
+4.	The Controller must restart the model in its constructor.
+
+
+Sokoban (part 12)
 
 
 Let&#39;s begin fleshing out the Model class&#39; functionality. Add the following:
@@ -17,17 +45,8 @@ with the appropriate argument.
 currentLevel variable, which stores the current level number, and restart the new level.
 
 
-Требования:
-1.	Add a GameObjects gameObjects field to the Model class.
-2.	Add an int currentLevel field to the Model class. Initialize it to 1.
-3.	Add a LevelLoader levelLoader field to the Model class.
-4.	Implement the GameObjects getGameObjects() method in the Model class.
-5.	Implement the restartLevel(int level) method in the Model class.
-6.	Implement the restart() method in the Model class.
-7.	Implement the startNextLevel() method in the Model class.
 
-
-Sokoban (part 11)
+Sokoban (part 12)
 
 
 The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
@@ -44,7 +63,7 @@ BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
 
 
 
-Sokoban (part 11)
+Sokoban (part 12)
 
 
 Various events will occur during the game. Let&#39;s create an
@@ -66,7 +85,7 @@ board object. In the Model and Field classes, it must set the value of the inter
 
 
 
-Sokoban (part 11)
+Sokoban (part 12)
 
 
 You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
@@ -83,7 +102,7 @@ all of the objects stored in the object.
 
 
 
-Sokoban (part 11)
+Sokoban (part 12)
 
 
 Let&#39;s make the Wall class. A wall can collide with other objects, but it
@@ -94,24 +113,6 @@ can&#39;t move.
 7.4. Implement the method for drawing.
 Hint: you could draw walls as brown squares, but
 no one is limiting your choice of color. Show your full creative potential.
-
-
-
-Sokoban (part 11)
-
-
-It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
-that all the boxes must be moved to. Objects of this type must not move
-across the board or collide with other game objects.
-6.1. Add a StorageLocation class to the model package.
-6.2. The class must inherit the most appropriate base class.
-6.3. Add a constructor that accepts int x and int y arguments. The width and height
-of storage locations must be equal to 2.
-6.4. Implement the method for drawing a storage location. Hint: you can use red and
-an unfilled circle.
-
-As with previous game objects, you can test the draw method in the
-Board class&#39;s paint() method.
 
 
 

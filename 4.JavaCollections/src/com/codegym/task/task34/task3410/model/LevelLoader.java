@@ -23,9 +23,9 @@ public class LevelLoader {
         walls.add(new Wall(x + 1 * Model.BOARD_CELL_SIZE, y));
         walls.add(new Wall(x + 2 * Model.BOARD_CELL_SIZE, y));
 
-        boxes.add(new Box(x, y + 0 * Model.BOARD_CELL_SIZE));
-        storageLocations.add(new StorageLocation(x, y + 1 * Model.BOARD_CELL_SIZE));
-        player = new Player(x, y + 2 * Model.BOARD_CELL_SIZE);
+        boxes.add(new Box(x + 0 * Model.BOARD_CELL_SIZE, y + Model.BOARD_CELL_SIZE));
+        storageLocations.add(new StorageLocation(x + 1 * Model.BOARD_CELL_SIZE, y + Model.BOARD_CELL_SIZE));
+        player = new Player(x + 2 * Model.BOARD_CELL_SIZE, y + Model.BOARD_CELL_SIZE);
 
         return new GameObjects(walls, boxes, storageLocations, player);
     }
