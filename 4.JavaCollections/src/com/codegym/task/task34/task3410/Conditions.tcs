@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task34.task3410.big08"\n\nSokoban (part 8)
+taskKey="com.codegym.task.task34.task3410.big09"\n\nSokoban (part 9)
+
+
+Various events will occur during the game. Let&#39;s create an
+EventListener interface. Every class that wants to handle events must
+implement it. And classes that generate events will call
+this interface&#39;s methods.
+9.1. Add the EventListener interface to the controller package.
+9.2. Add these void methods to the interface:
+9.2.1. move(Direction direction) - moves the object in the specified direction.
+9.2.2. restart() - restart the current level.
+9.2.3. startNextLevel() - start the next level.
+9.2.4. levelCompleted(int level) - the level with the passed index has been completed.
+9.3. Add the EventListener interface to the Controller class, and write the stubs required to
+implement the interface.
+9.4. Add an EventListener eventListener field to the Model and Board classes.
+9.5. Add the setEventListener(EventListener eventListener) method
+to the Model, View, and Board classes. In the View class, this method must call the analogous method on the
+board object. In the Model and Field classes, it must set the value of the internal eventListener fields.
+
+
+Требования:
+1.	Add the EventListener interface to the controller package.
+2.	Add the following methods to the EventListener interface: move(Direction direction), restart(), startNextLevel(), and levelCompleted(int level).
+3.	Add the EventListener interface to the Controller class, and write the stubs required to implement the interface.
+4.	Add an EventListener eventListener field to the Model and Board classes.
+5.	Implement the setEventListener(EventListener eventListener) method in the Model, View and Board classes.
+
+
+Sokoban (part 9)
 
 
 You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
@@ -14,15 +43,8 @@ all of the objects stored in the object.
 
 
 
-Требования:
-1.	Create a GameObjects class in the model package.
-2.	Add Set&lt;Wall&gt; walls, Set&lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations and Player player fields to the GameObjects class.
-3.	Add getters for these fields to the GameObjects class.
-4.	Add a GameObjects class constructor that accepts Set&lt;Wall&gt; walls, Set &lt;Box&gt; boxes, Set&lt;StorageLocation&gt; storageLocations, and Player player arguments and initializes the class&#39;s fields.
-5.	Add a Set&lt;GameObject&gt; getAll() method to the GameObjects class. It must return a set with all of the objects stored in the object.
 
-
-Sokoban (part 8)
+Sokoban (part 9)
 
 
 Let&#39;s make the Wall class. A wall can collide with other objects, but it
@@ -36,7 +58,7 @@ no one is limiting your choice of color. Show your full creative potential.
 
 
 
-Sokoban (part 8)
+Sokoban (part 9)
 
 
 It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
@@ -54,7 +76,7 @@ Board class&#39;s paint() method.
 
 
 
-Sokoban (part 8)
+Sokoban (part 9)
 
 
 Box and Player game objects can not only
@@ -82,7 +104,7 @@ paint() method differently in the future.
 
 
 
-Sokoban (part 8)
+Sokoban (part 9)
 
 
 We already have a shared GameObject class. It&#39;s time to create classes
@@ -107,24 +129,6 @@ This method should return true if the current
 object will collide with the gameObject parameter after moving a distance of BOARD_CELL_SIZE
 in the direction specified by the direction parameter.
 Otherwise, it should return false. If (x, y) coordinates match, you have a collision.
-
-
-
-Sokoban (part 8)
-
-
-Soon we&#39;ll be creating various game objects. It would be handy to be able
-to draw them somewhere right away and see how they look. Objects will be
-drawn on the game board represented by a Board object.
-You&#39;ve received modified code for the View class that creates a Board object and
-sets up the view properly. You will also need:
-3.1. Add to the view package a Board class that inherits JPanel.
-3.2. Add the following to the Board class:
-3.2.1. A constructor with a View view parameter.
-3.2.2. A View view field that must be initialized in the constructor.
-3.2.3. Create a stub for a paint(Graphics g) method. It won&#39;t do anything yet.
-3.3. Add a call to the view&#39;s init() method to the Controller class constructor.
-3.4. The Controller class&#39;s main() method must create a new Controller object.
 
 
 
