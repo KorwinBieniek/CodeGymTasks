@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task26.task2613.big03"\n\nCashMachine (part 3)
+taskKey="com.codegym.task.task26.task2613.big04"\n\nCashMachine (part 4)
+
+
+1. Let&#39;s decide what operation to start with.
+Think about it. The ATM doesn&#39;t have money yet, so we can&#39;t test INFO and WITHDRAW.
+We&#39;ll start with the DEPOSIT operation.
+We read the currency code from the console. Then we read the denomination and number of banknotes. And then add them to the manipulator.
+
+2. To read the currency code, add a static String requestCurrencyCode() method to ConsoleHelper.
+This method should prompt the user to enter a currency code. Verify that the code contains 3 characters.
+If the currency code is invalid, then inform the user and repeat.
+If the currency code is valid, then convert the code to uppercase and return it.
+
+3. To read the denomination and number of banknotes, add a static String[] method getTwoValidNumbers(String currencyCode) to ConsoleHelper.
+This method should prompt the user to enter two positive integers.
+The first number is the denomination. The second is the number of banknotes.
+There is no validation of the denomination. That is, 1200 is an acceptable denomination.
+If the currency code is invalid, then inform the user and repeat.
+Example input:
+200 5
+
+4. In the CurrencyManipulator class, create a void addAmount(int denomination, int count) method
+that adds banknotes in the specified denomination and quantity.
+
+5. It&#39;s time to see the application in action.
+In the main method, write the code to implement the logic described in item 1.
+By the way, to avoid problems with testing the server, add &quot;Locale.setDefault(Locale.ENGLISH);&quot; as the first line in the main method.
+Let&#39;s start it, debug it, and check it out.
+
+
+Требования:
+1.	The ConsoleHelper class must have a static String requestCurrencyCode() method.
+2.	The ConsoleHelper class must have a static String[] getTwoValidNumbers(String currencyCode) method.
+3.	The CurrencyManipulator class must have a void addAmount(int denomination, int count) method.
+4.	The CashMachine class&#39;s main method should read the currency code from the console, read a denomination and number of banknotes, and then add them to the manipulator.
+
+
+CashMachine (part 4)
 
 
 1. Create CurrencyManipulator class that stores all the information about the selected currency.
@@ -18,19 +55,8 @@ Where do you think the best place to store all the manipulators would be?  Here&
 Make it impossible to create CurrencyManipulatorFactory objects.
 
 
-Требования:
-1.	The CurrencyManipulator class must be in a separate file.
-2.	The CurrencyManipulator class must have a String currencyCode field.
-3.	The CurrencyManipulator class must have a private Map&lt;Integer, Integer&gt; denominations field.
-4.	The CurrencyManipulator class must have a getter for the currencyCode field.
-5.	The CurrencyManipulator class must have a constructor with one parameter that initializes the currencyCode field.
-6.	The CurrencyManipulatorFactory class must be in a separate file.
-7.	The CurrencyManipulatorFactory class must have a private default constructor.
-8.	The CurrencyManipulatorFactory class must have a private static Map&lt;String, CurrencyManipulator&gt; map field.
-9.	The CurrencyManipulatorFactory class must have a static getManipulatorByCurrencyCode(String currencyCode) method.
 
-
-CashMachine (part 3)
+CashMachine (part 4)
 
 
 1. Create two static methods in ConsoleHelper:
@@ -45,7 +71,7 @@ By the way, create only one instance of BufferedReader, and save it in the stati
 
 
 
-CashMachine (part 3)
+CashMachine (part 4)
 
 
 Let&#39;s write an ATM emulator.
