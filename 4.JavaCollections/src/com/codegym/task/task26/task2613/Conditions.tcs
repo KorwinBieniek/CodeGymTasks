@@ -1,4 +1,28 @@
-taskKey="com.codegym.task.task26.task2613.big05"\n\nCashMachine (part 5)
+taskKey="com.codegym.task.task26.task2613.big06"\n\nCashMachine (part 6)
+
+
+To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
+For now, we have two such blocks: 1) code for the DEPOSIT operation, 2) code for the INFO operation.
+This code is in the main method. We need to get rid of it.
+Now you need to make it so the user is the one who chooses the operation to perform.
+
+1. Add a static Operation getAllowableOperationByOrdinal(Integer i) method to the Operation enum
+It should return one of the enum&#39;s fields: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
+Throw an IllegalArgumentException if invalid data is entered.
+
+2. In the ConsoleHelper class, implement the logic for a static Operation requestOperation() method.
+Ask the user to choose an operation.
+If the user enters 1, execute the INFO command, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
+Use the method described in item 1.
+Handle any exceptions and repeat the request for an operation.
+
+
+Требования:
+1.	The Operation enum must have a static getAllowableOperationByOrdinal(Integer i) method.
+2.	The ConsoleHelper class must have an Operation requestOperation() method.
+
+
+CashMachine (part 6)
 
 
 1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
@@ -13,12 +37,8 @@ Read about the Command pattern!!
 Before you start refactoring, you need to understand one thing. But we won&#39;t go over that just now.
 
 
-Требования:
-1.	The CurrencyManipulator class must have an int getTotalAmount() method.
-2.	The CashMachine class&#39;s main method should call the CurrencyManipulator class&#39;s getTotalAmount() method.
 
-
-CashMachine (part 5)
+CashMachine (part 6)
 
 
 1. Let&#39;s decide what operation to start with.
@@ -49,7 +69,7 @@ Let&#39;s start it, debug it, and check it out.
 
 
 
-CashMachine (part 5)
+CashMachine (part 6)
 
 
 1. Create CurrencyManipulator class that stores all the information about the selected currency.
@@ -70,7 +90,7 @@ Make it impossible to create CurrencyManipulatorFactory objects.
 
 
 
-CashMachine (part 5)
+CashMachine (part 6)
 
 
 1. Create two static methods in ConsoleHelper:
@@ -85,7 +105,7 @@ By the way, create only one instance of BufferedReader, and save it in the stati
 
 
 
-CashMachine (part 5)
+CashMachine (part 6)
 
 
 Let&#39;s write an ATM emulator.

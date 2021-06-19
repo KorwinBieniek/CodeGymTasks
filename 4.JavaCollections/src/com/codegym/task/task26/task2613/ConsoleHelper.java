@@ -53,4 +53,20 @@ public class ConsoleHelper {
         }
     }
 
+    public static Operation requestOperation() {
+        while (true) {
+            ConsoleHelper.writeMessage("Please choose an operation or type 'EXIT' to end the session.");
+            ConsoleHelper.writeMessage("\t 1 - operation.INFO");
+            ConsoleHelper.writeMessage("\t 2 - operation.DEPOSIT");
+            ConsoleHelper.writeMessage("\t 3 - operation.WITHDRAW");
+            ConsoleHelper.writeMessage("\t 4 - operation.EXIT");
+            Integer i = Integer.parseInt(ConsoleHelper.readString().trim());
+            try {
+                return Operation.getAllowableOperationByOrdinal(i);
+            } catch (IllegalArgumentException e) {
+                ConsoleHelper.writeMessage("Please enter valid data.");
+            }
+        }
+    }
+
 }
