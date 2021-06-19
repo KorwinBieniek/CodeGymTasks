@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task34.task3410.big12"\n\nSokoban (part 12)
+taskKey="com.codegym.task.task34.task3410.big13"\n\nSokoban (part 13)
+
+
+Let&#39;s fill out the controller&#39;s functionality.
+13.1. In addition to what the Controller class constructor already has, add event listeners
+on the model and view. The controller must itself be a listener.
+13.2. Implement the controller&#39;s methods:
+13.2.1. move(Direction direction) - should call the model&#39;s move(Direction direction) method
+and the view&#39;s update() method. The model doesn&#39;t have a move() method yet. Add a
+stub for it. We&#39;ll implement it later.
+13.2.2. restart() - must restart the model and update the view.
+13.2.3. startNextLevel() - must start a new level on the model and update
+the view.
+13.3. Add to the view a completed(int level) method that lets the user know
+when a level has been completed. The method should:
+13.3.1. Update the view.
+13.3.2. Show a dialog box with a message saying that the user has completed
+a level. Hint: use JOptionPane.showMessageDialog.
+13.3.3. Ask the controller to start the next level.
+13.4. Implement the levelCompleted(int level) method in the controller. It should call
+the view&#39;s completed() method.
+
+
+Требования:
+1.	The Controller class constructor should set up an event listener for the model and view.
+2.	Implement the controller&#39;s move(Direction direction) method.
+3.	Implement the controller&#39;s restart() method.
+4.	Implement the controller&#39;s startNextLevel() method.
+5.	Implement the view&#39;s completed(int level) method.
+6.	Implement the controller&#39;s levelCompleted(int level) method.
+
+
+Sokoban (part 13)
 
 
 Let&#39;s try organizing the interaction between the view and model.
@@ -19,14 +51,8 @@ fillRect methods).
 Run the program and be sure that all of the game objects are drawn correctly.
 
 
-Требования:
-1.	Implement the update() method in the View class.
-2.	Implement the GameObjects getGameObjects() method in the Controller class.
-3.	Properly implement the paint(Graphics g) method in the Field class.
-4.	The Controller must restart the model in its constructor.
 
-
-Sokoban (part 12)
+Sokoban (part 13)
 
 
 Let&#39;s begin fleshing out the Model class&#39; functionality. Add the following:
@@ -46,7 +72,7 @@ currentLevel variable, which stores the current level number, and restart the ne
 
 
 
-Sokoban (part 12)
+Sokoban (part 13)
 
 
 The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
@@ -63,7 +89,7 @@ BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
 
 
 
-Sokoban (part 12)
+Sokoban (part 13)
 
 
 Various events will occur during the game. Let&#39;s create an
@@ -85,7 +111,7 @@ board object. In the Model and Field classes, it must set the value of the inter
 
 
 
-Sokoban (part 12)
+Sokoban (part 13)
 
 
 You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
@@ -99,20 +125,6 @@ and Player player arguments, and that initializes the class&#39;s fields.
 8.2.4. A Set&lt;GameObject&gt; getAll() method. It must return a set containing
 all of the objects stored in the object.
 
-
-
-
-Sokoban (part 12)
-
-
-Let&#39;s make the Wall class. A wall can collide with other objects, but it
-can&#39;t move.
-7.1. Add a Wall class to the model package.
-7.2. Make the class inherit the appropriate parent class.
-7.3. Implement a constructor with int x and int y parameters.
-7.4. Implement the method for drawing.
-Hint: you could draw walls as brown squares, but
-no one is limiting your choice of color. Show your full creative potential.
 
 
 
