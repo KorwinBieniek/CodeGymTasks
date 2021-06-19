@@ -1,4 +1,41 @@
-taskKey="com.codegym.task.task34.task3410.big03"\n\nSokoban (part 3)
+taskKey="com.codegym.task.task34.task3410.big04"\n\nSokoban (part 4)
+
+
+We already have a shared GameObject class. It&#39;s time to create classes
+for specific types of game objects.
+4.1. Some game objects can move (player and boxes) and some can&#39;t (walls
+and storage locations).
+4.1.1. Add the Movable interface to the model package.
+4.1.2. The Movable interface must have a void move(int x, int y) method.
+4.2. Add a Direction enum to the model package. It must have the following values:
+LEFT, RIGHT, UP, and DOWN. This type will be used to describe the direction
+of an object&#39;s movement.
+4.3. The &quot;storage location&quot; objects don&#39;t support collision detection (the player and
+boxes can freely move over them). As for other objects,
+they must not pass through one another, i.e. they should collide. For example,
+a box can&#39;t be pushed through a wall.
+4.3.1. Add an abstract CollisionObject class to the model package.
+3.4.2. The CollisionObject class must inherit GameObject.
+4.3.3. Add the following to the CollisionObject class:
+4.3.3.1. A constructor that accepts int x and int y arguments.
+4.3.3.2. A boolean isCollision(GameObject gameObject, Direction direction) method.
+This method should return true if the current
+object will collide with the gameObject parameter after moving a distance of BOARD_CELL_SIZE
+in the direction specified by the direction parameter.
+Otherwise, it should return false. If (x, y) coordinates match, you have a collision.
+
+
+Требования:
+1.	Add a Movable interface to the model package.
+2.	The Movable interface must declare a void move(int x, int y) method.
+3.	Add a Direction enum to the model package. It must have the following values: LEFT, RIGHT, UP, and DOWN.
+4.	Add an abstract CollisionObject class to the model package.
+5.	The CollisionObject class must inherit GameObject.
+6.	Add a CollisionObject class constructor that accepts int x and int y arguments.
+7.	Add a boolean isCollision(GameObject gameObject, Direction direction) method to the CollisionObject class. It must implement the behavior described in the task conditions.
+
+
+Sokoban (part 4)
 
 
 Soon we&#39;ll be creating various game objects. It would be handy to be able
@@ -15,16 +52,8 @@ sets up the view properly. You will also need:
 3.4. The Controller class&#39;s main() method must create a new Controller object.
 
 
-Требования:
-1.	Add to the view package a Board class that inherits JPanel.
-2.	Add a View view field to the Board class.
-3.	Add a Board class constructor with a View view parameter used to initialize the required field.
-4.	Create a stub for a paint(Graphics g) method in the Board class.
-5.	Add a call to the view&#39;s init() method to the Controller class constructor.
-6.	The Controller class&#39;s main() method must create a new Controller object.
 
-
-Sokoban (part 3)
+Sokoban (part 4)
 
 
 The foundation is laid, so now let&#39;s start building. You can think of the gameplay
@@ -52,7 +81,7 @@ java.awt library.
 
 
 
-Sokoban (part 3)
+Sokoban (part 4)
 
 
 Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
