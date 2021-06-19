@@ -1,0 +1,30 @@
+taskKey="com.codegym.task.task34.task3410.big01"\n\nSokoban (part 1)
+
+
+Today we&#39;re going to write our own implementation of the game Sokoban. This is a logical puzzle game.
+You can read more about it on Wikipedia. The game will consist of 3
+main components (as you may have guessed, you&#39;ll need the MVC pattern).
+The graphical interface will be implemented using Swing.
+1.1. Create a view package and add a View class that inherits JFrame. This class
+will be responsible for displaying our game.
+1.2. Create a model package and add a Model class. This class will be responsible for our game&#39;s
+model. How do you like the class names? Totally unpredictable, right? :) Actually,
+it&#39;s very important to name classes in a way that allows anyone seeing your project for the first time
+to immediately understand what the classes are responsible for.
+1.3. Create a controller package and add a Controller class with a default constructor.
+1.4. Add a View class constructor that accept a Controller and saves it
+in a field inside the class (which you will also need to add). Name the field &quot;controller&quot;.
+1.5. Add View view and Model model fields to the Controller class. Initialize them in
+the constructor.
+1.6. Since the controller is our main class, add the main method to it.
+
+
+Требования:
+1.	Create a view package and add a View class that inherits JFrame.
+2.	Create a model package and add a Model class.
+3.	Create a controller package and add a Controller class with a default constructor.
+4.	Add a View class constructor that accepts a Controller and saves it in a field inside the class (which you will also need to add). Name the field &quot;controller&quot;.
+5.	 Add View view and Model model fields to the Controller class. Initialize them in the constructor.
+6.	Add a main method to the Controller class.
+
+
