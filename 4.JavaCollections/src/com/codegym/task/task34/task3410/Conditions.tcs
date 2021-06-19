@@ -1,4 +1,33 @@
-taskKey="com.codegym.task.task34.task3410.big10"\n\nSokoban (part 10)
+taskKey="com.codegym.task.task34.task3410.big11"\n\nSokoban (part 11)
+
+
+Let&#39;s begin fleshing out the Model class&#39; functionality. Add the following:
+11.1. A GameObjects gameObjects field. It will store our game objects.
+11.2. An int currentLevel field that stores the current level. Initialize it
+to 1.
+11.3. A LevelLoader levelLoader field that stores the level loader.
+Initialize it using the levels.txt file from the res folder.
+11.4. A GameObjects getGameObjects() method that must return all of the game
+objects.
+11.5. A restartLevel(int level) method that must receive the new game objects
+from levelLoader for the specified level and save them in the gameObjects field.
+11.6. The restart() method must restart the current level by calling restartLevel
+with the appropriate argument.
+11.7. The startNextLevel() method must increase the value of the
+currentLevel variable, which stores the current level number, and restart the new level.
+
+
+Требования:
+1.	Add a GameObjects gameObjects field to the Model class.
+2.	Add an int currentLevel field to the Model class. Initialize it to 1.
+3.	Add a LevelLoader levelLoader field to the Model class.
+4.	Implement the GameObjects getGameObjects() method in the Model class.
+5.	Implement the restartLevel(int level) method in the Model class.
+6.	Implement the restart() method in the Model class.
+7.	Implement the startNextLevel() method in the Model class.
+
+
+Sokoban (part 11)
 
 
 The game will have several levels, and all of them will be stored in a text file. Now we&#39;ll
@@ -14,14 +43,8 @@ The coordinates of each object must be non-zero and multiples of half of
 BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
 
 
-Требования:
-1.	Create a LevelLoader class in the model package.
-2.	Add a constructor that accepts a Path levels argument.
-3.	Add the GameObjects getLevel(int level) method to the LevelLoader class.
-4.	Create a getLevel method test stub as outlined in the task conditions.
 
-
-Sokoban (part 10)
+Sokoban (part 11)
 
 
 Various events will occur during the game. Let&#39;s create an
@@ -43,7 +66,7 @@ board object. In the Model and Field classes, it must set the value of the inter
 
 
 
-Sokoban (part 10)
+Sokoban (part 11)
 
 
 You&#39;ve created the complete collection of game objects. Let&#39;s create a class to
@@ -60,7 +83,7 @@ all of the objects stored in the object.
 
 
 
-Sokoban (part 10)
+Sokoban (part 11)
 
 
 Let&#39;s make the Wall class. A wall can collide with other objects, but it
@@ -74,7 +97,7 @@ no one is limiting your choice of color. Show your full creative potential.
 
 
 
-Sokoban (part 10)
+Sokoban (part 11)
 
 
 It&#39;s time to create the StorageLocation class. This class will be responsible for the game board cells
@@ -89,34 +112,6 @@ an unfilled circle.
 
 As with previous game objects, you can test the draw method in the
 Board class&#39;s paint() method.
-
-
-
-Sokoban (part 10)
-
-
-Box and Player game objects can not only
-collide with other objects, but also move around the board.
-5.1. Create a Player class and a Box class in the model package. Make each of them
-inherit the most appropriate class.
-5.2. The created classes must support the interface responsible for object
-movement.
-5.3. Add constructors that accept int x and int y arguments.
-5.4. In each class, implement the method responsible for movement. It must shift
-the object&#39;s (x, y) coordinates by the passed values.
-5.5. In each class, implement the method responsible for drawing. This method should:
-set a color and draw some basic shapes. Be sure
-that the coordinates of the shape&#39;s center are (x, y), and that its width and height match
-the width and height fields.
-Hint: you can draw the player as a solid yellow circle, and boxes &mdash; as orange
-squares with diagonals. But these are just examples. You can choose the colors yourself.
-The appearance of your objects is limited only by your imagination and the methods available
-in the Graphics class.
-
-To check how your box and player are drawn, you can create
-a Box or Player object in the Board class&#39;s paint() method and call the object&#39;s
-draw() method. Do this only do to test the draw() methods. We&#39;ll implement the
-paint() method differently in the future.
 
 
 
